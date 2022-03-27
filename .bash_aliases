@@ -2,15 +2,19 @@ alias ssh-add="/usr/bin/ssh-add -t 1W"
 alias ssh-reset-host="/usr/bin/ssh-keygen -f ~/.ssh/known_hosts -R"
 # /usr/bin/git init --bare $HOME/dev/dotfiles
 # dotfiles config --local status.showUntrackedFiles no
+# /usr/bin/git clone --bare git@github.com:jubeaz/dotfiles.git $HOME/dev/dotfiles
+# /usr/bin/git --git-dir=$HOME/dev/dotfiles --work-tree=$HOME checkout
 alias dotfiles="/usr/bin/git --git-dir=$HOME/dev/dotfiles --work-tree=$HOME"
 ##########################
 # Crypto
 ##########################
 alias openssl_enc="/usr/bin/openssl enc -e --base64 -salt -pbkdf2 -aes-256-cbc"
 alias openssl_dec="/usr/bin/openssl enc -d --base64 -salt -pbkdf2 -aes-256-cbc"
-#alias cryptr-open="sudo /usr/bin/cryptsetup open" # crypt-open /dev/sdc1  mykey
-#alias crypt-close="sudo /usr/bin/cyptsetup close" # crypt-close mykey
-#alias crypt-format="sudo /usr/bin/cryptsetup -y -v luksFormat" # partition
+# sudo /usr/bin/cryptsetup -y -v luksFormat /dev/sdc1
+# sudo /usr/bin/cryptsetup luksOpen /dev/sdc1 mykey
+# sudo /usr/bin/mkfs.ext4 /dev/mapper/mykey
+alias crypt-open="sudo /usr/bin/cryptsetup open" # crypt-open /dev/sdc1  mykey
+alias crypt-close="sudo /usr/bin/cryptsetup close" # crypt-close mykey
 
 
 # enable color support of ls and also add handy aliases
