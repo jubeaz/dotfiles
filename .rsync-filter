@@ -1,0 +1,10 @@
+- tmp
+- cloud
+- .cache
+- .local
+- .ansible_async
+- .ansible
+- .packer
+- .mozilla
+- Downloads
+- movies
