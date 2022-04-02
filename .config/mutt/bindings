@@ -1,7 +1,24 @@
 bind index,pager \CK sidebar-prev # Ctrl-P – Previous Mailbox
 bind index,pager \CJ sidebar-next # Ctrl-N – Next Mailbox
 bind index,pager \CO sidebar-open # Ctrl-O – Open Highlighted Mailbox
-#bind pager       gg  top
-#bind pager       G   bottom
-#bind index       gg  first-entry
-bind index       G   last-entry
+
+bind index,pager g noop               # Disable h
+bind index l display-message
+bind index gg first-entry
+bind index G last-entry
+
+#bind pager h exit
+bind pager gg top
+bind pager G bottom
+bind pager J next-line
+bind pager K previous-line
+
+bind browser l select-entry
+bind browser L view-file
+bind browser gg first-entry
+bind browser G last-entry
+bind browser h exit
+
+bind attach h exit
+bind attach e edit-type # Edit MIME Types
+bind attach l view-attach

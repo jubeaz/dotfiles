@@ -6,18 +6,10 @@ set message_cachedir = ~/.mutt/cache/bodies  # where to store bodies
 set certificate_file = ~/.mutt/certificates  # where to store certs
 set mailcap_path     = ~/.mutt/mailcap       # entries for filetypes
 set tmpdir           = ~/.mutt/temp          # where to keep temp files
-# Basic Options --------------------------------------
-set abort_nosubject = no
-set mail_check = 60
-set timeout = 10
-set sort = "reverse-date-received"
-set copy = no
-set send_charset="utf-8"
+
 
 ## ACCOUNT2
 source "$XDG_CONFIG_HOME/mutt/pascal.auillans.gmail"
-# Here we use the $folder variable that has just been set in the sourced file.
-# We must set it right now otherwise the 'folder' variable will change in the next sourced file.
 folder-hook $folder 'source $XDG_CONFIG_HOME/mutt/pascal.auillans.gmail'
 ## ACCOUNT2
 #source "~/.mutt/"
@@ -57,15 +49,29 @@ set uncollapse_jump                        # don't collapse on an unread message
 set sort_re                                # thread based on regex
 set reply_regexp = "^(([Rr][Ee]?(\[[0-9]+\])?: *)?(\[[^]]+\] *)?)*"
 
+
+# Basic Options --------------------------------------
+#Mutt reads a mailcap file to know how to open content. You can tell Mutt where it is 
+# set mailcap_path = ~/.mailcap
+#And then, you have to edit the .mailcap file:
+#text/html; w3m -I %{charset} -T text/html; copiousoutput;
+
+set nobeep                                # We don't need no beeping software.
+set abort_nosubject = no
+set mail_check = 60
+set timeout = 10
+set sort = "reverse-date-received"
+set copy = no
+set send_charset="utf-8"
 set hidden_host                           # Hide host details.
 #set postpone=ask-no                       # Ask about postponing.
 #set postponed=+postponed                  # Where postponed messages live.
 #set nomove                                # Hold messages in $MAIL.
 #set print=ask-yes                         # Ask before printing.
 ##set delete=ask-yes                        # Ask before doing a delete.
-#set include                               # Include the message in replies.
+set include                               # Include the message in replies.
+set fast_reply
 #set sort_aux=date-received                # Sort threads by date received.
-##set charset=iso-8859-1                    # One of those days in England...
 #set noallow_8bit                          # 8bit isn't safe via Demon.
 #                                          # Attribution line.
 #set attribution="* %n <%a> [%{%Y-%m-%d %H:%M:%S %Z}]:\n"
@@ -73,12 +79,11 @@ set hidden_host                           # Hide host details.
 #set query_command="lbdbq '%s'"            # Use the little brother database for doing queries.
 #set nomark_old                            # Don't mark unread new msgs as old.
 ##set mbox=+mbox                            # Default mailbox.
-#set copy                                  # Keep copies of outgoing mail...
+set copy = no                            # Keep copies of outgoing mail...
 ##set record=+outbox                        # ... and it gets saved in =outbox.
-#set nobeep                                # We don't need no beeping software.
 #set nosmart_wrap                          # Don't want smart wrapping.
 #set nomarkers                             # Don't want any wrap markers.
-#set mime_forward                          # Forward message as MIME attachments.
+set mime_forward                          # Forward message as MIME attachments.
 #set pager_context=3                       # Display 3 lines of context in pager.
 #set nostrict_threads                      # Lets have some fuzzy threading.
 #set sendmail_wait=-1                      # Don't wait around for sendmail.
@@ -97,7 +102,7 @@ set hidden_host                           # Hide host details.
 #set quote_regexp="^( {0,4}[>|:#%]| {0,4}[a-z0-9]+[>|]+)+"
 #set to_chars=" +TCF "                     # Drop the "L".
 
-#source /usr/local/doc/mutt/samples/gpg.rc # Use GPG
+#source /usr/share/doc/neomutt/samples/gpg.rc # Use GPG
 #source $XDG_CONFIG_HOME/mutt/auto_views                 # Define auto_views.
 #source $XDG_CONFIG_HOME/mutt/aliases                    # Load in my aliases.
 #source $XDG_CONFIG_HOME/mutt/subscriptions              # Define the list of subscribed mailing lists.
