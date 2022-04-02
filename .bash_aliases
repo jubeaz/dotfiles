@@ -30,3 +30,4 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 alias dirsearch="/usr/bin/dirsearch --config ~/.config/dirsearch/default.conf"
+alias msfconsole="msfconsole -r ~/.msf4/msfconsole.rc"

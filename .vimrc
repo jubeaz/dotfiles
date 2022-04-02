@@ -1,8 +1,8 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " General parameters
+"  Chewie / dotfiles
 """"""""""""""""""""""""""""""""""""""""""""""""""
 autocmd FileType tf setlocal ts=2 sts=2 sw=2 expandtab
-
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " Plugins
@@ -31,17 +31,17 @@ Plug 'preservim/nerdtree'
 "Plug 'tpope/vim-surround'
 "Plug 'tpope/vim-repeat'
 "Plug 'tpope/vim-unimpaired'
-"Plug 'scrooloose/nerdcommenter'
+"Plug 'scrooloose/nerdcommenter' "Comment functions
 "Plug 'romainl/vim-qf'
 
 " Snippets (don't really use them, but eh)
-"Plug 'SirVer/ultisnips'
-"Plug 'honza/vim-snippets'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 
 " Navigation
 "Plug 'tpope/vim-vinegar'
 "Plug 'ctrlpvim/ctrlp.vim' " TODO: I don't really use that anymore.
-"Plug 'mileszs/ack.vim'
+Plug 'mileszs/ack.vim' " search tool in vim
 
 " Theming
 Plug 'nanotech/jellybeans.vim'
@@ -57,7 +57,8 @@ Plug 'davidhalter/jedi-vim' " for Python code completion
 Plug 'hashivim/vim-terraform'
 
 " Tag management
-"Plug 'ludovicchabant/vim-gutentags'
+Plug 'ludovicchabant/vim-gutentags'
+Plug 'majutsushi/tagbar'
 
 " 'IDE' features
 Plug 'tpope/vim-fugitive' " git
@@ -170,14 +171,40 @@ set viminfo='20,\"50,<100,n~/.vimtmp/viminfo
 "augroup END
 
 "endif
+"
+""""""""""""""""""""""""""""""""""""""""""""""""""
+" snippets plugin config
+""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:UltiSnipsExpandTrigger="<tab>"
+" list all snippets for current filetype
+let g:UltiSnipsListSnippets="<c-l>"
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""
+" tagbar plugin config
+""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:tagbar_compact = 1
+
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " Gutentags plugin config
 """"""""""""""""""""""""""""""""""""""""""""""""""
-"let g:gutentags_cache_dir="~/.cache/vem/tagfiles/"
-"let g:gutentags_modules = ['ctags']
-"let g:gutentags_ctags_extra_args = ['--fields=+l --extra=+f --langdef=file --c-kinds=+lx']
-"let g:gutentags_project_root = ['.project']
-"let g:ctrlp_root_markers = ['.project']
+"let g:gutentags_cache_dir="~/.cache/vim/tagfiles/"
+let g:gutentags_modules = ['ctags']
+let g:gutentags_ctags_extra_args = ['--fields=+l --extra=+f --langdef=file --c-kinds=+lx']
+let g:gutentags_project_root = ['.project']
+let g:ctrlp_root_markers = ['.project']
+
+""""""""""""""""""""""""""""""""""""""""""""""""""
+" jedi-vim plugin config
+""""""""""""""""""""""""""""""""""""""""""""""""""
+
+let g:jedi#auto_initialization = 1
+let g:jedi#completions_enabled = 1
+let g:jedi#auto_vim_configuration = 1
+let g:jedi#smart_auto_mappings = 1
+let g:jedi#popup_on_dot = 1
+let g:jedi#completions_command = "<C-Space>"
+let g:jedi#show_call_signatures = "1"
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " ALE plugin config
 """"""""""""""""""""""""""""""""""""""""""""""""""
@@ -191,6 +218,7 @@ let g:ale_go_gometalinter_options = '— enable=gosimple — enable=staticcheck'
 let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '[%linter%] [%severity%] %code: %%s'
+autocmd FileType python setlocal omnifunc=jedi#completions
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " Airline plugin config
 """"""""""""""""""""""""""""""""""""""""""""""""""
