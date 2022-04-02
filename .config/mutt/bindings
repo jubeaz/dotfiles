@@ -1,0 +1,7 @@
+bind index,pager \CK sidebar-prev # Ctrl-P – Previous Mailbox
+bind index,pager \CJ sidebar-next # Ctrl-N – Next Mailbox
+bind index,pager \CO sidebar-open # Ctrl-O – Open Highlighted Mailbox
+#bind pager       gg  top
+#bind pager       G   bottom
+#bind index       gg  first-entry
+bind index       G   last-entry

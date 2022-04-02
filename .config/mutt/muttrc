@@ -1,0 +1,117 @@
+# Paths ----------------------------------------------
+set folder           = ~/.mail               # mailbox location
+set alias_file       = ~/.mutt/alias         # where to store aliases
+set header_cache     = ~/.mutt/cache/headers # where to store headers
+set message_cachedir = ~/.mutt/cache/bodies  # where to store bodies
+set certificate_file = ~/.mutt/certificates  # where to store certs
+set mailcap_path     = ~/.mutt/mailcap       # entries for filetypes
+set tmpdir           = ~/.mutt/temp          # where to keep temp files
+# Basic Options --------------------------------------
+set abort_nosubject = no
+set mail_check = 60
+set timeout = 10
+set sort = "reverse-date-received"
+set copy = no
+set send_charset="utf-8"
+
+## ACCOUNT2
+source "$XDG_CONFIG_HOME/mutt/pascal.auillans.gmail"
+# Here we use the $folder variable that has just been set in the sourced file.
+# We must set it right now otherwise the 'folder' variable will change in the next sourced file.
+folder-hook $folder 'source $XDG_CONFIG_HOME/mutt/pascal.auillans.gmail'
+## ACCOUNT2
+#source "~/.mutt/"
+#folder-hook *user@gmail.com/ 'source ~/.mutt/personal'
+#folder-hook *user@gmail.com/Family 'set realname="Bob"'
+# Mailboxes to show in the sidebar.
+## Shortcuts
+#macro index,pager <f2> '<sync-mailbox><enter-command>source ~/.mutt/personal<enter><change-folder>!<enter>'
+#macro index,pager <f3> '<sync-mailbox><enter-command>source ~/.mutt/work<enter><change-folder>!<enter>'
+#macro index 'c' '<change-folder>?<change-dir><home>^K=<enter>'
+
+
+mailboxes +INBOX \
+          +[Gmail]/Trash \
+          +[Gmail]/Drafts \
+          +"[Gmail]/Sent Mail" 
+
+#set imap_check_subscribed
+# Sidebar Patch --------------------------------------
+set sidebar_delim_chars   = '/' # how to split up mailbox paths
+set sidebar_visible = yes
+set sidebar_width   = 24
+set sidebar_format = "%B%?F? [%F]?%* %?N?%N/?%S"
+set sidebar_short_path # Shorten mailbox names²
+set sidebar_folder_indent # Indent folders whose names we've shortened
+set sidebar_indent_string="  " # Indent with two spaces
+set mail_check_stats
+# Status Bar -----------------------------------------
+set status_chars  = " *%A"
+set status_format = "───[ Folder: %f ]───[%r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? ]───%>─%?p?( %p postponed )?───"
+# Index View Options ---------------------------------
+set date_format = "%m/%d/%Y"
+set index_format = "[%Z]  %D  %-20.20F  %s"
+set sort = threads                         # like gmail
+set sort_aux = reverse-last-date-received  # like gmail
+set uncollapse_jump                        # don't collapse on an unread message
+set sort_re                                # thread based on regex
+set reply_regexp = "^(([Rr][Ee]?(\[[0-9]+\])?: *)?(\[[^]]+\] *)?)*"
+
+set hidden_host                           # Hide host details.
+#set postpone=ask-no                       # Ask about postponing.
+#set postponed=+postponed                  # Where postponed messages live.
+#set nomove                                # Hold messages in $MAIL.
+#set print=ask-yes                         # Ask before printing.
+##set delete=ask-yes                        # Ask before doing a delete.
+#set include                               # Include the message in replies.
+#set sort_aux=date-received                # Sort threads by date received.
+##set charset=iso-8859-1                    # One of those days in England...
+#set noallow_8bit                          # 8bit isn't safe via Demon.
+#                                          # Attribution line.
+#set attribution="* %n <%a> [%{%Y-%m-%d %H:%M:%S %Z}]:\n"
+#set edit_headers                          # I want to edit the message headers.
+#set query_command="lbdbq '%s'"            # Use the little brother database for doing queries.
+#set nomark_old                            # Don't mark unread new msgs as old.
+##set mbox=+mbox                            # Default mailbox.
+#set copy                                  # Keep copies of outgoing mail...
+##set record=+outbox                        # ... and it gets saved in =outbox.
+#set nobeep                                # We don't need no beeping software.
+#set nosmart_wrap                          # Don't want smart wrapping.
+#set nomarkers                             # Don't want any wrap markers.
+#set mime_forward                          # Forward message as MIME attachments.
+#set pager_context=3                       # Display 3 lines of context in pager.
+#set nostrict_threads                      # Lets have some fuzzy threading.
+#set sendmail_wait=-1                      # Don't wait around for sendmail.
+#set fcc_clear                             # Keep fcc's clear of signatues and encryption.
+#set nopipe_decode                         # Don't decode messages when piping.
+#					  # Print via a2ps
+##set print_command="a2ps -1gEmail --borders=no --strip=3" 
+#set tilde                                 # Fill out messages with '~'.
+#set read_inc=100                          # Read counter ticks every 100 msgs.
+#set write_inc=100                         # Write counter ticks every 100 msgs.
+#set noconfirmappend                       # Just append, don't hassle me.
+#set pager_stop                            # Don't skip msgs on next page.
+#                                          # Where to find the mailcap.
+##set mailcap_path=$XDG_CONFIG_HOME/mutt/mailcap:/usr/local/etc/mailcap:/etc/mailcap
+#                                          # What we consider to be a quote.
+#set quote_regexp="^( {0,4}[>|:#%]| {0,4}[a-z0-9]+[>|]+)+"
+#set to_chars=" +TCF "                     # Drop the "L".
+
+#source /usr/local/doc/mutt/samples/gpg.rc # Use GPG
+#source $XDG_CONFIG_HOME/mutt/auto_views                 # Define auto_views.
+#source $XDG_CONFIG_HOME/mutt/aliases                    # Load in my aliases.
+#source $XDG_CONFIG_HOME/mutt/subscriptions              # Define the list of subscribed mailing lists.
+#source $XDG_CONFIG_HOME/mutt/mailboxes                  # Define the list of folders that receive mail.
+source $XDG_CONFIG_HOME/mutt/headers                    # Configure header display.
+#source $XDG_CONFIG_HOME/mutt/folder-hooks               # Define folder-hooks.
+#source $XDG_CONFIG_HOME/mutt/save-hooks                 # Define save-hooks.
+#source $XDG_CONFIG_HOME/mutt/fcc-hooks                  # Define fcc-hooks.
+#source $XDG_CONFIG_HOME/mutt/message-hooks              # Define message hooks.
+source $XDG_CONFIG_HOME/mutt/bindings                   # Define key bindings.
+#source $XDG_CONFIG_HOME/mutt/macros                     # Define macros.
+source $XDG_CONFIG_HOME/mutt/colours                    # Define colours.
+#source $XDG_CONFIG_HOME/mutt/non-standard               # Support for mutt patches.
+
+
+# HTML is the last option.
+alternative_order text/enriched text/plain text/html 
