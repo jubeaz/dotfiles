@@ -1,0 +1,2 @@
+send-hook . set signature="$XDG_CONFIG_HOME/mutt/std.sig"
+send-hook "~t @domain.com" set signature="$XDG_CONFIG_HOME/mutt/special.sig"

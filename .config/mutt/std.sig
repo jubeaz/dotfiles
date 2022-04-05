@@ -1,0 +1,2 @@
+Cordialement,
+Pascal Auillans
