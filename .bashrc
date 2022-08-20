@@ -83,7 +83,8 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export PACKER_HOME_DIR=$HOME/.packer
 export PACKER_CONFIG_DIR=$XDG_CONFIG_HOME/packer.d
 export PACKER_PLUGIN_PATH=$PACKER_HOME_DIR/plugins
-export PACKER_CACHE_DIR=$HOME/.cache/packer
+#export PACKER_CACHE_DIR=$HOME/.cache/packer
+export PACKER_CACHE_DIR=/var/lib/packer/cache
 # set terraform
 export TF_LOG=off
 export TF_CLI_CONFIG_FILE="$HOME/.terraformrc"

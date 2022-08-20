@@ -55,6 +55,8 @@ Plug 'davidhalter/jedi-vim' " for Python code completion
 "Plug 'vim-pandoc/vim-pandoc'
 "Plug '5long/pytest-vim-compiler'
 Plug 'hashivim/vim-terraform'
+Plug 'vim-latex/vim-latex'
+
 
 " Tag management
 Plug 'ludovicchabant/vim-gutentags'
@@ -69,7 +71,7 @@ Plug 'junegunn/fzf' " find that file as quickly as possible using fuzzy search
 call plug#end()
 
 
-
+filetype plugin on
 filetype plugin indent on " Enable filetype detection for plugins and indent options
 set autoread " Reload a file when it is changed from the outside
 set autowrite " Write the file when we leave the buffer
@@ -179,7 +181,13 @@ let g:UltiSnipsExpandTrigger="<tab>"
 " list all snippets for current filetype
 let g:UltiSnipsListSnippets="<c-l>"
 
-
+""""""""""""""""""""""""""""""""""""""""""""""""""
+" latex plugin config
+""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:tex_flavor='latex'
+let Tex_FoldedSections=""
+let Tex_FoldedEnvironments=""
+let Tex_FoldedMisc=""
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " tagbar plugin config
 """"""""""""""""""""""""""""""""""""""""""""""""""
