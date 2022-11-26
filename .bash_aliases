@@ -31,3 +31,9 @@ fi
 
 alias dirsearch="/usr/bin/dirsearch --config ~/.config/dirsearch/default.conf"
 alias msfconsole="msfconsole -r ~/.msf4/msfconsole.rc"
+alias xfreerdp="xfreerdp /h:1024 /w:1640"
+alias nc="rlwrap nc"
+
+alias gdb="gdb -q -ex init-pwndbg"
+alias gdb-pwn="gdb -q -ex init-pwndbg"
+alias gdb-gef="gdb -q -ex init-gef"

@@ -1,8 +1,0 @@
-text/html; w3m -I %{charset} -T text/html; copiousoutput; nametemplate=%s.html
-#text/html; qutebrowser %s && sleep 5 ; test=test -n "$DISPLAY"; nametemplate=%s.html; needsterminal
-#application/pgp-keys; pgp -f < %s ; copiousoutput
-image/*; /usr/bin/xdg-open %s ; copiousoutput
-application/pdf; /usr/bin/xd-open %s; copiousoutput
-application/postscript; /usr/bin/xd-open %s; copiousoutput
-text/pdf; /usr/bin/xd-open %s; copiousoutput
-
