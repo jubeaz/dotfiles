@@ -37,3 +37,23 @@ alias nc="rlwrap nc"
 alias gdb="gdb -q -ex init-pwndbg"
 alias gdb-pwn="gdb -q -ex init-pwndbg"
 alias gdb-gef="gdb -q -ex init-gef"
+
+alias aslr-on="echo 2 | sudo tee /proc/sys/kernel/randomize_va_space"
+alias aslr-off="echo 0 | sudo tee /proc/sys/kernel/randomize_va_space"
+alias aslr-status="cat /proc/sys/kernel/randomize_va_space"
+alias ssh-keyremove="ssh-keygen -f ~/.ssh/known_hosts -R "
+#alias ssh-keyscan="ssh-keyscan $host >> ~/.ssh/known_hosts"
+
+##
+# pentesting commands
+alias get-linpeas="curl -sLO https://github.com/carlospolop/PEASS-ng/releases/latest/download/linpeas.sh"
+
+
+_nmap-std() {
+    PORTS=$(sudo nmap --min-rate=1000 -T4 -p- "$1" | grep '^[0-9]' | cut -d'/' -f 1 | tr '\n' ',' | sed s/',$'//) ;
+    echo "ports found: $PORTS";
+    USER=$(whoami)
+    sudo nmap -sVC -p$PORTS -oX nmap.xml "$1";
+    sudo chown $USER nmap.xml
+}
+
