@@ -13,8 +13,8 @@ define init-pwndbg
 #set context-section-ghidra always
 set context-clear-screen on
 set follow-fork-mode parent
-set context-code-lines 30
-set context-source-code-lines 30
+set context-code-lines 25 
+set context-source-code-lines 25
 
 source /opt/splitmind/gdbinit.py
 python
