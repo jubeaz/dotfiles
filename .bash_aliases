@@ -64,4 +64,5 @@ _add_routage() {
     sudo iptables -A FORWARD -i $1 -o $2 -j ACCEPT
     sudo iptables -A FORWARD -i $2 -o $1 -m state --state RELATED,ESTABLISHED -j ACCEPT
     sudo iptables -t nat -A POSTROUTING -j MASQUERADE -s $3 -o $2
+    sudo ufw default allow FORWARD
 }
