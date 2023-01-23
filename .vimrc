@@ -37,6 +37,12 @@ Plug 'preservim/nerdtree'
 " Snippets (don't really use them, but eh)
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
+"snippet verbatim "Verbatim" bi
+"\begin{verbatim}
+"${0:${VISUAL}}
+"\end{verbatim}
+"endsnippet
+"
 
 " Navigation
 "Plug 'tpope/vim-vinegar'
@@ -55,7 +61,7 @@ Plug 'davidhalter/jedi-vim' " for Python code completion
 "Plug 'vim-pandoc/vim-pandoc'
 "Plug '5long/pytest-vim-compiler'
 Plug 'hashivim/vim-terraform'
-Plug 'vim-latex/vim-latex'
+"Plug 'vim-latex/vim-latex'
 
 
 " Tag management
@@ -179,8 +185,7 @@ set viminfo='20,\"50,<100,n~/.vimtmp/viminfo
 """"""""""""""""""""""""""""""""""""""""""""""""""
 let g:UltiSnipsExpandTrigger="<tab>"
 " list all snippets for current filetype
-let g:UltiSnipsListSnippets="<c-l>"
-
+"let g:UltiSnipsListSnippets="<c-l>"
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " latex plugin config
 """"""""""""""""""""""""""""""""""""""""""""""""""
@@ -244,6 +249,8 @@ let g:ansible_name_highlight = 'b'
 let g:ansible_normal_keywords_highlight = 'Constant'
 let g:ansible_with_keywords_highlight = 'Constant'
 let g:ansible_template_syntaxes = { '*.rb.j2': 'ruby' }
+
+
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " Plugin mappings and options
 """"""""""""""""""""""""""""""""""""""""""""""""""
