@@ -51,6 +51,9 @@ else
     PS1='\u@\h:\w\$ '
 fi
 
+if [ -f ~/.bash_pentest ]; then
+    . ~/.bash_pentest
+fi
 
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases

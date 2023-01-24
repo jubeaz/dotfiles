@@ -61,12 +61,12 @@
 #    ]
 
 
-#[output]
+[output]
 #    debuglog = "debug.log"
 #    outputdirectory = "/tmp/rawoutputdir"
 #    outputfile = "output.json"
-#    outputformat = "json"
-#    outputcreateemptyfile = false
+    outputformat = "ejson"
+    outputcreateemptyfile = false
 #
 #[filter]
 #    mode = "or"
