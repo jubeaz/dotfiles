@@ -9,9 +9,13 @@
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
 HISTCONTROL=ignoreboth
+#PROMPT_COMMAND='history -a; '
+export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
+
 
 # append to the history file, don't overwrite it
 shopt -s histappend
+
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 HISTSIZE=1000
@@ -46,7 +50,7 @@ case "$TERM" in
 esac
 
 if [ "$color_prompt" = yes ]; then
-    PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+    PS1='(\[\033[01;31m\]\u@\h\[\033[00m\]):[\[\033[01;34m\]\w\[\033[00m\]]\n\$ '
 else
     PS1='\u@\h:\w\$ '
 fi

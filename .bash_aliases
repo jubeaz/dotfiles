@@ -1,4 +1,5 @@
 alias ssh-add="/usr/bin/ssh-add -t 1W"
+alias xfreerdp="xfreerdp /h:1024 /w:1640"
 alias ssh-remove-host="/usr/bin/ssh-keygen -f ~/.ssh/known_hosts -R"
 ssh-scan-host() {
     ssh-keyscan $1 >> ~/.ssh/known_hosts
@@ -33,9 +34,18 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
-alias xfreerdp="xfreerdp /h:1024 /w:1640"
+
+##########################
+# BACKUP
+##########################
+
+#alias rsync-dry-full-home="sudo /usr/bin/rsync --archive --delete --dry-run $HOME"
 
 
+
+##########################
+# routage
+##########################
 
 # $1 in interface eth0
 # $2 out interface tun0
