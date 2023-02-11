@@ -6,5 +6,6 @@ if [[ ! $SSH_AUTH_SOCK ]]; then
 fi
 
 keepassxc &
+flameshot &
 export TERMINAL=/usr/bin/lxterminal
 
