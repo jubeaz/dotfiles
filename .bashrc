@@ -95,3 +95,5 @@ export PACKER_CACHE_DIR=/var/lib/packer/cache
 # set terraform
 export TF_LOG=off
 export TF_CLI_CONFIG_FILE="$HOME/.terraformrc"
+# set vagrant
+export VAGRANT_HOME=/var/lib/vagrant
