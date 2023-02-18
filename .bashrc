@@ -10,7 +10,7 @@
 # See bash(1) for more options
 HISTCONTROL=ignoreboth
 #PROMPT_COMMAND='history -a; '
-export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
+#export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
 
 # append to the history file, don't overwrite it
