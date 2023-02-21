@@ -21,6 +21,12 @@ shopt -s histappend
 HISTSIZE=1000
 HISTFILESIZE=2000
 
+# set fzf history
+if [ -f  /usr/share/fzf/key-bindings.bash ]; then
+    . /usr/share/fzf/key-bindings.bash
+fi
+
+
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
@@ -81,6 +87,8 @@ ls_color_file="$HOME/.ls_colors/ls_colors_${ls_color_theme}"
 if [[ -f ${ls_color_file} ]]; then
     export LS_COLORS=$(cat ${ls_color_file})
 fi
+
+
 
 # set EDITOR
 export EDITOR=vim

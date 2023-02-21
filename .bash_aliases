@@ -1,3 +1,13 @@
+##########################
+# pacman
+##########################
+
+alias pacmanz="pacman -Slq | fzf --multi --preview 'pacman -Si {1}'"
+alias pacmanzi="pacman -Qq | fzf --multi --preview 'pacman -Qi {1}'"
+
+##########################
+# ssh
+##########################
 alias ssh-add="/usr/bin/ssh-add -t 1W"
 alias xfreerdp="xfreerdp /h:1024 /w:1640"
 alias ssh-remove-host="/usr/bin/ssh-keygen -f ~/.ssh/known_hosts -R"
