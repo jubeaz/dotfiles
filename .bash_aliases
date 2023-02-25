@@ -19,7 +19,7 @@ ssh-scan-host() {
 # dotfiles config --local status.showUntrackedFiles no
 # /usr/bin/git clone --bare git@github.com:jubeaz/dotfiles.git $HOME/dev/dotfiles
 # /usr/bin/git --git-dir=$HOME/dev/dotfiles --work-tree=$HOME checkout
-alias dotfiles="/usr/bin/git --git-dir=$HOME/dev/dotfiles --work-tree=$HOME"
+alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME"
 ##########################
 # Crypto
 ##########################
