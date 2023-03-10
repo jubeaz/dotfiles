@@ -77,10 +77,13 @@ myvpn_on() {
 
 myip_local() {
   local bg="#2E7D32" # vert
+  local main_ip=$(ip route get 1 | sed -n 's/.*src \([0-9.]\+\).*/\1/p')
+  local tun0_ip=$(ip -f inet a show tun0 | grep inet | sed -n 's/.*inet \([0-9.]\+\).*/\1/p')
   separator $bg $bg_separator_previous
   echo -n ",{"
   echo -n "\"name\":\"ip_local\","
-  echo -n "\"full_text\":\"  $(ip route get 1 | sed -n 's/.*src \([0-9.]\+\).*/\1/p') \","
+  #echo -n "\"full_text\":\"  $(ip route get 1 | sed -n 's/.*src \([0-9.]\+\).*/\1/p') \","
+  echo -n "\"full_text\":\"  $main_ip / $tun0_ip\","
   echo -n "\"background\":\"$bg\","
   common
   echo -n "},"
@@ -206,7 +209,7 @@ do
 	echo -n ",["
 #  mycrypto
 #  myip_public
-  myvpn_on
+#  myvpn_on
   myip_local
   disk_usage
   memory
@@ -215,7 +218,7 @@ do
   mydate
   battery0
   volume
-  systemupdate
+#  systemupdate
   logout
   echo "]"
 	sleep 10
