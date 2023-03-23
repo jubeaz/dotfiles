@@ -1,6 +1,6 @@
 # ldapsearch
 
-% ldap, Active Directory, 
+% ldap, Active Directory
 
 ## ldapsearch - get AD time
 #plateform/linux #target/remote #port/445 #protocol/ #cat/RECON
