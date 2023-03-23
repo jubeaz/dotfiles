@@ -25,7 +25,13 @@
 ```
 ./chisel client <server_ip>:<server_port> socks
 ```
-chisel client -v 10.10.16.5:4455 R:socks
+
+## port forwarding server (Reverse pivot)
+
+```
+./chisel server -v -p <server_port> --reverse 
+```
+
 
 ## Local port forwarding (Reverse pivot) 
 #plateform/linux  #target/remote  #cat/PIVOT 
@@ -33,7 +39,8 @@ chisel client -v 10.10.16.5:4455 R:socks
 This forward {clientside-host}:{clientside-port} to server {local-port}
 To get the port of the client machine locally on serverside.
 ex: R:2222:localhost:22 to get the client 22 (ssh) on the port 2222 of the server
-
+To get the port of a machine reacheable by the client machine locally on serverside.
+ex: R5985:172.16.22.1:5985
 ```
 ./chisel client -v <server_ip>:<server_port|8000> R:<serverside-port>:<clientside-host|localhost>:<clientside-port>
 ```
