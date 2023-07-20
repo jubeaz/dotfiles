@@ -7,7 +7,7 @@
 
 Local port is forwarded to remote port
 ```
-ssh -L <local_port>:<remote_host>:<remote_port> <user>@<ip>
+ssh -L <local_port>:localhost:<remote_port> <user>@<ip>
 ```
 		
 ## Dynamic port forwarding

@@ -82,6 +82,7 @@ fi
 
 export PATH=~/.local/bin:$PATH
 ls_color_theme="molokai"
+ls_color_theme="snazzy"
 ls_color_file="$HOME/.ls_colors/ls_colors_${ls_color_theme}"
 
 if [[ -f ${ls_color_file} ]]; then

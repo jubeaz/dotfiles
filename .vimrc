@@ -117,7 +117,9 @@ syntax on " Enables syntax highlighting
 set mouse=a " Allow mouse use in vim
 set showmatch " Briefly show matching braces, parens, etc
 set wrap " Enable line wrapping
+set linebreak
 set textwidth=79 " Wrap on column 80
+set formatoptions-=t
 set completeopt=longest,menuone " Disable preview window on completion
 set cursorline " Highlight current line
 
