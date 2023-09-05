@@ -17,7 +17,7 @@ If the server is launch with --reverse you can specify R: socks to get a proxy s
 On server with proxychains set on port 1080 you can proxy socks request on the client.
 
 ```
-./chisel client <server_ip>:<server_port> R:socks
+./chisel client <server_ip>:<server_port> R:<proxy_port|1080>:socks
 ```
 
 ## chisel local port forwarding (reverse pivot) - forward client port on server
