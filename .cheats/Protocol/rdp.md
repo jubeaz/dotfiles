@@ -59,15 +59,15 @@ rdesktop -g 90% <ip> -u <user> -p <password> -d <domain> -r disk:share=<share>
 
 ## xfreerdp - classic
 ```
-xfreerdp /u:<user> /p:<password> /d:<domain> /v:<ip> /h:1024 /w:1640 /drive:share,<share> +drives
+xfreerdp /cert:ignore /u:<user> /p:<password> /d:<domain> /v:<ip> /h:1024 /w:1640 /drive:share,<share> +drives
 ```
 
 ## xfreerdp - with share
 ```
-xfreerdp /u:<user> /p:<password> /d:<domain> /v:<ip> /h:1024 /w:1640 /drive:share,<share> +drives
+xfreerdp /cert:ignore /u:<user> /p:<password> /d:<domain> /v:<ip> /h:1024 /w:1640 /drive:share,<share> +drives
 ```
 
 ## xfreerdp - pass the hash
 ```
-xfreerdp /u:<user> /pth:<hash> /d:<domain> /v:<ip> /h:1024 /w:1640 /drive:share,<share> +drives
+xfreerdp /cert:ignore /u:<user> /pth:<hash> /d:<domain> /v:<ip> /h:1024 /w:1640 /drive:share,<share> +drives
 ```

