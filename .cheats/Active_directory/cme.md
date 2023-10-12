@@ -234,6 +234,23 @@ Send a local file to the remote target
 cme smb <ip> -u <user> -p <password> --get-file <remote_path|\\Windows\\Temp\\target.txt> <local_file>
 ```
 
+## cme - LDAP connection
+#plateform/linux #target/remote #port/389 #port/639 #protocol/ldap #cat/RECON 
+
+edit /etc/hosts
+
+```bash
+cme ldap <ip> -u <user> -p <password> -d <domain> --no-smb
+```
+
+## cme - LDAP Machine Account Quota
+#plateform/linux #target/remote #port/389 #port/639 #protocol/ldap #cat/RECON 
+
+
+```bash
+cme ldap <ip> -u <user> -p <password> -d <domain> --no-smb -M MAQ
+```
+
 ## cme - ASREPRoast enum without authentication
 #plateform/linux #target/remote #port/389 #port/639 #protocol/ldap #cat/RECON 
 

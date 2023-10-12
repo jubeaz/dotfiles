@@ -5,7 +5,7 @@
 ## certipy - list certificate templates
 #plateform/linux #target/remote #cat/RECON
 ```
-certipy find -u <user>@<domain> -p '<password>' -dc-ip <dc-ip> 
+certipy find -u <user>@<domain> -p '<password>' -dc-ip <dc-ip> [-stdout]
 ```
 
 ## certipy - request certificate
@@ -14,10 +14,22 @@ certipy find -u <user>@<domain> -p '<password>' -dc-ip <dc-ip>
 certipy req -u <user>@<domain> -p '<password>' -target <ca-fqdn> -template <template> -ca <certificate-authority>
 ```
 
+## certipy - extract cert from pfx
+#plateform/linux #target/remote #cat/RECON
+```
+certipy cert -pfx <pfx> -nokey -out <file>.crt
+```
+
+## certipy - extract key from pfx
+#plateform/linux #target/remote #cat/RECON
+```
+certipy cert -pfx <pfx> -nocert -out <file>.key
+```
+
 ## certipy - authenticate with pfx certificate
 #plateform/linux #target/remote #cat/CONNECT
 ```
-certipy auth -pfx <pfx-file> 
+certipy auth -pfx <pfx-file>  -domain <domain> -username <login> -dc-ip <ip>
 ```
 
 ## certipy - authenticate through LDAP (Schannel) with pfx certificate
