@@ -17,6 +17,14 @@ https://github.com/BloodHoundAD/BloodHound
 ```bash
 bloodhound
 ```
+## bloodhound - collect data proxychains
+#plateform/linux #target/remote #port/389 #port/631 #cat/RECON
+https://github.com/fox-it/BloodHound.py
+
+```bash
+bloodhound-python -d <domain> -u <user> -p <password> -c all --dns-tcp -ns <dns-ip> -dc <dc-name>
+
+```
 
 ## bloodhound - collect data
 #plateform/linux #target/remote #port/389 #port/631 #cat/RECON

@@ -2,12 +2,12 @@
 
 % chisel
 
-## chisel server (reverse pivot )
+## chisel server (reverse pivot)
 #plateform/linux  #target/remote  #cat/PIVOT 
 All commands on arsenal are done with server on kali machine and client on the target.
 Client or Server can also be launch on windows with chisel.exe
 ```
-./chisel server -v -p <server_port|8000> --reverse
+./chisel server -v -p <server_port|8000> --reverse --socks5
 ```
 
 ## chisel client (reverse pivot)
@@ -19,6 +19,24 @@ On server with proxychains set on port 1080 you can proxy socks request on the c
 ```
 ./chisel client <server_ip>:<server_port> R:<proxy_port|1080>:socks
 ```
+
+## chisel server (forward pivot)
+#plateform/linux  #target/remote  #cat/PIVOT 
+
+```
+./chisel server -v -p <server_port|8000> --socks5
+```
+
+## chisel client (forward pivot)
+#plateform/windows  #target/remote  #cat/PIVOT 
+
+
+```
+./chisel client <server_ip>:<server_port|8000> socks
+```
+
+
+
 
 ## chisel local port forwarding (reverse pivot) - forward client port on server
 #plateform/linux  #target/remote  #cat/PIVOT 
