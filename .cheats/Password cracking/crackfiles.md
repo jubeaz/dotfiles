@@ -6,7 +6,7 @@
 
 ## ZIP - fcrackzip
 ```
-fcrackzip -u -D -p <wordlist> <file>.zip
+fcrackzip -u -D -p <password_wl> <file>.zip
 ```
 
 ## ZIP - john
@@ -17,7 +17,7 @@ john zip.john
 
 ## 7z - 7za
 ```
-cat <wordlist> | 7za t <file>.7z
+cat <password_wl> | 7za t <file>.7z
 ```
 
 ## 7z - john
@@ -28,7 +28,7 @@ john 7zhash.john
 
 ## PDF - pdfcrack
 ```
-pdfcrack <file>.pdf -w <wordlist>
+pdfcrack <file>.pdf -w <password_wl>
 ```
 
 ## PDF decrypt - qpdf
@@ -38,12 +38,12 @@ qpdf --password=<PASSWORD> --decrypt <encrypted_pdf>.pdf <plaintext_pdf>.pdf
 
 ## keepass kdbx - john
 ```
-keepass2john <file>.kdbx > out.kbdx.hashes && john --wordlist <wordlist> out.kbdx.hashes
+keepass2john <file>.kdbx > out.kbdx.hashes && john --wordlist <password_wl> out.kbdx.hashes
 ```
 
 ## XLS PPT DOC - john
 ```
-python3 <path_to_john>/run/office2john.py <file>.xls > out.hash && john --wordlist <wordlist> out.hash
+python3 <path_to_john>/run/office2john.py <file>.xls > out.hash && john --wordlist <password_wl> out.hash
 ```
 
-= wordlist: /usr/share/wordlists/rockyou.txt
+

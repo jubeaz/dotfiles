@@ -54,12 +54,14 @@ gem install evil-winrm
 
 ## evil-winrm use
 #plateform/linux  #target/remote #cat/ATTACK/CONNECT 
+use <login@<domain> for domain account and <login> for local account (default)
 ```
 evil-winrm -i <ip>/<domain> -u <user> -p <password>
 ```
 
 ## evil-winrm use pass the hash
 #plateform/linux  #target/remote #cat/ATTACK/CONNECT 
+use <login@<domain> for domain account and <login> for local account (default)
 ```
 evil-winrm -i <ip>/<domain> -u <user> -H <hash>
 ```

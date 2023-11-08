@@ -1,1 +1,30 @@
-{"ip": "10.10.10.248", "LHOST": "tun0", "LPORT": "4444", "RHOST": "0.0.0.0", "RPORT": "0", "lport": "4444"}
+{
+    "ip": "192.168.110.52", 
+    "ip_range": "192.168.110.0/24", 
+    "local_ip": "10.10.17.58", 
+    "LHOST": "tun0", 
+    "LPORT": "4444", 
+    "RHOST": "0.0.0.0", 
+    "RPORT": "0", 
+    "lport": "4444",
+    "domain_fqdn": "dc.painters.htb",
+    "domain": "painters.htb",
+    "dc_name": "dc.painters.htb",
+    "dc_ip": "192.168.110.55",
+    "dc1": "DC01.domain.local",
+    "dc2": "DC02.domain.local",
+    "ticket": "c:\\Temp\\ticket.kirbi",
+    "user": "anonymous",
+    "pass": "anonymous",
+    "computer_name": "jubeaz",
+    "computer_password": "jubeaz12345!",
+    "userlist": "users.txt",
+    "passlist": "pass.txt",
+    "password_wl": "/usr/share/wordlists/passwords/rockyou.txt",
+    "ffuf_dir_wl": "/usr/share/seclists/Discovery/Web-Content/directory-list-lowercase-2.3-medium.txt",
+    "ffuf_dns_wl": "/usr/share/seclists/Discovery/DNS/subdomains-top1million-20000.txt",
+    "ffuf_param_wl": "/usr/share/seclists/Discovery/Web-Content/burp-parameter-names.txt",
+    "rule_file": "/usr/share/doc/hashcat/rules/best64.rule",
+    "custom_wordlist": "myCustomWordlist.txt"
+}
+

@@ -131,4 +131,3 @@ grep -i "user\|invalid\|authentication\|login" <file>
 grep -i http | grep -shoP 'http.*?[" >]' <file> > http-urls.txt
 ```
 
-= file: file.txt

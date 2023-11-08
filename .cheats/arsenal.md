@@ -24,10 +24,51 @@
 >set user=<user> password=<password>
 ```
 
+## Set user and hash
+```
+>set user=<user> hash=<hash>
+```
+
 ## Set ip global variable
 ```
 >set ip=<ip>
 ```
+
+## Set ip range
+```
+>set ip_range=<ip_range>
+```
+
+## Set local ip 
+```
+>set local_ip=<local_ip>
+```
+
+## Set domain 
+```
+>set domain=<domain> dc_name=<dc_name> dc_ip=<dc_ip>
+```
+
+## Set password_wl 
+```
+>set password_wl=<password_wl|/usr/share/wordlists/passwords/rockyou.txt>
+```
+
+## Set ffuf_dir_wl 
+```
+>set ffuf_dir_wl=<ffuf_dir_wl|//usr/share/seclists/Discovery/Web-Content/directory-list-lowercase-2.3-medium.txt>
+```
+
+## Set ffuf_dns_wl 
+```
+>set ffuf_dns_wl=<ffuf_dns_wl|/usr/share/seclists/Discovery/DNS/subdomains-top1million-20000.txt>
+```
+
+## Set ffuf_param_wl 
+```
+>set ffuf_param_wl=<ffuf_param_wl|/usr/share/seclists/Discovery/Web-Content/burp-parameter-names.txt>
+```
+
 
 ## Set wordlist
 wordlists (nbline): 

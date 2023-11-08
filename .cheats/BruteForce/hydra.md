@@ -86,5 +86,3 @@ hydra -L <userlist> -P <passlist> <ip> postgres
 hydra -L <userlist> -P <passlist> <ip> telnet 
 ```
 
-= userlist: users.txt
-= passlist: pass.txt

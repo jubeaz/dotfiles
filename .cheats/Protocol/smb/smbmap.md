@@ -33,4 +33,3 @@ smbmap -H <ip> -u <user> -p <password> -d <domain> -r
 smbmap -H <ip> -u <user> -p <password> -d <domain> -R <path> --depth 1
 ```
 
-= ip: 192.168.1.0/24

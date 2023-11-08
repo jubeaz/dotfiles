@@ -2,10 +2,7 @@
 
 #plateform/windows #target/local #cat/PRIVESC
 
-## get info system
-```
-systeminfo
-```
+
 
 ## get info system limited
 ```
@@ -22,44 +19,9 @@ findstr /si 'password' *.txt *.xml *.docx
 findstr /S /I cpassword \\<FQDN>\sysvol\<FQDN>\policies\*.xml
 ```
 
-## get patches
-```
-wmic qfe get Caption,Description,HotFixID,InstalledOn
-```
-
-## get hostname
-```
-hostname
-```
-
-## get computer name
-```powershell
-$env:computername
-```
-
-## show environment - List all environment variables
-```
-set
-```
-
 ## dns request for DC
 ```
 nslookup -type=any <userdnsdomain>.
-```
-
-## show mounted disks
-```
-wmic logicaldisk get caption,description,providername
-```
-
-## show recycle bin
-```
-dir C:\$Recycle.Bin /s /b
-```
-
-## get architecture
-```
-wmic os get osarchitecture || echo %PROCESSOR_ARCHITECTURE%
 ```
 
 ## list scheduled tasks
@@ -221,52 +183,16 @@ net localgroup administrators <username> /add
 runas /user:<domain>\<user> cmd.exe
 ```
 
-## whoami - All info about me, take a look at the enabled tokens
-#cat/PRIVESC
-```
-whoami /all
-```
 
-## whoami privilegied
-#cat/PRIVESC
-```
-whoami /priv #Show only privileges
-```
 
-## list all users
-#cat/PRIVESC
-```
-net users
-```
 
-## list domain admins (fr)
-#plateform/windows  #target/local #cat/RECON
-```
-net group "Admins du domaine"
-```
 
-## infos about a user
-#cat/RECON
-```
-net user <username>
-```
 
 ## infos on a Administrator and retrieve SID
 ```powershell
 [wmi] "Win32_userAccount.Domain='<computer_name>',Name='Administrator'"
 ```
 
-## infos about password policy
-#cat/RECON
-```
-net accounts
-```
-
-## who logged in
-#cat/PRIVESC
-```
-qwinsta
-```
 
 ## List credentials
 #cat/POSTEXPLOIT/CREDS_RECOVER
@@ -274,26 +200,6 @@ qwinsta
 cmdkey /list
 ```
 
-## show local groups
-#cat/RECON
-```
-net localgroup
-```
-
-## show specific local group
-```
-net localgroup <group_name>
-```
-
-## show domain groups
-```
-net group /domain
-```
-
-## show domain group users
-```
-net group /domain <domain_group_name>
-```
 
 % windows, domain infos
 
@@ -387,31 +293,7 @@ net accounts /domain
 nltest /domain_trust
 ```
 
-% windows, network
-## all interfaces
-```
-ipconfig /all
-```
 
-## print all routes
-```
-route print
-```
-
-## list of know hosts
-```
-arp -a
-```
-
-## list open ports
-```
-netstat -ano
-```
-
-## show hosts file
-```
-type C:\WINDOWS\System32\drivers\etc\hosts
-```
 
 % windows, dir
 
@@ -426,15 +308,7 @@ dir /s /b
 ```
 
 % windows, firewall
-## show firewall state
-```
-netsh firewall show state
-```
 
-## show firewall config
-```
-netsh firewall show config
-```
 
 ## turn off firewall
 ```
@@ -478,7 +352,7 @@ net view
 
 ## list of computer shares on the domain
 ```
-net view /all /domain <domain_name>
+net view /all /domain <domain>
 ```
 
 ## list share of a computer
@@ -516,7 +390,7 @@ nmcli dev show <interface>
 
 ## nslookup AD - domain
 ```
-nslookup -type=SRV _ldap._tcp.dc._msdcs.<domain_name>
+nslookup -type=SRV _ldap._tcp.dc._msdcs.<domain>
 ```
 
 % windows, active directory

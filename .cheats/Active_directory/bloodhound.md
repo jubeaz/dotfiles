@@ -17,13 +17,12 @@ https://github.com/BloodHoundAD/BloodHound
 ```bash
 bloodhound
 ```
-## bloodhound - collect data proxychains
+## bloodhound - collect data (proxychains)
 #plateform/linux #target/remote #port/389 #port/631 #cat/RECON
 https://github.com/fox-it/BloodHound.py
 
 ```bash
-bloodhound-python -d <domain> -u <user> -p <password> -c all --dns-tcp -ns <dns-ip> -dc <dc-name>
-
+bloodhound-python -d <domain> -u <user> -p <password> -c <method|DCOnly> --dns-tcp -ns <dns-ip> -dc <dc-name>
 ```
 
 ## bloodhound - collect data
@@ -31,7 +30,16 @@ bloodhound-python -d <domain> -u <user> -p <password> -c all --dns-tcp -ns <dns-
 https://github.com/fox-it/BloodHound.py
 
 ```bash
-bloodhound-python -d <domain> -u <user> -p <password> -c all
+bloodhound-python -d <domain> -u <user> -p <password> -c <method|DCOnly>
+```
+
+## bloodhound - collect data (kerberos)
+#plateform/linux #target/remote #port/389 #port/631 #cat/RECON
+https://github.com/fox-it/BloodHound.py
+add the DNS to /etc/hosts 
+
+```bash
+bloodhound-python -d <domain> -u <user> -p <password> -c <method|DCOnly> -ns <ip> --kerberos
 ```
 
 ## bloodhound - collect data (dns)
@@ -39,7 +47,7 @@ bloodhound-python -d <domain> -u <user> -p <password> -c all
 https://github.com/fox-it/BloodHound.py
 
 ```bash
-bloodhound-python -ns <ip> -d <domain> -u <user> -p <password> -c all
+bloodhound-python -ns <ip> -d <domain> -u <user> -p <password> -c <method|DCOnly>
 ```
 
 ## bloodhound - collect data (alternative)
@@ -47,7 +55,7 @@ bloodhound-python -ns <ip> -d <domain> -u <user> -p <password> -c all
 https://github.com/fox-it/BloodHound.py
 
 ```bash
-bloodhound-python -d <domain> -u <user> -p <password> -gc <global_catalog> -dc <domain_controler> -c all
+bloodhound-python -d <domain> -u <user> -p <password> -gc <global_catalog> -dc <domain_controler> -c <method|DCOnly>
 ```
 
 ## sharphound - collect bloodhound data
@@ -56,7 +64,7 @@ https://github.com/BloodHoundAD/BloodHound/tree/master/Collectors
 
 ```powershell
 import-module sharphound.ps1
-invoke-bloodhound -collectionmethod all -domain <domain>
+invoke-bloodhound -collectionmethod <method|DCOnly> -domain <domain>
 ```
 
 ## sharphound - collect bloodhound data download and execute

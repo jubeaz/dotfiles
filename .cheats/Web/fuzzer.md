@@ -5,22 +5,22 @@
 #plateform/linux #target/remote #cat/ATTACK/FUZZ
 ## gobuster scan classic
 ```
-gobuster dir -u <url> -w <wordlist>
+gobuster dir -u <url> -w <ffuf_dir_wl>
 ```
 
 ## gobuster scan pentest classic fuzz
 ```
-gobuster dir -u <url> -w <wordlist> -x json,html,php,txt,xml,md
+gobuster dir -u <url> -w <ffuf_dir_wl> -x json,html,php,txt,xml,md
 ```
 
 ## gobuster scan high rate
 ```
-gobuster dir -u <url> -w <wordlist> -t 30
+gobuster dir -u <url> -w <ffuf_dir_wl> -t 30
 ```
 
 ## gobuster scan with adding extension
 ```
-gobuster dir -u <url> -w <wordlist> -x json,html,php,txt
+gobuster dir -u <url> -w <ffuf_dir_wl> -x json,html,php,txt
 ```
 
 # wfuzz
@@ -61,4 +61,3 @@ dirb <url> -w /usr/share/wordlists/dirb/common.txt
 nikto -C all -h <url>
 ```
 
-= wordlist: /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt

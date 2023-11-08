@@ -5,18 +5,18 @@
 ## python Simple HTTP server
 #plateform/linux #target/serve  #cat/ATTACK/LISTEN-SERVE 
 ```bash
-python -m SimpleHTTPServer <lport>
+python -m SimpleHTTPServer <port|9090>
 ```
 
 ## python3 Simple HTTP server
 #plateform/linux #target/serve  #cat/ATTACK/LISTEN-SERVE 
 ```bash
-python3 -m http.server <lport>
+python3 -m http.server <port|9090>
 ```
 
 ## php Simple builtin server
 #plateform/linux #target/serve  #cat/ATTACK/LISTEN-SERVE 
 ```
-php -S 0.0.0.0:<lport>
+php -S 0.0.0.0:<port|9090>
 ```
 
