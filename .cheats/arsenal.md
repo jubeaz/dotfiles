@@ -49,6 +49,11 @@
 >set domain=<domain> dc_name=<dc_name> dc_ip=<dc_ip>
 ```
 
+## Set pivoting 
+```
+>set socks_port=<socks_port|1080> chisel_port=<chisel_port|8000> chisel_server_ip=<chisel_server_ip|10.10.107.58> 
+```
+
 ## Set password_wl 
 ```
 >set password_wl=<password_wl|/usr/share/wordlists/passwords/rockyou.txt>

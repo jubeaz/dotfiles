@@ -234,6 +234,13 @@ Send a local file to the remote target
 cme smb <ip> -u <user> -p <password> --get-file <remote_path|\\Windows\\Temp\\target.txt> <local_file>
 ```
 
+## cme - check petitpotam
+#plateform/linux #target/remote #port/445 #protocol/smb #cat/RECON 
+
+```bash
+cme smb <ip> -u <user> -p <password> -M PetitPotam
+```
+
 ## cme - LDAP connection
 #plateform/linux #target/remote #port/389 #port/639 #protocol/ldap #cat/RECON 
 

