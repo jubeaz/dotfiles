@@ -21,6 +21,19 @@ reg.py <domain>/<user>:<password>@<ip> query -keyName HKLM\\SOFTWARE\\Policies\\
 rpcdump.py <domain>/<user>:<password>@<ip>
 ```
 
+
+## rpcdump - Find Spooler services (printerbug coerce)
+#plateform/linux  #target/remote #cat/RECON 
+```
+rpcdump.py <domain>/<user>:'<password>'@<dc_name> | grep MS-RPRN
+```
+
+## rpcdump - Find anonymous Spooler services (printerbug coerce)
+#plateform/linux  #target/remote #cat/RECON 
+```
+rpcdump.py <dc_name> | grep -A 6 MS-RPRN
+```
+
 ## services.py - (start, stop, delete, read status, config, list, create and change any service) remote
 #plateform/linux #target/remote #cat/RECON  #cat/ATTACK/EXPLOIT  
 ```

