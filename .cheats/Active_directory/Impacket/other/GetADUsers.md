@@ -5,5 +5,5 @@
 ## GetADUser - gather data about the domain’s users and their corresponding email addresses
 #plateform/linux #target/remote  #cat/RECON 
 ```
-GetADUsers.py -all <domain>/<user>:<password> -dc-ip <dc_ip>
+GetADUsers.py -all '<domain>/<user>:<password>' -dc-ip <dc_ip>
 ```

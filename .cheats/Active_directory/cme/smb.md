@@ -49,11 +49,11 @@ cme smb <ip> -u <user> -p '<password>' --sessions
 cme smb <ip> -u <user> -p '<password>' --users
 ```
 
-## enumerate users by bruteforce the RID
+## enumerate local users by bruteforce the RID
 #plateform/linux #target/remote #port/445 #port/139 #protocol/smb #cat/RECON 
 
 ```bash
-cme smb <ip> -u <user> -p '<password>' --rid-brute
+cme smb <ip> -u <user> -p '<password>' --rid-brute <max>
 ```
 
 ## enumerate domain groups
@@ -248,5 +248,5 @@ cme smb <ip> -u <user> -p <password> -M PetitPotam
 #plateform/linux #target/remote #port/445 #protocol/smb #cat/RECON 
 try to force WebDav to start  with -M drop-sc
 ```
-cme smb <ip_range> -u <login> -p <passwd> -M webdav
+cme smb <ip_range> -u <user> -p <passwd> -M webdav
 ```

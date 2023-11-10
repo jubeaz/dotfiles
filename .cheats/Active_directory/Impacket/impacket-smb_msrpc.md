@@ -9,19 +9,27 @@ A generic SMB client that will let you list shares and files, rename, upload and
 -no-pass -k : kerberos authentication
 
 ```
-smbclient.py <domain>/<user>:<password>@<ip>
+smbclient.py '<domain>/<user>:<password>'@<ip>
 ```
 
 ## AddComputer - add computer
 #plateform/linux #target/remote #port/445 #protocol/smb #cat/ATTACK/CONNECT  
 
 ```
-addcomputer.py -dc-ip <ip> [-method LDAPS] -computer-name <name|jubeaz> -computer-pass <password|Jubeaz123+->  <domain>/<user>:<password>
+addcomputer.py -dc-ip <ip> [-method LDAPS] -computer-name <name|jubeaz> -computer-pass <password|Jubeaz123+->  '<domain>/<user>:<password>'
 ```
 
 ## AddComputer - delete computer
 #plateform/linux #target/remote #port/445 #protocol/smb #cat/ATTACK/CONNECT  
 
 ```
-addcomputer.py -dc-ip <ip> [-method LDAPS] -computer-name <name|jubeaz> -delete  <domain>/<user>:<password>
+addcomputer.py -dc-ip <ip> [-method LDAPS] -computer-name <name|jubeaz> -delete  '<domain>/<user>:<password>'
+```
+
+
+## lookupsid - enumerate local users
+#plateform/linux #target/remote #port/445 #protocol/smb #cat/ATTACK/CONNECT  
+
+```
+lookupsid.py  '<domain>/<user>:<password>'@<ip>
 ```

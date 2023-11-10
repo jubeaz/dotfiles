@@ -7,5 +7,5 @@
 ## ldapsearch-ad - info
 
 ```bash
-ldapsearch-ad.py -l <ip> -d <domain> -u <login> -p <password> -t info
+ldapsearch-ad.py -l <ip> -d <domain> -u <user> -p <password> -t info
 ```

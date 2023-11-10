@@ -6,7 +6,7 @@
  -db DB
  -dc-ip ip (If ommited it use the domain part (FQDN) specified in the target parameter)
 ```
-mssqlclient.py '<domain>/<login>:<password>@<ip>'
+mssqlclient.py '<domain>/<user>:<password>@<ip>'
 ```
 
 # interactive windows authentication
@@ -14,7 +14,7 @@ mssqlclient.py '<domain>/<login>:<password>@<ip>'
  -db DB
  -dc-ip ip (If ommited it use the domain part (FQDN) specified in the target parameter)
 ```
-mssqlclient.py -windows-auth '<domain>/<login>:<password>@<ip>' 
+mssqlclient.py -windows-auth '<domain>/<user>:<password>@<ip>' 
 ```
 
 # batch sql authentication
@@ -22,7 +22,7 @@ mssqlclient.py -windows-auth '<domain>/<login>:<password>@<ip>'
  -db DB
  -dc-ip ip (If ommited it use the domain part (FQDN) specified in the target parameter)
 ```
-mssqlclient.py -file <cmd-file> -show '<domain>/<login>:<password>@<ip>'
+mssqlclient.py -file <cmd-file> -show '<domain>/<user>:<password>@<ip>'
 ```
 
 # batch windows authentication
@@ -30,5 +30,5 @@ mssqlclient.py -file <cmd-file> -show '<domain>/<login>:<password>@<ip>'
  -db DB
  -dc-ip ip (If ommited it use the domain part (FQDN) specified in the target parameter)
 ```
-mssqlclient.py -file <cmd-file> -show -windows-auth '<domain>/<login>:<password>@<ip>'
+mssqlclient.py -file <cmd-file> -show -windows-auth '<domain>/<user>:<password>@<ip>'
 ```

@@ -29,7 +29,7 @@ certipy cert -pfx <pfx> -nocert -out <file>.key
 ## certipy - authenticate with pfx certificate
 #plateform/linux #target/remote #cat/CONNECT
 ```
-certipy auth -pfx <pfx-file>  -domain <domain> -username <login> -dc-ip <ip>
+certipy auth -pfx <pfx-file>  -domain <domain> -username <user> -dc-ip <ip>
 ```
 
 ## certipy - authenticate through LDAP (Schannel) with pfx certificate

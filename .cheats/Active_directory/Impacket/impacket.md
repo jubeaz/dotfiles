@@ -6,19 +6,19 @@
 #plateform/linux #target/remote #cat/RECON 
 
 ```
-lookupsid.py <domain>/<user>:<password>@<ip>
+lookupsid.py '<domain>/<user>:<password>'@<ip>
 ```
 
 ## reg - query registry info remotely
 #plateform/linux #target/remote #cat/RECON 
 ```
-reg.py <domain>/<user>:<password>@<ip> query -keyName HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows -s
+reg.py '<domain>/<user>:<password>'@<ip> query -keyName HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows -s
 ```
 
 ## rpcdump - list rpc endpoint
 #plateform/linux #target/remote #cat/RECON 
 ```
-rpcdump.py <domain>/<user>:<password>@<ip>
+rpcdump.py '<domain>/<user>:<password>'@<ip>
 ```
 
 
@@ -37,7 +37,7 @@ rpcdump.py <dc_name> | grep -A 6 MS-RPRN
 ## services.py - (start, stop, delete, read status, config, list, create and change any service) remote
 #plateform/linux #target/remote #cat/RECON  #cat/ATTACK/EXPLOIT  
 ```
-services.py <domain>/<user>:<password>@<ip> <action>
+services.py '<domain>/<user>:<password>'@<ip> <action>
 ``` 
 
 ## getarch - find target architecture (64 or 32 bits)

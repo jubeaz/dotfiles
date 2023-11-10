@@ -4,27 +4,27 @@
 
 # cme-auth - credential authentication
 ```
--u '<login>' -p '<password>'
+-u '<user>' -p '<password>'
 ```
 
 # cme-auth - credential authentication (local auth)
 ```
--u '<login>' -p '<password>' --local-auth
+-u '<user>' -p '<password>' --local-auth
 ```
 
 # cme-auth - credential authentication (- password)
 ```
--u '<login>' -p='<password>'
+-u '<user>' -p='<password>'
 ```
 
-# cme-auth - login/hash authentication
+# cme-auth - user/hash authentication
 ```
--u '<login>' -H '<nt_hash>'
+-u '<user>' -H '<nt_hash>'
 ```
 
-# cme-auth - login/hash authentication (local auth)
+# cme-auth - user/hash authentication (local auth)
 ```
--u '<login>' -H '<lm_hash>:<nt_hash>' --local-auth
+-u '<user>' -H '<lm_hash>:<nt_hash>' --local-auth
 ```
 
 # cme-auth - kerberos authentication

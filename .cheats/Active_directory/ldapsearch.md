@@ -8,7 +8,7 @@
 #cat/RECON
 
 ```
-ldapsearch -LLL  -H ldap://<ip> -x -D <login>@<sub-domain>.<domain> -w '<password>' -b 'DC=<sub-domain>,DC=<domain>'  
+ldapsearch -LLL  -H ldap://<ip> -x -D <user>@<sub-domain>.<domain> -w '<password>' -b 'DC=<sub-domain>,DC=<domain>'  
 ```
 
 ## ldapsearch - auth - GSSAPI binding

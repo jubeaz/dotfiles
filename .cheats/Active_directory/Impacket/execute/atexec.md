@@ -7,7 +7,7 @@
 Using \pipe\atsvc via SMB
 
 ```
-atexec.py <domain>/<user>:<password>@<ip> "command"
+atexec.py '<domain>/<user>:<password>'@<ip> "command"
 ```
 
 ## pth

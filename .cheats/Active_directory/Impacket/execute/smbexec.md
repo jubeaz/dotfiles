@@ -7,7 +7,7 @@
 #plateform/linux #target/remote #port/445 #protocol/smb #cat/ATTACK/CONNECT  
 create a new service 'BTOBTO' (using temp bat files via SMB)
 ```
-smbexec.py <domain>/<user>:<password>@<ip>
+smbexec.py '<domain>/<user>:<password>'@<ip>
 ```
 
 ## pth
