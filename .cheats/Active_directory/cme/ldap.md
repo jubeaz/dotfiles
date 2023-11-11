@@ -41,4 +41,13 @@ cme ldap <ip> -u <user> -p '<password>' --trusted-for-delegation
 ```
 
 
+# read DACLs of an account
+```bash
+cme ldap <dc_name> -k --kdcHost <dc_name> -M daclread -o TARGET=<user> ACTION=read
+```
 
+
+# read DACLs of an principal has over a target
+```bash
+cme ldap <dc_name> -k --kdcHost <dc_name> -M daclread -o TARGET=<target_user> -o PRINCIPAL=<user> ACTION=read
+```

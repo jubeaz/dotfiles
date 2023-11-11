@@ -29,8 +29,8 @@
 
 # cme-auth - kerberos authentication
 ```
-set KRB5CCNAME=FILE_PATH
---use-kcache
+export KRB5CCNAME=FILE_PATH
+--use-kcache or -k
 ```
 
 # cme-auth - kerberos authentication (kdchost)

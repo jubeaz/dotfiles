@@ -141,14 +141,14 @@ rpcclient <ip> -U '<domain_netbios>\<user>%<pssword>' -c "getusrdompwinfo <RID>;
 rpcclient <ip> -U '<domain_netbios>\<user>%<pssword>' -c "lsaenumsid;quit"
 ```
 
-## ocal Users Lookup SID
+## local Users Lookup SID
 #plateform/linux #target/remote #cat/RECON
 ```
 rpcclient <ip> -U '<domain_netbios>\<user>%<pssword>' -c "lookupsids <SID>;quit"
 ```
 
-## reset AD user password
-#plateform/linux #target/remote #cat/EXPLOIT
+## change AD user password
+#plateform/linux #target/remote #cat/ATTACK/DACL-ABUSE 
 ```
 rpcclient <ip> -U '<domain_netbios>\<user>%<pssword>' -c "setuserinfo2 <user> 23 '<NEWPASSWORD>';quit"
 ```

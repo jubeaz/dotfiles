@@ -1,19 +1,17 @@
 # ldapsearch
 
-#plateform/linux  #target/remote  #protocol/ldap  #port/639 #port/389
+#plateform/linux  #target/remote  #protocol/ldap  #port/639 #port/389 #cat/RECON
 
 % ldap, Active Directory
 
 ## ldapsearch - auth - simple binding
-#cat/RECON
-
+#cat/ATTACK/CONNECT 
 ```
 ldapsearch -LLL  -H ldap://<ip> -x -D <user>@<sub-domain>.<domain> -w '<password>' -b 'DC=<sub-domain>,DC=<domain>'  
 ```
 
 ## ldapsearch - auth - GSSAPI binding
-#cat/RECON
-
+#cat/ATTACK/CONNECT 
 ```
 export KRB5CCNAME=<ccache> && ldapsearch -LLL -Y GSSAPI 
 ```
@@ -34,41 +32,32 @@ ldapsearch -H ldap://<dc_fqdn> <auth> -b "dc=<domain>,dc=<path>"
 
 
 ## ldapsearch - FullRequest - get AD time
-#cat/RECON
-
 ```
 ldapsearch -LLL -x -H ldap://<IP> -b '' -s base '(objectclass=*)' | grep currentTime
 ```
 
 ## ldapsearch - FullRequest - get MAQ
-#cat/RECON
-
 ```
 ldapsearch -LLL -x -H ldap://<IP> -b '' -s sub '(objectclass=domain)' | grep "ms-ds-machineaccountquota" -i
-
 ```
 
 ## ldapsearch - Request - SPN
-#cat/ATTACK/CONNECT 
 ```
 'servicePrincipalName=*' servicePrincipalName
 ```
 	
 
 ## ldapsearch - Request Users - all
-#cat/ATTACK/CONNECT 
 ```
 '(&(objectCategory=person)(objectClass=user))'
 ```
 
 ## ldapsearch - Request Users - protected by adminCount
-#cat/ATTACK/CONNECT 
 ```
 '(&(objectCategory=user)(adminCount=1))'
 ```
 
 ## ldapsearch - Request Users - with password, pass, identifiant or pwd in their description
-#cat/ATTACK/CONNECT 
 ```
 '(&(objectCategory=user)(|(description=*pass*)(description=*password*)(description=*identifiant*)(description=*pwd*)))'
 ```
@@ -93,6 +82,12 @@ ldapsearch -LLL -x -H ldap://<IP> -b '' -s sub '(objectclass=domain)' | grep "ms
 '(&(objectCategory=user)(badPwdCount>=4)')
 ```
 
+
+## ldapsearch - Request Users - with Constrined Delegation
+```
+"(&(objectCategory=user)(msds-allowedtodelegateto=*))"  samaccountname, msDS-AllowedToDelegateTo
+```
+
 ## ldapsearch - Request Groups - all
 ```
 '(objectCategory=group)'
@@ -115,7 +110,6 @@ ldapsearch -LLL -x -H ldap://<IP> -b '' -s sub '(objectclass=domain)' | grep "ms
 
 
 ## ldapsearch - Request Computers - with laps enabled and corresponding laps password if able
-#cat/ATTACK/CONNECT 
 ```
 '(ms-Mcs-AdmPwdExpirationtime=*)' ms-Mcs-AdmPwd
 ```
@@ -141,32 +135,7 @@ ldapsearch -LLL -x -H ldap://<IP> -b '' -s sub '(objectclass=domain)' | grep "ms
 '(&(objectCategory=computer)(userAccountControl:1.2.840.113556.1.4.803:=8192))'
 ```
 
-## ldapsearch - Request Computers - 
+## ldapsearch - Request Computers - with Constrined Delegation
 ```
-
-```
-
-## ldapsearch - Request Computers - 
-```
-
-```
-
-## ldapsearch - Request Computers - 
-```
-
-```
-
-## ldapsearch - Request Computers - 
-```
-
-```
-
-## ldapsearch - Request Computers - 
-```
-
-```
-
-## ldapsearch - Request Computers - 
-```
-
+"(&(objectCategory=computer)(msds-allowedtodelegateto=*))" cn, dnshostname, samaccountname, msds-allowedtodelegateto 
 ```

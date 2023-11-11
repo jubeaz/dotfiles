@@ -9,12 +9,12 @@
 
 # impacket-auth - user/hash authentication
 ```
--hashes <lm>:<nt> '<domain>/<user>@<ip>'
+-hashes <lm_hash>:<nt_hash> '<domain>/<user>@<ip>'
 ```
 
 # impacket-auth - kerberos authentication
 ```
-export KRB5CCNAME=FILE_PATH
+export KRB5CCNAME=FILE_PATH ;
 -k -no-pass '<domain>/<user>@<ip>'
 ```
 

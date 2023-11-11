@@ -6,7 +6,7 @@
 ## PKINITtools - Request a TGT using a PFX
 #plateform/linux #target/remote #cat/RECON
 ```
-gettgtpkinit -cert-pfx <pfx-path> -dc-ip <ip> <domain>/<accountToImpersonate> <ccache-path>
+gettgtpkinit -cert-pfx <pfx_file_> -pfx-pass <pfx_password|jubeaz> -dc-ip <dc_ip> <domain>/<accountToImpersonate> <ccache_path>
 ```
 
 ## PKINITtools - hash from TGT and AS REP key
