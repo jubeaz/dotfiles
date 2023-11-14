@@ -14,9 +14,9 @@ hashcat -a 0 -m 400 hashes <password_wl>
 hashcat -a 0 -m 400 hashes <password_wl> -r /usr/share/doc/hashcat/rules/best64.rule 
 ```
 
-## hashcat - kerberos ticket (after kerberoasting)
+## hashcat - TGS ticket (after kerberoasting)
 ```
-hashcat -m 13100 --force -a 0 hashes <password_wl> 
+hashcat -m 13100 -a 0 hashes <password_wl> 
 ```
 
 ## hashcat - LM

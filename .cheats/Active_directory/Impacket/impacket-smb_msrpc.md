@@ -33,3 +33,5 @@ addcomputer.py -dc-ip <ip> [-method LDAPS] -computer-name <name|jubeaz> -delete 
 ```
 lookupsid.py  '<domain>/<user>:<password>'@<ip>
 ```
+
+

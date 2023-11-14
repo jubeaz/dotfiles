@@ -36,6 +36,15 @@ Invoke-UserImpersonation -Credential $Cred
 ```
 
 
-
+## double hop problem
+Exception calling "FindAll" with "0" argument(s): "An operations error occurred.
+klist will return
+    Client: backupadm @ legalcorp.local
+    Server: academy-aen-ms0$ @
+instead of
+    Client: backupadm @ legalcorp.local
+    Server: krbtgt/legalcorp.local @ legalcorp.local
+```
+```
 
 

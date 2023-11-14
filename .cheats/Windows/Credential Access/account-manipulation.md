@@ -12,7 +12,10 @@ net user /add <name|jubeaz> <password|Jubeaz12345!>
 ```
 net localgroup administrators  <name|jubeaz> /add
 ```
-
+## change user password
+```
+net user /domain <user> <new_password|P@ssw0rd123>
+```
 
 # powershell
 % windows, credential access
@@ -32,4 +35,9 @@ add-LocalGroupMember -Group  '<gname|Administrators>' -member <name|jubeaz>
 ## add local group
 ```
 New-LocalGroup -Name '<name>' -Description '<description>'
+```
+
+## change user password (reset domain)
+```
+Set-ADAccountPassword -Identity <target_user> -Reset -NewPassword (ConvertTo-SecureString -AsPlainText "<password|Jubeaz12345!>" -Force)
 ```

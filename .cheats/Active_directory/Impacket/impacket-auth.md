@@ -15,7 +15,7 @@
 # impacket-auth - kerberos authentication
 ```
 export KRB5CCNAME=FILE_PATH ;
--k -no-pass '<domain>/<user>@<ip>'
+-k -no-pass -dc-ip <dc_ip> '<domain>/<user>@<ip>'
 ```
 
 # impacket-auth - AES key to use for kerberos authentication

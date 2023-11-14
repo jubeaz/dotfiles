@@ -7,10 +7,16 @@
 nbtscan -r <ip_range>
 ```
 
-## smbclient with username and password
+## smbclient (cred)
 #plateform/linux #target/remote #port/445 #protocol/smb #cat/ATTACK/CONNECT  
 ```
-smbclient \\\\<ip>\\<share> -U "<user>%<password>"
+smbclient \\\\<ip>\\<share> -U '<user>%<password>' -W <domain>
+```
+
+## smbclient (pth)
+#plateform/linux #target/remote #port/445 #protocol/smb #cat/ATTACK/CONNECT  
+```
+smbclient \\\\<ip>\\<share> -U '<user>' --pw-nt-hash '<nt_hash>' -W <domain>
 ```
 
 ## smbclient sessions without password
