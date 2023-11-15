@@ -13,6 +13,7 @@
 ```
 
 # impacket-auth - kerberos authentication
+the SPN part of a TGS is not encrypted, and Impacket modifies it dynamically when using the different tools.
 ```
 export KRB5CCNAME=FILE_PATH ;
 -k -no-pass -dc-ip <dc_ip> '<domain>/<user>@<ip>'

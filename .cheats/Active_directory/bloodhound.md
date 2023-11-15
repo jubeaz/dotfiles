@@ -17,12 +17,29 @@ https://github.com/BloodHoundAD/BloodHound
 ```bash
 bloodhound
 ```
+
 ## bloodhound - collect data (proxychains)
 #plateform/linux #target/remote #port/389 #port/631 #cat/RECON
 https://github.com/fox-it/BloodHound.py
 
 ```bash
-bloodhound-python -d <domain> -u <user> -p <password> -c <method|DCOnly> --dns-tcp -ns <dns-ip> -dc <dc-name>
+bloodhound-python -d <domain> -u <user> -p <password> -c <method|DCOnly> --auth-method <method|ntlm> --dns-tcp -ns <dc_ip> -dc <dc_name> -v
+```
+
+## bloodhound - collect data (pth) (proxychains)
+#plateform/linux #target/remote #port/389 #port/631 #cat/RECON
+https://github.com/fox-it/BloodHound.py
+requiere both lm_hash and nt_hash
+```bash
+bloodhound-python -d <domain> -u <user> --hashes <lm_hash>:<nt_hash> -c <method|DCOnly> --auth-method <method|ntlm> --dns-tcp -ns <dc_ip> -dc <dc_name> -v
+```
+
+## bloodhound - collect data forest (pth) (proxychains)
+#plateform/linux #target/remote #port/389 #port/631 #cat/RECON
+https://github.com/fox-it/BloodHound.py
+requiere both lm_hash and nt_hash
+```bash
+bloodhound-python -d <target_domain> -u <user>@<domain> --hashes <lm_hash>:<nt_hash> -c <method|DCOnly> --auth-method <method|ntlm> --dns-tcp -ns <target_domain_ip>  -v
 ```
 
 ## bloodhound - collect data
