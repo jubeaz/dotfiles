@@ -69,7 +69,15 @@ masscan -p 1-65535 <ip> -e <dev> --rate=1000
 nmap -Pn -sS -T4 --open --script smb-security-mode -p445 <ip>
 ```
 
-## nmap behind proxy - tcp connect (-sT) - no dns (-n)
+## nmap behind proxy 
+tcp connect (-sT) - no dns (-n)
 ```
 proxychains nmap -n -sT -sV -Pn --open -oA <output_file> -iL <targets_file>
+```
+
+
+## nmap list of ports behind proxy 
+tcp connect (-sT) - no dns (-n)
+```
+proxychains nmap -n -sT -sV -Pn -p<ports_comma_sep> --open  <ip>
 ```

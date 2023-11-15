@@ -23,7 +23,7 @@ Add-DomainObjectAcl -TargetIdentity <ldap_path> -PrincipalIdentity <current_user
 ## Set the owner 
 #cat/ATTACK/DACL-ABUSE
 ```powershell
-Set-DomainObjectOwner -Identity <target> -OwnerIdentity <user>
+Set-DomainObjectOwner -Identity <target_object> -OwnerIdentity <user>
 ```
 
 ## set the specified property for the given user identity

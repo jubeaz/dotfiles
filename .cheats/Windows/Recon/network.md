@@ -38,9 +38,9 @@ type C:\WINDOWS\System32\drivers\etc\hosts
 Get-Command -Noun NetIP* -verb Get
 ```
 
-## all interfaces
+## all IP address
 ```
-Get-NetIPAddress
+Get-NetIPAddress |ft
 ```
 
 ##  ip configuration
@@ -81,4 +81,9 @@ Get-NetTCPConnection -State Listen | Select-Object -Property *,@{'Name' = 'Proce
 ## show hosts file
 ```
 type C:\WINDOWS\System32\drivers\etc\hosts
+```
+
+## host port scan
+```
+foreach ($port in 1..1024) {If (($a=Test-NetConnection 192.168.210.13 -Port $port -WarningAction SilentlyContinue).tcpTestSucceeded -eq $true){ "TCP port $port is open!"}}
 ```

@@ -109,9 +109,6 @@ dpapi::masterkey /in:"C:\Users\<username>\AppData\Roaming\Microsoft\Protect\<SID
 ```
 
 
-
-
-
 % mimikatz, ad
 
 
