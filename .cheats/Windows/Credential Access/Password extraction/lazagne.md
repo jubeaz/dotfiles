@@ -5,5 +5,5 @@
 
 ## lazagne dump all passwords (trig av)
 ```
-lazagne.exe all
+.\lazagne.exe all
 ```

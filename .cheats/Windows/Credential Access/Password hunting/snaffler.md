@@ -5,22 +5,22 @@
 
 ## Snaffler - full 
 ```
-snaffler.exe -s -o snaffler.loga -v data
+.\snaffler.exe -s -o snaffler.loga -v data
 ```
 
 ## Snaffler - domain 
 ```
-snaffler.exe -d <domain> -s -o snaffler.loga -v data
+.\snaffler.exe -d <domain> -s -o snaffler.loga -v data
 ```
 
 ## Snaffler - path 
 ```
-snaffler.exe -i <path|"c:\"> -s -o snaffler.log -v data
+.\snaffler.exe -i <path|"c:\"> -s -o snaffler.log -v data
 ```
 
 ## Snaffler - hosts 
 ```
-Snaffler.exe -n <host_list_comma_sep> -s -o snaffler.log -v data
+.\Snaffler.exe -n <host_list_comma_sep> -s -o snaffler.log -v data
 ```
 
 

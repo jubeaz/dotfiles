@@ -17,20 +17,36 @@
 -u '<user>' -p='<password>'
 ```
 
-# cme-auth - user/hash authentication
+# cme-auth - pth authentication
 ```
 -u '<user>' -H '<nt_hash>'
 ```
 
-# cme-auth - user/hash authentication (local auth)
+# cme-auth - pth authentication (local auth)
 ```
 -u '<user>' -H '<lm_hash>:<nt_hash>' --local-auth
 ```
 
-# cme-auth - kerberos authentication
+# cme-auth - kerberos authentication (creds)
+```
+-u '<user>' -p '<password>' --kerberos
+```
+
+# cme-auth - kerberos authentication (pth)
+```
+-u '<user>' -p '<password>' --kerberos
+```
+
+# cme-auth - kerberos authentication (AES256/AES128)
+```
+-u '<user>' --aesKey <aes_key>
+```
+
+# cme-auth - kerberos authentication (KRB5CCNAME)
+use getTGT
 ```
 export KRB5CCNAME=FILE_PATH
---use-kcache or -k
+--use-kcache
 ```
 
 # cme-auth - kerberos authentication (kdchost)

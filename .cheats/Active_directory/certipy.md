@@ -15,7 +15,7 @@ certipy req -u <user>@<domain> -p '<password>' -target <ca-fqdn> -template <temp
 ```
 
 ## certipy - extract cert from pfx
-#plateform/linux #target/remote #cat/RECON
+#plateform/linux #target/remote #cat/UTILS
 ```
 certipy cert -pfx <pfx> -nokey -out <file>.crt
 ```
@@ -24,6 +24,12 @@ certipy cert -pfx <pfx> -nokey -out <file>.crt
 #plateform/linux #target/remote #cat/RECON
 ```
 certipy cert -pfx <pfx> -nocert -out <file>.key
+```
+
+## certipy - create pfx from cert
+#plateform/linux #target/remote #cat/UTILS
+```
+certipy cert -key <key_file>  -cert <cert_file>  -export -out <pfx_file>
 ```
 
 ## certipy - authenticate with pfx certificate

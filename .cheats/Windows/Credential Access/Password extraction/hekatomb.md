@@ -7,5 +7,5 @@
 
 https://github.com/Processus-Thief/HEKATOMB
 ```
-hekatomb -hashes :<hash> <domain>/administrator@<ip> -debug 
+hekatomb -hashes :<hash> <domain>/administrator@<dc_ip> -debug 
 ```
