@@ -46,7 +46,7 @@
 
 ## Set domain 
 ```
->set domain=<domain> dc_name=<dc_name> dc_ip=<dc_ip> domain_netbios=<domain_netbios>
+>set domain=<domain> dc_name=<dc_name> dc_ip=<dc_ip> domain_netbios=<domain_netbios> domain_tld=<domain_tld>
 ```
 
 ## Set pivoting 

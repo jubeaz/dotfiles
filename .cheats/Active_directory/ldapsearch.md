@@ -4,138 +4,220 @@
 
 % ldap, Active Directory
 
-## ldapsearch - auth - simple binding
+## auth - simple binding
+https://ldapwiki.com/wiki/Wiki.jsp?page=Microsoft%20Active%20Directory
 #cat/ATTACK/CONNECT 
 ```
-ldapsearch -LLL  -H ldap://<ip> -x -D <user>@<sub-domain>.<domain> -w '<password>' -b 'DC=<sub-domain>,DC=<domain>'  
+ldapsearch -LLL  -H ldap://<dc_ip> -x -D <user>@<domain> -w '<password>' -b 'DC=<domain_netbios>,DC=<domain_tld>'  
 ```
 
-## ldapsearch - auth - GSSAPI binding
+## auth - GSSAPI binding
+https://ldapwiki.com/wiki/Wiki.jsp?page=Microsoft%20Active%20Directory
 #cat/ATTACK/CONNECT 
 ```
-export KRB5CCNAME=<ccache> && ldapsearch -LLL -Y GSSAPI 
+export KRB5CCNAME=<ccache> && ldapsearch -LLL -Y GSSAPI  -H ldap://<dc_ip> -b 'DC=<domain_netbios>,DC=<domain_tld>' 
 ```
 
-## ldapsearch - scope 
+## scope 
 #cat/ATTACK/CONNECT 
 
 scope = (base|one|sub|children) default sub
 ```
-ldapsearch -x -H ldap://<dc_fqdn> -s <scope>
+ldapsearch -x -H ldap://<dc_ip> -s <scope>
 ```
 
-## ldapsearch - BaseRequest 
+## Extended controls - unlimited results
 #cat/ATTACK/CONNECT 
 ```
-ldapsearch -H ldap://<dc_fqdn> <auth> -b "dc=<domain>,dc=<path>" 
+-E pr=1000/noprompt
+```
+
+## Extended controls - access to DACL (nTSecurityDescriptor)
+#cat/ATTACK/CONNECT 
+```
+-E '!1.2.840.113556.1.4.801=::MAMCAQc='  
 ```
 
 
-## ldapsearch - FullRequest - get AD time
+## FullRequest - get AD time
 ```
 ldapsearch -LLL -x -H ldap://<IP> -b '' -s base '(objectclass=*)' | grep currentTime
 ```
 
-## ldapsearch - FullRequest - get MAQ
+## FullRequest - get Machine Account Quota (MAQ)
 ```
 ldapsearch -LLL -x -H ldap://<IP> -b '' -s sub '(objectclass=domain)' | grep "ms-ds-machineaccountquota" -i
 ```
 
-## ldapsearch - Request - SPN
+## FullRequest - deleted objects
+```
+ldapsearch -LLL  -H ldap://<dc_ip> -x -D <user>@<domain> -w '<password>' -b 'CN=Deleted Objects,DC=<domain_netbios>,DC=<domain_tld>' -E '!1.2.840.113556.1.4.417'
+```
+
+
+## Request - SPN
 ```
 'servicePrincipalName=*' servicePrincipalName
 ```
 	
 
-## ldapsearch - Request Users - all
+## User req - all
 ```
 '(&(objectCategory=person)(objectClass=user))'
 ```
 
-## ldapsearch - Request Users - protected by adminCount
+## User req - protected by adminCount
 ```
 '(&(objectCategory=user)(adminCount=1))'
 ```
 
-## ldapsearch - Request Users - with password, pass, identifiant or pwd in their description
+## User req - with password, pass, identifiant or pwd in their description
 ```
 '(&(objectCategory=user)(|(description=*pass*)(description=*password*)(description=*identifiant*)(description=*pwd*)))'
 ```
 
-## ldapsearch - Request Users - kerberoastables 
+## User req - kerberoastables 
 ```
 '(&(objectClass=user)(servicePrincipalName=*)(!(cn=krbtgt))(!(userAccountControl:1.2.840.113556.1.4.803:=2)))'
 ```
 
-## ldapsearch - Request Users - asrep-roastables 
+## User req - asrep-roastables 
 ```
 '(&(objectClass=user)(userAccountControl:1.2.840.113556.1.4.803:=4194304))'
 ```
 
-## ldapsearch - Request Users - that need to change password on next login
+## User req - that need to change password on next login
 ```
 '(&(objectCategory=user)(pwdLastSet=0))'
 ```
 
-## ldapsearch - Request Users - that are almost Locked-Out
+## User req - that are almost Locked-Out
 ```
 '(&(objectCategory=user)(badPwdCount>=4)')
 ```
 
 
-## ldapsearch - Request Users - with Constrined Delegation
+## User req - with Constrined Delegation
 ```
 "(&(objectCategory=user)(msds-allowedtodelegateto=*))"  samaccountname, msDS-AllowedToDelegateTo
 ```
 
-## ldapsearch - Request Groups - all
+## Groups req - all
 ```
 '(objectCategory=group)'
 ```
 
-## ldapsearch - Request Groups - protected by adminCount
+## Groups req - protected by adminCount
 ```
 '(&(objectCategory=group)(adminCount=1))'
 ```
 
-## ldapsearch - Request Services - servicePrincipalName
+## Services req - servicePrincipalName
 ```
 '(servicePrincipalName=*)'
 ```
 
-## ldapsearch - Request Services - specific services from their servicePrincipalName
+## Services req - specific services from their servicePrincipalName
 ```
 '(servicePrincipalName=http/*)'
 ```
 
+## Services req - Group Managed Service Accounts NTHash (GMSA) 
+```
+ -o ldif-wrap=no '(&(ObjectClass=msDS-GroupManagedServiceAccount))' msDS-ManagedPassword
+```
 
-## ldapsearch - Request Computers - with laps enabled and corresponding laps password if able
+## Computers req - with laps enabled and corresponding laps password if able
 ```
 '(ms-Mcs-AdmPwdExpirationtime=*)' ms-Mcs-AdmPwd
 ```
 
-## ldapsearch - Request Computers - with a given Operating System
+## Computers req - with a given Operating System
+Windows Server 2003*
+Windows Server 2008*
+Windows XP Professional
+Windows Vista*
 ```
-'(&(objectCategory=Computer)(operatingSystem=Windows XP*))'
+'(&(objectCategory=Computer)(operatingSystem=<os>))'
 ```
 
-## ldapsearch - Request Computers - Workstations
+## Computers req - Workstations
 ```
 '(sAMAccountType=805306369)'
 ```
 
-## ldapsearch - Request Computers - having a KeyCredentialLink
-```
-'(&(objectClass=computer)(msDS-KeyCredentialLink=*))'
-```
-
-
-## ldapsearch - Request Computers - all DC
+## Computers req - all DC
 ```
 '(&(objectCategory=computer)(userAccountControl:1.2.840.113556.1.4.803:=8192))'
 ```
 
-## ldapsearch - Request Computers - with Constrined Delegation
+## Computers req - All global catalog servers
+```
+'(&(objectCategory=computer)(userAccountControl:1.2.840.113556.1.4.803:=8192))'
+```
+
+## Computers req - having a KeyCredentialLink
+```
+'(&(objectClass=computer)(msDS-KeyCredentialLink=*))'
+```
+
+## Computers req - with Constrined Delegation
 ```
 "(&(objectCategory=computer)(msds-allowedtodelegateto=*))" cn, dnshostname, samaccountname, msds-allowedtodelegateto 
+```
+
+## Computers req - BitLocker Recovery Passwords
+```
+'(objectClass=computer)' msfve-recoverypassword
+```
+
+## Certificate req - Enrollment Services
+```
+-b "CN=Enrollment Services,CN=Public Key Services,CN=Services,CN=Configuration,DC=<domain_netbios>,DC=<domain_tld>" 
+```
+
+## Certificate req - Certification Authorities
+```
+-b "CN=Certification Authorities,CN=Public Key Services,CN=Services,CN=Configuration,DC=<domain_netbios>,DC=<domain_tld>" 
+```
+
+## Certificate req - certificate templates
+```
+-b "CN=Certificate Templates,CN=Public Key Services,CN=Services,CN=Configuration,DC=<domain_netbios>,DC=<domain_tld>" 
+```
+
+## Certificate req - Public key services
+```
+-b "CN=Public Key Services,CN=Public Key Services,CN=Services,CN=Configuration,DC=<domain_netbios>,DC=<domain_tld>" 
+```
+
+
+## Risk req - foreignSecurityPrincipal
+```
+"(objectClass=foreignSecurityPrincipal)"
+```
+
+## Risk req - PASSWD_NOTREQD 
+```
+"(&(objectCategory=Person)(objectClass=User)(userAccountControl:1.2.840.113556.1.4.803:=32))"
+```
+
+## Risk req - DONT_EXPIRE_PASSWORD
+```
+"(&(objectCategory=person)(objectClass=user)(userAccountControl:1.2.840.113556.1.4.803:=65536))"
+```
+
+## Risk req - NOT require Kerberos Pre-Authentication 
+```
+"(&(objectCategory=person)(objectClass=user)(userAccountControl:1.2.840.113556.1.4.803:=4194304))"
+```
+
+## Risk req - Sensitive and not trusted
+```
+"(userAccountControl:1.2.840.113556.1.4.803:=1048576)"
+```
+
+## Risk req - USE_DES_KEY_ONLY
+```
+"(&(objectCategory=person)(objectClass=user)(userAccountControl:1.2.840.113556.1.4.803:=2097152))"
 ```
