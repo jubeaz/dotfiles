@@ -17,3 +17,7 @@ netsh Advfirewall set allprofiles state off
 # powershell
 % windows, defense evasion
 
+## turn off all available firewall profiles
+```powershell
+Set-NetFirewallProfile -Profile Domain,Public,Private -Enabled False
+```

@@ -4,8 +4,14 @@
 #plateform/linux  #target/remote  #protocol/mysql  #port/3306
 ## connect
 #cat/ATTACK/CONNECT 
-```
+```bash
 mysql -u <user> -p<password> -h <hostname> <database>
+```
+
+## execute single request
+#cat/ATTACK
+```bash
+mysql -u <user> -p<password> -h <hostname> <database> -e "select * from users;"
 ```
 
 ## Create database

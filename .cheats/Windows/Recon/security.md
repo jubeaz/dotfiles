@@ -81,6 +81,10 @@ Get-NetFirewallSetting
 Get-NetFirewallRule | Where { $_.Enabled -eq 'True' -and $_.Direction -eq 'Inbound' }
 ```
 
+## show firewall rules in active store
+```powershell
+Get-NetFirewallRule -PolicyStore ActiveStore
+```
 
 ## show UAC status
 0 : inactive

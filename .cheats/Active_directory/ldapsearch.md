@@ -163,7 +163,7 @@ Windows Vista*
 
 ## Computers req - with Constrined Delegation
 ```
-"(&(objectCategory=computer)(msds-allowedtodelegateto=*))" cn, dnshostname, samaccountname, msds-allowedtodelegateto 
+"(&(objectClass=computer)(msds-allowedtodelegateto=*))" cn, dnshostname, samaccountname, msds-allowedtodelegateto 
 ```
 
 ## Computers req - BitLocker Recovery Passwords
@@ -220,4 +220,9 @@ Windows Vista*
 ## Risk req - USE_DES_KEY_ONLY
 ```
 "(&(objectCategory=person)(objectClass=user)(userAccountControl:1.2.840.113556.1.4.803:=2097152))"
+```
+
+## trust req - 
+```
+'(objectClass=trustedDomain)'
 ```

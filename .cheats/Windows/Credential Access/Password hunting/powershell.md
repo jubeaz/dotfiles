@@ -2,11 +2,10 @@
 
 #plateform/windows #target/local #cat/CREDENTIAL-ACCESS/CREDS_HUNT #tag/powershell 
 
-## powershell -  Search file content
+## Search Strings Inside Files
 ```
 Get-ChildItem C:\ -Recurse -ErrorAction Ignore |  select-string '<pattern>' -List | select Path
 ```
-
 
 ## powershell -  Search files having extension
 ```

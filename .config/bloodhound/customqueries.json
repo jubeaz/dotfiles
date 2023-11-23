@@ -11,6 +11,46 @@
 				}
 			]
 		},
+    {
+      "name": "Unconstrained Delegation",
+      "category": "Delegation",
+      "queryList": [
+        {
+          "final": true,
+          "query": "MATCH (c {unconstraineddelegation:true}) return c"
+        }
+      ]
+    },
+    {
+      "name": "Constrained Delegation (with Protocol Transition)",
+      "category": "Delegation",
+      "queryList": [
+        {
+          "final": true,
+          "query": "MATCH (c) WHERE NOT c.allowedtodelegate IS NULL AND c.trustedtoauth=true return c"
+        }
+      ]
+    },
+    {
+      "name": "Constrained Delegation (without Protocol Transition)",
+      "category": "Delegation",
+      "queryList": [
+        {
+          "final": true,
+          "query": "MATCH (c) WHERE NOT c.allowedtodelegate IS NULL AND c.trustedtoauth=false return c"
+        }
+      ]
+    },
+    {
+      "name": "Resource-Based Constrained Delegation",
+      "category": "Delegation",
+      "queryList": [
+        {
+          "final": true,
+          "query": "MATCH p=(u)-[:AllowedToAct]->(c) RETURN p"
+        }
+      ]
+    },
 
     {
       "name": "Find all Certificate Templates",

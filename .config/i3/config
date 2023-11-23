@@ -39,6 +39,7 @@ bindsym $mod+l exec --no-startup-id light-locker-command -l
 
 
 bindsym $mod+Print exec flameshot gui --clipboard --path ~/pictures/captures/
+#bindsym $mod+Print exec flameshot gui --clipboard --path ~/documents/pentesting-games/cpts/captures/
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
