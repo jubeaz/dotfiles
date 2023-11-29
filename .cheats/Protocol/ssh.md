@@ -9,7 +9,7 @@
 eval "$(ssh-agent -s)"; ssh-add
 ```
 
-## SSH local port forwarding (get remote_port on local)
+## local port forwarding (get remote_port on local)
 #cat/PIVOT/TUNNEL-PORTFW 
 
 can perform multiple -L
@@ -18,16 +18,34 @@ can perform multiple -L
 ssh -q -L <local_port>:<remote_host>:<remote_port> <user>@<ip>
 ```
 
-## SSH remote port forwarding (send local port to remote) (need GatewayPorts yes)
+## sshpass local port forwarding (get remote_port on local)
+#cat/PIVOT/TUNNEL-PORTFW 
+```
+sshpass -p <password> ssh -q -L <local_port>:<remote_host>:<remote_port> <user>@<ip>
+```
+
+## remote port forwarding (send local port to remote) (need GatewayPorts yes)
 #cat/PIVOT/TUNNEL-PORTFW 
 ```
 ssh -q -R <pivot_internal_ip>:<pivot_port>:<local_host>:<local_port> <user>@<ip> -vN
 ```
 
-## SSH proxysocks
+## sshpass port forwarding (send local port to remote) (need GatewayPorts yes)
+#cat/PIVOT/TUNNEL-PORTFW 
+```
+sshpass -p <password> ssh -q -R <pivot_internal_ip>:<pivot_port>:<local_host>:<local_port> <user>@<ip> -vN
+```
+
+## dynamic port forwarding (proxysocks)
 #cat/PIVOT/TUNNEL-PORTFW 
 ```
 ssh -q -D <socks_port> <user>@<ip>
+```
+
+## sshpass dynamic port forwarding (proxysocks) 
+#cat/PIVOT/TUNNEL-PORTFW 
+```
+sshpass -p <password> ssh -q -D <socks_port> <user>@<ip>
 ```
 
 ## get public ssh key of server

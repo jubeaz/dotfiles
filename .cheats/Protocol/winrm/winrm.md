@@ -1,4 +1,19 @@
 # windows
+## Enable winrm 1/3 (cmd)
+#plateform/windows #target/local #cat/UTILS 
+```cmd
+winrm quickconfig
+```
+
+## Enable winrm 2/3 (cmd)
+```cmd
+winrm set winrm/config/service @{AllowUnencrypted="true"}
+```
+
+## Enable winrm 3/3 (cmd)
+```cmd
+winrm set winrm/config/service/auth @{Basic="true"}
+```
 
 ## Enable winrm (wmic)
 #plateform/windows #target/local #cat/UTILS 
@@ -25,28 +40,33 @@ Enable-PSRemoting -Force
 Set-Item wsman:\localhost\client\trustedhosts *  
 ```
 
-
 ## Test target is configure to use winrm (powershell)
 #plateform/windows #target/local #cat/RECON 
 ```powershell
 Test-WSMan -computername <computername>
 ```
 
-## Execute a command on the target over winrm (powershell)
+## Execute a command on the target over winrm (powershell - double-hop)
 #plateform/windows #target/remote #cat/ATTACK/EXPLOIT   
 ```powershell
-Invoke-Command -computername <computername> -ScriptBlock {<cmd>} -credential <domain>\<username>
+$password=ConvertTo-SecureString '<password>' -Asplaintext -force;
+$creds=New-Object System.Management.Automation.PSCredential("domain>\<username>", $password);
+Invoke-Command -computername <computername> -ScriptBlock {<cmd>} -Credential $creds
 ```
 
-## Execute a script on the target over winrm (powershell)
+## Execute a script on the target over winrm (powershell - double-hop)
 #plateform/windows #target/remote #cat/ATTACK/EXPLOIT 
 ```powershell
-Invoke-Command -ComputerName <computername> -FilePath <path_to_script> -credential <domain>\<username>
+$password=ConvertTo-SecureString '<password>' -Asplaintext -force;
+$creds=New-Object System.Management.Automation.PSCredential("domain>\<username>", $password);
+Invoke-Command -ComputerName <computername> -FilePath <path_to_script> -Credential $creds
 ```
 
-## Get a powershell session with winrm (powershell)
+## Get a powershell session with winrm (powershell - double-hop)
 #plateform/windows #target/remote #cat/ATTACK/EXPLOIT 
 ```powershell
-Enter-PSSession -ComputerName <computername> -Credential <domain>\<username>
+$password=ConvertTo-SecureString '<password>' -Asplaintext -force;
+$creds=New-Object System.Management.Automation.PSCredential("domain>\<username>", $password);
+$sess = New-PSSession -ComputerName <target_name> -Credential $creds -SessionOption (New-PSSessionOption -ProxyAccessType NoProxyServer)
+Enter-PSSession $sess
 ```
-

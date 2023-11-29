@@ -1,7 +1,7 @@
 # mssqlclient (imp)
 #plateform/linux  #target/remote  #protocol/sql  #port/1433 #tag/impacket
 
-# interactive sql authentication
+# interactive sql authentication 
  -port PORT
  -db DB
  -dc-ip ip (If ommited it use the domain part (FQDN) specified in the target parameter)

