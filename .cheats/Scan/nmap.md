@@ -2,61 +2,68 @@
 
 #plateform/linux #target/remote #cat/RECON #tag/scan
 
-## nmap - hosts alive
+## host scan - list host in a range
 ```
-nmap -sn <ip_range>
-```
-
-## nmap - classic scan
-```
-nmap -sC -sV <ip>
+nmap -sL -sn <ip_range>
 ```
 
-## nmap - read targets from a file
+## host scan - hosts alive
+ICMP echo request + TCP SYN packet to port 443 + TCP ACK packet to port 80 + ICMP timestamp request
 ```
-nmap -iL <targets_file>
-```
-
-## nmap - classic scan + save
-```
-nmap -sC -sV -oA <output_file> <ip>
+nmap -n -sn -T<speed|4> <ip_range>
 ```
 
-## nmap - quick scan top ports 100
+## host scan - hosts alive (TCP SYN Ping)
 ```
-nmap --top-ports 100 --open -sV <ip>
-```
-
-## nmap - big top ports 5000
-```
-nmap --top-ports 5000 --open -sV <ip>
+nmap -n -sn -T<speed|4> -PS<port_omma_sep|22,80,445,88,443,88> <ip_range>
 ```
 
-## nmap - full port
+## host scan - hosts alive (TCP ACK Ping)
 ```
-nmap -p- -sV <ip>
-```
-
-## nmap - host with a given port
-```
-nmap <ip> -p<port_list> --open
+nmap -n -sn -T<speed|4> -PA<port_omma_sep|22,80,445,88,443,88> <ip_range>
 ```
 
-## nmap - FULL
+## port scan - light scan
+```
+sudo nmap -Pn -n  <ip>
+```
+
+## port scan - classic scan
+```
+sudo nmap -Pn -n --script=<category|default> -sV -oA <output_file|nmap> <ip>
+```
+
+## port scan - top ports classic scan 
+```
+sudo nmap -Pn -n --top-ports <count|100> --script=<category|default> -oA <output_file|nmap> -sV <ip>
+```
+
+
+## port scan - classic scan (target file)
+```
+sudo nmap -Pn -n --script=<category|default> -sV -oA <output_file|nmap> -iL <targets_file>
+```
+
+## port scan - host with a given ports
+```
+sudo nmap  -Pn -n --script=<category|default> -sV -oA <output_file|nmap> -p<ports_comma_sep> --open <ip>
+```
+
+## port scan - FULL
 ```
 IP=<ip>;
-ports=$(nmap -p- --min-rate=1000 -n -T4 $IP | grep ^[0-9] | cut -d '/' -f 1 | tr '\n' ',' | sed s/,$//);
-nmap -Pn -sC -sV -p$ports $IP -oN scan.txt --reason --script=vuln
+ports=$(sudo nmap -Pn -p- --min-rate=1000 -n -T4 $IP | grep ^[0-9] | cut -d '/' -f 1 | tr '\n' ',' | sed s/,$//);
+sudo nmap -Pn -n --script=default -sV -p$ports $IP -oA <output_file|nmap> --reason
 ```
 
-## nmap - udp scan
+## port scan - udp scan
 ```
-nmap -sU <ip>
+sudo nmap -sU <ip>
 ```
 
-## nmap - low rate Classic
+## port scan - low rate Classic
 ```
-nmap --max-rate 100 -sC -sV <ip>
+sudo nmap --max-rate 100 -sC -sV <ip>
 ```
 
 ## massscan - full port
@@ -66,7 +73,7 @@ masscan -p 1-65535 <ip> -e <dev> --rate=1000
 
 ## nmap - SMB signing disabled
 ```
-nmap -Pn -sS -T4 --open --script smb-security-mode -p445 <ip>
+sudo nmap -Pn -sS -T4 --open --script smb-security-mode -p445 <ip>
 ```
 
 ## nmap behind proxy 
@@ -80,4 +87,27 @@ proxychains nmap -n -sT -sV -Pn --open -oA <output_file> -iL <targets_file>
 tcp connect (-sT) - no dns (-n)
 ```
 proxychains nmap -n -sT -sV -Pn -p<ports_comma_sep> --open  <ip>
+```
+
+
+
+## nmap all unfiltered ports Ack scan (enum firewall rulesets) 
+tcp connect (-sT) - no dns (-n)
+```
+sudo nmap -sA -Pn -n -p- --reason --min-rate=1000 -T5  <ip>
+```
+
+
+## nmap all unfiltered ports Syn scan (enum firewall rulesets) 
+tcp connect (-sT) - no dns (-n)
+```
+sudo nmap -sS -Pn -n -p- --reason --min-rate=1000 -T5  <ip>
+```
+
+
+
+## nmap display top ports
+tcp connect (-sT) - no dns (-n)
+```
+nmap -oX - --top-ports <count|25> x
 ```
