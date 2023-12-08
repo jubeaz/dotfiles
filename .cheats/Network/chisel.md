@@ -2,49 +2,78 @@
 
 % chisel
 
-## chisel server (reverse pivot)
-#plateform/linux  #target/remote  #cat/PIVOT 
-```
-./chisel server -v -p <chisel_port> --reverse --socks5
-```
-
-## chisel client (reverse pivot)
-#plateform/windows  #target/remote  #cat/PIVOT 
-```
-./chisel client <chisel_server_ip>:<chisel_port> R:<socks_port>:socks
-```
-
-## chisel server (forward pivot)
 #plateform/linux  #target/remote  #cat/PIVOT 
 
+## reverse pivot - server
 ```
-./chisel server -v -p <chisel_port> --socks5
-```
-
-## chisel client (forward pivot)
-#plateform/windows  #target/remote  #cat/PIVOT 
-```
-./chisel client <chisel_server_ip>:<chisel_port> socks
+chisel server -v -p <chisel_port> --reverse --socks5 
 ```
 
-## chisel local port forwarding (reverse pivot) - forward client port on server
-#plateform/linux  #target/remote  #cat/PIVOT 
+## reverse pivot - client
+```
+chisel client <chisel_server_ip>:<chisel_port> R:<socks_port>:socks
+```
 
-This forward {clientside-host}:{clientside-port} to server {local-port} To get the port of the client machine locally on serverside.
+## reverse pivot - local port forwarding (forward client port on server)
+forward {clientside-host}:{clientside-port} to server {local-port} To get the port of the client machine locally on serverside.
 ```
 ./chisel client -v <chisel_server_ip>:<chisel_port> R:<serverside-port>:<clientside-host|127.0.0.1>:<clientside-port>
 ```
 
-## chisel remote port forwarding (reverse pivot) - forward server port on client
-#plateform/linux  #target/remote  #cat/PIVOT 
-
+## reverse pivot - remote port forwarding (forward server port on client)
 To expose server port remotely (useful to expose your listener)
-This forward {serverside-host}:{serverside-port} from the server to {clientside-host}:{clientside-port}
+forward {serverside-host}:{serverside-port} from the server to {clientside-host}:{clientside-port}
 ex : 0.0.0.0:4445:127.0.0.1:4444 expose the server 4444 listener to client 4445
-
 ```
 ./chisel client -v <chisel_server_ip>:<chisel_port> <clientside-host|0.0.0.0>:<clientside-port>:<serverside-host|127.0.0.1>:<serverside-port>
 ```
+
+## protected reverse pivot - server
+```
+chisel server -v -p <chisel_port> --reverse --socks5 --auth '<chisel_login|jubeaz>:<chisel_password|Jub@z123!>'
+```
+
+
+## protected reverse pivot - client
+```
+export AUTH='<chisel_login|jubeaz>:<chisel_password|Jub@z123!>' && chisel client <chisel_server_ip>:<chisel_port> R:<socks_port>:socks
+```
+
+## protected reverse pivot - local port forwarding (forward client port on server)
+forward {clientside-host}:{clientside-port} to server {local-port} To get the port of the client machine locally on serverside.
+```
+export AUTH='<chisel_login|jubeaz>:<chisel_password|Jub@z123!>' && chisel client -v <chisel_server_ip>:<chisel_port> R:<serverside-port>:<clientside-host|127.0.0.1>:<clientside-port>
+```
+
+## protected reverse pivot - remote port forwarding (forward server port on client)
+To expose server port remotely (useful to expose your listener)
+forward {serverside-host}:{serverside-port} from the server to {clientside-host}:{clientside-port}
+ex : 0.0.0.0:4445:127.0.0.1:4444 expose the server 4444 listener to client 4445
+```
+export AUTH='<chisel_login|jubeaz>:<chisel_password|Jub@z123!>' && ./chisel client -v <chisel_server_ip>:<chisel_port> <clientside-host|0.0.0.0>:<clientside-port>:<serverside-host|127.0.0.1>:<serverside-port>
+```
+
+## forward pivot - server (forward pivot)
+```
+./chisel server -v -p <chisel_port> --socks5
+```
+
+## forward pivot - client 
+```
+./chisel client <chisel_server_ip>:<chisel_port> socks
+```
+
+## protected forward pivot - protected server
+```
+chisel server -v -p <chisel_port> --socks5 --auth '<chisel_login|jubeaz>:<chisel_password|Jub@z123!>'
+```
+
+
+## protected forward pivot - client 
+```
+export AUTH='<chisel_login|jubeaz>:<chisel_password|Jub@z123!>' && chisel client <chisel_server_ip>:<chisel_port> socks
+```
+
 	
 
 

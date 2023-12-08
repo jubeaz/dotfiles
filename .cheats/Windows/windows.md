@@ -111,8 +111,14 @@ vssadmin list shadows
 
 ## check service privilege
 ```
-accesschk.exe /accepteula -ucqv <service_name>
+accesschk.exe /accepteula -ucqv <service_name|*>
 ```
+
+## check service privilege of a group
+```
+.\accesschk.exe /accepteula -uwcqv "<group_name|internal\Service Management>" <service_name|*>
+```
+
 
 ## reconfigure service
 ```
@@ -396,6 +402,13 @@ Enable history on source domain for target domain (useful for forest extra SID e
 ```
 netdom trust <source_domain> /d:<target_domain> /enablesidhistory:yes
 ```
+
+## check sid history filtering
+Enable history on source domain for target domain (useful for forest extra SID exploitation)
+```
+netdom trust <source_domain> /d:<target_domain> /quarantine
+```
+
 
 % windows, cve
 ## windows eternal blue - smb - ms17-010

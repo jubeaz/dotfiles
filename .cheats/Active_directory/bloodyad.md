@@ -109,7 +109,7 @@ bloodyad --host <dc_ip> -d <domain> -u <user> -p :<nt_hash> -v <level|INFO> get
 ## get - DNS records (pth)
 https://github.com/CravateRouge/bloodyAD
 ```bash
-bloodyad --host <dc_ip> -d <domain> -u <user> -p :<nt_hash> -v <level|INFO> get  
+bloodyad --host <dc_ip> -d <domain> -u <user> -p :<nt_hash> -v <level|INFO> get dnsDump --zone <domain>  
 ```
 ## get - membership (pth)
 https://github.com/CravateRouge/bloodyAD
