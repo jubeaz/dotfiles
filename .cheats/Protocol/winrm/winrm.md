@@ -1,18 +1,24 @@
 # windows
-## Enable winrm 1/3 (cmd)
+## Enable winrm 1/4 (cmd)
 #plateform/windows #target/local #cat/UTILS 
 ```cmd
 winrm quickconfig
 ```
 
-## Enable winrm 2/3 (cmd)
+## Enable winrm 2/4 (cmd)
 ```cmd
 winrm set winrm/config/service @{AllowUnencrypted="true"}
 ```
 
-## Enable winrm 3/3 (cmd)
+## Enable winrm 3/4 (cmd)
 ```cmd
 winrm set winrm/config/service/auth @{Basic="true"}
+```
+
+
+## Enable winrm 4/4 (cmd)
+```cmd
+winrm set winrm/config/client @{TrustedHosts="*"}
 ```
 
 ## Enable winrm (wmic)
@@ -69,4 +75,13 @@ $password=ConvertTo-SecureString '<password>' -Asplaintext -force;
 $creds=New-Object System.Management.Automation.PSCredential("domain>\<username>", $password);
 $sess = New-PSSession -ComputerName <target_name> -Credential $creds -SessionOption (New-PSSessionOption -ProxyAccessType NoProxyServer)
 Enter-PSSession $sess
+```
+
+## Register PSSession (powershell - double-hop)
+#plateform/windows #target/remote #cat/ATTACK/EXPLOIT 
+```powershell
+$password=ConvertTo-SecureString '<password>' -Asplaintext -force;
+$creds=New-Object System.Management.Automation.PSCredential("domain>\<username>", $password);
+Register-PSSessionConfiguration -Name <session_name>  -RunAsCredential $creds
+Enter-PSSession -ComputerName <target_name> -Credential $creds -ConfigurationName <session_name>
 ```

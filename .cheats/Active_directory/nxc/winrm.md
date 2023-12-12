@@ -1,13 +1,13 @@
-# cme
+# nxc
 
-% cme, crackmapexec, windows, Active directory
+% nxc, netexec, windows, Active directory
 
 
 ## winrm- auth
 #plateform/linux #target/remote #port/5985 #port/5986 #protocol/winrm #cat/ATTACK/CONNECT  
 
 ```bash
-cme winrm <ip> -u <user> -p <password>
+nxc winrm <ip> -u <user> -p <password>
 ```
 
 
@@ -15,5 +15,5 @@ cme winrm <ip> -u <user> -p <password>
 #plateform/linux #target/remote #port/5985 #port/5986 #protocol/winrm #cat/ATTACK/CONNECT  
 
 ```bash
-cme winrm <ip> -u <user> -p <password> --laps <name|Administrator>
+nxc winrm <ip> -u <user> -p <password> --laps <name|Administrator>
 ```

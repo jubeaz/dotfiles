@@ -11,5 +11,5 @@ xfreerdp /cert:ignore /u:<user> /p:<password> /d:<domain> /v:<ip> /h:1024 /w:164
 
 ## RDP connect with  hash
 ```
-xfreerdp /cert:ignore /u:<user> /pth:<hash> /d:<domain> /v:<ip> /h:1024 /w:1640 /drive:share,<share> +drives
+xfreerdp /cert:ignore /u:<user> /pth:<nt_hash> /d:<domain> /v:<ip> /h:1024 /w:1640 /drive:share,<share> +drives
 ```

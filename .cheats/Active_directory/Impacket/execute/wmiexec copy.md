@@ -16,5 +16,5 @@ dcomexec.py '<domain>/<user>:<password>'@<ip>
 Execute a command shell without touching the disk or running a new service using DCOM
 
 ```
-dcomexec.py -hashes <hash> <user>@<ip>
+dcomexec.py -hashes <nt_hash> <user>@<ip>
 ```

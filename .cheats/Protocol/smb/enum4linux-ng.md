@@ -31,7 +31,7 @@ enum4linux-ng -u <user> -p <password> -oA <file> <ip>
 
 ## enum4linux-ng - pth
 ```
-enum4linux-ng -u <user> -H <hash> -oA <file> <ip>
+enum4linux-ng -u <user> -H <nt_hash> -oA <file> <ip>
 ```
 
 ## enum4linux-ng - list Users

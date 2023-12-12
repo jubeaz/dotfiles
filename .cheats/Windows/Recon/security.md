@@ -3,6 +3,10 @@
 
 #plateform/windows #target/local #cat/RECON/SECURITY
 
+## firewall state
+```
+netsh firewall show state
+```
 ## dump firewall
 ```
 netsh advfirewall firewall dump
@@ -15,7 +19,7 @@ netsh advfirewall show <profile|currentprofile>
 
 ## show firewall rules
 ```
-netsh advfirewall firewall show rule name=all
+netsh advfirewall firewall show rule name=all 
 ```
 
 ## show UAC status

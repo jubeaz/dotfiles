@@ -30,30 +30,30 @@ sudo nmap -Pn -n  <ip>
 
 ## port scan - classic scan
 ```
-sudo nmap -Pn -n --script=<category|default> -sV -oA <output_file|nmap> <ip>
+sudo nmap -Pn -n --script=<category|default> -sV -oA <nmap_output_file> <ip>
 ```
 
 ## port scan - top ports classic scan 
 ```
-sudo nmap -Pn -n --top-ports <count|100> --script=<category|default> -oA <output_file|nmap> -sV <ip>
+sudo nmap -Pn -n --top-ports <count|100> --script=<category|default> -oA <nmap_output_file> -sV <ip>
 ```
 
 
 ## port scan - classic scan (target file)
 ```
-sudo nmap -Pn -n --script=<category|default> -sV -oA <output_file|nmap> -iL <targets_file>
+sudo nmap -Pn -n --script=<category|default> -sV -oA <nmap_output_file> -iL <targets_file>
 ```
 
 ## port scan - host with a given ports
 ```
-sudo nmap  -Pn -n --script=<category|default> -sV -oA <output_file|nmap> -p<ports_comma_sep> --open <ip>
+sudo nmap  -Pn -n --script=<category|default> -sV -oA <nmap_output_file> -p<ports_comma_sep> --open <ip>
 ```
 
 ## port scan - FULL
 ```
 IP=<ip>;
 ports=$(sudo nmap -Pn -p- --min-rate=1000 -n -T4 $IP | grep ^[0-9] | cut -d '/' -f 1 | tr '\n' ',' | sed s/,$//);
-sudo nmap -Pn -n --script=default -sV -p$ports $IP -oA <output_file|nmap> --reason
+sudo nmap -Pn -n --script=default -sV -p$ports $IP -oA <nmap_output_file> --reason
 ```
 
 ## port scan - udp scan
@@ -89,8 +89,6 @@ tcp connect (-sT) - no dns (-n)
 proxychains nmap -n -sT -sV -Pn -p<ports_comma_sep> --open  <ip>
 ```
 
-
-
 ## nmap all unfiltered ports Ack scan (enum firewall rulesets) 
 tcp connect (-sT) - no dns (-n)
 ```
@@ -111,3 +109,6 @@ tcp connect (-sT) - no dns (-n)
 ```
 nmap -oX - --top-ports <count|25> x
 ```
+
+
+= nmap_output_file: nmap-$(date +'%Y-%m-%d-%H-%M-%S')

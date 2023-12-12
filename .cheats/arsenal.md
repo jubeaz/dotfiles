@@ -26,7 +26,7 @@
 
 ## Set user and hash
 ```
->set user=<user> hash=<hash>
+>set user=<user> nt_hash=<lm_hash> lm_hash=<lm_hash>
 ```
 
 ## Set ip global variable
@@ -61,7 +61,7 @@
 
 ## Set ffuf_dir_wl 
 ```
->set ffuf_dir_wl=<ffuf_dir_wl|//usr/share/seclists/Discovery/Web-Content/directory-list-lowercase-2.3-medium.txt>
+>set ffuf_dir_wl=<ffuf_dir_wl|/usr/share/seclists/Discovery/Web-Content/directory-list-lowercase-2.3-medium.txt>
 ```
 
 ## Set ffuf_dns_wl 

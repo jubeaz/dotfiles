@@ -25,6 +25,6 @@ gmsadumper -k -l <dc> -d <domain>
 https://github.com/micahvandeusen/gMSADumper
 
 ```
-gmsadumper -u <user> -p <hash> -l <dc> -d <domain> 
+gmsadumper -u <user> -p <nt_hash> -l <dc> -d <domain> 
 ```
 

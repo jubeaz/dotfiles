@@ -15,5 +15,5 @@ atexec.py '<domain>'/'<user>':'<password>'@<ip> "command"
 Execute command view the task scheduler (using \pipe\atsvc via SMB)
 
 ```
-atexec.py -hashes <hash> <user>@<ip> "command"
+atexec.py -hashes <nt_hash> <user>@<ip> "command"
 ```

