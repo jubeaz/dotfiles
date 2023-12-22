@@ -56,7 +56,7 @@ wmic service list brief
 
 ## list services (3)
 ```
-sc query #List of services
+sc.exe query #List of services
 ```
 
 ## list installed software (1)

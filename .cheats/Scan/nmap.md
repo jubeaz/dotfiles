@@ -2,10 +2,16 @@
 
 #plateform/linux #target/remote #cat/RECON #tag/scan
 
-## host scan - list host in a range
+## util - list host in a range
 ```
 nmap -sL -sn <ip_range>
 ```
+
+## util - display top ports
+```
+nmap -oX - --top-ports <count|25> x
+```
+
 
 ## host scan - hosts alive
 ICMP echo request + TCP SYN packet to port 443 + TCP ACK packet to port 80 + ICMP timestamp request
@@ -61,15 +67,48 @@ sudo nmap -Pn -n --script=default -sV -p$ports $IP -oA <nmap_output_file> --reas
 sudo nmap -sU <ip>
 ```
 
+## port scan - udp list all open 
+```
+sudo nmap -sU -Pn -p- --min-rate=1000 -n -T4 <ip>
+```
+
 ## port scan - low rate Classic
 ```
 sudo nmap --max-rate 100 -sC -sV <ip>
 ```
 
-## massscan - full port
+## service scan - vuln scan
 ```
-masscan -p 1-65535 <ip> -e <dev> --rate=1000
+sudo nmap -Pn -n --script=vul, -sV -p<ports_comma_sep> <ip>
 ```
+
+
+## script - script info
+or expression: "afp-* and discovery"
+```bash
+nmap --script-help "<script_name>"
+```
+
+## script - list all available scripts
+```bash
+locate nse | grep scripts
+```
+
+## script - get usage of a script
+```bash
+cat $(locate <script_name>.nse) | grep -A 2  usage
+```
+
+## script - get args of a script
+```bash
+cat $(locate <script_name>.nse) | grep args
+```
+
+## script - run script
+```bash 
+sudo nmap -Pn -n -sS -p<port>  --script=<script_name> --script-args <script_arg>=<value> <ip>  
+```
+
 
 ## nmap - SMB signing disabled
 ```
@@ -103,12 +142,6 @@ sudo nmap -sS -Pn -n -p- --reason --min-rate=1000 -T5  <ip>
 ```
 
 
-
-## nmap display top ports
-tcp connect (-sT) - no dns (-n)
-```
-nmap -oX - --top-ports <count|25> x
-```
 
 
 = nmap_output_file: nmap-$(date +'%Y-%m-%d-%H-%M-%S')

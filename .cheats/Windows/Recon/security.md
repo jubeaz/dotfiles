@@ -49,7 +49,7 @@ REG QUERY HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Policies\
 
 ## get defender service Status
 ```
-sc query windefend
+sc.exe query windefend
 ```
 
 ## get antivirus

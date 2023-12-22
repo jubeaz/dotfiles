@@ -123,7 +123,7 @@ bloodyad --host <dc_ip> -d <domain> -u <user> -p :<nt_hash> -v <level|INFO> get 
 ## get - search (pth)
 https://github.com/CravateRouge/bloodyAD
 ```bash
-bloodyad --host <dc_ip> -d <domain> -u <user> -p :<nt_hash> -v <level|INFO> get search --filter '<ldap_filter|(objectClass=*)>' --attr <comma_sep_attr_list|*> --resolve-sd  <search_base|DC=domain,DC=tld>
+bloodyad --host <dc_ip> -d <domain> -u <user> -p :<nt_hash> -v <level|INFO> get search --filter '<ldap_filter|(objectClass=*)>' --attr <comma_sep_attr_list|'*'> --resolve-sd  <search_base|DC=domain,DC=tld>
 ```
 ## get - writable (pth)
 https://github.com/CravateRouge/bloodyAD

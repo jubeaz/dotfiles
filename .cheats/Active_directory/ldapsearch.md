@@ -97,7 +97,7 @@ ldapsearch -LLL  -H ldap://<dc_ip> -x -D <user>@<domain> -w '<password>' -b 'CN=
 ```
 
 
-## User req - with Constrined Delegation
+## User req - with Constrained Delegation
 ```
 "(&(objectCategory=user)(msds-allowedtodelegateto=*))"  samaccountname, msDS-AllowedToDelegateTo
 ```
@@ -161,9 +161,14 @@ Windows Vista*
 '(&(objectClass=computer)(msDS-KeyCredentialLink=*))'
 ```
 
-## Computers req - with Constrined Delegation
+## Computers req - with Constrained Delegation
 ```
 "(&(objectClass=computer)(msds-allowedtodelegateto=*))" cn, dnshostname, samaccountname, msds-allowedtodelegateto 
+```
+
+## Computers req - with Unconstrained Delegation
+```
+"(&(objectCategory=computer)(userAccountControl:1.2.840.113556.1.4.803:=524288))" samaccountname,dnshostname,operatingsystem  
 ```
 
 ## Computers req - BitLocker Recovery Passwords

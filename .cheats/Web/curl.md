@@ -1,4 +1,4 @@
-# WEB
+# curl
 
 % web
 
@@ -12,5 +12,5 @@ curl -k -s <url> | grep -o 'http://[^"]*' | cut -d "/" -f 3 | sort -u
 ## curl NTLM
 #plateform/linux #target/remote #cat/RECON 
 ```
-curl -k --ntlm -u '<domain_netbios>\<user>:<password> <url>
+curl -k --ntlm -u '<domain_netbios>\<user>:<password>' <url>
 ```
