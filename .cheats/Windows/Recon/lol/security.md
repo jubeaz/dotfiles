@@ -80,9 +80,14 @@ Get-NetFirewallProfile
 Get-NetFirewallSetting
 ```
 
-## show firewall rules
+## show inbound firewall rules
 ```
 Get-NetFirewallRule | Where { $_.Enabled -eq 'True' -and $_.Direction -eq 'Inbound' }
+```
+ 
+## show  firewall rules
+```powershell
+Show-NetfirewallRule| sort direction | ? enabled -eq "true" | ft -property @{label="Name" ; expression={$_.displayname}}, @{label="Direction" ; expression={$_.direction}}
 ```
 
 ## show firewall rules in active store

@@ -35,9 +35,21 @@ wmic /node:<REMOTE_HOST> process call create "powershell enable-psremoting -forc
 
 
 # powershell
-
 % windows, remote, winrm, 5985, 5986
 #plateform/linux  #target/remote  #protocol/winrm #port/5985 #port/5986
+
+## Get winrm config
+#plateform/windows #target/local #cat/RECON
+```powershell
+Test-WSMan
+```
+
+## Get winrm config
+#plateform/windows #target/local #cat/RECON
+```powershell
+winrm get winrm/config
+```
+
 
 ## Enable winrm (powershell)
 #plateform/windows #target/local #cat/UTILS 

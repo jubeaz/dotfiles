@@ -9,9 +9,20 @@
 chisel server -v -p <chisel_port> --reverse --socks5 
 ```
 
+## reverse pivot - server (powershell)
+```powershell
+Start-Job -ScriptBlock { Start-Process chisel.exe -ArgumentList @('server', '-p <chisel_port>',  '--reverse' '--socks5')} 
+```
+
 ## reverse pivot - client
 ```
 chisel client <chisel_server_ip>:<chisel_port> R:<socks_port>:socks
+```
+
+
+## reverse pivot - client (powershell)
+```powershell
+Start-Job -ScriptBlock { Start-Process chisel.exe -ArgumentList @('client','<chisel_server_ip>:<chisel_port>','R:<socks_port>:socks')}
 ```
 
 ## reverse pivot - local port forwarding (forward client port on server)

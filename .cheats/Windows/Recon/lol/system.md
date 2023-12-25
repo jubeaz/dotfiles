@@ -97,3 +97,8 @@ $env:computername
 ```
 Get-Date
 ```
+
+## show mounted disks
+```powershell
+Get-PSDrive
+```

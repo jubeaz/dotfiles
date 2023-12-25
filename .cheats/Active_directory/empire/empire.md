@@ -10,7 +10,7 @@ docker pull bcsecurity/empire:latest
 
 ## server - start
 ```bash
-docker run -it -p 1337:1337 -p 5000:5000 -p 0.0.0.0:<empire_listener_port>:<empire_listener_port> bcsecurity/empire:latest
+docker run -it -p 1337:1337 -p 5000:5000 -p 0.0.0.0:<empire_listener_port>:<empire_listener_port> --name empire-server bcsecurity/empire:latest
 ```
 
 ## server - start (persistent storage)
@@ -22,7 +22,7 @@ docker create -v <empire_storage_path> --name data bcsecurity/empire:latest && d
 
 ## client - start
 ```bash
-empire-client --config ~/empire-client.yaml
+empire-client --config ~/.empire-client.yaml
 ```
 
 ## listerner - create https listener

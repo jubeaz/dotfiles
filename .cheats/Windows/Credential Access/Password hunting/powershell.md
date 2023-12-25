@@ -33,3 +33,8 @@ gci -recurse | % { gi $_.FullName -stream * } | where stream -ne ':$Data'
 REG QUERY HKLM /F "password" /t REG_SZ /S /K
 REG QUERY HKCU /F "password" /t REG_SZ /S /K
 ```
+
+## powershell - credential manager
+```powershell
+cmdkey /list
+```

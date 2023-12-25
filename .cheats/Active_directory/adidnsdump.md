@@ -2,21 +2,21 @@
 
 % dns,windows, Active directory
 
-## Dump all records from the domain controller
+## Dump DNS - all records from the domain controller
 #plateform/linux #target/remote #cat/RECON
 cat records.csv
 ```bash
 adidnsdump -u '<domain>\<user>' -p <password> --zone <domain> ldap://<dc_ip>:<port|389> -r
 ```
 
-## Dump all records from the domain controller (proxychains)
+## Dump DNS - all records from the domain controller (proxychains)
 #plateform/linux #target/remote #cat/RECON
 cat records.csv
 ```bash
 adidnsdump -u '<domain>\<user>' -p <password> --zone <domain> --dns-tcp ldap://<dc_ip>:<port|389> -r
 ```
 
-## list all zones
+## Dump DNS - list all zones
 #plateform/linux #target/remote #cat/RECON
 ```bash
 adidnsdump -u '<domain>\<user>' -p <password> --print-zones ldap://<dc_ip>:<port|389> -r

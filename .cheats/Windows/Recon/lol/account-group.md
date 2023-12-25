@@ -49,6 +49,11 @@ net group /domain
 net group /domain <domain_group_name>
 ```
 
+## get environment variabes
+```
+set
+```
+
 # powershell
 % windows, users, groups
 
@@ -78,4 +83,9 @@ Get-LocalGroup | ft Name
 ## local group members
 ```powershell
 Get-LocalGroupMember <group_name|Administrators> | ft Name, PrincipalSource
+```
+
+## get environment variabes
+```powershell
+ Get-Childitem -path env:
 ```
