@@ -200,7 +200,7 @@ runas /user:<domain>\<user> cmd.exe
 ```
 
 
-## List credentials
+## List credentials in credential manager
 #cat/POSTEXPLOIT/CREDS_RECOVER
 ```
 cmdkey /list

@@ -8,12 +8,15 @@
 
 #plateform/windows #target/local #cat/DEFENSE-EVASION #tag/powershell 
 
+## Defender - stop service
+```powershell
+```
+
 ## Defender - disable All
 
 ```powershell
 Set-MpPreference -DisableRealtimeMonitoring $true; Set-MpPreference -DisableIOAVProtection $true; Set-MPPreference -DisableBehaviourMonitoring $true; Set-MpPreference -DisableScriptScanning $true
 ```
-
 
 ## Defender - disable Real Time Monitoring 
 

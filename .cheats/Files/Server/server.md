@@ -2,17 +2,18 @@
 
 % server
 
-## python Simple HTTP server
+## python2 Simple HTTP server
 #plateform/linux #target/serve  #cat/ATTACK/LISTEN-SERVE 
 ```bash
 python -m SimpleHTTPServer <port|9090>
 ```
 
-## python3 Simple HTTP server
+## python Simple HTTP server
 #plateform/linux #target/serve  #cat/ATTACK/LISTEN-SERVE 
 ```bash
 python3 -m http.server <port|9090>
 ```
+
 
 ## php Simple builtin server
 #plateform/linux #target/serve  #cat/ATTACK/LISTEN-SERVE 

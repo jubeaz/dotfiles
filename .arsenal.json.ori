@@ -1,6 +1,9 @@
 {
     "chisel_login": "jubeaz",
     "chisel_password": "",
+    "updog_password": "",
+    "uploadserver_login": "jubeaz",
+    "uploadserver_password": "",
     "ip": "", 
     "ip_range": "", 
     "local_ip": "", 

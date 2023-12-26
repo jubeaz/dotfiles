@@ -32,3 +32,9 @@ Set-DomainObjectOwner -Identity <target_object> -OwnerIdentity <user>
 ```powershell
 Set-DomainObject <user> -Set @{'<property>'='<value>'} -Verbose
 ```
+
+## Enumerate Principals that can read LAPS
+#cat/RECON/DACL
+```powershell
+Get-DomainOU | Get-DomainObjectAcl -ResolveGUIDs | Where-Object {($_.ObjectAceType -like 'ms-Mcs-AdmPwd') -and ($_.ActiveDirectoryRights -match 'ReadProperty')} | ForEach-Object { $_ | Add-Member NoteProperty 'IdentityName' $(Convert-SidToName $_.SecurityIdentifier); $_ }
+```

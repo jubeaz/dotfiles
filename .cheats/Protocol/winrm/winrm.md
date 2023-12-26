@@ -15,7 +15,6 @@ winrm set winrm/config/service @{AllowUnencrypted="true"}
 winrm set winrm/config/service/auth @{Basic="true"}
 ```
 
-
 ## Enable winrm 4/4 (cmd)
 ```cmd
 winrm set winrm/config/client @{TrustedHosts="*"}
@@ -32,7 +31,6 @@ wmic /node:<REMOTE_HOST> process call create "powershell enable-psremoting -forc
 ```batchfile
 .\PsExec.exe \\<computername> -u <domain>\<username> -p <password> -h -d powershell.exe "enable-psremoting -force"  
 ```
-
 
 # powershell
 % windows, remote, winrm, 5985, 5986

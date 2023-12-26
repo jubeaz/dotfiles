@@ -52,9 +52,9 @@ REG QUERY HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Policies\
 sc.exe query windefend
 ```
 
-## get antivirus
+## Get antivirus
 ```
-WMIC /Node:localhost /Namespace:\\root\SecurityCenter2 Path AntivirusProduct Get displayNa
+wmic.exe /Node:localhost /Namespace:\\root\SecurityCenter2 Path AntiVirusProduct Get displayName /Format:List
 ```
 
 
@@ -63,25 +63,28 @@ WMIC /Node:localhost /Namespace:\\root\SecurityCenter2 Path AntivirusProduct Get
 
 #plateform/windows #target/local #cat/RECON/SECURITY #tag/powershell 
 
-## get firewall commands
+## applocker policy
+```powershell
+Get-AppLockerPolicy -Effective | select -ExpandProperty RuleCollections
 ```
+
+## get firewall commands
+```powershell
 Get-Command -Noun NetFirewall* -verb Get
 ```
 
-
 ## show firewall config
-```
+```powershell
 Get-NetFirewallProfile
 ```
 
-
 ## show firewall settings
-```
+```powershell
 Get-NetFirewallSetting
 ```
 
 ## show inbound firewall rules
-```
+```powershell
 Get-NetFirewallRule | Where { $_.Enabled -eq 'True' -and $_.Direction -eq 'Inbound' }
 ```
  
@@ -98,7 +101,7 @@ Get-NetFirewallRule -PolicyStore ActiveStore
 ## show UAC status
 0 : inactive
 1 : active
-```
+```powershell
 Get-ItemProperty HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System -Name EnableLUA
 ```
 
@@ -109,49 +112,54 @@ Get-ItemProperty HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System
 3: like 1 but not necessary on Secure Desktop
 4: like 2 but not necessary on Secure Desktop
 5: ask the administrator to confirm to run non Windows binaries with high privileges
-```
+```powershell
 Get-ItemProperty HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System -Name ConsentPromptBehaviorAdmin
 ```
 
 ## show UAC remote administration tasks
 0 (default): built-in Administrator account can do remote administration tasks
 1: built-in account Administrator cannot do remote administration tasks
-```
+```powershell
 Get-ItemProperty HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System -Name LocalAccountTokenFilterPolicy
 ```
 
-## get defender commands
+## ## Defender - get antivirus
+```powershell
+wmic.exe /Node:localhost /Namespace:\\root\SecurityCenter2 Path AntiVirusProduct Get displayName /Format:List
 ```
+
+## Defender - get powershell commands
+```powershell
 Get-Command -Module Defender
 ```
 
-## get defender service Status
-```
+## Defender - get service Status
+```powershell
 (Get-Service windefend).Status
 ```
 
-## get defender status
-```
+## Defender - get status
+```powershell
 Get-MpComputerStatus
 ```
 
-## get defender defensive modules status
-```
-Get-MpComputerStatus | Select RealTimeProtectionEnabled, IoavProtectionEnabled,Antispyware | FL
+## Defender - get defensive modules status
+```powershell
+Get-MpComputerStatus | Select RealTimeProtectionEnabled, IoavProtectionEnabled, Antispyware | FL
 ```
 
-## get defender tamper protection status
-```
+## Defender - get tamper protection status
+```powershell
 Get-MpComputerStatus | Select IsTamperProtected, RealTimeProtectionEnabled | FL
 ```
 
-## get defender exclusions path
-```
+## Defender - get exclusions path
+```powershell
 Get-MpPreference | Select-Object -ExpandProperty ExclusionPath, ExclusionExtension
 ```
 
-## get defender exclusions extension
-```
+## Defender - get exclusions extension
+```powershell
 Get-MpPreference | Select-Object  ExclusionExtension
 ```
 
