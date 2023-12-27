@@ -2,7 +2,7 @@
 
 % DonPAPI, dpapi
 
-#plateform/windows  #target/local  #cat/CREDENTIAL-ACCESS/CREDS_RECOVER 
+#plateform/linux  #target/remote  #cat/CREDENTIAL-ACCESS/CREDS_RECOVER 
 
 ## DonPAPI - Dump all secrets of the target machine with Local Admin
 ```

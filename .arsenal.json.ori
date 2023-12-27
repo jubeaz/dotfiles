@@ -41,6 +41,8 @@
     "custom_wordlist": "myCustomWordlist.txt",
     "empire_storage_path": "/empire",
     "empire_listener_port": "443",
-    "empire_listener_name": "jubeaz"
+    "empire_listener_name": "jubeaz",
+    "windows_writable_path": "c:\\windows\\temp"
+
 }
 

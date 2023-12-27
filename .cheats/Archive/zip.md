@@ -53,7 +53,6 @@ unzip <file>.zip -d <destination_folder>
 
 #plateform/windows #target/local #cat/UTILS  #tag/powershell 
 
-
 ## unzip file
 #plateform/windows #target/local #cat/UTILS #tag/powershell 
 ```powershell

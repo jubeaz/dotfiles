@@ -1,11 +1,11 @@
 # powershell
 
-#plateform/windows #target/local #cat/UTIL #tag/powershell 
+#plateform/windows #target/local #cat/UTILS #tag/powershell 
 
 
 ## env - add binary path
 ```powershell
-$env:PATH += ";<path>"
+$env:PATH += ";<windows_writable_path>"
 ```
 
 ## env - list 

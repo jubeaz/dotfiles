@@ -19,13 +19,3 @@ netsh Advfirewall set allprofiles state off
 ```cmd
 netsh advfirewall firewall add rule name="TCP Port <port>" dir=in action=allow protocol=TCP localport=<port>
 ```
-
-
-
-# powershell
-% windows, defense evasion
-
-## turn off all available firewall profiles
-```powershell
-Set-NetFirewallProfile -Profile Domain,Public,Private -Enabled False
-```

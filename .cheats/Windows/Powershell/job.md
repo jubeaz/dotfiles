@@ -1,6 +1,6 @@
 # powershell
 
-#plateform/windows #target/local #cat/UTIL #tag/powershell 
+#plateform/windows #target/local #cat/UTILS #tag/powershell 
 
 
 ## job - start binary

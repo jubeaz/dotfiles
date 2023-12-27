@@ -36,14 +36,54 @@ Get-MpComputerStatus | Select IsTamperProtected, RealTimeProtectionEnabled | FL
 
 ## defender - get exclusions path
 ```powershell
-Get-MpPreference | Select-Object -ExpandProperty ExclusionPath, ExclusionExtension
+Get-MpPreference | Select-Object -Property ExclusionPath, ExclusionExtension
 ```
 
 ## defender - get exclusions extension
 ```powershell
-Get-MpPreference | Select-Object  ExclusionExtension
+Get-MpPreference | Select-Object  -Property ExclusionExtension
 ```
 
-Set-ItemProperty -Path 'HKLM:\SOFTWARE\Microsoft\Windows Defender\Features' -Name TamperProtection -Value 0
 
-reg add 'HKLM\SOFTWARE\Microsoft\Windows Defender\Features'/v %value% /d %newVal% /f
+#cat/DEFENSE-EVASION/SECURITY/DEFENDER
+
+## Defender - stop service
+```powershell
+```
+
+## Defender - disable All
+```powershell
+Set-MpPreference -DisableRealtimeMonitoring $true; Set-MpPreference -DisableIOAVProtection $true; Set-MPPreference -DisableBehaviourMonitoring $true; Set-MpPreference -DisableScriptScanning $true
+```
+
+## Defender - disable Real Time Monitoring 
+```powershell
+Set-MpPreference -DisableRealtimeMonitoring $true
+```
+
+## Defender - Disable scanning for downloaded or attachments
+```powershell
+Set-MpPreference -DisableIOAVProtection $true
+```
+
+## Defender - Disable behaviour monitoring
+```powershell
+Set-MPPreference -DisableBehaviourMonitoring $true
+```
+
+## Defender - Disable AMSI
+```powershell
+Set-MpPreference -DisableScriptScanning $true
+```
+
+
+## Defender - Add path to exclusions
+```powershell
+$p = "<path|c:\temp>" ; Add-MpPreference -ExclusionPath $p -AttackSurfaceReductionOnlyExclusions $p
+```
+
+
+## Defender - Add extension to exclusions
+```powershell
+Set-MpPreference -ExclusionExtension "<extension|ps1>"
+```
