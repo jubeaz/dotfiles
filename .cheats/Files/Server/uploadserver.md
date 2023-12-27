@@ -8,7 +8,6 @@
 pipx install uploadserver
 ```
 
-
 ## python upload HTTP server (basic auth)
 sudo socat TCP-LISTEN:80,fork TCP:localhost:9090
 ```bash

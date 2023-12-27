@@ -39,6 +39,11 @@ hashcat -m 5500 -a 0 hashes <password_wl>
 hashcat -m 5600 -a 0 hashes <password_wl> 
 ```
 
+## hashcat - Kerbero 5 AS-REP
+```bash
+Hashcat -m 18200 -a 0 hashes <password_wl>
+```
+
 ## hashcat - NTLMv2 - Combination attack (ex:passpass,testtest,passtest,etc)
 ```
 hashcat -m 5600 --force -a 1 hashes <custom_wordlist> <custom_wordlist>

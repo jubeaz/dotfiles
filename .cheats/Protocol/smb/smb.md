@@ -7,10 +7,20 @@
 nbtscan -r <ip_range>
 ```
 
-## smbclient (cred)
+## interactive (cred)
 #plateform/linux #target/remote #port/445 #protocol/smb #cat/ATTACK/CONNECT  
-```
+```bash
 smbclient \\\\<ip>\\<share> -U '<user>%<password>' -W <domain>
+```
+
+## recursive download (cred)
+```bash
+smbclient \\\\<ip>\\<share> -U '<user>%<password>' -W <domain>-c 'prompt OFF; recurse ON;  mget *'
+```
+
+## recursive list (cred)
+```bash
+smbclient \\\\<ip>\\<share> -U '<user>%<password>' -W <domain>-c 'prompt OFF; recurse ON;  ls'
 ```
 
 ## smbclient (pth)

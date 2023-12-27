@@ -17,6 +17,11 @@ can perform multiple -L
 ```
 ssh -q -L <local_port>:<remote_host>:<remote_port> <user>@<ip>
 ```
+## sshpass 
+#cat/PIVOT/TUNNEL-PORTFW 
+```
+sshpass -p <password> ssh <user>@<ip>
+```
 
 ## sshpass local port forwarding (get remote_port on local)
 #cat/PIVOT/TUNNEL-PORTFW 
@@ -70,4 +75,16 @@ msfconsole -x "use scanner/ssh/ssh_enumusers; set RHOSTS <ip>; set USER_FILE <us
 #cat/UTILS 
 ```
 ssh -oKexAlgorithms=+diffie-hellman-group1-sha1 <user>@<ip>
+```
+
+## putty - extract private key from .ppk
+#cat/UTILS 
+```
+puttygen <ppk_file> -O private-openssh -o <private_key>
+```
+
+## putty - extract private key from .ppk
+#cat/UTILS 
+```
+puttygen <ppk_file> -O public-openssh -o <private_key>
 ```

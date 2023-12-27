@@ -13,7 +13,13 @@ echo %logonserver%
 
 #plateform/windows #target/local #cat/RECON/AD #tag/powershell 
 
-# get current DC
-```powershell
-Get-ADDomainController
+
+## system - get user password policy
+```
+Get-ADUserResultantPasswordPolicy -Identity <user>
+```
+
+## system - get default password policy
+```
+Get-ADDefaultDomainPasswordPolicy
 ```

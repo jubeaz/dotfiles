@@ -5,24 +5,27 @@
 #plateform/linux  #target/remote  #cat/PIVOT 
 
 ## reverse pivot - server
-```
+```bash
 chisel server -v -p <chisel_port> --reverse --socks5 
 ```
 
 ## reverse pivot - server (powershell)
+probable unfiltered ports:
+    https://learn.microsoft.com/en-us/troubleshoot/windows-server/networking/service-overview-and-network-port-requirements
+
 ```powershell
-Start-Job -ScriptBlock { Start-Process chisel.exe -ArgumentList @('server', '-p <chisel_port>',  '--reverse' '--socks5')} 
+Start-Job -Name chisel-server -ScriptBlock { Start-Process chisel.exe -ArgumentList @('server', '-p', '<chisel_port>',  '--reverse' '--socks5')} 
 ```
 
 ## reverse pivot - client
-```
+```bash
 chisel client <chisel_server_ip>:<chisel_port> R:<socks_port>:socks
 ```
 
 
 ## reverse pivot - client (powershell)
 ```powershell
-Start-Job -ScriptBlock { Start-Process chisel.exe -ArgumentList @('client','<chisel_server_ip>:<chisel_port>','R:<socks_port>:socks')}
+Start-Job -Name chisel-client -ScriptBlock { Start-Process chisel.exe -ArgumentList @('client','<chisel_server_ip>:<chisel_port>','R:<socks_port>:socks')}
 ```
 
 ## reverse pivot - local port forwarding (forward client port on server)
@@ -33,6 +36,9 @@ forward {clientside-host}:{clientside-port} to server {local-port} To get the po
 
 ## reverse pivot - remote port forwarding (forward server port on client)
 To expose server port remotely (useful to expose your listener)
+probable unfiltered ports:
+    https://learn.microsoft.com/en-us/troubleshoot/windows-server/networking/service-overview-and-network-port-requirements
+    
 forward {serverside-host}:{serverside-port} from the server to {clientside-host}:{clientside-port}
 ex : 0.0.0.0:4445:127.0.0.1:4444 expose the server 4444 listener to client 4445
 ```
