@@ -3,7 +3,7 @@
 % hekatomb, dpapi
 
 ## hekatomb -
-#plateform/linux  #target/remote  #cat/CREDENTIAL-ACCESS/CREDS_RECOVER 
+#plateform/linux  #target/remote  #cat/CREDENTIAL-ACCESS/DPAPI 
 
 https://github.com/Processus-Thief/HEKATOMB
 ```

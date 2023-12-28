@@ -1,4 +1,4 @@
-# powershell
+# pwsh
 % windows, security, antivirus, defender
 
 #plateform/windows #target/local #cat/RECON/SECURITY/DEFENDER #tag/powershell 
@@ -49,11 +49,12 @@ Get-MpPreference | Select-Object  -Property ExclusionExtension
 
 ## Defender - stop service
 ```powershell
+(Get-Service windefend).stop
 ```
 
 ## Defender - disable All
 ```powershell
-Set-MpPreference -DisableRealtimeMonitoring $true; Set-MpPreference -DisableIOAVProtection $true; Set-MPPreference -DisableBehaviourMonitoring $true; Set-MpPreference -DisableScriptScanning $true
+Set-MpPreference -DisableRealtimeMonitoring $true; Set-MpPreference -DisableIOAVProtection $true;  Set-MpPreference -DisableScriptScanning $true
 ```
 
 ## Defender - disable Real Time Monitoring 

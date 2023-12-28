@@ -4,7 +4,7 @@
 #plateform/windows #target/local #cat/POSTEXPLOIT
 
 
-# powershell
+# pwsh
 % windows, network
 
 #plateform/windows #target/local #cat/POSTEXPLOIT #tag/powershell 

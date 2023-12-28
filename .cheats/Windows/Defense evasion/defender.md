@@ -3,7 +3,7 @@
 #plateform/windows #target/local #cat/DEFENSE-EVASION
 
 
-# powershell
+# pwsh
 % windows, defense evasion
 
 #plateform/windows #target/local #cat/DEFENSE-EVASION #tag/powershell 

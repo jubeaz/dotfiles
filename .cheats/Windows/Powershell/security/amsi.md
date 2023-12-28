@@ -1,4 +1,4 @@
-# powershell
+# pwsh
 % windows, security, amsi
 
 #plateform/windows #target/local #cat/RECON/SECURITY/AMSI #tag/powershell 

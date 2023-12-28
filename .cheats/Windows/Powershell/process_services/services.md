@@ -1,4 +1,4 @@
-# powershell
+# pwsh
 % windows, service
 
 #plateform/windows #target/local #cat/RECON/SERVICES #tag/powershell 

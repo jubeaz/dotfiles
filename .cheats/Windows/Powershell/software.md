@@ -1,4 +1,4 @@
-# powershell
+# pwsh
 % windows, software
 
 #plateform/windows #target/local #cat/RECON/SOFTWARE #tag/powershell 

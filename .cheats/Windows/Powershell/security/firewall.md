@@ -1,35 +1,62 @@
 
-# powershell
+# pwsh
 % windows, security
 
 #plateform/windows #target/local #cat/RECON/SECURITY/FIREWALL #tag/powershell 
 
-## firewall - get firewall commands
+## firewall - list commands
 ```powershell
-Get-Command -Noun NetFirewall* -verb Get
+Get-Command -Module NetSecurity
 ```
 
-## firewall - show firewall config
+## firewall - get status
 ```powershell
-Get-NetFirewallProfile
+Get-NetFirewallProfile | ft Name,Enabled
 ```
 
-## firewall - show firewall settings
+## firewall - get active profile
 ```powershell
-Get-NetFirewallSetting
+ Get-NetFirewallSetting -PolicyStore ActiveStore | Select-Object -ExpandProperty ActiveProfile
 ```
 
-## firewall - show inbound firewall rules
+##  firewall -  get active profile active rules (summary)
 ```powershell
-Get-NetFirewallRule | Where { $_.Enabled -eq 'True' -and $_.Direction -eq 'Inbound' }
-```
- 
-## firewall - show  firewall rules
-```powershell
-Show-NetfirewallRule| sort direction | ? enabled -eq "true" | ft -property @{label="Name" ; expression={$_.displayname}}, @{label="Direction" ; expression={$_.direction}}
+Get-NetFirewallRule -Enabled true -Direction '<direction|Inbound>' -PolicyStore ActiveStore |  Format-Table -Property Profile, Name,DisplayName, Action
 ```
 
-## firewall - show firewall rules in active store
+##  firewall -  get active profile active rules (detailed)
 ```powershell
-Get-NetFirewallRule -PolicyStore ActiveStore
+Get-NetFirewallRule -Enabled true -Direction '<direction|Inbound>' -PolicyStore ActiveStore | Format-Table -Property Name,DisplayName, @{Name='Protocol';Expression={($PSItem | Get-NetFirewallPortFilter).Protocol}}, @{Name='LocalPort';Expression={($PSItem | Get-NetFirewallPortFilter).LocalPort}},@{Name='RemotePort';Expression={($PSItem | Get-NetFirewallPortFilter).RemotePort}}, @{Name='RemoteAddress';Expression={($PSItem | Get-NetFirewallAddressFilter).RemoteAddress}},
+Action
 ```
+
+## firewall - disable (profile)
+#cat/DEFENSE-EVASION/SECURITY/DEFENDER
+```powershell
+Set-NetFirewallProfile -Profile <profile|*> -Enabled False
+```
+
+## Firewall - add allow inbound rule
+#cat/DEFENSE-EVASION/SECURITY/DEFENDER
+```powershell
+New-NetFirewallRule -DisplayName "<name|jubeaz>" -Profile Any -Enabled True -Direction Inbound -Action Allow -RemoteAddress <r_ip|Any> -Protocol <proto|TCP>  -LocalAddress <l_ip|Any> -LocalPort <port>  
+```
+
+## Firewall - add allow outbound rule
+#cat/DEFENSE-EVASION/SECURITY/DEFENDER
+```powershell
+New-NetFirewallRule -DisplayName "<name|jubeaz>" -Profile Any -Enabled True -Direction Outbound -Action Allow -RemoteAddress <r_ip|Any> -LocalPort <port|Any> -Protocol <proto|TCP>  -LocalAddress <l_ip|Any>  
+```
+
+## Firewall - disable 
+#cat/DEFENSE-EVASION/SECURITY/DEFENDER
+```powershell
+Set-NetFirewallRule -DisplayName <name> -Enabled false
+```
+
+## Firewall - remove rule
+#cat/DEFENSE-EVASION/SECURITY/DEFENDER
+```powershell
+Remove-NetFirewallRule -DisplayName <name>
+```
+

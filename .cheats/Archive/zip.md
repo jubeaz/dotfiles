@@ -49,7 +49,7 @@ unzip <file>.zip
 unzip <file>.zip -d <destination_folder>
 ```
 
-# powershell
+# pwsh
 
 #plateform/windows #target/local #cat/UTILS  #tag/powershell 
 

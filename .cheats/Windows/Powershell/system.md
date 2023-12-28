@@ -1,5 +1,5 @@
 
-# powershell
+# pwsh
 % windows, systeminfo
 
 #plateform/windows #target/local #cat/RECON/SYSTEM #tag/powershell 

@@ -1,4 +1,4 @@
-# powershell
+# pwsh
 
 #plateform/windows #target/local #cat/UTILS #tag/powershell 
 

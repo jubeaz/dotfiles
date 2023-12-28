@@ -1,6 +1,6 @@
 # windows
 
-#plateform/windows #target/local #cat/PRIVESC/TOKEN
+#plateform/windows #target/local #cat/PRIVESC/SERVICE
 
 
 

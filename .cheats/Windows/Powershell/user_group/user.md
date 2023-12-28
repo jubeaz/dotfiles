@@ -1,5 +1,5 @@
 
-# powershell
+# pwsh
 % windows, users, groups
 
 #plateform/windows #target/local #cat/RECON/USER #tag/powershell 

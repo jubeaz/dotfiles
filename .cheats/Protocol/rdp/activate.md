@@ -34,7 +34,7 @@ netsh.exe advfirewall firewall add rule name="Remote Desktop - User Mode (TCP-In
 netsh firewall add portopening TCP 3389 "Remote Desktop"
 ```
 
-# powershell
+# pwsh
 % rdp, windows, 3389
 #plateform/windows  #target/local  #protocol/rdp #port/3389 #cat/POSTEXPLOIT  #tag/powershell 
 

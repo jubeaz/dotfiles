@@ -1,4 +1,4 @@
-# powershell
+# pwsh
 % windows, security, applocker
 
 #plateform/windows #target/local #cat/RECON/SECURITY/APPLOCKER #tag/powershell 

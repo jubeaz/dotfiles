@@ -1,6 +1,6 @@
 
 
-# powershell
+# pwsh
 % windows, process
 
 #plateform/windows #target/local #cat/RECON/PROCESS #tag/powershell 

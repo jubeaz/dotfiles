@@ -1,4 +1,4 @@
-# powershell
+# pwsh
 % windows, security, UAC
 
 #plateform/windows #target/local #cat/RECON/SECURITY/UAC #tag/powershell 
