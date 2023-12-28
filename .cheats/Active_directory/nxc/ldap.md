@@ -1,8 +1,7 @@
 # nxc
 
 % nxc-ldap, netexec, windows, Active directory
-#plateform/linux #target/remote #port/389 #port/639 #protocol/ldap #cat/RECON 
-
+#plateform/linux #target/remote #port/389 #port/639 #protocol/ldap #cat/AD/RECON 
 
 ## ldap - LDAP connection
 edit /etc/hosts

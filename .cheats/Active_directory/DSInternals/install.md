@@ -1,3 +1,0 @@
-# DSInternals
-
-% DSInternals, , Active directory

@@ -28,5 +28,5 @@ socat file:`tty`,raw,echo=0 tcp-listen:<listner_port|4444>
 
 ## local port redirection
 ```bash
-sudo socat TCP-LISTEN:<listen_port>,fork TCP:localhost:<redirection_port>
+sudo socat TCP-LISTEN:<listen_port>,fork TCP:<redirection_ip|localhost>:<redirection_port>
 ```

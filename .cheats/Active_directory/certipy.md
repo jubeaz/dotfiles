@@ -1,28 +1,25 @@
 # certipy
 
 % adcs, certificate, pki, windows, Active directory, template, shadow credential
+#plateform/linux #target/remote #cat/AD/RECON
 
 ## enum -  list enabled certificate templates 
-#plateform/linux #target/remote #cat/RECON
 ```
 certipy find -enabled  -hide-admins -u <user>@<domain> -p '<password>' -dc-ip <dc-ip> [-stdout]
 ```
 
 ## enum - list enabled certificate templates (socks)
-#plateform/linux #target/remote #cat/RECON
 add CA to /etc/hosts
 ```
 certipy find -enabled -hide-admins -u <user>@<domain> -p '<password>' -dc-ip <dc-ip> -ns <dc-ip> -dns-tcp [-stdout]
 ```
 
 ## enum - list vulnerable certificate templates 
-#plateform/linux #target/remote #cat/RECON
 ```
 certipy find -vulnerable -hide-admins -u <user>@<domain> -p '<password>' -dc-ip <dc-ip> [-stdout]
 ```
 
 ## enum - list vulnerable certificate templates (socks)
-#plateform/linux #target/remote #cat/RECON
 add CA to /etc/hosts
 ```
 certipy find -vulnerable -hide-admins -u <user>@<domain> -p '<password>' -dc-ip <dc-ip> -ns <dc-ip> -dns-tcp [-stdout]
@@ -34,7 +31,6 @@ certipy find -enabled  -u <user>@<domain> -p '<password>' -dc-ip <dc-ip> -ns <dc
 ```
 
 ## request certificate
-#plateform/linux #target/remote #cat/ATTACK
 ```
 certipy req -u <user>@<domain> -p '<password>' -target <ca-fqdn> -template <template> -ca <certificate-authority>
 ```
@@ -46,7 +42,6 @@ certipy cert -pfx <pfx> -nokey -out <file>.crt -password <password|jubeaz>
 ```
 
 ## extract key from pfx
-#plateform/linux #target/remote #cat/RECON
 ```
 certipy cert -pfx <pfx> -nocert -out <file>.key -password <password|jubeaz>
 ```

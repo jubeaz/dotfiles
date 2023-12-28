@@ -1,11 +1,8 @@
 # SpoolerScanner
-
-% printerbug, coerce, Active directory
-
+% printerbug, coerce, Active directory, https://github.com/vletoux/SpoolerScanner
+#plateform/windows  #target/remote #cat/RECON
 
 ## scan
-#plateform/windows  #target/remote #cat/RECON
-https://github.com/vletoux/SpoolerScanner
 ```
 spoolerScanner
 ```
