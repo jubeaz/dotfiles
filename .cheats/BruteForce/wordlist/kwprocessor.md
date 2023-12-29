@@ -1,7 +1,7 @@
 # kwprocessor
 % wordlist, bruteforce, keyboard walk
 
-#plateform/linux #target/local #cat/UTILS  
+#plateform/linux #target/local #cat/UTIL/WORDLIST
 
 ## keywalk gen
 ```bash

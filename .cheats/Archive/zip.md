@@ -49,18 +49,3 @@ unzip <file>.zip
 unzip <file>.zip -d <destination_folder>
 ```
 
-# pwsh
-
-#plateform/windows #target/local #cat/UTILS  #tag/powershell 
-
-## unzip file
-#plateform/windows #target/local #cat/UTILS #tag/powershell 
-```powershell
-Expand-Archive -Path <file> -DestinationPath <path>
-```
-
-## zip folder
-#plateform/windows #target/local #cat/UTILS #tag/powershell 
-```powershell
-Compress-Archive -Path <folder> -DestinationPath <file>
-```
