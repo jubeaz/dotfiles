@@ -61,6 +61,14 @@ alias blue_ansible="ansible-playbook /etc/ansible/playbooks/blue.yml"
 alias blue_rdp="xfreerdp /cert:ignore /u:vagrant /p:vagrant  /v:192.168.56.13 /h:1024 /w:1640 /drive:share,./ +drives"
 alias blue_winrm="evil-winrm -i 192.168.56.13 -u vagrant -p vagrant"
 
+#alias red_up="VAGRANT_CWD=/etc/ansible/vagrants/red vagrant up"
+#alias red_stop="VAGRANT_CWD=/etc/ansible/vagrants/red vagrant halt red"
+#alias red_destroy="VAGRANT_CWD=/etc/ansible/vagrants/red vagrant destroy red"
+#alias red_status="VAGRANT_CWD=/etc/ansible/vagrants/red vagrant status red"
+#alias red_ansible="ansible-playbook /etc/ansible/playbooks/blue.yml"
+#alias red_rdp="xfreerdp /cert:ignore /u:vagrant /p:vagrant  /v:192.168.56.14 /h:1024 /w:1640 /drive:share,./ +drives"
+#alias red_winrm="evil-winrm -i 192.168.56.14 -u vagrant -p vagrant"
+
 
 ##########################
 # routage

@@ -106,3 +106,14 @@ export TF_LOG=off
 export TF_CLI_CONFIG_FILE="$HOME/.terraformrc"
 # set vagrant
 export VAGRANT_HOME=/var/lib/vagrant
+
+
+# for i in $(ls /home/jubeaz/.figlet-fonts); do  echo $i; figlet -f $(echo $i | cut -d'.' -f 1) -d /home/jubeaz/.figlet-fonts "test"; done
+#figlet -f -d /home/jubeaz/.figlet-fonts "Jubeaz"
+#figlet -f Poison -d /home/jubeaz/.figlet-fonts "Jubeaz"
+#figlet -f sblood -d /home/jubeaz/.figlet-fonts "Jubeaz"
+#figlet -f santaclara -d /home/jubeaz/.figlet-fonts "Jubeaz"
+#figlet -f rebel -d /home/jubeaz/.figlet-fonts "Jubeaz"
+#figlet -f Fraktur -d /home/jubeaz/.figlet-fonts "Jubeaz"
+figlet -f Bloody -d /home/jubeaz/.figlet-fonts "Jubeaz"
+#figlet -f 3D-ASCII -d /home/jubeaz/.figlet-fonts "Jubeaz"
