@@ -1,6 +1,6 @@
-# AUR
+# Archlinux
 
-## install AUR
+## AUR - install AUR
 ```bash
 makepkg -si
 ```

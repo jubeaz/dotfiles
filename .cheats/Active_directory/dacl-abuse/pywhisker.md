@@ -46,7 +46,7 @@ pywhisker.py --dc-ip <dc_ip> -d <domain> -u <user> -H <nt_hash> --target <target
 ```
 
 
-# cross-domain - list all current KeyCredentials ID and creation time (cred) (TRUST)
+## cross-domain - list all current KeyCredentials ID and creation time (cred) (TRUST)
 #cat/ATTACK/AD/DACL-ABUSE
 ```
 pywhisker.py --dc-ip <target_dc_ip> --target-domain <target_domain> -d <domain> -u <user> -p <password> --target <target_user> --action "list"
