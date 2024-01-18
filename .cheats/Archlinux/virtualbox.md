@@ -2,14 +2,19 @@
 
 ## virtualbox - list vms
 ```bash
-VBoxManage
+vboxmanage list
 ```
 
 ## virtualbox - vm info
 ```bash
-VBoxManage showvminfo <vm_name>
+vboxmanage showvminfo <vm_name>
 ```
 ## virtualbox - vm delete
 ```bash
 vboxmanage unregistervm <vm_name> --delete
+```
+
+## virtualbox - vm disable nic
+```bash
+vboxmanage modifyvm <vm_name> --cableconnected<nic_id|1> <nic_status|off>
 ```

@@ -123,6 +123,10 @@ EXEC sp_linkedservers
 ```
 select * from master..sysservers
 ```
+## Trustable Links - Get Linked Servers logins (select)
+```
+SELECT  sp.name, s.name, ll.remote_name FROM sys.linked_logins ll INNER JOIN sys.server_principals sp ON ll.local_principal_id = sp.principal_id INNER JOIN sys.servers s ON s.server_id = ll.server_id
+```
 
 ## Trustable Links - Execute queries
 ```

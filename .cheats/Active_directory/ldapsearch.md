@@ -102,6 +102,11 @@ ldapsearch -LLL  -H ldap://<dc_ip> -x -D <user>@<domain> -w '<password>' -b 'CN=
 "(&(objectCategory=user)(msds-allowedtodelegateto=*))"  samaccountname, msDS-AllowedToDelegateTo
 ```
 
+## User req - with Unconstrained Delegation
+```
+"(&(objectCategory=user)(userAccountControl:1.2.840.113556.1.4.803:=524288))" samaccountname  
+```
+
 ## Groups req - all
 ```
 '(objectCategory=group)'
