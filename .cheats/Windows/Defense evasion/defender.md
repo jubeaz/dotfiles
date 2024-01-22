@@ -8,6 +8,13 @@
 
 #plateform/windows #target/local #cat/DEFENSE-EVASION #tag/powershell 
 
+## knowledge
+```powershell
+https://github.com/jeremybeaume/tools/blob/master/disable-defender.ps1
+https://wirediver.com/disable-windows-defender-in-powershell/
+```
+
+
 ## Defender - stop service
 ```powershell
 ```
