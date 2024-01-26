@@ -1,6 +1,6 @@
 
 # pwsh
-% windows, security
+% windows, security, firewall
 
 #plateform/windows #target/local #cat/RECON/SECURITY/FIREWALL #tag/powershell 
 
@@ -40,8 +40,7 @@ Get-NetFirewallRule -Enabled true -Direction '<direction|Inbound>' -PolicyStore 
 
 ##  firewall -  get active profile active rules (detailed)
 ```powershell
-Get-NetFirewallRule -Enabled true -Direction '<direction|Inbound>' -PolicyStore ActiveStore | Format-Table -AutoSize -Property Name,DisplayName, @{Name='Protocol';Expression={($PSItem | Get-NetFirewallPortFilter).Protocol}}, @{Name='LocalPort';Expression={($PSItem | Get-NetFirewallPortFilter).LocalPort}},@{Name='RemotePort';Expression={($PSItem | Get-NetFirewallPortFilter).RemotePort}}, @{Name='RemoteAddress';Expression={($PSItem | Get-NetFirewallAddressFilter).RemoteAddress}},
-Action
+Get-NetFirewallRule -Enabled true -Direction '<direction|Inbound>' -PolicyStore ActiveStore | Format-Table -AutoSize -Property Name,DisplayName, @{Name='Protocol';Expression={($PSItem | Get-NetFirewallPortFilter).Protocol}}, @{Name='LocalPort';Expression={($PSItem | Get-NetFirewallPortFilter).LocalPort}},@{Name='RemotePort';Expression={($PSItem | Get-NetFirewallPortFilter).RemotePort}}, @{Name='RemoteAddress';Expression={($PSItem | Get-NetFirewallAddressFilter).RemoteAddress}},Action
 ```
 
 ## firewall - disable (profile)

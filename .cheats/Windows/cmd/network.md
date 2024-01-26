@@ -1,4 +1,4 @@
-# windows
+# cmd.exe
 % windows, network
 
 #plateform/windows #target/local #cat/RECON/NETWORK

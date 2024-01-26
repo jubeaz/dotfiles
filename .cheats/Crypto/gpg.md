@@ -63,3 +63,8 @@ gpg --clearsign <filename>
 ```
 gpg --output <filename_sig> --detach-sig <filename>
 ```
+
+## retrieve keys from a key server
+```
+gpg --recv-keys  <key-id>
+```

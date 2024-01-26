@@ -1,4 +1,4 @@
-# windows
+# cmd.exe
 % windows, systeminfo
 
 #plateform/windows #target/local #cat/RECON/SYSTEM
@@ -23,15 +23,9 @@ wmic qfe get Caption,Description,HotFixID,InstalledOn
 net accounts
 ```
 
-
 ## get hostname
 ```
 hostname
-```
-
-## get environment variables
-```
-set
 ```
 
 ## show mounted disks
