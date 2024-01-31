@@ -7,6 +7,19 @@ alias wol-yoki="wol 18:c0:4d:da:8c:77"
 alias pacmanz="pacman -Slq | fzf --multi --preview 'pacman -Si {1}'"
 alias pacmanzi="pacman -Qq | fzf --multi --preview 'pacman -Qi {1}'"
 
+#########################
+# wifi
+#########################
+alias wifi_on="sudo iwctl adapter phy0 set-property Powered on"
+alias wifi_off="sudo iwctl adapter phy0 set-property Powered off"
+alias wifi_scan="sudo iwctl station wlan0 scan"
+alias wifi_list="sudo iwctl station wlan0 get-networks"
+alias wifi_connect="sudo iwctl station wlan0 connect"
+alias wifi_status="sudo iwctl station wlan0 show"
+alias wifi_disconnect="sudo iwctl station wlan0 disconnect"
+
+
+
 ##########################
 # ssh
 ##########################
@@ -62,41 +75,20 @@ fi
 #alias blue_winrm="evil-winrm -i 192.168.56.13 -u vagrant -p vagrant"
 
 alias red_up="VAGRANT_CWD=/etc/ansible/vagrants/red vagrant up"
-alias red_stop="VAGRANT_CWD=/etc/ansible/vagrants/red vagrant halt red"
+alias red_halt="VAGRANT_CWD=/etc/ansible/vagrants/red vagrant halt red"
 alias red_destroy="VAGRANT_CWD=/etc/ansible/vagrants/red vagrant destroy red"
 alias red_status="VAGRANT_CWD=/etc/ansible/vagrants/red vagrant status red"
-alias red_ansible="ansible-playbook /etc/ansible/playbooks/red.yml"
-alias red_rdp="xfreerdp /cert:ignore /u:vagrant /p:vagrant  /v:192.168.56.14 /h:1024 /w:1640 /drive:share,./ +drives"
-alias red_winrm="evil-winrm -i 192.168.56.14 -u vagrant -p vagrant"
-alias netrunner_dc01="proxychains -q evil-winrm -i 192.168.56.10 -u administrator@weyland.local  -p 'Jubeaz12345+-'"
-alias netrunner_dc02="proxychains -q evil-winrm -i 192.168.56.20 -u administrator@research.weyland.local  -p 'Jubeaz12345+-'"
-alias netrunner_dc03="proxychains -q evil-winrm -i 192.168.56.30 -u administrator@haas.local  -p 'Jubeaz12345+-'"
-alias netrunner_srv01="proxychains -q evil-winrm -i 192.168.56.11 -u administrator@weyland.local  -p 'Jubeaz12345+-'"
+alias red_ansible="ansible-playbook -i /etc/ansible/lab_inventories/red/red.yml /etc/ansible/lab_playbooks/lab.yml"
 
+alias red_dc_rdp="xfreerdp /cert:ignore /u:jubeaz@hass.local /p:jubeaz  /v:192.168.2.20 /h:1024 /w:1640 /drive:share,./ +drives"
+alias red_srv_rdp="xfreerdp /cert:ignore /u:jubeaz@haas.local /p:jubeaz /v:192.168.2.21 /h:1024 /w:1640 /drive:share,./ +drives"
+alias red_ws_rdp="xfreerdp /cert:ignore /u:jubeaz@haas.local /p:jubeaz  /v:192.168.2.22 /h:1024 /w:1640 /drive:share,./ +drives"
+alias red_dc_winrm="evil-winrm -i 192.168.2.20 -u jubeaz@haas.local -p jubeaz"
+alias red_srv_winrm="evil-winrm -i 192.168.2.21 -u jubeaz@haas.local -p jubeaz"
+alias red_ws_winrm="evil-winrm -i 192.168.2.22 -u jubeaz@haas.local -p jubeaz"
 
-#alias netrunner_up="VAGRANT_CWD=/etc/ansible/vagrants/netrunner.local vagrant up"
-
-#alias netrunner_save="VAGRANT_CWD=/etc/ansible/vagrants/netrunner.local vagrant snapshot save"
-#alias netrunner_restore="VAGRANT_CWD=/etc/ansible/vagrants/netrunner.local vagrant snapshot restore"
-#alias netrunner_snapshots="VAGRANT_CWD=/etc/ansible/vagrants/netrunner.local vagrant snapshot list"
-
-#alias netrunner_stop="VAGRANT_CWD=/etc/ansible/vagrants/netrunner.local vagrant halt"
-#alias netrunner_destroy="VAGRANT_CWD=/etc/ansible/vagrants/netrunner.local vagrant destroy"
-#alias netrunner_status="VAGRANT_CWD=/etc/ansible/vagrants/netrunner.local vagrant status"
-
-#alias netrunner_ansible="ansible-playbook -i /etc/ansible/lab_inventories/netrunner/netrunner.yml /etc/ansible/lab_playbooks/lab.yml"
-
-alias netrunner_winrm_la="proxychains -q evil-winrm -u vagrant -p vagrant -i"
-alias netrunner_rdp_la="xproxychains -q xfreerdp /cert:ignore /u:vagrant /p:vagrant /h:1024 /w:1640 /drive:share,./ +drives"
-
-alias netrunner_rdp_wayland_da="xproxychains -q xfreerdp /cert:ignore /u:administrator@wayland.local /p:'Jubeaz12345!' /h:1024 /w:1640 /drive:share,./ +drives"
-alias netrunner_rdp_research_da="xproxychains -q xfreerdp /cert:ignore /u:administrator@research.wayland.local /p:'Jubeaz12345!' /h:1024 /w:1640 /drive:share,./ +drives"
-alias netrunner_rdp_haas_da="xproxychains -q freerdp /cert:ignore /u:administrator@research.wayland.local /p:'Jubeaz12345!' /h:1024 /w:1640 /drive:share,./ +drives"
-
-alias netrunner_winrm_wayland_da="xproxychains -q evil-winrm -u administrator@wayland.local -p 'Jubeaz12345!' -i"
-alias netrunner_winrm_research_da="xproxychains -q evil-winrm -u administrator@research.wayland.local -p 'Jubeaz12345!' -i"
-alias netrunner_winrm_haas_da="xproxychains -q evil-winrm -u administrator@research.wayland.local -p 'Jubeaz12345!' -i"
-
+alias netrunner_ansible="ansible-playbook -i /etc/ansible/lab_inventories/netrunner/netrunner.yml /etc/ansible/lab_playbooks/lab.yml"
+alias haas_ansible="ansible-playbook -i /etc/ansible/lab_inventories/haas/haas.yml /etc/ansible/lab_playbooks/lab.yml"
 
 
 

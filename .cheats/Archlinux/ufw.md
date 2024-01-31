@@ -24,9 +24,15 @@ sudo ufw logging <ufw_log_status|low>
 sudo ufw default <ufw_action|deny> <ufw_source|incoming>
 ```
 
-## add incoming rule
+
+## add incoming rule 
 ```bash
 sudo ufw <ufw_action|allow> proto <proto|tcp> from <ufw_allowed_cidr> to any port <ufw_port>
+``` 
+
+## add incoming rule (port range)
+```bash
+sudo ufw <ufw_action|allow> proto <proto|tcp> from <ufw_allowed_cidr> to any port <ufw_port_min>:<ufw_port_max>
 ``` 
 
 

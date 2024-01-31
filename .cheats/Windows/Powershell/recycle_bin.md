@@ -6,6 +6,12 @@
 ```powershell
 (( New-Object -ComObject shell.application).Namespace(10)).Items()
 ```
+
+## recyclebin - list (full)
+```
+https://jdhitsolutions.com/blog/powershell/7024/managing-the-recycle-bin-with-powershell/
+```
+
 ## recyclebin - restore
 ```powershell
 (( New-Object -ComObject shell.application).Namespace(10)).Items() | %{Copy-Item $_.Path ("C:\Temp\{0}" -f $_.Name)}
@@ -19,3 +25,4 @@ Get-ChildItem -LiteralPath 'C:\$Recycle.Bin' -File -Force -Recurse -ErrorAction 
 ## recyclebin - bins 
 ```powershell
 Get-Chi
+```
