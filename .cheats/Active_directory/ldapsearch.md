@@ -46,7 +46,7 @@ ldapsearch -LLL -x -H ldap://<IP> -b '' -s base '(objectclass=*)' | grep current
 
 ## FullRequest - get Machine Account Quota (MAQ)
 ```
-ldapsearch -LLL -x -H ldap://<IP> -b '' -s sub '(objectclass=domain)' | grep "ms-ds-machineaccountquota" -i
+ldapsearch -LLL  -H ldap://<dc_ip> -x -D <user>@<domain> -w '<password>' -b 'DC=<domain_netbios>,DC=<domain_tld>' -s sub '(objectclass=domain)' | grep "ms-ds-machineaccountquota" -i
 ```
 
 ## FullRequest - deleted objects
@@ -194,6 +194,13 @@ Windows Vista*
 ## Certificate req - certificate templates
 ```
 -b "CN=Certificate Templates,CN=Public Key Services,CN=Services,CN=Configuration,DC=<domain_netbios>,DC=<domain_tld>" 
+```
+
+
+## Certificate req - certificate templates (2)
+```
+-b 'CN=Configuration,DC=<domain_netbios>,DC=<domain_tld>' '(objectCategory=pKICertificateTemplate)'
+
 ```
 
 ## Certificate req - Public key services

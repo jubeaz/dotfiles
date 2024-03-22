@@ -4,6 +4,7 @@ import subprocess
 import json
 import urllib.request
 
+
 if __name__ == '__main__':
     result = subprocess.run(['nordvpn', 'status'], stdout=subprocess.PIPE)
     output = result.stdout.decode('utf-8').split('\n')
@@ -18,14 +19,12 @@ if __name__ == '__main__':
             data[clean] = value.strip()
     
     
-    if data['Status'] == 'Connected':
+    if data['Status'] is None:
         # block['text'] = 'unknown'
-        strvpn = " ,NordVPN"
+        str = " " + "NordVPN: " + "Unknown"
     else:
         # block['text'] = data['Status']
-        strvpn = ""
+        str = " " + "NordVPN: " + data['Status']
+    print(str, end='')
+    #print(json.dumps(data))
 
-    with urllib.request.urlopen("https://ipv4.geojs.io/v1/ip/geo.json") as url:
-        data = json.loads(url.read().decode())
-        str = " " + data['ip'] + " (" + data['city'] + ", " + data['country_code'] + f"{strvpn})"
-        print(str, end='')

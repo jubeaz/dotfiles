@@ -47,6 +47,17 @@ mycrypto() {
   echo -n "},"
 }
 
+nordvpn_status() {
+  local bg="#1976D2"
+  separator $bg "#FFD180"
+  echo -n ",{"
+  echo -n "\"name\":\"ip_public\","
+  echo -n "\"full_text\":\" $($XDG_CONFIG_HOME/i3status/nordvpn.py) \","
+  echo -n "\"background\":\"$bg\","
+  common
+  echo -n "},"
+}
+
 myip_public() {
   local bg="#1976D2"
   separator $bg "#FFD180"
@@ -208,7 +219,8 @@ echo '[]'                   # We send an empty first array of blocks to make the
 do
 	echo -n ",["
 #  mycrypto
-#  myip_public
+  myip_public
+#  nordvpn_status
 #  myvpn_on
   myip_local
   disk_usage
@@ -231,7 +243,10 @@ do
   # {"name":"id_vpn","button":1,"modifiers":["Mod2"],"x":2982,"y":9,"relative_x":67,"relative_y":9,"width":95,"height":22}
 
   # VPN click
-  if [[ $line == *"name"*"id_vpn"* ]]; then
+  if [[ $line == *"name"*"id_myip_public"* ]]; then
+    xdg-open https://browserleaks.com/ip > /dev/null &
+
+  elif [[ $line == *"name"*"id_vpn"* ]]; then
     alacritty -e $XDG_CONFIG_HOME/i3status/click_vpn.sh &
 
   # CHECK UPDATES
@@ -240,11 +255,11 @@ do
 
   # CPU
   elif [[ $line == *"name"*"id_cpu_usage"* ]]; then
-    alacritty -e htop &
+    lxterminal -e htop &
 
   # TIME
   elif [[ $line == *"name"*"id_time"* ]]; then
-    alacritty -e $XDG_CONFIG_HOME/i3status/click_time.sh &
+    lxterminal -e $XDG_CONFIG_HOME/i3status/click_time.sh &
 
   # METEO
 #  elif [[ $line == *"name"*"id_meteo"* ]]; then
@@ -256,7 +271,8 @@ do
 
   # VOLUME
   elif [[ $line == *"name"*"id_volume"* ]]; then
-    alacritty -e alsamixer &
+    #alacritty -e alsamixer &
+    pavucontrol &
 
   # LOGOUT
   elif [[ $line == *"name"*"id_logout"* ]]; then

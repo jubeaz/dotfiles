@@ -20,7 +20,7 @@ Receive-job -IncludeChildJob -Name <job_name>
 
 ## job - get properties
 ```powershell
-get-job -Name <job_name> Select-Object -Property * 
+get-job -Name <job_name> | Select-Object -Property * 
 ```
 
 ## job - get result 

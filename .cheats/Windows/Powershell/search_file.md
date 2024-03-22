@@ -4,7 +4,7 @@
 
 ## search file - containing a string
 ```powershell
-Get-ChildItem C:\ -Recurse -ErrorAction Ignore |  select-string '<pattern>' -List | select Path
+Get-ChildItem -Path <path|"C:\"> -Force -Recurse -ErrorAction Ignore |  select-string '<pattern>' -List -erroraction 'silentlycontinue' | select Path
 ```
 
 ## search file -  having extension
@@ -25,4 +25,14 @@ gci -recurse | % { gi $_.FullName -stream * } | where stream -ne ':$Data'
 ## search file - credential manager
 ```powershell
 cmdkey /list
+```
+
+## search file - linux strings (Ascii)
+```powershell
+$AsciiFileContents = Get-Content -Encoding 'UTF7' $File ; $AsciiRegex = [Regex] "[\x20-\x7E]{$MinimumLength,}"; $AsciiRegex.Matches($AsciiFileContents) | ForEach-Object { Write-Output $_.Value }
+```
+
+## search file - linux strings (Unicode)
+```powershell
+$UnicodeFileContents = Get-Content -Encoding 'Unicode' $File ; $AsciiRegex = [Regex] "[\x20-\x7E]{$MinimumLength,}" ; $Results = $AsciiRegex.Matches($AsciiFileContents) | ForEach-Object { Write-Output $_.Value }
 ```

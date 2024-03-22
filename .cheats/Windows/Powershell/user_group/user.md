@@ -21,13 +21,11 @@ Get-LocalUser | ft Name,Enabled,LastLogon
 ```
 
 ## user - add local user
-```
+```powershell
 New-LocalUser -FullName '<fname|jubeaz>' -Name <name|jubeaz> -Password <password|Jubeaz12345!> ‑Description 'Pwnage account'  
 ```
 
-
-
 ## user - change user password (reset domain)
-```
+```powershell
 Set-ADAccountPassword -Identity <target_user> -Reset -NewPassword (ConvertTo-SecureString -AsPlainText "<password|Jubeaz12345!>" -Force)
 ```

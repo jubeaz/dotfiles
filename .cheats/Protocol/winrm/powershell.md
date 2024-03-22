@@ -12,6 +12,7 @@ Test-WSMan
 #plateform/windows #target/local #cat/RECON
 ```powershell
 winrm get winrm/config
+get-childitem -Recurse -Path WSMan:
 ```
 
 ## Enable winrm (powershell)

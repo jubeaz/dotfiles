@@ -18,6 +18,19 @@ alias wifi_connect="sudo iwctl station wlan0 connect"
 alias wifi_status="sudo iwctl station wlan0 show"
 alias wifi_disconnect="sudo iwctl station wlan0 disconnect"
 
+#########################
+# nordvpn
+#########################
+alias nord_login="nordvpn login --token $(cat ~/.config/nordvpn.token)"
+alias nord_logout="nordvpn logout"
+alias nord_lynx="nordvpn set technology nordlynx"
+alias nord_countries="nordvpn countries"
+alias nord_cities="nordvpn cities"
+alias nord_connect="nordvpn connect"
+alias nord_disconnect="nordvpn disconnect"
+alias nord_kill_on="nordvpn set killswitch enabled"
+alias nord_kill_off="nordvpn set killswitch disabled"
+
 
 
 ##########################
@@ -80,12 +93,12 @@ alias red_destroy="VAGRANT_CWD=/etc/ansible/vagrants/red vagrant destroy red"
 alias red_status="VAGRANT_CWD=/etc/ansible/vagrants/red vagrant status red"
 alias red_ansible="ansible-playbook -i /etc/ansible/lab_inventories/red/red.yml /etc/ansible/lab_playbooks/lab.yml"
 
-alias red_dc_rdp="xfreerdp /cert:ignore /u:jubeaz@hass.local /p:jubeaz  /v:192.168.2.20 /h:1024 /w:1640 /drive:share,./ +drives"
-alias red_srv_rdp="xfreerdp /cert:ignore /u:jubeaz@haas.local /p:jubeaz /v:192.168.2.21 /h:1024 /w:1640 /drive:share,./ +drives"
-alias red_ws_rdp="xfreerdp /cert:ignore /u:jubeaz@haas.local /p:jubeaz  /v:192.168.2.22 /h:1024 /w:1640 /drive:share,./ +drives"
-alias red_dc_winrm="evil-winrm -i 192.168.2.20 -u jubeaz@haas.local -p jubeaz"
-alias red_srv_winrm="evil-winrm -i 192.168.2.21 -u jubeaz@haas.local -p jubeaz"
-alias red_ws_winrm="evil-winrm -i 192.168.2.22 -u jubeaz@haas.local -p jubeaz"
+alias red_dc_rdp="xfreerdp /cert:ignore /u:jubeaz@hass.local /p:jubeaz  /v:172.16.0.1 /h:1024 /w:1640 /drive:share,./ +drives"
+alias red_srv_rdp="xfreerdp /cert:ignore /u:jubeaz@haas.local /p:jubeaz /v:172.26.0.10 /h:1024 /w:1640 /drive:share,./ +drives"
+alias red_ws_rdp="xfreerdp /cert:ignore /u:jubeaz@haas.local /p:jubeaz  /v:172.16.0.20 /h:1024 /w:1640 /drive:share,./ +drives"
+alias red_dc_winrm="evil-winrm -i 172.16..0.1 -u jubeaz@haas.local -p jubeaz"
+alias red_srv_winrm="evil-winrm -i 172.16.0.10 -u jubeaz@haas.local -p jubeaz"
+alias red_ws_winrm="evil-winrm -i 172.6.0.20 -u jubeaz@haas.local -p jubeaz"
 
 alias netrunner_ansible="ansible-playbook -i /etc/ansible/lab_inventories/netrunner/netrunner.yml /etc/ansible/lab_playbooks/lab.yml"
 alias haas_ansible="ansible-playbook -i /etc/ansible/lab_inventories/haas/haas.yml /etc/ansible/lab_playbooks/lab.yml"

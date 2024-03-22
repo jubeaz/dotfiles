@@ -13,12 +13,17 @@ Get-LocalGroup | ft Name
 Get-LocalGroupMember <group_name|Administrators> | ft Name, PrincipalSource
 ```
 
-## group - add user to localgroup
-```
-add-LocalGroupMember -Group  '<gname|Administrators>' -member <name|jubeaz> 
-```
-
 ## group - create local group
 ```
 New-LocalGroup -Name '<name>' -Description '<description>'
+```
+
+## group - add to local group
+```powershell
+Add-LocalGroupMember -Group <group_name|Administrators> -Member <domain_netbios>\<user> -Verbose
+```
+
+## group - remove from local group
+```powershell
+Remove-LocalGroupMember -Group <group_name|Administrators> -Member <domain_netbios>\<user> -Verbose
 ```

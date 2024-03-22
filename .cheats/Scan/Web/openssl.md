@@ -98,3 +98,10 @@ openssl req -noout -modulus -in <INPUT_CSR> | openssl md5
 ```
 openssl s_client -connect <URL>:<PORT>
 ```
+
+
+## Display certificate
+```
+openssl x509 -in <INPUT_PEM> cert.pem -noout -text
+
+```

@@ -4,7 +4,7 @@
 #plateform/windows #target/remote  #cat/RECON 
 
 
-## Get group members
+## Group - Get group members
 ```powershell
 Get-DomainGroupMember -Identity "<group|Administrators>" -Domain <domain>
 ```

