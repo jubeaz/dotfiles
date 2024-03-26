@@ -23,3 +23,26 @@ MATCH p=(u:User)-[:Owns|WriteDacl|GenericAll|WriteOwner|ExecuteDCOM|GenericWrite
 ```
 MATCH p=(u:Computer)-[:Owns|WriteDacl|GenericAll|WriteOwner|ExecuteDCOM|GenericWrite|AllowedToDelegate|ForceChangePassword]->(t) RETURN p
 ```
+
+## query - ALL SESSIONS
+```
+MATCH p=(m:Computer)-[r:HasSession]->(n:User) RETURN p
+```
+## query - ALL USERS
+```
+MATCH (u:User) return u
+```
+
+## query - ALL COMPUTERS
+```
+MATCH (c:Computer) return c
+```
+
+## query - ALL GPOs
+```
+Match (n:GPO) return n
+```
+
+## query - 
+```
+```

@@ -16,7 +16,7 @@ uploadserver --basic-auth-upload <uploadserver_login>:<uploadserver_password> -b
 
 ## curl upload
 ```bash
-curl -X POST http://<local_ip>:<port|80>/upload -F 'files=@basicauth-example.txt' -u <uploadserver_login>:<uploadserver_password>
+curl -X POST http://<local_ip>:<port|80>/upload -F 'files=@<path>' -u <uploadserver_login>:<uploadserver_password>
 ```
 
 ## powershell upload
