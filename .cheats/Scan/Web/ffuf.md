@@ -45,3 +45,8 @@ ffuf -t <nb_thread|40> -w <wordlist> -u <url>?<param>=FUZZ -fs <response_size>
 ffuf -t <nb_thread|40> -w <wordlist> -u <url> -X POST -d "username=admin\&password=FUZZ" -fc 401
 ```
 
+## Login bypass (SQL injection)
+```
+ffuf -request <request_file> -w <ffuf_sqli_wl>:<param_value> -request-proto <proto|http> -mc all  -fr 'Invalid Credentials'
+```
+

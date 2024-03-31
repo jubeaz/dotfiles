@@ -43,6 +43,7 @@
     "ffuf_dir_wl": "/usr/share/seclists/Discovery/Web-Content/directory-list-lowercase-2.3-medium.txt",
     "ffuf_dns_wl": "/usr/share/seclists/Discovery/DNS/subdomains-top1million-20000.txt",
     "ffuf_param_wl": "/usr/share/seclists/Discovery/Web-Content/burp-parameter-names.txt",
+    "ffuf_sqli_wl": "/usr/share/wordlists/seclists/Fuzzing/SQLi/quick-SQLi.txt",
     "rule_file": "/usr/share/doc/hashcat/rules/best64.rule",
     "custom_wordlist": "myCustomWordlist.txt",
     "empire_storage_path": "/empire",

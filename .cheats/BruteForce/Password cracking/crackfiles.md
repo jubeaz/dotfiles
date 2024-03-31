@@ -43,7 +43,8 @@ keepass2john <file>.kdbx > out.kbdx.hashes && john --wordlist <password_wl> out.
 
 ## XLS PPT DOC - john
 ```
-python3 <path_to_john>/run/office2john.py <file>.xls > out.hash && john --wordlist <password_wl> out.hash
+
+ python2.7 /usr/bin/office2john <file> > out.hash && john out.hash
 ```
 
 

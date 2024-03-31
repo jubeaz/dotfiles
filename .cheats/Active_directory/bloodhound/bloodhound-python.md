@@ -5,7 +5,7 @@
 
 ## proxychains collect domain data 
 ```bash
-bloodhound-python -d <domain> -u <user> -p <password> -c <method|DCOnly> --auth-method <method|ntlm> --dns-tcp -ns <dc_ip> -dc <dc_name> -v
+bloodhound-python -d <domain> -u <user> -p '<password>' -c <method|DCOnly> --auth-method <method|ntlm> --dns-tcp -ns <dc_ip> -dc <dc_name> -v
 ```
 
 ## proxychains collect domain data (pth) 
@@ -22,21 +22,21 @@ bloodhound-python -d <target_domain> -u <user>@<domain> --hashes <lm_hash>:<nt_h
 
 ## collect domain data
 ```bash
-bloodhound-python -d <domain> -u <user> -p <password> -c <method|DCOnly>
+bloodhound-python -d <domain> -u <user> -p '<password>' -c <method|DCOnly>
 ```
 
 ## collect domain data (kerberos)
 add the DNS to /etc/hosts 
 ```bash
-bloodhound-python -d <domain> -u <user> -p <password> -c <method|DCOnly> -ns <ip> --kerberos
+bloodhound-python -d <domain> -u <user> -p '<password>' -c <method|DCOnly> -ns <ip> --kerberos
 ```
 
 ## collect domain data (dns)
 ```bash
-bloodhound-python -ns <ip> -d <domain> -u <user> -p <password> -c <method|DCOnly>
+bloodhound-python -ns <ip> -d <domain> -u <user> -p '<password>' -c <method|DCOnly>
 ```
 
 ## collect domain data (alternative)
 ```bash
-bloodhound-python -d <domain> -u <user> -p <password> -gc <global_catalog> -dc <domain_controler> -c <method|DCOnly>
+bloodhound-python -d <domain> -u <user> -p '<password>' -gc <global_catalog> -dc <domain_controler> -c <method|DCOnly>
 ```

@@ -61,6 +61,11 @@ ports=$(sudo nmap -Pn -p- --min-rate=1000 -n -T4 $IP | grep ^[0-9] | cut -d '/' 
 sudo nmap -Pn -n --script=default -sV -p$ports $IP -oA <nmap_output_file> --reason
 ```
 
+## port scan - FULL (proxychains)
+```
+IP=<ip>; ports=$(proxychains -q nmap -Pn -p- --min-rate=1000 -n -T4 $IP | grep ^[0-9] | cut -d '/' -f 1 | tr '\n' ',' | sed s/,$//); proxychains -q nmap -Pn -n --script=default -sV -p$ports $IP -oA <nmap_output_file> --reason
+```
+
 ## port scan - udp scan
 ```
 sudo nmap -sU <ip>

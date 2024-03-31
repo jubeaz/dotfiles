@@ -1,6 +1,6 @@
 # find
 
-% sed
+% find
 #plateform/linux #target/local #cat/UTILS 
 
 ## exclude one path (only name for pattern)
@@ -57,4 +57,9 @@
 ## pipe into grep
 ```bash
 -exec ls -lad  "{}" 2>/dev/null \; | grep -iIe "passw\|pwd"
+```
+
+## follow link
+```bash
+-L
 ```

