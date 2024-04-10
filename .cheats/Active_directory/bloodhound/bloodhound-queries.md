@@ -30,7 +30,17 @@ MATCH p=(m:Computer)-[r:HasSession]->(n:User) RETURN p
 ```
 ## query - ALL USERS
 ```
-MATCH (u:User) return u
+MATCH (u:User {domain: "<domain>"} ) return u
+```
+
+## query - ALL USERS (domain)
+```
+MATCH (u:User {domain: "<domain>"} ) return u
+```
+
+## query - Users with SIDHistory
+```
+MATCH p=(u:User) -[:HasSIDHistory]->(ud:User) return p
 ```
 
 ## query - ALL COMPUTERS

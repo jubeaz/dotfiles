@@ -1,6 +1,17 @@
 {
 	"queries": [
 		{
+			"name": "Find Users with SidHistory",
+			"category": "Trust",
+			"queryList": [
+				{
+					"final": true,
+					"query": "MATCH p=(u:User) -[:HasSIDHistory]->(ud:User) return p",
+					"allowCollapse": true
+				}
+			]
+		}, 
+        {
 			"name": "Find WinRM Users",
 			"category": "Dangerous Rights",
 			"queryList": [

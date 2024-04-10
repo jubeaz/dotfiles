@@ -25,6 +25,16 @@ https://raw.githubusercontent.com/samratashok/ADModule/master/Import-ActiveDirec
 $env:LOGONSERVER
 ```
 
+## AD - get DC of a domain (nslookup)
+```
+nslookup -type=srv _ldap._tcp.dc._msdcs.<domain_fqdn>
+```
+
+## AD - get DC of a trusted domain 
+```
+Get-ADDomainController -DomainName  <trusted_domain> -Discover
+```
+
 ## AD - get password policy (user)
 ```
 Get-ADUserResultantPasswordPolicy -Identity <user>
@@ -40,11 +50,16 @@ Get-ADDefaultDomainPasswordPolicy
 ([System.DirectoryServices.ActiveDirectory.Forest]::GetCurrentForest()).GetAllTrustRelationships()
 ```
 
+## AD - show forest trust (get-adtrust)
+SIDFilteringForestAware is set to True, it means SIDHistory is enabled across the forest trust.
+```powershell
+get-adtrust -filter * | select name,target,sid*
+```
+
 ## AD - Get domain trust
 ```powershell
 Get-DomainTrust -Domain <domain>
-```
-
+```nltest.exe /DOMAIN_TRUSTS
 ## AD - Get domain SID
 ```powershell
 Get-DomainSID -domain <sid>

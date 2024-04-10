@@ -13,6 +13,8 @@ http://<local_ip>/windows/windows_weaponize/ps/SharpHound.ps1
 
 ## collect data
 #tag/powershell 
+runas /netonly /user:admin\guest "powershell.exe -exec bypass"
+nltest.exe /DOMAIN_TRUSTS
 ```powershell
 import-module sharphound.ps1; invoke-bloodhound -collectionmethod <method|DCOnly> -domain <domain>
 ```

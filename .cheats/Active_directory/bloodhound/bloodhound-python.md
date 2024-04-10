@@ -11,13 +11,13 @@ bloodhound-python -d <domain> -u <user> -p '<password>' -c <method|DCOnly> --aut
 ## proxychains collect domain data (pth) 
 requiere both lm_hash and nt_hash
 ```bash
-bloodhound-python -d <domain> -u <user> --hashes <lm_hash>:<nt_hash> -c <method|DCOnly> --auth-method <method|ntlm> --dns-tcp -ns <dc_ip> -dc <dc_name> -v
+bloodhound-python -d <domain> -u <user> --hashes :<nt_hash> -c <method|DCOnly> --auth-method <method|ntlm> --dns-tcp -ns <dc_ip> -dc <dc_name> -v
 ```
 
-## proxychains collect forest data  (pth) ()
+## proxychains collect FOREST data  (pth)
 requiere both lm_hash and nt_hash
 ```bash
-bloodhound-python -d <target_domain> -u <user>@<domain> --hashes <lm_hash>:<nt_hash> -c <method|DCOnly> --auth-method <method|ntlm> --dns-tcp -ns <target_domain_ip>  -v
+bloodhound-python -d <target_domain> -u <user>@<domain> --hashes :<nt_hash> -c <method|DCOnly> --auth-method <method|ntlm> --dns-tcp -ns <target_domain_ip>  -v
 ```
 
 ## collect domain data

@@ -1,6 +1,11 @@
 # getST (imp)
 
-% impacket-kerberos, windows, kerberos, 88, delegation
+% impacket-kerberos, windows, kerberos, 88, delegation, TGS
+
+## request TGS
+```
+getST.py  -spn <svc|host>/<target_fqdn> '<domain>'/'<user>':'<password>'
+```
 
 ## Silver ticket (constrained delegation with protocol transition)
 #plateform/linux #target/remote  #cat/ATTACK/DELEGATION 

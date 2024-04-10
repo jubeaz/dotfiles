@@ -37,3 +37,9 @@ Get-NetNeighbor
 ```
 type C:\WINDOWS\System32\drivers\etc\hosts
 ```
+
+## network - ping sweep
+```powershell
+	
+1..254 | % {"172.16.2.$($_): $(Test-Connection -count 1 -comp 1172.16.2.$($_) -quiet)"}
+```

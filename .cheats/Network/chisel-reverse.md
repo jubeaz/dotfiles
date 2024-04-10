@@ -35,6 +35,12 @@ export AUTH='<chisel_login|jubeaz>:<chisel_password|Jub@z123!>' && chisel client
 
 ## client (powershell)
 ```powershell
+New-Service -name "<service_name|chisel-jubeaz-client>" -binaryPathName "<chisel_path|c:\temp\chisel.exe> client <chisel_server_ip>:<chisel_port> R:<socks_port>:socks" -displayName "<service_name|chisel-jubeaz-client>" -startupType Automatic | start-service
+```
+
+
+## client as a service (powershell)
+```powershell
 Start-Job -Name chisel-client -ScriptBlock { Start-Process chisel.exe -ArgumentList @('client','<chisel_server_ip>:<chisel_port>','R:<socks_port>:socks')}
 ```
 

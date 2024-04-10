@@ -79,6 +79,16 @@ sqlmap --method=PUT -u "http://example.com" --headers="referer:*"
 --technique=BEQSTU
 ```
 
+## level - risk
+```bash
+--level=<value|5> --risk=<value|3> 
+```
+
+ ## ignore redirect
+ ```bash
+ --ignore-redirects 
+ ```
+
 ## Page comparison
 ```
 --string="<string_showed_when_TRUE>"
@@ -88,6 +98,16 @@ sqlmap --method=PUT -u "http://example.com" --headers="referer:*"
 ## request
 ```
 -sql-query "<query>"
+```
+
+## DBMS
+MySQL
+Oracle
+PostgreSQL
+Microsoft SQL Server
+Microsoft Access
+```bash
+--dbms="<name>"
 ```
 
 ## Enumeration

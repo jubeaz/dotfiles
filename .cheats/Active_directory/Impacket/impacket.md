@@ -6,14 +6,14 @@
 #plateform/linux #target/remote #cat/RECON 
 
 ```
-lookupsid.py '<domain>/<user>:<password>'@<ip>
+lookupsid.py -domain-sids <domain>/<user>:<password>@<ip>
 ```
 
 ## lookupsid - SID User Enumeration,  extract the information about what users exist and their data.  (pth)
 #plateform/linux #target/remote #cat/RECON 
 
 ```
-lookupsid.py --hashes : <nt_hash>'<domain>/<user>'@<ip>
+lookupsid.py -hashes :<nt_hash> -domain-sids <domain>/<user>@<ip>
 ```
 
 

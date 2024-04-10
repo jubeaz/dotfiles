@@ -35,3 +35,10 @@ john --wordlist=<password_wl> <ssh_hash|sshkey.hash>
 ```
 
 
+## john - Mscash
+
+cat infile | cut -d ":" -f 2 > outfile
+
+```
+ john --wordlist=<password_wl> --format=mscash2 <hash.txt>
+```

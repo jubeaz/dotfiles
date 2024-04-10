@@ -5,7 +5,7 @@
 
 ## start console query (neo4j/neo4j)
 ```bash
-https://localhost:7474
+http://localhost:7474
 ```
 
 ## Find computers that allow unconstrained delegation

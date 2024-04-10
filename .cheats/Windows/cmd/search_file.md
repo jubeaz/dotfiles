@@ -1,6 +1,6 @@
-# pwsh
+# cmd.exe
 
-#plateform/windows #target/local #cat/CREDENTIAL-ACCESS/CREDS_HUNT #tag/powershell 
+#plateform/windows #target/local #cat/CREDENTIAL-ACCESS/CREDS_HUNT 
 
 ## find file - containing a string
 ```powershell
@@ -9,7 +9,7 @@ Get-ChildItem -Path <path|"C:\"> -Force -Recurse -ErrorAction Ignore |  select-s
 
 ## find file -  having extension
 ```powershell
-Get-ChildItem -Recurse -Filter '*.js' -ErrorAction 'SilentlyContinue' 
+where /R C:\ *.ini
 ```
 
 ## find file -  having Alternate Data Streams
