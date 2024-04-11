@@ -29,6 +29,7 @@
     "trust_nthash": "",
     "domain_fqdn": "",
     "domain_netbios": "",
+    "domain_sid": "",
     "domain_tld": "",
     "domain": "",
     "dc_name": "",
