@@ -95,7 +95,7 @@ net accounts /domain
 
 ## AD - get mapping of the trust relationships
 ```
-nltest /domain_trust
+nltest /domain_trust /ALL_TRUSTS /V /server:<dest_dc_fqdn>
 ```
 
 ## AD - enable SIDHistory Filtering

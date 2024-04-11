@@ -34,4 +34,11 @@ addcomputer.py -dc-ip <dc_ip> [-method LDAPS] -computer-name <computer_name|jube
 lookupsid.py  '<domain>/<user>:<password>'@<ip>
 ```
 
+## lookupsid - get domain SID
+#plateform/linux #target/remote #port/445 #protocol/smb #cat/ATTACK/CONNECT  
+
+```
+lookupsid.py  -domain-sids '<user_domain_fqdn>/<user>:<password>'@<dst_domain_fqdn>
+```
+
 

