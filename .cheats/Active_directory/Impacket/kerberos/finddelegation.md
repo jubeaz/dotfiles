@@ -5,11 +5,11 @@
 
 # find kerberos delegations (cred)
 ```
-findDelegation.py -dc-ip <dc_ip> '<domain>'/'<user>':'<password>'
+findDelegation.py -dc-ip <dc_ip> '<domain_fqdn>'/'<user>':'<password>'
 ```
 
 ## find kerberos delegations (pth)
 ```
-findDelegation.py -dc-ip <dc_ip> -hashes :<nt_hash> '<domain>/<user>'
+findDelegation.py -dc-ip <dc_ip> -hashes :<nt_hash> '<domain_fqdn>/<user>'
 ```
 

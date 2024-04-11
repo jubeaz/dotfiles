@@ -5,7 +5,7 @@
 
 ## smb - create share
 ```powershell
-New-SmbShare -Name "<share_name|temp>" -Path "<path|C:\Partage\>" -FullAccess "<domain>\<user>" 
+New-SmbShare -Name "<share_name|temp>" -Path "<path|C:\Partage\>" -FullAccess "<domain_fqdn>\<user>" 
 ```
 
 ## smb - remove share

@@ -12,5 +12,5 @@ Invoke-DomainHarvestOWA -ExchHostname <url> -DomainList <domain list file> -Outf
 ## user enumeration
 #cat/ATTACK/EXPLOIT 
 ```powershell
-Invoke-UsernameHarvestOWA –UserList .\username_list.txt –ExchHostname <fqdn> –Domain <domain> –OutFile potential_usernames.txt
+Invoke-UsernameHarvestOWA –UserList .\username_list.txt –ExchHostname <fqdn> –Domain <domain_fqdn> –OutFile potential_usernames.txt
 ```

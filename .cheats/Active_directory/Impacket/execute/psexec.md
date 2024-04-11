@@ -7,7 +7,7 @@
 create a new service (using \pipe\svcctl via SMB)
 
 ```
-psexec.py '<domain>'/'<user>':'<password>'@<ip>
+psexec.py '<domain_fqdn>'/'<user>':'<password>'@<ip>
 ```
 
 ## pth

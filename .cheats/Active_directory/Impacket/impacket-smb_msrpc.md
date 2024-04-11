@@ -9,21 +9,21 @@ A generic SMB client that will let you list shares and files, rename, upload and
 -no-pass -k : kerberos authentication
 
 ```
-smbclient.py '<domain>/<user>:<password>'@<ip>
+smbclient.py '<domain_fqdn>/<user>:<password>'@<ip>
 ```
 
 ## AddComputer - add computer
 #plateform/linux #target/remote #port/445 #protocol/smb #cat/ATTACK/CONNECT  
 
 ```
-addcomputer.py -dc-ip <dc_ip> [-method LDAPS] -computer-name <computer_name|jubeaz> -computer-pass <computer_password|Zaebuj12345+->  '<domain>/<user>:<password>'
+addcomputer.py -dc-ip <dc_ip> [-method LDAPS] -computer-name <computer_name|jubeaz> -computer-pass <computer_password|Zaebuj12345+->  '<domain_fqdn>/<user>:<password>'
 ```
 
 ## AddComputer - delete computer
 #plateform/linux #target/remote #port/445 #protocol/smb #cat/ATTACK/CONNECT  
 
 ```
-addcomputer.py -dc-ip <dc_ip> [-method LDAPS] -computer-name <computer_name|jubeaz> -delete  '<domain>/<user>:<password>'
+addcomputer.py -dc-ip <dc_ip> [-method LDAPS] -computer-name <computer_name|jubeaz> -delete  '<domain_fqdn>/<user>:<password>'
 ```
 
 
@@ -31,7 +31,7 @@ addcomputer.py -dc-ip <dc_ip> [-method LDAPS] -computer-name <computer_name|jube
 #plateform/linux #target/remote #port/445 #protocol/smb #cat/ATTACK/CONNECT  
 
 ```
-lookupsid.py  '<domain>/<user>:<password>'@<ip>
+lookupsid.py  '<domain_fqdn>/<user>:<password>'@<ip>
 ```
 
 ## lookupsid - get domain SID

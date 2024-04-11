@@ -5,11 +5,11 @@
 
 ## rdesktop - classic
 ```
-rdesktop -g 90% <ip> -u <user> -p <password> -d <domain>
+rdesktop -g 90% <ip> -u <user> -p <password> -d <domain_fqdn>
 ```
 
 ## rdesktop - with share
 ```
-rdesktop -g 90% <ip> -u <user> -p <password> -d <domain> -r disk:share=<share>
+rdesktop -g 90% <ip> -u <user> -p <password> -d <domain_fqdn> -r disk:share=<share>
 ```
 

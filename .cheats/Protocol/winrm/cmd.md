@@ -29,5 +29,5 @@ wmic /node:<REMOTE_HOST> process call create "powershell enable-psremoting -forc
 ## Enable winrm remotelly from psexec
 #plateform/windows #target/remote #cat/ATTACK/EXPLOIT 
 ```batchfile
-.\PsExec.exe \\<computername> -u <domain>\<username> -p <password> -h -d powershell.exe "enable-psremoting -force"  
+.\PsExec.exe \\<computername> -u <domain_fqdn>\<username> -p <password> -h -d powershell.exe "enable-psremoting -force"  
 ```

@@ -4,12 +4,12 @@
 
 # impacket-auth - credential authentication
 ```
-'<domain>/<user>:<password>@<ip>'
+'<domain_fqdn>/<user>:<password>@<ip>'
 ```
 
 # impacket-auth - user/hash authentication
 ```
--hashes <lm_hash>:<nt_hash> '<domain>/<user>@<ip>'
+-hashes <lm_hash>:<nt_hash> '<domain_fqdn>/<user>@<ip>'
 ```
 
 # impacket-auth - kerberos authentication (without /etc/hosts)
@@ -26,11 +26,11 @@ export KRB5CCNAME=<ccache> ; -k -no-pass -dc-ip <dc_ip> -no-pass -k <target_name
 
 # impacket-auth - AES key to use for kerberos authentication
 ```
--aesKey <key> '<domain>/<user>@<ip>'
+-aesKey <key> '<domain_fqdn>/<user>@<ip>'
 ```
 
 
 # impacket-auth - Read keys for SPN from keytab file authentication
 ```
--keytab <keytab> '<domain>/<user>@<ip>'
+-keytab <keytab> '<domain_fqdn>/<user>@<ip>'
 ```

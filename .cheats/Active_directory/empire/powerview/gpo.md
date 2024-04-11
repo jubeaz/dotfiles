@@ -5,7 +5,7 @@
 
 ## GPO - list all
 ```powershell
-Get-DomainGPO -Domain <domain> -Properties displayName, cn, gpcfilesyspath
+Get-DomainGPO -Domain <domain_fqdn> -Properties displayName, cn, gpcfilesyspath
 ```
 
 ## GPO - list all applied to a user

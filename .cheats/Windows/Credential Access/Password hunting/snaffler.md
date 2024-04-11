@@ -28,7 +28,7 @@ $asm.EntryPoint.Invoke($null, @(,$passed))
 
 ## Snaffler - domain 
 ```
-.\snaffler.exe -d <domain> -s -o snaffler.loga -v data
+.\snaffler.exe -d <domain_fqdn> -s -o snaffler.loga -v data
 ```
 
 ## Snaffler - path 

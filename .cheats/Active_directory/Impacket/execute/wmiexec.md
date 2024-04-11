@@ -7,7 +7,7 @@
 Execute a command shell without touching the disk or running a new service using DCOM
 
 ```
-wmiexec.py -shell-type powershell '<domain>/<user>:<password>'@<ip>
+wmiexec.py -shell-type powershell '<domain_fqdn>/<user>:<password>'@<ip>
 ```
 
 ## pth (pth) 

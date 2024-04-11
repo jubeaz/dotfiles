@@ -58,7 +58,7 @@ get-adtrust -filter * | select name,target,sid*
 
 ## AD - Get domain trust
 ```powershell
-Get-DomainTrust -Domain <domain>
+Get-DomainTrust -Domain <domain_fqdn>
 ```nltest.exe /DOMAIN_TRUSTS
 ## AD - Get domain SID
 ```powershell

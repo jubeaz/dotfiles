@@ -18,7 +18,7 @@ Aclpwn.py is a tool that interacts with BloodHound to identify and exploit ACL b
 https://github.com/fox-it/aclpwn.py
 
 ```
-aclpwn -f <computer_name> -ft computer -d <domain> -dry
+aclpwn -f <computer_name> -ft computer -d <domain_fqdn> -dry
 ```
 
 

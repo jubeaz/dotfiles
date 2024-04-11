@@ -5,5 +5,5 @@
 
 ## search email
 ```bash
-theHarvester.py -d <domain> -s -r -f <domain>.xml -b all 
+theHarvester.py -d <domain_fqdn> -s -r -f <domain_fqdn>.xml -b all 
 ```

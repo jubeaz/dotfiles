@@ -6,5 +6,5 @@
 
 ## Group - Get group members
 ```powershell
-Get-DomainGroupMember -Identity "<group|Administrators>" -Domain <domain>
+Get-DomainGroupMember -Identity "<group|Administrators>" -Domain <domain_fqdn>
 ```

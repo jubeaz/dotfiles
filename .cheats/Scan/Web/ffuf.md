@@ -27,7 +27,7 @@ ffuf -t <nb_thread|40> -w <ffuf_dir_wl> -u <url>/FUZZ -recursion -recursion-dept
 
 ## ffuf fuzz Host filter response size
 ```
-ffuf -t <nb_thread|40> -w <ffuf_dns_wl> -u <url> -H "Host: FUZZ.<domain>" -fs <response_size>
+ffuf -t <nb_thread|40> -w <ffuf_dns_wl> -u <url> -H "Host: FUZZ.<domain_fqdn>" -fs <response_size>
 ```
 
 ## ffuf GET parameter fuzzing

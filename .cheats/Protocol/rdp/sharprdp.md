@@ -4,5 +4,5 @@
 
 ## rdp from console
 ```
-sharprdp.exe computername=<computer> command="<command>" username=<domain>\<user> password=<password>
+sharprdp.exe computername=<computer> command="<command>" username=<domain_fqdn>\<user> password=<password>
 ```

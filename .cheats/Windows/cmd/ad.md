@@ -30,7 +30,7 @@ set logonserver #Get name of the domain controller
 
 ## AD - nslookup AD - domain
 ```
-nslookup -type=SRV _ldap._tcp.dc._msdcs.<domain>
+nslookup -type=SRV _ldap._tcp.dc._msdcs.<domain_fqdn>
 ```
 
 ## AD - list of domain groups
@@ -50,7 +50,7 @@ net view /domain
 
 ## AD - list domain controllers
 ```
-nltest /dclist:<domain>
+nltest /dclist:<domain_fqdn>
 ```
 
 ## AD - list pc accounts of domain controllers

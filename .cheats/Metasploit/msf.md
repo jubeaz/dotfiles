@@ -54,7 +54,7 @@ load incognito
 ## incognito impersonate token
 #plateform/linux #target/local #cat/PRIVESC  
 ```
-impersonate_token <domain>\\<user>
+impersonate_token <domain_fqdn>\\<user>
 ```
 ## create process
 #plateform/linux #target/local #cat/UTILS 

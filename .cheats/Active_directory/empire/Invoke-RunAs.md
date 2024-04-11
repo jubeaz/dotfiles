@@ -13,5 +13,5 @@ empire/management/Invoke-RunAs.ps1
 
 ## Invoke-RunAs 
 ```powershell
-PS > Invoke-RunAs -UserName <user> -Password '<password>' -Domain <domain> -Cmd cmd.exe -Arguments "/c <cmd>"
+PS > Invoke-RunAs -UserName <user> -Password '<password>' -Domain <domain_fqdn> -Cmd cmd.exe -Arguments "/c <cmd>"
 ```

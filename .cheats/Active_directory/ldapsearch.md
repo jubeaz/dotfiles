@@ -8,7 +8,7 @@
 https://ldapwiki.com/wiki/Wiki.jsp?page=Microsoft%20Active%20Directory
 #cat/ATTACK/CONNECT 
 ```
-ldapsearch -LLL  -H ldap://<dc_ip> -x -D <user>@<domain> -w '<password>' -b 'DC=<domain_netbios>,DC=<domain_tld>'  
+ldapsearch -LLL  -H ldap://<dc_ip> -x -D <user>@<domain_fqdn> -w '<password>' -b 'DC=<domain_netbios>,DC=<domain_tld>'  
 ```
 
 ## auth - GSSAPI binding
@@ -46,12 +46,12 @@ ldapsearch -LLL -x -H ldap://<IP> -b '' -s base '(objectclass=*)' | grep current
 
 ## FullRequest - get Machine Account Quota (MAQ)
 ```
-ldapsearch -LLL  -H ldap://<dc_ip> -x -D <user>@<domain> -w '<password>' -b 'DC=<domain_netbios>,DC=<domain_tld>' -s sub '(objectclass=domain)' | grep "ms-ds-machineaccountquota" -i
+ldapsearch -LLL  -H ldap://<dc_ip> -x -D <user>@<domain_fqdn> -w '<password>' -b 'DC=<domain_netbios>,DC=<domain_tld>' -s sub '(objectclass=domain)' | grep "ms-ds-machineaccountquota" -i
 ```
 
 ## FullRequest - deleted objects
 ```
-ldapsearch -LLL  -H ldap://<dc_ip> -x -D <user>@<domain> -w '<password>' -b 'CN=Deleted Objects,DC=<domain_netbios>,DC=<domain_tld>' -E '!1.2.840.113556.1.4.417'
+ldapsearch -LLL  -H ldap://<dc_ip> -x -D <user>@<domain_fqdn> -w '<password>' -b 'CN=Deleted Objects,DC=<domain_netbios>,DC=<domain_tld>' -E '!1.2.840.113556.1.4.417'
 ```
 
 

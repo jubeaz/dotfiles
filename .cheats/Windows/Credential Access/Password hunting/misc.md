@@ -25,7 +25,7 @@ Import-Module .\SessionGopher.ps1; Invoke-SessionGopher -Thorough
 #plateform/windows  #target/local  #cat/CREDENTIAL-ACCESS/CREDS_HUNT 
 
 ```
-Import-Module .\SessionGopher.ps1; Invoke-SessionGopher -AllDomain -u <domain>\<user> -p <password>
+Import-Module .\SessionGopher.ps1; Invoke-SessionGopher -AllDomain -u <domain_fqdn>\<user> -p <password>
 ```
 
 ## SessionGopher -  Computer 
@@ -39,5 +39,5 @@ Import-Module .\SessionGopher.ps1; Invoke-SessionGopher -Target <computer> -Thor
 #plateform/windows  #target/local  #cat/CREDENTIAL-ACCESS/CREDS_HUNT 
 
 ```
-Import-Module .\SessionGopher.ps1; Invoke-SessionGopher -iL computerlist.txt -u <domain>\<user> -p <password>
+Import-Module .\SessionGopher.ps1; Invoke-SessionGopher -iL computerlist.txt -u <domain_fqdn>\<user> -p <password>
 ```

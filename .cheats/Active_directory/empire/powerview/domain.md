@@ -15,7 +15,7 @@ Get-NetDomain
 
 ## Domain - Get domain info
 ```powershell
-Get-NetDomain -Domain <domain>
+Get-NetDomain -Domain <domain_fqdn>
 ```
 
 ## Domain - Get domain SID
@@ -55,7 +55,7 @@ Get-DomainController | select Forest, Domain, IPAddress, Name, OSVersion | fl
 
 ## Domain - Get all ifo of specific domain Domain Controller
 ```powershell
-Get-NetDomainController -Domain <domain>
+Get-NetDomainController -Domain <domain_fqdn>
 ```
 
 ## Domain - Get all domain trust 

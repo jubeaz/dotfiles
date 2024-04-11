@@ -10,7 +10,7 @@ net view
 
 ## smb - list of computer shares on the domain
 ```
-net view /all /domain <domain>
+net view /all /domain <domain_fqdn>
 ```
 
 ## smb - list share of a computer

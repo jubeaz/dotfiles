@@ -5,13 +5,13 @@
 ## host find name server
 #plateform/linux  #target/remote  #cat/RECON  
 ```
-host -t ns <domain>
+host -t ns <domain_fqdn>
 ```
 
 ## host find mail server
 #plateform/linux  #target/remote  #cat/RECON
 ```
-host -t mx <domain>
+host -t mx <domain_fqdn>
 ```
 
 % dns, dig, 53
@@ -63,13 +63,13 @@ dig -f <domains.txt> MX +noall +answer
 ## dnsrecon standard enum on domain
 #plateform/linux  #target/remote  #cat/RECON
 ```
-dnsrecon -d <domain>
+dnsrecon -d <domain_fqdn>
 ```
 
 ## dnsrecon zone transfer
 #plateform/linux  #target/remote  #cat/RECON
 ```
-dnsrecon -d <domain> -t axfr
+dnsrecon -d <domain_fqdn> -t axfr
 ```
 
 ## dnsrecon reverse lookup start/end ip
@@ -87,13 +87,13 @@ dnsrecon -r <ip_with_network_mask> -n <domain_name_server>
 ## dnsrecon domain bruteforce
 #plateform/linux  #target/remote  #cat/RECON
 ```
-dnsrecon -d <domain> -D <wordlist> -t brt
+dnsrecon -d <domain_fqdn> -D <wordlist> -t brt
 ```
 
 % dns, dnsenum, 53
 #plateform/linux  #target/remote  #cat/RECON
 ```
-dnsenum <domain>
+dnsenum <domain_fqdn>
 ```
 
 % dns, nmap, 53
@@ -119,13 +119,13 @@ nmap -n -sV -sU --script ""(*dns* and (default or (discovery and safe))) or dns-
 ## nmap activedirectory enum
 #plateform/linux  #target/remote  #cat/RECON
 ```
-nmap --script dns-srv-enum --script-args "dns-srv-enum.domain='<domain>'"
+nmap --script dns-srv-enum --script-args "dns-srv-enum.domain='<domain_fqdn>'"
 ```
 
 ## nmap dnssec 
 #plateform/linux  #target/remote  #cat/RECON
 ```
-nmap -sSU -p53 --script dns-nsec-enum --script-args dns-nsec-enum.domains=<domain> <ip>
+nmap -sSU -p53 --script dns-nsec-enum --script-args dns-nsec-enum.domains=<domain_fqdn> <ip>
 ```
 
 % dns, msf, 53
@@ -133,7 +133,7 @@ nmap -sSU -p53 --script dns-nsec-enum --script-args dns-nsec-enum.domains=<domai
 ## dns metasploit enumeration
 #plateform/linux  #target/remote  #cat/RECON
 ```
-msfconsole -x "use auxiliary/gather/enum_dns; set domain <domain>; set ns <dns_server>; exploit"
+msfconsole -x "use auxiliary/gather/enum_dns; set domain <domain_fqdn>; set ns <dns_server>; exploit"
 ```
 
 % dns, sublist3r , 53
@@ -141,11 +141,11 @@ msfconsole -x "use auxiliary/gather/enum_dns; set domain <domain>; set ns <dns_s
 ## dns sublist3r - subdomain enumeration
 #plateform/linux  #target/remote  #cat/RECON
 ```
-sublist3r -d <domain> -v
+sublist3r -d <domain_fqdn> -v
 ```
 
 ## dns sublist3r - subdomain enumeration with bruteforce module enabled
 #plateform/linux  #target/remote  #cat/RECON
 ```
-sublist3r -b -d <domain>
+sublist3r -b -d <domain_fqdn>
 ```
