@@ -78,31 +78,9 @@ fi
 ##########################
 
 #alias rsync-dry-full-home="sudo /usr/bin/rsync --archive --delete --dry-run $HOME"
-
-#alias blue_up="VAGRANT_CWD=/etc/ansible/vagrants/blue vagrant up"
-#alias blue_stop="VAGRANT_CWD=/etc/ansible/vagrants/blue vagrant halt blue"
-#alias blue_destroy="VAGRANT_CWD=/etc/ansible/vagrants/blue vagrant destroy blue"
-#alias blue_status="VAGRANT_CWD=/etc/ansible/vagrants/blue vagrant status blue"
-#alias blue_ansible="ansible-playbook -i /etc/ansible/inventory/wayland.yml /etc/ansible/playbooks/wayland.yml"
-#alias blue_rdp="xfreerdp /cert:ignore /u:vagrant /p:vagrant  /v:192.168.56.13 /h:1024 /w:1640 /drive:share,./ +drives"
-#alias blue_winrm="evil-winrm -i 192.168.56.13 -u vagrant -p vagrant"
-
-alias red_up="VAGRANT_CWD=/etc/ansible/vagrants/red vagrant up"
-alias red_halt="VAGRANT_CWD=/etc/ansible/vagrants/red vagrant halt red"
-alias red_destroy="VAGRANT_CWD=/etc/ansible/vagrants/red vagrant destroy red"
-alias red_status="VAGRANT_CWD=/etc/ansible/vagrants/red vagrant status red"
-alias red_ansible="ansible-playbook -i /etc/ansible/lab_inventories/red/red.yml /etc/ansible/lab_playbooks/lab.yml"
-
-alias red_dc_rdp="xfreerdp /cert:ignore /u:jubeaz@hass.local /p:jubeaz  /v:172.16.0.1 /h:1024 /w:1640 /drive:share,./ +drives"
-alias red_srv_rdp="xfreerdp /cert:ignore /u:jubeaz@haas.local /p:jubeaz /v:172.26.0.10 /h:1024 /w:1640 /drive:share,./ +drives"
-alias red_ws_rdp="xfreerdp /cert:ignore /u:jubeaz@haas.local /p:jubeaz  /v:172.16.0.20 /h:1024 /w:1640 /drive:share,./ +drives"
-alias red_dc_winrm="evil-winrm -i 172.16..0.1 -u jubeaz@haas.local -p jubeaz"
-alias red_srv_winrm="evil-winrm -i 172.16.0.10 -u jubeaz@haas.local -p jubeaz"
-alias red_ws_winrm="evil-winrm -i 172.6.0.20 -u jubeaz@haas.local -p jubeaz"
-
-alias netrunner_ansible="ansible-playbook -i /etc/ansible/lab_inventories/netrunner/netrunner.yml /etc/ansible/lab_playbooks/lab.yml"
-alias haas_ansible="ansible-playbook -i /etc/ansible/lab_inventories/haas/haas.yml /etc/ansible/lab_playbooks/lab.yml"
-
+alias win_dev_up="VAGRANT_CWD=/etc/ansible/vagrants/win_dev vagrant up"
+alias win_dev_rdp="xfreerdp /cert:ignore /u:vagrant /p:vagrant  /v:192.168.2.10 /h:1024 /w:1640 /drive:share,./ +drives"
+alias win_dev_winrm="evil-winrm -i 192.168.2.10 -u vagrant -p vagrant"
 
 
 ##########################
