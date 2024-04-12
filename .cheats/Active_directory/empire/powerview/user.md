@@ -3,6 +3,11 @@
 % ad, windows, powerview
 #plateform/windows #target/remote  #cat/RECON 
 
+## user - new domain user
+```
+new-domainuser -SamAccountName jubeaz -AccountPassword $SecPassword -Domain client.offshore.com
+```
+
 ## User - Get ASREPRoastable users
 ```powershell
 Get-NetUser -PreauthNotRequired
