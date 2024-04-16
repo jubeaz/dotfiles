@@ -2,20 +2,10 @@
 
 % impacket, windows, smb, 445
 
-## lookupsid - SID User Enumeration,  extract the information about what users exist and their data. 
-#plateform/linux #target/remote #cat/RECON 
-
+## docs
 ```
-lookupsid.py -domain-sids <domain_fqdn>/<user>:<password>@<ip>
+https://www.secureauth.com/labs-old/impacket/
 ```
-
-## lookupsid - SID User Enumeration,  extract the information about what users exist and their data.  (pth)
-#plateform/linux #target/remote #cat/RECON 
-
-```
-lookupsid.py -hashes :<nt_hash> -domain-sids <domain_fqdn>/<user>@<ip>
-```
-
 
 ## reg - query registry info remotely
 #plateform/linux #target/remote #cat/RECON 

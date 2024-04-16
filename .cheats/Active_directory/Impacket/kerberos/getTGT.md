@@ -1,16 +1,19 @@
-# getTGT (imp)
+# getTGT.py (imp)
 
 % impacket-kerberos, windows, kerberos, 88
-
-
-## GetTGT - request a TGT (pth)
 #plateform/linux #target/remote  #cat/UTILS
+
+## desc
 ```
-getTGT.py -dc-ip <dc_ip> -hashes <lm_hash>:<nt_hash> <domain_fqdn>/<user>
+Given a password, hash or aesKey, this script will request a TGT and save it as ccache.
 ```
 
-## GetTGT - request a TGT (creds)
-#plateform/linux #target/remote  #cat/UTILS
+## request a TGT (pth)
+```bash
+getTGT.py -dc-ip <dc_fqdn> -hashes :<nt_hash> <domain_fqdn>/<user>
 ```
-getTGT.py -dc-ip <dc_ip>  '<domain_fqdn>'/'<user>':'<password>'
+
+## request a TGT (creds)
+```bash
+getTGT.py -dc-ip <dc_fqdn>  <domain_fqdn>/<user>:'<password>'
 ```

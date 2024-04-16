@@ -55,7 +55,7 @@ Hashcat -m 18200 -a 0 hashes <password_wl>
 
 ## hashcat - NTLMv2 - Combination attack (ex:passpass,testtest,passtest,etc)
 ```
-hashcat -m 5600 --force -a 1 hashes <custom_wordlist> <custom_wordlist>
+hashcat -m 5600 --force -a 1 hashes <custom_wordlist>
 ```
 
 ## hashcat - generate wordlist using rules

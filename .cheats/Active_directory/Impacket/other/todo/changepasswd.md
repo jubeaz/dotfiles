@@ -1,6 +1,12 @@
-# changepasswd
+# changepasswd.py (imp)
 
 % impacket-other, windows, kerberos, 88, misc
+
+## desc
+```
+Change or reset passwords over different protocols.
+```
+
 
 ## change user password (ldap reset)
 #plateform/linux  #target/remote  #protocol/ldap 

@@ -1,16 +1,19 @@
-# TicketConverter (imp)
+# ticketConverter.py (imp)
 
 % impacket-kerberos, windows, kerberos, 88
+#plateform/linux #target/local  #cat/UTILS
 
+## desc
+```
+kirbi/ccache conversion 
+```
 
 ## convert kirbi into ccache
-#plateform/linux #target/local  #cat/UTILS
-```
-ticketConverter.py <ccache_ticket_file> <ticket_kirbi_file>
+```bash
+ticketConverter.py <ccache> <kirbi>
 ```
 
 ## convert ccache into kirbi
-#plateform/linux #target/local  #cat/UTILS
-```
-ticketConverter.py <ticket_kirbi_file> <ccache_ticket_file> 
+```bash
+ticketConverter.py <kirbi> <ccache> 
 ```
