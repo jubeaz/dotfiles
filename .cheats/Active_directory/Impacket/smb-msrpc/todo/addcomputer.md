@@ -1,4 +1,4 @@
-# impacket
+# addcomputer.py (imp)
 
 ## AddComputer - add computer
 #plateform/linux #target/remote #port/445 #protocol/smb #cat/ATTACK/CONNECT  

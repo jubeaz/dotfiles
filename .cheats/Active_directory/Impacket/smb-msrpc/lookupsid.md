@@ -1,7 +1,8 @@
 # lookupsid.py (imp)
 
-#plateform/linux #target/remote #port/445 #protocol/smb #cat/ATTACK/CONNECT  
+% impacket-smb-msrpc, windows, smb, msrpc
 
+#plateform/linux #target/remote #port/445 #cat/ATTACK/CONNECT  
 
 ## desc
 ```
