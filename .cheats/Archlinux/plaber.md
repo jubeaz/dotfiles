@@ -13,48 +13,82 @@ vboxmanage list runningvms | grep <lab_prefix|nrunner> | sed -r 's/.*\{(.*)\}/\1
 vboxmanage list runningvms | grep <lab_prefix|nrunner> | sed -r 's/.*\{(.*)\}/\1/' | xargs -L1 -I {} vboxmanage controlvm {} savestate
 ```
 
-
-## disable all buildint NAT interfaces
+## lab - disable all buildint NAT interfaces
 ```bash
-for b in $(cat /etc/ansible/vagrants/<lab_name|netrunner>/Vagrantfile  | grep bname: | cut -d'"' -f 2); do echo "vboxmanage modifyvm $b --cableconnected1 off"; vboxmanage modifyvm $b  --cableconnected1 off; done
+vboxmanage list vms | grep <lab_prefix|nrunner> | sed -r 's/.*\{(.*)\}/\1/' | xargs -L1 -I {} vboxmanage modifyvm {} --cableconnected1 off 
 ```
 
-## start all vagrant box
+## lab - start
 ```bash
-for b in $(cat /etc/ansible/vagrants/<lab_name|netrunner>/Vagrantfile  | grep bname: | cut -d'"' -f 2); do echo "vboxmanage startvm $b --type headless"; vboxmanage startvm $b --type headless; done
+vboxmanage list vms | grep <lab_prefix|nrunner> | sed -r 's/.*\{(.*)\}/\1/' | xargs -L1 -I {} vboxmanage startvm {} --type headless
 ```
 
-## ansible-build
+## lab - enable
 ```bash
-ansible-playbook -i /etc/ansible/lab_inventories/<lab_name|netrunner>/<lab_name|netrunner>.yml /etc/ansible/lab_playbooks/build-lab.yml
+ansible-playbook -i <plaber_path|.>/inventories/<lab_name|netrunner>/<lab_name|netrunner>.yml <plaber_path|.>/playbooks/enable-lab.yml
 ```
 
-## ansible-enable
+## snapshot - take
 ```bash
-ansible-playbook -i /etc/ansible/lab_inventories/<lab_name|netrunner>/<lab_name|netrunner>.yml /etc/ansible/lab_playbooks/enable-lab.yml
+vboxmanage list vms | grep <lab_prefix|nrunner> | sed -r 's/.*\{(.*)\}/\1/' | xargs -L1 -I {} vboxmanage snapshot {} take <snapshot_name> --description="<description>" --live 
+```
+
+## snapshot - restore
+```bash
+vboxmanage list vms | grep <lab_prefix|nrunner> | sed -r 's/.*\{(.*)\}/\1/' | xargs -L1 -I {} vboxmanage snapshot {} restore  <snapshot_name>
+```
+
+## snapshot - restore current (last) 
+```bash
+vboxmanage list vms | grep <lab_prefix|nrunner> | sed -r 's/.*\{(.*)\}/\1/' | xargs -L1 -I {} vboxmanage snapshot {} restorecurrent 
+```
+
+## snapshot - list 
+```bash
+vboxmanage list vms | grep nrunner | sed -r 's/"nrunner_(.*)"(.*)\{(.*)\}/nrunner_\1/' | xargs -L1 -I {}  vboxmanage snapshot {} list 
+```
+
+## build - firewall
+```bash
+ansible-playbook -i <plaber_path|.>/inventories/<lab_name|netrunner>/<lab_name|netrunner>.yml <plaber_path|.>/playbooks/build-fw.yml
+```
+
+## build - lab
+```bash
+ansible-playbook -i <plaber_path|.>/inventories/<lab_name|netrunner>/<lab_name|netrunner>.yml <plaber_path|.>/playbooks/build-lab.yml
 ```
 
 ## list ips
 ```bash
-cat /etc/ansible/lab_inventories/<lab_name|netrunner>/<lab_name|netrunner>.yml |grep ansible_host: |tr  '}' ':' |tr ',' ':'| cut -d: -f1,3
+cat <plaber_path|.>/inventories/<lab_name|netrunner>/<lab_name|netrunner>.yml |grep ansible_host: |tr  '}' ':' |tr ',' ':'| cut -d: -f1,3
 ```
 
-## rdp (domain)  
-```
-xfreerdp /cert:ignore /u:jubeaz@hass.local /p:jubeaz  /v:<ip> /h:1024 /w:1640 /drive:share,./ +drives
+## rdp (jubeaz)  
+```bash
+xfreerdp /cert:ignore /u:jubeaz@<domain_fqn> /p:jubeaz  /v:<ip> /h:1024 /w:1640 /drive:share,./ +drives
 ```
 
-## winrm (domain)  
+## winrm (jubeaz)  
+```bash
+evil-winrm -i <ip> -u jubeaz@<domain_fqn> -p jubeaz
 ```
-evil-winrm -i <ip> -u jubeaz@haas.local -p jubeaz
+
+## rdp (domain admin)  
+```bash
+xfreerdp /cert:ignore /u:administrator@<domain_fqn> /p:Jubeaz12345+-  /v:<ip> /h:1024 /w:1640 /drive:share,./ +drives
+```
+
+## winrm (domain admin)  
+```bash
+evil-winrm -i <ip> -u administrator@<domain_fqn> -p Jubeaz12345+-
 ```
 
 ## rdp (vagrant)  
-```
+```bash
 xfreerdp /cert:ignore /u:vagrant /p:vagrant  /v:<ip> /h:1024 /w:1640 /drive:share,./ +drives
 ```
 
 ## winrm (vagrant)  
-```
+```bash
 evil-winrm -i <ip> -u vagrant -p vagrant
 ```

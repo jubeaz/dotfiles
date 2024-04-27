@@ -1,4 +1,4 @@
-# ldapsearch
+# ldeep
 
 #plateform/linux  #target/remote  #protocol/ldap  #port/639 #port/389 #cat/RECON
 

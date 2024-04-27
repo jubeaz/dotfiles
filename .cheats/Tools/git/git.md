@@ -2,42 +2,43 @@
 
 #plateform/multiple #target/local #cat/UTILS 
 
-## Set global git user name
-```
+## config - user name
+```bash
 git config --global user.name <name>
 ```
 
-## Set global git user email
-```
+## config - user email
+```bash
 git config --global user.email <email>
 ```
+
 
 ## Initializes a git repository
 ```
 git init
 ```
 
-## Clone a git repository
+## clone -  with submodules 
 ```
-git clone -b <branch_name> <repository> <clone_directory>
+git clone -b <branch_name> --recurse-submodules <repository> <clone_directory>
 ```
 
-## View all available remote for a git repository
+## remote - view all available remote
 ```
 git remote --verbose
 ```
 
-## Adds a remote for a git repository
+## remote - add a remote
 ```
 git remote add <remote_name> <remote_url>
 ```
 
-## Renames a remote for a git repository
+## remote - rename a remote
 ```
 git remote rename <old_remote_name> <new_remote_name>
 ```
 
-## Remove a remote for a git repository
+## remote - remove a remote
 ```
 git remote remove <remote_name>
 ```
@@ -87,8 +88,9 @@ git push <remote_name> <branch>:<branch_to_overwrite>
 git push <remote_name> <branch_name> -f
 ```
 
-## Pulls changes to a remote repo to the local repo
-```
+## pull - simple
+equiv to git fetch followed by git merge FETCH_HEAD 
+```bash
 git pull --ff-only
 ```
 
@@ -127,30 +129,6 @@ git rebase master -S -f
 git fetch origin pull/<pr_number>/head:pr/<pr_number> && git checkout pr/<pr_number>
 ```
 
-## Add a new module
-```
-git submodule add <repository> <path>
-```
-
-## Update module
-```
-git submodule update --init
-```
-
-## Update module without init
-```
-git submodule update
-```
-
-## Pull all submodules
-```
-git submodule foreach git pull origin master
-```
-
-## Update all submodules
-```
-git submodule update --init --recursive
-```
 
 ## Skip git hooks
 ```

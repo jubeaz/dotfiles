@@ -12,7 +12,7 @@ https://github.com/SecuraBV/CVE-2020-1472
 
 ## test
 ```bash
-zerologon_tester.py <dc_name> <dc_fqdn>
+zerologon_tester.py <dc_name> <dc_ipn>
 ```
 
 # zerologon-NullPass.py
@@ -27,5 +27,6 @@ https://github.com/Sq00ky/Zero-Logon-Exploit
 
 ## run
 ```bash
-zerologon-NullPass.py <dc_name> <dc_fqdn>
+zerologon-NullPass.py <dc_name> <dc_ipn>
 ```
+

