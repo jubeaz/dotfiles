@@ -2,32 +2,23 @@
 % python, virtual env
 
 
-## create
+## add from requirements.txt
 ```bash
-virtualenv --python=<version|python3> .
+cat requirements.txt | grep -E '^[^# ]' | cut -d= -f1 | xargs -n 1 poetry add
 ```
 
-## activate
+## init (existing)
 ```bash
-source bin/activate
+cd pre-existing-project ; petry init
 ```
 
-## install requirements
+
+## list envs
 ```bash
-pip3 install -r requirements.txt
+poetry env list --full-path
 ```
 
-## upgrade requirements
+## remove env
 ```bash
-pip3 install -r requirements.txt --upgrade
-```
-
-## deactivate
-```bash
-deactivate
-```
-
-## remove project
-```bash
-rm -rf
+poetry env remove <poetry_env>
 ```

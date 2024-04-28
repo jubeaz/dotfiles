@@ -23,3 +23,8 @@ SharpSCCM.exe local client-info
 ```powershell
 SharpSCCM.exe local user-sid
 ```
+
+## get - retrieve admins
+```powershell
+SharpSCCM.exe get class-instances SMS_Admin -p CategoryNames -p CollectionNames -p LogonName -p RoleNames
+```

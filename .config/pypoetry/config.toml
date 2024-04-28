@@ -1,6 +1,6 @@
 cache-dir = "/home/jubeaz/.local/poetry"
 virtualenvs.create = true
-virtualenvs.in-project = null
+virtualenvs.in-project = false
 virtualenvs.options.always-copy = true
 virtualenvs.options.no-pip = false
 virtualenvs.options.no-setuptools = false

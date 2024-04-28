@@ -47,6 +47,12 @@
     "krbtgt_nthash": "",
     "trust_nthash": "",
 
+    "sccm_site_code": "",
+    "sccm_mssql_ip": "",
+    "sccm_fqdn": "",
+    "sccm_name": "",
+    "pxe_ip": "",
+
     "ticket": "c:\\Temp\\ticket.kirbi",
     "ccache": "/tmp/krb.ccache",
     "pass": "anonymous",
@@ -64,7 +70,8 @@
     "empire_storage_path": "/empire",
     "empire_listener_port": "443",
     "empire_listener_name": "jubeaz",
-    "windows_writable_path": "c:\\windows\\temp"
+    "windows_writable_path": "c:\\windows\\temp",
 
+    "end_arsenal_file": ""
 }
 
