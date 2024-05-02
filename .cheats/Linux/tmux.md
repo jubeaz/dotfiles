@@ -34,6 +34,7 @@ tmux a -t <session_name>
 ```bash
 rename: prefix - $
 detatch: prefix -  d
+:detatch-client
 ```
 
 

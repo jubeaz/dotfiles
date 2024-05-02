@@ -11,7 +11,12 @@ nxc ldap <ip> -u <user> -p <password> -d <domain_fqdn> --no-smb
 
 ## ldap - LDAP Machine Account Quota
 ```bash
-nxc ldap <ip> -u <user> -p <password> -d <domain_fqdn> --no-smb -M MAQ
+nxc ldap <ip> -u <user> -p <password> -d <domain_fqdn> --no-smb -M maq
+```
+
+## ldap - LDAP signing and binding
+```bash
+nxc ldap <ip> -u <user> -p <password> -d <domain_fqdn> --no-smb -M ldap-checker
 ```
 
 ## ldap - ASREPRoast enum without authentication

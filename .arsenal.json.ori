@@ -1,4 +1,5 @@
 {
+    "arsenal_prefix_cmd": "PROXYCHAINS_CONF_FILE=$PWD/prox-.conf proxychains -q",
     "chisel_login": "jubeaz",
     "chisel_password": "",
     "proxy_login": "jubeaz",

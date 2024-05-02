@@ -3,15 +3,15 @@
 
 
 ## add from requirements.txt
+install pipx install poetry-add-requirements.tx 
 ```bash
-cat requirements.txt | grep -E '^[^# ]' | cut -d= -f1 | xargs -n 1 poetry add
+poeareq
 ```
 
 ## init (existing)
 ```bash
 cd pre-existing-project ; petry init
 ```
-
 
 ## list envs
 ```bash
@@ -21,4 +21,9 @@ poetry env list --full-path
 ## remove env
 ```bash
 poetry env remove <poetry_env>
+```
+
+## poetry shell
+```
+poetry shell
 ```

@@ -140,11 +140,6 @@ git commit --no-verify
 git checkout -b <new_branch_name>
 ```
 
-## pull remote branch and switch to it
-```
-git checkout -b <new_branch_name> <remote>/<branch_name>
-```
-
 ## git dump
 ```
 gitdumper <url>/.git/ <destination_dir>

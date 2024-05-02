@@ -1,5 +1,10 @@
 # plaber
 
+## lab - remote shutdown 
+```bash
+ssh jubeaz@yoki "vboxmanage list runningvms | grep <lab_prefix|nrunner> | sed -r 's/.*\{(.*)\}/\1/' | xargs -L1 -I {} vboxmanage controlvm {} acpipowerbutton"
+```
+
 ## lab - shutdown 
 ```bash
 vboxmanage list runningvms | grep <lab_prefix|nrunner> | sed -r 's/.*\{(.*)\}/\1/' | xargs -L1 -I {} vboxmanage controlvm {} acpipowerbutton
@@ -16,6 +21,11 @@ vboxmanage list runningvms | grep <lab_prefix|nrunner> | sed -r 's/.*\{(.*)\}/\1
 ## lab - disable all buildint NAT interfaces
 ```bash
 vboxmanage list vms | grep <lab_prefix|nrunner> | sed -r 's/.*\{(.*)\}/\1/' | xargs -L1 -I {} vboxmanage modifyvm {} --cableconnected1 off 
+```
+
+## lab - remote start 
+```bash
+ssh jubeaz@yoki "vboxmanage list vms | grep <lab_prefix|nrunner> | sed -r 's/.*\{(.*)\}/\1/' | xargs -L1 -I {} vboxmanage startvm {} --type headless"
 ```
 
 ## lab - start

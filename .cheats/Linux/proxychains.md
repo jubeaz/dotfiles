@@ -1,5 +1,3 @@
-sed -i 's/SMB = Off/SMB = On/g' /usr/share/responder/Responder.conf && cat /usr/share/responder/Responder.conf | grep --color=never 'SMB ='
-
 # proxychains
 
 % proxychains, tunneling

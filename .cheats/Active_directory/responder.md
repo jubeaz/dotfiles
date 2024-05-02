@@ -60,9 +60,3 @@ multirelay -t <ip> -u <user1> <user2>
 ```
 multirelay -t <ip> -u ALL
 ```
-
-## check smb signing
-#plateform/linux #target/remote #cat/RECON 
-```
-responder-runfinger -i <ip_range>
-```
