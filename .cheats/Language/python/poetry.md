@@ -10,7 +10,7 @@ poeareq
 
 ## init (existing)
 ```bash
-cd pre-existing-project ; petry init
+cd pre-existing-project ; poetry init
 ```
 
 ## list envs
@@ -24,6 +24,17 @@ poetry env remove <poetry_env>
 ```
 
 ## poetry shell
-```
+exit to exit
+```bash
 poetry shell
 ```
+
+## poetry add dependencies
+```bash
+poetry add <name>
+``` 
+
+## poetry generate requirements.txt
+```bash
+poetry export--format=requirements.txt > requirements.txt
+``` 
