@@ -8,14 +8,14 @@
 https://ldapwiki.com/wiki/Wiki.jsp?page=Microsoft%20Active%20Directory
 #cat/ATTACK/CONNECT 
 ```
-ldapsearch -LLL  -H ldap://<dc_ip> -x -D <user>@<domain_fqdn> -w '<password>' -b 'DC=<domain_netbios>,DC=<domain_tld>'  
+ldapsearch -LLL  -H ldap://<dc_ip> -x -D <user>@<domain_fqdn> -w '<password>' -b '<domain_ldap_base>'  
 ```
 
 ## auth - GSSAPI binding
 https://ldapwiki.com/wiki/Wiki.jsp?page=Microsoft%20Active%20Directory
 #cat/ATTACK/CONNECT 
 ```
-export KRB5CCNAME=<ccache> && ldapsearch -LLL -Y GSSAPI  -H ldap://<dc_ip> -b 'DC=<domain_netbios>,DC=<domain_tld>' 
+export KRB5CCNAME=<ccache> && ldapsearch -LLL -Y GSSAPI  -H ldap://<dc_ip> -b '<domain_ldap_base>' 
 ```
 
 ## scope 

