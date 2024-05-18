@@ -29,6 +29,11 @@ exit to exit
 poetry shell
 ```
 
+## poetry shell (enywhere)
+```bash
+source ~/.local/poetry/<project>/bin/activate
+```
+
 ## poetry add dependencies
 ```bash
 poetry add <name>
@@ -36,5 +41,5 @@ poetry add <name>
 
 ## poetry generate requirements.txt
 ```bash
-poetry export--format=requirements.txt > requirements.txt
+poetry export --format=requirements.txt > requirements.txt
 ``` 
