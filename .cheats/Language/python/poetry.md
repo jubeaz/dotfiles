@@ -31,7 +31,7 @@ poetry shell
 
 ## poetry shell (enywhere)
 ```bash
-source ~/.local/poetry/<project>/bin/activate
+source ~/.local/poetry/virtualenvs/<project>/bin/activate
 ```
 
 ## poetry add dependencies

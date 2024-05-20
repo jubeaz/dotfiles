@@ -38,7 +38,12 @@ git submodule update --init --recursive
 git submodule foreach git pull origin master
 ```
 
-## submodule - pull
+## submodule - pull (fetch + merge)
 ```bash
-git submodule update --remote <module>
+git submodule update --remote <module_name>
+```
+
+## submodule - push proect (check submodules)
+```bash
+git push --recurse-submodules=check
 ```

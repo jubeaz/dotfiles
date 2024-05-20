@@ -219,15 +219,7 @@ openssl enc -aes-256-cbc -d -in <sample-encrypted> -out <sample-filename>
 <username-remote>@<ip>
 ```
 
-## Copy file from server to local
-```
-scp <username-remote>@<ip>:<file-to-send-path> <path-to-recieve> 
-```
 
-## Copy file from local to server
-```
-scp <file-to-send> <username-remote>@<ip>:<where-to-put>
-```
 
 ## Escape files with spaces in name like this
 ```
