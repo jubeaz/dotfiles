@@ -4,6 +4,17 @@
 #plateform/linux  #target/remote  #protocol/ssh #port/22
 
 
+## config - allow remote port forwarding
+```bash
+cat /etc/ssh/sshd_config | grep GatewayPorts
+```
+
+## config - allow remote port forwarding
+OpenSSH options -L, -D, and -W all use "local" forwarding; -R uses "remote" forwarding.
+```bash
+cat /etc/ssh/sshd_config | grep AllowTcpForwarding
+```
+
 ## Key - get server
 #cat/UTILS 
 ```
@@ -80,7 +91,7 @@ sshpass -p <password> ssh -q -L <local_port>:<remote_host>:<remote_port> <user>@
 
 ## Port forwarding - remote  
 #cat/PIVOT/TUNNEL-PORTFW 
-(send local port to remote) (need GatewayPorts yes)
+will not work if  "GatewayPorts no" in ssh server conf (yes by default)
 
 SSH server listens on a given port and tunnels any connection to that port to the specified port on the local SSH client, which then connects to a port on the destination machine. The destination machine can be the local or any other machine.
 
@@ -90,13 +101,27 @@ ssh -q -R <pivot_internal_ip>:<pivot_port>:<local_host>:<local_port> <user>@<ip>
 
 ## Port forwarding - remote (sshpass)
 #cat/PIVOT/TUNNEL-PORTFW 
-(send local port to remote) (need GatewayPorts yes)
+will not work if  "GatewayPorts no" in ssh server conf (yes by default)
 
 SSH server listens on a given port and tunnels any connection to that port to the specified port on the local SSH client, which then connects to a port on the destination machine. The destination machine can be the local or any other machine.
 
 ```
 sshpass -p <password> ssh -q -R <pivot_internal_ip>:<pivot_port>:<local_host>:<local_port> <user>@<ip> -vN
 ```
+
+## Port forwarding - check (on server)
+or:
+(client) nc -lnvp <port>
+(server) nc localhost <port>
+```bash
+nc -z localhost <port> || echo "no tunnel open"
+``` 
+
+
+## Port forwarding - check (ss)
+```bash
+ss -tlnp
+``` 
 
 ## Port forwarding - dynamic
 #cat/PIVOT/TUNNEL-PORTFW 
