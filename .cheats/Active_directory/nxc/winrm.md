@@ -3,7 +3,7 @@
 % nxc, netexec, windows, Active directory
 
 
-## winrm- auth
+## winrm - auth
 #plateform/linux #target/remote #port/5985 #port/5986 #protocol/winrm #cat/ATTACK/CONNECT  
 
 ```bash

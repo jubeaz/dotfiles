@@ -3,6 +3,11 @@
 % socat
 #plateform/linux  #target/remote  #cat/PIVOT 
 
+## desc
+```
+http://www.dest-unreach.org/socat/
+```
+
 ## local port redirection to port 
 ```bash
 socat TCP4-LISTEN:<listen_port>,fork,reuseaddr TCP4:<redirection_ip|localhost>:<redirection_port>

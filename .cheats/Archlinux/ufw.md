@@ -27,18 +27,18 @@ sudo ufw default <ufw_action|deny> <ufw_source|incoming>
 
 ## add incoming rule 
 ```bash
-sudo ufw <ufw_action|allow> proto <proto|tcp> from <ufw_allowed_cidr> to any port <ufw_port>
+sudo ufw <ufw_action|allow> proto <proto|tcp> from <ufw_allowed_cidr> to any port <ufw_port> comment <comment>
 ``` 
 
 ## add incoming rule (port range)
 ```bash
-sudo ufw <ufw_action|allow> proto <proto|tcp> from <ufw_allowed_cidr> to any port <ufw_port_min>:<ufw_port_max>
+sudo ufw <ufw_action|allow> proto <proto|tcp> from <ufw_allowed_cidr> to any port <ufw_port_min>:<ufw_port_max> comment <comment>
 ``` 
 
 
 ## insert incoming rule
 ```bash
-sudo ufw insert <ufw_rule_id> <ufw_action|allow> proto <proto|tcp>  from <ufw_allowed_cidr>  to any port <ufw_port>
+sudo ufw insert <ufw_rule_id> <ufw_action|allow> proto <proto|tcp>  from <ufw_allowed_cidr>  to any port <ufw_port> comment <comment>
 ``` 
 
 ## delete rule

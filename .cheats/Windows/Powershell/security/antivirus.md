@@ -3,7 +3,10 @@
 
 #plateform/windows #target/local #cat/RECON/SECURITY/DEFENDER #tag/powershell 
 
-
+## defender - commands
+```powershell
+ Get-Command -Module defender
+ ```
 
 ## defender - knowledge
 ```powershell
