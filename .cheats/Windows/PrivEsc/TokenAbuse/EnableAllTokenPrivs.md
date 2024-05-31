@@ -1,10 +1,18 @@
 # EnableAllTokenPrivs
 
+% SeTakeOwnership, token
 #plateform/windows #target/local #cat/PRIVESC/TOKEN
 
 
-## run (activate all privs)
-https://raw.githubusercontent.com/fashionproof/EnableAllTokenPrivs/master/EnableAllTokenPrivs.ps1
-```powershell 
+
+
+## import module
+https://github.com/fashionproof/EnableAllTokenPrivs/tree/master
+```powershell
+Import-Module .\Enable-Privilege.ps1
+```
+
+## run 
+```powershell
 .\EnableAllTokenPrivs.ps1
 ```

@@ -79,7 +79,7 @@ fi
 
 #alias rsync-dry-full-home="sudo /usr/bin/rsync --archive --delete --dry-run $HOME"
 alias win_dev_up="VAGRANT_CWD=/etc/ansible/vagrants/win_dev vagrant up"
-alias win_dev_rdp="xfreerdp /cert:ignore /u:vagrant /p:vagrant  /v:192.168.2.10 /h:1024 /w:1640 /drive:share,./ +drives"
+alias win_dev_rdp="xfreerdp /cert:ignore /u:jubeaz /p:jubeaz  /v:192.168.56.10 /h:1024 /w:1640 /drive:share,./ +drives"
 alias win_dev_winrm="evil-winrm -i 192.168.2.10 -u vagrant -p vagrant"
 
 
