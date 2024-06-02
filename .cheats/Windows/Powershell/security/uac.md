@@ -3,11 +3,22 @@
 
 #plateform/windows #target/local #cat/RECON/SECURITY/UAC #tag/powershell 
 
+## UAC - current Integrity level
+```powershell
+whoami /groups | select-string Level
+```
+
 ## UAC - show status
 0 : inactive
 1 : active
 ```powershell
 Get-ItemProperty HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System -Name EnableLUA
+```
+
+## UAC - disanble
+reboot requiered
+```powershell
+Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" -Name "EnableLUA" -Value 0
 ```
 
 ## UAC - show Level
@@ -27,3 +38,5 @@ Get-ItemProperty HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System
 ```powershell
 Get-ItemProperty HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System -Name LocalAccountTokenFilterPolicy
 ```
+
+
