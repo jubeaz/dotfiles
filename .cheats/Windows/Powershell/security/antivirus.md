@@ -137,3 +137,8 @@ C:\Program Files\Windows Defender\MpCmdRun.exe -Scan -ScanType 3 -File '\\10.10.
 ```powershell
 C:\ProgramData\Microsoft\Windows Defender\Platform\4.18.2008.9-0\MpCmdRun.exe -RemoveDefinitions -All
 ```
+
+## Defender - scan folder (or file)
+```powerhell
+Start-MpScan -ScanType Custom -ScanPath <path> -DisableRemediation
+```

@@ -11,7 +11,7 @@ iconv -f ASCII -t UTF-16LE <file> | base64 -w 0
 
 ## iconv - base64 encode command (for powershell)
 ```bash
-echo "iex(command)" | iconv --to-code UTF-16LE | base64 -w 0
+echo "<pwsh_cmd|iex(command)>" | iconv --to-code UTF-16LE | base64 -w 0
 ```
 
 ## python - base64 encode command (for powershell)
