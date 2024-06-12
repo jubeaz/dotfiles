@@ -2,32 +2,37 @@
 % python, virtualenv
 
 
-## create
+## env - create
 ```bash
-virtualenv --python=<version|python3> .
+virtualenv --python=<version|python3> <env_name|venv>
 ```
 
-## activate
+## env - activate
 ```bash
-source bin/activate
+source <env_name>/bin/activate
 ```
 
-## install requirements
+## env - install requirements
 ```bash
 pip3 install -r requirements.txt
 ```
 
-## upgrade requirements
+## env - install with setup tools
+```bash
+pip3 install .
+```
+
+## env - upgrade requirements
 ```bash
 pip3 install -r requirements.txt --upgrade
 ```
 
-## deactivate
+## env - deactivate
 ```bash
 deactivate
 ```
 
 ## remove project
 ```bash
-rm -rf
+rm -rf ./<env_name|venv>
 ```

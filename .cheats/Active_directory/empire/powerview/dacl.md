@@ -3,6 +3,16 @@
 % ad, windows, powerview
 #plateform/windows #target/remote  #cat/RECON 
 
+## DACL - Get ACLs of an object by an object
+target can be:
+    - SamAccountName
+    - DistinguishedName
+    - SID
+    - GUID
+    - *
+```powershell
+$sid = ConvertTo-SID -Name <source>; Get-DomainObjectAcl -Identity <target> -ResolveGUIDs | ?{$_.SecurityIdentifier -eq $sid }
+```
 
 ## DACL - Get ACLs of an object 
 ```powershell

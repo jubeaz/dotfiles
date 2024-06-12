@@ -63,3 +63,12 @@ Get-NetDomainController -Domain <domain_fqdn>
 Get-DomainTrustMapping
 ```
 
+## Domain - Get machine account quota
+```powershell
+(Get-DomainObject -SearchScope Base)."ms-ds-machineaccountquota"
+```
+
+## Domain - Get machine account quota (SID)
+```poweshell
+(Get-DomainComputer -Filter '(ms-DS-CreatorSID=*)' -Properties name,ms-ds-creatorsid | Get-DomainComputer -Filter '(ms-DS-CreatorSID=*)' -Properties name,ms-ds-creatorsid).Count
+```

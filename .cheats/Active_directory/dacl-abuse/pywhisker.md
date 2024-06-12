@@ -3,10 +3,33 @@
 % dacl, shadow credentials, msDs-KeyCredentialLink, https://github.com/ShutdownRepo/pywhisker
 #plateform/linux #target/remote #cat/AD/RECON 
 
-## Attack requierements
+
+## pyWhisker - Notes
+```
+To install add pycryptodome to requirements.txt
+plus
+pip install pyOpenSSL==24.0.0
+```
+
+## pyWhisker - Attack requierements
 ```
 GenericAll, GenericWrite, WriteProperty or Validated-SPN 
 DC must have its own certificate and keys (RB-ERROR (16) : KDC_ERR_PADATA_TYPE_NOSUPP)
+```
+
+## auth - cred
+```bash
+-u <user> -p <password> 
+```
+
+## auth - pth
+```bash
+-u <user> -H <nt_hash> 
+```
+
+## auth - ptt
+```bash
+-u <user> -k -no-pass 
 ```
 
 ## list all current KeyCredentials ID and creation time (cred)
@@ -20,6 +43,10 @@ pywhisker.py --dc-ip <dc_ip> -d <domain_fqdn> -u <user> -p <password> --target <
 pywhisker.py --dc-ip <dc_ip> -d <domain_fqdn> -u <user> -H <nt_hash> --target <target_user> --action "list"
 ```
 
+## list all current KeyCredentials ID and creation time (ptt)
+```
+pywhisker.py -k -no-pass --dc-ip <dc_ip> -d <domain_fqdn> -u <user> --target <target_user> --action "list"
+```
 
 ## get info on KeyCredential (pth)
 ```

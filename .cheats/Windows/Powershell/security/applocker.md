@@ -8,6 +8,10 @@
 Get-AppLockerPolicy -Effective -Xml
 ```
 
+## applock - policy (registry)
+```powershell
+Get-ChildItem -Path HKLM:\SOFTWARE\Policies\Microsoft\Windows\SrpV2\Exe
+```
 
 ## applocker - policy
 ```powershell

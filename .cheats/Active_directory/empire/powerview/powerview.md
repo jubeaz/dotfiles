@@ -3,6 +3,11 @@
 % ad, windows, powerview
 #plateform/windows #target/remote  #cat/RECON 
 
+## convert SID to Name
+```powershell
+| ForEach-Object { $_.SecurityIdentifier } | Convert-SidToName 
+```
+
 ## Convert from SID
 ```powershell
 Convert-ADName -ObjectName <sid>

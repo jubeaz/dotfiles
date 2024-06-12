@@ -1,0 +1,28 @@
+{
+    "explorer.confirmDragAndDrop": false,
+    "redhat.telemetry.enabled": true,
+    "workbench.editor.highlightModifiedTabs": true,
+    "workbench.colorTheme": "Visual Studio Dark",
+    "files.autoSave": "afterDelay",
+    "remote.SSH.remotePlatform": {
+        "yoki": "linux"
+    },
+    "sshfs.configs": [
+        {
+            "name": "yoki",
+            "host": "yoki.jinteki.lan",
+            "root": "/etc/ansible",
+            "agent": "$SSH_AUTH_SOCK",
+            "username": "jubeaz",
+            "privateKeyPath": "$HOME/.ssh/id_rsa_jinteki_lan",
+            "passphrase": true
+        }
+    ],
+    "window.confirmSaveUntitledWorkspace": false,
+    "editor.fontSize": 13,
+    "[latex]": {
+        "editor.wordWrap": "on",
+        "editor.wordBasedSuggestions": false,
+        "editor.suggest.snippetsPreventQuickSuggestions": false
+    }
+}

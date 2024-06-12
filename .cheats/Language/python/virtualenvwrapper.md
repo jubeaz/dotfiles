@@ -1,9 +1,15 @@
 # virtualenvwrapper
 % python, virtualenv, virtualenvwrapper
 
-## desc
+## virtualenvwrapper - url
 ```
 https://virtualenvwrapper.readthedocs.io/en/latest/
+```
+
+
+## virtualenvwrapper - desc
+```
+is a set of extensions to virtualenv. It gives you commands like mkvirtualenv, lssitepackages, and especially workon for switching between different virtualenv directories. This tool is especially useful if you want multiple virtualenv directories.
 ```
 
 ## install
