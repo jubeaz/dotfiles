@@ -2,7 +2,7 @@
     "explorer.confirmDragAndDrop": false,
     "redhat.telemetry.enabled": true,
     "workbench.editor.highlightModifiedTabs": true,
-    "workbench.colorTheme": "Visual Studio Dark",
+    "workbench.colorTheme": "Default Dark+",
     "files.autoSave": "afterDelay",
     "remote.SSH.remotePlatform": {
         "yoki": "linux"

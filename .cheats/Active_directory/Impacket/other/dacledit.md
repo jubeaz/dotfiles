@@ -14,6 +14,12 @@ in master branch
 dacledit.py -target <target> -dc-ip <dc_fqdn>  <domain_fqdn>/<user>:<password> 
 ```
 
+## read - target acl (DN)
+#plateform/linux  #target/remote  #protocol/ldap 
+```bash
+dacledit.py --target-dn <target> -dc-ip <dc_fqdn>  <domain_fqdn>/<user>:<password> 
+```
+
 ## read - target acl from source
 #plateform/linux  #target/remote  #protocol/ldap 
 ```bash
