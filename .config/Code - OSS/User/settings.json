@@ -22,7 +22,7 @@
     "editor.fontSize": 13,
     "[latex]": {
         "editor.wordWrap": "on",
-        "editor.wordBasedSuggestions": false,
+        "editor.wordBasedSuggestions": "off",
         "editor.suggest.snippetsPreventQuickSuggestions": false
     }
 }

@@ -20,5 +20,66 @@
 			"\\verb+${1:content}+$0"
 		],
 		"description": "verbatim inline"
-	}
+	},
+	"Chapter": {
+		"prefix": "cha",
+		"body": [
+		  "\\chapter{${1:chapter name}} % (fold)",
+		  "\\label{cha:${2:${1/(\\w+)(\\W+$)?|\\W+/${1:?${1:/asciify/downcase}:_}/g}}}",
+		  "${0:$TM_SELECTED_TEXT}",
+		  "% chapter $2 (end)"
+		],
+		"description": "Chapter"
+	  },
+	  "Algorithm": {
+		"prefix": "algo",
+		"body": [
+		  "% \\usepackage{algorithm,algorithmicx,algpseudocode}",
+		  "\\begin{algorithm}",
+		  "\t\\floatname{algorithm}{${1:Algorithm}}",
+		  "\t\\algrenewcommand\\algorithmicrequire{\\textbf{${2:Input: }}}",
+		  "\t\\algrenewcommand\\algorithmicensure{\\textbf{${3:Output: }}}",
+		  "\t\\caption{$4}",
+		  "\t\\label{alg:$5}",
+		  "\t\\begin{algorithmic}[1]",
+		  "\t\t\\Require \\$input\\$",
+		  "\t\t\\Ensure \\$output\\$",
+		  "\t\t$6",
+		  "\t\t\\State \\textbf{return} \\$state\\$",
+		  "\t\\end{algorithmic}",
+		  "\\end{algorithm}",
+		  "$0"
+		],
+		"description": "Add an algorithm"
+	  },
+	  "Enumerate": {
+		"prefix": "enum",
+		"body": [
+		  "\\\\begin{enumerate}",
+		  "\t\\item $0",
+		  "\\\\end{enumerate}"
+		],
+		"description": "Enumerate"
+	  },
+	  "Itemize": {
+		"prefix": "item",
+		"body": [
+		  "\\\\begin{itemize}",
+		  "\t\\item $0",
+		  "\\\\end{itemize}"
+		],
+		"description": "Itemize"
+	  },
+	  "figure": {
+		"prefix": "fig",
+		"body": [
+			"\\begin{figure}[!ht]",
+			"\t\\includegraphics[width=\\linewidth]{$1}",
+  			"\t\\caption{$2}",
+  			"\t\\label{fig:$3}",
+			"\\end{figure}",
+			"$0"
+		],
+		"description": "Add a figure"
+	  },
 }
