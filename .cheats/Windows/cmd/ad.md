@@ -101,11 +101,11 @@ nltest /domain_trust /ALL_TRUSTS /V /server:<dest_dc_fqdn>
 ## AD - enable SIDHistory Filtering
 Enable history on source domain for target domain (useful for forest extra SID exploitation)
 ```
-netdom trust <source_domain> /d:<target_domain> /enablesidhistory:yes
+netdom trust <source_domain> /d:<dst_domain_fqdn> /enablesidhistory:yes
 ```
 
 ## AD - check SIDHistory filtering
 Enable history on source domain for target domain (useful for forest extra SID exploitation)
 ```
-netdom trust <source_domain> /d:<target_domain> /quarantine
+netdom trust <source_domain> /d:<dst_domain_fqdn> /quarantine
 ```

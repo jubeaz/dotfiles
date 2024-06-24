@@ -116,7 +116,7 @@ https://github.com/CravateRouge/bloodyAD
 ```bash
 bloodyad --host <dc_ip> -d <domain_fqdn> -u <user> -p :<nt_hash> -v <level|INFO> get membership <target_sAMAccountName>
 ```
-## get - object (pth)
+## get - object with dacl (pth)
 https://github.com/CravateRouge/bloodyAD
 ```bash
 bloodyad --host <dc_ip> -d <domain_fqdn> -u <user> -p :<nt_hash> -v <level|INFO> get object --resolve-sd <target_sAMAccountName>
