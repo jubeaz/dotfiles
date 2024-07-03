@@ -27,8 +27,13 @@ net group /domain <domain_group_name>
 ```
 
 
-## Add new user to localgroup
+## group - Add user to localgroup
 ```
-net localgroup '<gname|Administrators>'  <name|jubeaz> /add
+net localgroup '<gname|Administrators>'  <domain_netbios>\<name|jubeaz> /add
+```
+
+## roup - Add user to domain
+```
+net group '<gname|Domain Admins>'  <domain_netbios>\<name|jubeaz> /add /DOMAIN
 ```
 

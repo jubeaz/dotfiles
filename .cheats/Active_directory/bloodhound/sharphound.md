@@ -18,3 +18,10 @@ nltest.exe /DOMAIN_TRUSTS
 ```powershell
 import-module sharphound.ps1; invoke-bloodhound -collectionmethod <method|DCOnly> -domain <domain_fqdn>
 ```
+
+
+## collect data
+#tag/powershell 
+```powershell
+SharpHound.exe -c All -d inlanefreight.local<domain_fqdn>
+```

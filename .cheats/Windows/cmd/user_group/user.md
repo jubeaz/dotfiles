@@ -34,7 +34,7 @@ net user
 net user /add <name|jubeaz> <password|Zaebuj12345+->
 ```
 
-## user - change user password (reset domain)
+## user - reset password (reset domain)
 ```
 net user  <user> <new_password|P@ssw0rd123> /domain
 ```

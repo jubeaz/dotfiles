@@ -25,7 +25,7 @@ Get-LocalUser | ft Name,Enabled,LastLogon
 New-LocalUser -FullName '<fname|jubeaz>' -Name <name|jubeaz> -Password (ConvertTo-SecureString -String '<password|Zaebuj12345+->' -AsPlainText -Force)  
 ```
 
-## user - change user password (reset domain)
+## user - reset password (domain)
 ```powershell
 Set-ADAccountPassword -Identity <target_user> -Reset -NewPassword (ConvertTo-SecureString -AsPlainText "<password|Zaebuj12345+->" -Force)
 ```

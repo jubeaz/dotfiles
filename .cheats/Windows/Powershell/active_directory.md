@@ -70,3 +70,36 @@ Get-DomainSID -domain <sid>
 Get-ADObject -filter 'isDeleted -eq $true -and name -ne "Deleted Objects"' -includeDeletedObjects -property *
 ```
 
+
+## AD - Constrained delegation (all)
+```powershell
+Get-ADComputer -LDAPFilter "(&(objectCategory=computer)(msds-allowedtodelegateto=*))" -Properties msds-allowedtodelegateto;Get-ADUser -LDAPFilter "(msds-allowedtodelegateto=*)" -Properties msds-allowedtodelegateto; Get-ADComputer -LDAPFilter "(userAccountControl:1.2.840.113556.1.4.803:=16777216)" -Properties msds-allowedtodelegateto;Get-ADUser -LDAPFilter "(userAccountControl:1.2.840.113556.1.4.803:=16777216)" -Properties msds-allowedtodelegateto
+```
+
+## AD - Constrained delegation (protocol transition)
+```powershell
+Get-ADComputer -LDAPFilter "(&(userAccountControl:1.2.840.113556.1.4.803:=16777216)(msds-allowedtodelegateto=*))" -Properties msds-allowedtodelegateto;Get-ADUser -LDAPFilter "(&(userAccountControl:1.2.840.113556.1.4.803:=16777216)(msds-allowedtodelegateto=*))" -Properties msds-allowedtodelegateto
+```
+
+
+## AD - Unconstrained delegation
+```powershell
+Get-ADComputer -LDAPFilter "(userAccountControl:1.2.840.113556.1.4.803:=524288)"
+```
+
+## AD - RBCD
+```powershell
+Get-ADComputer -LDAPFilter "(userAccountControl:1.2.840.113556.1.4.803:=524288)"
+```
+
+
+
+## AD - reset password (user)
+```powershell
+Set-ADAccountPassword -Identity <user> -NewPassword (ConvertTo-SecureString -AsPlainText 'Jubeaz12345+-' -Force)
+```
+
+## AD - reset password (computer)
+```powershell
+Set-ADAccountPassword -Identity <computer>$ -NewPassword (ConvertTo-SecureString -AsPlainText 'Jubeaz12345+-' -Force)
+```

