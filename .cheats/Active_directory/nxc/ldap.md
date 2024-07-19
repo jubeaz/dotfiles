@@ -66,3 +66,4 @@ nxc ldap <dc_name> -k --kdcHost <dc_name>  -u <user> -p '<password>'  --module l
 ```bash
 nxc ldap <dc_name> -k --kdcHost <dc_name>  -u <user> -p '<password>'  --gmsa
 ```
+

