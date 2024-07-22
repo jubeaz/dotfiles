@@ -43,6 +43,16 @@ Get-NetFirewallRule -Enabled true -Direction "<direction|Inbound>" -PolicyStore 
 Get-NetFirewallRule -Enabled true -Direction "<direction|Inbound>" -PolicyStore ActiveStore | Format-Table -AutoSize -Property Name,DisplayName, @{Name="Protocol";Expression={($PSItem | Get-NetFirewallPortFilter).Protocol}}, @{Name="LocalPort";Expression={($PSItem | Get-NetFirewallPortFilter).LocalPort}},@{Name="RemotePort";Expression={($PSItem | Get-NetFirewallPortFilter).RemotePort}}, @{Name="RemoteAddress";Expression={($PSItem | Get-NetFirewallAddressFilter).RemoteAddress}}, Action
 ```
 
+## firewall - get rules applied to a port
+```powershell
+Get-NetFirewallPortFilter | Where-Object { $_.LocalPort -eq <port_number> } | Get-NetFirewallRule | Format-Table -AutoSize -Property Name,DisplayName, @{Name="Protocol";Expression={($PSItem | Get-NetFirewallPortFilter).Protocol}}, @{Name="LocalPort";Expression={($PSItem | Get-NetFirewallPortFilter).LocalPort}},@{Name="RemotePort";Expression={($PSItem | Get-NetFirewallPortFilter).RemotePort}}, @{Name="RemoteAddress";Expression={($PSItem | Get-NetFirewallAddressFilter).RemoteAddress}}, Action
+```
+
+## firewall - get rules applied to a port (name)
+```powershell
+Get-NetFirewallPortFilter | Where-Object { $_.LocalPort -like "<name>*" } | Get-NetFirewallRule  | Where-Object {$_.Direction -eq "<direction|Inbound>" -And $_.Enabled -eq $True }| Format-Table -AutoSize -Property Name,DisplayName, @{Name="Protocol";Expression={($PSItem | Get-NetFirewallPortFilter).Protocol}}, @{Name="LocalPort";Expression={($PSItem | Get-NetFirewallPortFilter).LocalPort}},@{Name="RemotePort";Expression={($PSItem | Get-NetFirewallPortFilter).RemotePort}}, @{Name="RemoteAddress";Expression={($PSItem | Get-NetFirewallAddressFilter).RemoteAddress}}, Action
+```
+
 ## firewall - disable (profile)
 #cat/DEFENSE-EVASION/SECURITY/DEFENDER
 ```powershell
