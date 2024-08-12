@@ -8,6 +8,12 @@
 responder –I <interface> -A
 ```
 
+## analyze mode (NTLM V1)
+#tag/responder
+```
+responder –I <interface> -A --lm --disable-ess
+```
+
 ## poison
 #plateform/linux #target/remote #cat/ATTACK/MITM 
 ```

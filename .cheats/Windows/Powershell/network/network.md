@@ -3,6 +3,11 @@
 
 #plateform/windows #target/local #cat/RECON/NETWORK #tag/powershell 
 
+## network - basic adapters info
+```powershell
+Get-NetAdapter | Format-List -Property ifAlias,PromiscuousMode
+```
+
 ##  network - get net commands
 ```
 Get-Command -Noun NetIP* -verb Get

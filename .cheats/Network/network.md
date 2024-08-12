@@ -2,6 +2,16 @@
 
 % network, ip
 
+## Linux check promiscous
+```bash
+ip link show dev <interface>
+```
+
+## Windows check promiscous
+```bash
+Get-NetAdapter | Format-List -Property PromiscuousMode, Name
+```
+
 ## ip infos (hostname / city / country / isp )
 #plateform/linux  #target/remote  #cat/UTILS  
 ```

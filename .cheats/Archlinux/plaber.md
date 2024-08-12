@@ -1,5 +1,10 @@
 # plaber
 
+## win-dev - jubeaz
+```bash
+xfreerdp /cert:ignore /u:jubeaz /p:'Jubeaz12345+-'  /v:192.168.56.10 /h:1024 /w:1640 /drive:share,./ +drives
+```
+
 ## lab - remote shutdown 
 ```bash
 ssh jubeaz@yoki "vboxmanage list runningvms | grep <lab_prefix|nrunner> | sed -r 's/.*\{(.*)\}/\1/' | xargs -L1 -I {} vboxmanage controlvm {} acpipowerbutton"

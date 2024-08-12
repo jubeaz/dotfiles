@@ -1,6 +1,6 @@
 # tcpdump
 
-% tcpdump
+% tcpdump, sniffer
 #plateform/linux  #target/local  #cat/Network 
 
 ## ICMP - verify ICMP polling
@@ -10,7 +10,7 @@ sudo tcpdump -i <interface|any> icmp
 
 ## run - common
 ```bash
-timeout <num>m  tcpdump -i <interface|any> -nn -w <file|jubeaz>.pcap -A  <filter>
+timeout <num>m  tcpdump -i <interface|any>  -nn -w <file|jubeaz>.pcap -A  <filter>
 ```
 
 ## run -  for a given amount of time (min)

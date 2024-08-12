@@ -6,6 +6,6 @@
 
 ## dedicated PROXYCHAINS_CONF_FILE
 ```bash
-export PROXYCHAINS_CONF_FILE=<path|$PWD/proxy.conf> 
+PROXYCHAINS_CONF_FILE=<path|$PWD/proxy.conf> proxychains -q <cmd> 
 ```
 

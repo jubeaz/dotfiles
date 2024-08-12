@@ -17,6 +17,10 @@ Get-ChildItem -Hidden C:\Users\<user>\AppData\Local\Microsoft\Credentials\ ; Get
 Get-ChildItem -Hidden C:\Users\<user>\AppData\Local\Microsoft\Protect\<user_SID> ; Get-ChildItem -Hidden C:\Users\<user>\AppData\Roaming\Microsoft\Protect\<user_SID>
 ```
 
+## PSReadLine
+```powershell
+foreach($user in ((ls C:\users).fullname)){cat "$user\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadline\ConsoleHost_history.txt" -ErrorAction SilentlyContinue}
+```
 
 ## vaultcmd - 
 ```powershell

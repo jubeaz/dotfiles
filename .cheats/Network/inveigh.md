@@ -2,6 +2,21 @@
 
 % inveigh, LLMNR, NBT-NS, Poisoning, man in the middle
 
+## . - url
+```
+https://github.com/Kevin-Robertson/Inveigh
+```
+
+## . - desc
+```
+Inveigh is a cross-platform .NET IPv4/IPv6 machine-in-the-middle tool for penetration testers.
+```
+
+## list prams
+```powershell
+(Get-Command Invoke-Inveigh).Parameters
+```
+
 ## inveigh - launch
 #plateform/windows #target/remote #cat/ATTACK/MITM 
 ```
