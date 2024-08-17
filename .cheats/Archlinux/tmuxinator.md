@@ -8,8 +8,13 @@
 https://github.com/tmuxinator/tmuxinator
 ```
 
-## run
+## install
+```bash
+gem install --user-install tmuxinator
 ```
+
+## run
+```bash
 tmuxinator start <project>
 ```
 

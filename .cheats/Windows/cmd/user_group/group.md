@@ -27,9 +27,14 @@ net group /domain <domain_group_name>
 ```
 
 
-## group - Add user to localgroup
+## group - Add user to localgroup (domain explicit)
 ```
 net localgroup '<gname|Administrators>'  <domain_netbios>\<name|jubeaz> /add
+```
+
+## group - Add user to localgroup (domain implicit)
+```
+net localgroup '<gname|Administrators>'  <name|jubeaz> /add
 ```
 
 ## roup - Add user to domain

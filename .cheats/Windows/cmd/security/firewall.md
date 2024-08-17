@@ -29,7 +29,7 @@ netsh advfirewall firewall show rule name=all profile=<fw_profile|Domain>
 ## firewall - turn off firewall (Advirewall)
 #cat/DEFENSE-EVASION/SECURITY/DEFENDER
 ```cmd
-NetSh Advfirewall set allprofiles state off
+netsh advfirewall set allprofiles state off
 ```
 
 ## firewall - turn off firewall (firewall)
