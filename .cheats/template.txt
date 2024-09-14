@@ -1,0 +1,19 @@
+# Template
+
+%  windows, impacket-exec
+#plateform/linux #target/remote #port/445 #protocol/smb #cat/ATTACK/CONNECT  
+
+## _url
+```
+
+```
+
+## _desc
+```
+
+```
+
+## _links
+```
+```
+

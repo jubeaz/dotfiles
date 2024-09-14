@@ -79,34 +79,49 @@ SSH client listens on a given port and tunnels any connection to that port to th
 can perform multiple -L
 
 ```
-ssh -q -L <local_port>:<remote_host>:<remote_port> <user>@<ip>
+ssh -q -L [<local_bind_port>:]<target_bind_ip|0.0.0.0>:<target_bind_port> <user>@<target_connect_ip>
 ```
 
 ## Port forwarding - local (sshpass)
 #cat/PIVOT/TUNNEL-PORTFW 
 SSH client listens on a given port and tunnels any connection to that port to the specified port on the remote SSH server, which then connects to a port on the destination machine. The destination machine can be the remote SSH server or any other machine.
 ```
-sshpass -p <password> ssh -q -L <local_port>:<remote_host>:<remote_port> <user>@<ip>
+sshpass -p <password> ssh -q -L [<local_bind_port>:]<target_bind_ip|0.0.0.0>:<target_bind_port> <user>@<target_connect_ip>
 ```
 
 ## Port forwarding - remote  
 #cat/PIVOT/TUNNEL-PORTFW 
 will not work if  "GatewayPorts no" in ssh server conf (yes by default)
 
-SSH server listens on a given port and tunnels any connection to that port to the specified port on the local SSH client, which then connects to a port on the destination machine. The destination machine can be the local or any other machine.
+SSH server listens on a given port (target_bind_port) and tunnels any connection to that port to the fwd_host:fwd_port.
 
 ```
-ssh -q -R <pivot_internal_ip>:<pivot_port>:<local_host>:<local_port> <user>@<ip> -vN
+ssh -q -R [<target_bind_ip>:]<target_bind_port>:<fwd_host>:<fwd_port> <user>@<target_connect_ip> -vN
 ```
 
 ## Port forwarding - remote (sshpass)
 #cat/PIVOT/TUNNEL-PORTFW 
 will not work if  "GatewayPorts no" in ssh server conf (yes by default)
 
-SSH server listens on a given port and tunnels any connection to that port to the specified port on the local SSH client, which then connects to a port on the destination machine. The destination machine can be the local or any other machine.
+SSH server listens on a given port (target_bind_port) and tunnels any connection to that port to the fwd_host:fwd_port.
 
 ```
-sshpass -p <password> ssh -q -R <pivot_internal_ip>:<pivot_port>:<local_host>:<local_port> <user>@<ip> -vN
+sshpass -p <password> ssh -q -R [<target_bind_ip>:]<target_bind_port>:<fwd_host>:<fwd_port> <user>@<target_connect_ip> -vN
+```
+
+## Port forwarding - remote dynamic 
+#cat/PIVOT/TUNNEL-PORTFW 
+
+```
+ssh -q -R [<target_bind_ip>:]<target_bind_port> <user>@<target_connect_ip> -vN
+```
+
+## Port forwarding - remote dynamic (sshpass)
+#cat/PIVOT/TUNNEL-PORTFW 
+
+
+```
+sshpass -p <password> ssh -q -R [<target_bind_ip>:]<target_bind_port> <user>@<target_connect_ip> -vN
 ```
 
 ## Port forwarding - check (on server)
@@ -126,13 +141,13 @@ ss -tlnp
 ## Port forwarding - dynamic
 #cat/PIVOT/TUNNEL-PORTFW 
 ```
-ssh -q -D <socks_port> <user>@<ip>
+ssh -q -D <socks_port> <user>@<target_connect_ip>
 ```
 
 ## Port forwarding - dynamic (sshpass) 
 #cat/PIVOT/TUNNEL-PORTFW 
 ```
-sshpass -p <password> ssh -q -D <socks_port> <user>@<ip>
+sshpass -p <password> ssh -q -D <socks_port> <user>@<target_connect_ip>
 ```
 
 

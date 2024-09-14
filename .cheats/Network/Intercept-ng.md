@@ -3,12 +3,12 @@
 % sniffer
 #plateform/windows  #target/local  #cat/Network 
 
-## Intercept-ng - url
+## url
 ```
 http://sniff.su/
 ```
 
-## Intercept-ng - desc
+## desc
 ```
 todo
 ```
