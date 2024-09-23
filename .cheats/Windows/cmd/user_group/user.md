@@ -31,7 +31,13 @@ net user
 
 ## user - add local user
 ```
-net user /add <name|jubeaz> <password|Zaebuj12345+->
+net user <name|jubeaz> <password|Zaebuj12345+-> /add 
+```
+
+
+## user - add domain user
+```
+net user <name|jubeaz> <password|Zaebuj12345+-> /add /domain
 ```
 
 ## user - reset password (reset domain)

@@ -4,14 +4,29 @@
 
 #plateform/linux #target/local #cat/INTERNAL 
 
-## List global variable
+## Exit
+```
+>exit
+```
+
+## List global variables
 ```
 >show
 ```
 
-## Clear all global variable
+## Clear all global variables
 ```
 >clear
+```
+
+## Save all globale variables
+```
+>save
+```
+
+## Reload all global variable
+```
+>reload
 ```
 
 ## Set commons global variable
@@ -93,8 +108,4 @@ wordlists (nbline):
 >set <GLOBALVAR>=<value>
 ```
 
-## Exit
-```
->exit
-```
 

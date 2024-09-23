@@ -23,5 +23,5 @@ import-module sharphound.ps1; invoke-bloodhound -collectionmethod <method|DCOnly
 ## collect data
 #tag/powershell 
 ```powershell
-SharpHound.exe -c All -d inlanefreight.local<domain_fqdn>
+SharpHound.exe -c All -d <domain_fqdn>
 ```
