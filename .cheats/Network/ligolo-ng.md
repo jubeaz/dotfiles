@@ -54,13 +54,13 @@ route_add --name <name | ligolo> --route <cidr>
 
 ## Agent - connect 
 ```bash
-agent.exe -ignore-cert -connect <server_ip>:<port|11601>
+ligolo-ng-agent.exe -ignore-cert -connect <server_ip>:<port|11601>
 ```
 
 ## Agent - connect (check cert)
 server ip or proxy ip
 ```bash
-agent.exe -accept-fingerprint <fp> -connect <server_ip>:<port|11601>
+ligolo-ng-agent.exe -accept-fingerprint <fp> -connect <server_ip>:<port|11601>
 ```
 
 ## Agent - start Listener

