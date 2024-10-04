@@ -3,6 +3,21 @@
 #plateform/linux  #target/remote  #protocol/exchange #cat/ATTACK/BRUTEFORCE-SPRAY 
 
 
+## _url
+```
+https://github.com/iomoath/PyExchangePasswordSpray/tree/master
+```
+
+## _desc
+```
+Microsoft Exchange password spraying tool with proxy capabilities
+```
+
+## _links
+```
+https://github.com/iomoath/PyExchangePasswordSpray/tree/master
+```
+
 ## bruteforce (EWS)
 user format <domain_netbios>\<user>
 edit script to set verify=False

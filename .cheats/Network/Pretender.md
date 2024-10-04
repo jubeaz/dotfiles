@@ -2,6 +2,21 @@
 
 % pretender, LLMNR, NBT-NS, Poisoning, man in the middle
 
+## _url
+```
+https://github.com/RedTeamPentesting/pretender
+```
+
+## _desc
+```
+spoof local name resolution and DHCPv6 DNS
+```
+
+## _links
+```
+https://github.com/RedTeamPentesting/pretender
+```
+
 ## pretender - only logs incoming queries
 #plateform/multiple #target/remote #cat/RECON 
 ```

