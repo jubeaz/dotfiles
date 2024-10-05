@@ -96,38 +96,6 @@ dnsrecon -d <domain_fqdn> -D <wordlist> -t brt
 dnsenum <domain_fqdn>
 ```
 
-% dns, nmap, 53
-
-## nmap grab banner
-#plateform/linux  #target/remote  #cat/RECON
-```
-nmap -sV -p 53 --script dns-nsid <ip>
-```
-
-## nmap dns tcp
-#plateform/linux  #target/remote  #cat/RECON
-```
-nmap -n -sV --script "(*dns* and (default or (discovery and safe))) or dns-random-txid or dns-random-srcport" -p 53 <ip>
-``` 
-
-## nmap dns udp
-#plateform/linux  #target/remote  #cat/RECON
-```
-nmap -n -sV -sU --script ""(*dns* and (default or (discovery and safe))) or dns-random-txid or dns-random-srcport" -p 53 <ip>
-``` 
-
-## nmap activedirectory enum
-#plateform/linux  #target/remote  #cat/RECON
-```
-nmap --script dns-srv-enum --script-args "dns-srv-enum.domain='<domain_fqdn>'"
-```
-
-## nmap dnssec 
-#plateform/linux  #target/remote  #cat/RECON
-```
-nmap -sSU -p53 --script dns-nsec-enum --script-args dns-nsec-enum.domains=<domain_fqdn> <ip>
-```
-
 % dns, msf, 53
 
 ## dns metasploit enumeration

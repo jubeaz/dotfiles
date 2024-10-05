@@ -1,6 +1,6 @@
 # ncat
 
-% ncat, nmap
+% ncat
 #plateform/linux #target/remote  #cat/ATTACK/LISTEN-SERVE 
 
 ## help

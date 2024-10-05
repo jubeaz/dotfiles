@@ -2,11 +2,6 @@
 
 #plateform/linux  #target/remote  #protocol/ldap  #port/639 #port/389
 
-## ldap nmap
-#cat/RECON 
-```
-nmap -n -sV --script "ldap* and not brute" -p 389 <ip>
-```
 
 
 ## ldapdomaindump

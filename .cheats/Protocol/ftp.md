@@ -27,11 +27,6 @@ ftp <ip>
 ftp <ip> <port>
 ```
 
-## ftp - enum anonym
-#cat/ATTACK/CONNECT
-```
-nmap -v -p 21 --script=ftp-anon.nse <ip>
-```
 
 ## ftp - msf bruteforce login
 #cat/ATTACK/BRUTEFORCE-SPRAY

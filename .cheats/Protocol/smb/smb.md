@@ -46,11 +46,6 @@ smbclient //<ip>/<share> -U "<user>%"
 smbclient //<ip>/<share> -U "%"
 ```
 
-## smb - find not signed  smb
-#plateform/linux #target/remote #port/445 #protocol/smb #cat/RECON 
-```
-nmap -Pn -sS -T4 --open --script smb-security-mode -p445 <ip>
-```
 
 ## smb mount folder
 #plateform/linux #target/remote #port/445 #protocol/smb #cat/ATTACK/CONNECT  

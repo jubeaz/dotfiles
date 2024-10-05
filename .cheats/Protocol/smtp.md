@@ -3,24 +3,6 @@
 % smtp, 25
 #plateform/linux  #target/remote  #protocol/smtp #port/25
 
-## smtp nmap enumeration
-#cat/RECON 
-```
-nmap -p25 --script smtp-commands <ip>
-```
-
-## smtp nmap ntlm information disclosure
-#cat/RECON 
-```
-nmap -p25 --script smtp-ntlm-info <ip>
-```
-
-## nmap - smtp user enum
-#cat/ATTACK/BRUTEFORCE-SPRAY  
-```
-nmap –script smtp-enum-users.nse <ip>
-```
-
 ## smtp user enum
 #cat/ATTACK/BRUTEFORCE-SPRAY 
 ```

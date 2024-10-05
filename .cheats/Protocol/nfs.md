@@ -9,12 +9,6 @@
 showmount -e <ip>
 ```
 
-## nfs - nmap showmount
-#cat/RECON 
-```
-nmap -sV --script=nfs-showmount <ip>
-```
-
 ## nfs - mount
 #cat/ATTACK/CONNECT 
 ```

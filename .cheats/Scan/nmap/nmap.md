@@ -3,147 +3,143 @@
 #plateform/linux #target/remote #cat/RECON #tag/scan
 
 ## util - list host in a range
-```
+```bash
 nmap -sL -sn <ip_range>
 ```
 
 ## util - display top ports
-```
+```bash
 nmap -oX - --top-ports <count|25> x
 ```
 
-## host scan - hosts alive
+## HOSTS - hosts alive
 ICMP echo request + TCP SYN packet to port 443 + TCP ACK packet to port 80 + ICMP timestamp request
-```
+```bash
 nmap -n -sn -T<speed|4> <ip_range>
 ```
 
-## host scan - hosts alive (TCP SYN Ping)
-```
+## HOSTS - hosts alive (TCP SYN Ping)
+```bash
 nmap -n -sn -T<speed|4> -PS<port_omma_sep|22,80,445,88,443,88> <ip_range>
 ```
 
-## host scan - hosts alive (TCP ACK Ping)
-```
+## HOSTS - hosts alive (TCP ACK Ping)
+```bash
 nmap -n -sn -T<speed|4> -PA<port_omma_sep|22,80,445,88,443,88> <ip_range>
 ```
 
-## port scan - light scan
-```
+## PORT - light
+```bash
 sudo nmap -Pn -n  <ip>
 ```
 
-## port scan - classic scan
+## PORT - light (proxychains)
+```bash
+proxychains nmap -sT  -Pn -n --open <ip>
 ```
+
+## PORT - classic
+```bash
 sudo nmap -Pn -n --script=<category|default> -sV -oA <nmap_output_file> <ip>
 ```
 
-## port scan - top ports classic scan 
+## PORT - classic (proxychains)
+```bash
+proxychains nmap -n -sT -sV -Pn --open  -oA <nmap_output_file> <ip>
 ```
+
+## PORT - top ports classic 
+```bash
 sudo nmap -Pn -n --top-ports <count|100> --script=<category|default> -oA <nmap_output_file> -sV <ip>
 ```
 
 
-## port scan - classic scan (target file)
-```
+## PORT - classic (target file)
+```bash
 sudo nmap -Pn -n --script=<category|default> -sV -oA <nmap_output_file> -iL <targets_file>
 ```
 
-## port scan - host with a given ports
-```
-sudo nmap  -Pn -n --script=<category|default> -sV -oA <nmap_output_file> -p<ports_comma_sep> --open <ip>
-```
-
-## port scan - FULL
-```
-IP=<ip>;
-ports=$(sudo nmap -Pn -p- --min-rate=1000 -n -T4 $IP | grep ^[0-9] | cut -d '/' -f 1 | tr '\n' ',' | sed s/,$//);
-sudo nmap -Pn -n --script=default -sV -p$ports $IP -oA <nmap_output_file> --reason
-```
-
-## port scan - FULL (proxychains)
-```
-IP=<ip>; ports=$(proxychains -q nmap -Pn -p- --min-rate=1000 -n -T4 $IP | grep ^[0-9] | cut -d '/' -f 1 | tr '\n' ',' | sed s/,$//); proxychains -q nmap -Pn -n --script=default -sV -p$ports $IP -oA <nmap_output_file> --reason
-```
-
-## port scan - udp scan
-```
-sudo nmap -sU <ip>
-```
-
-## port scan - udp list all open 
-```
-sudo nmap -sU -Pn -p- --min-rate=1000 -n -T4 <ip>
-```
-
-## port scan - low rate Classic
-```
+## PORT - classic (low rate)
+```bash
 sudo nmap --max-rate 100 -sC -sV <ip>
 ```
 
-## service scan - vuln scan
-```
-sudo nmap -Pn -n --script=vul, -sV -p<ports_comma_sep> <ip>
+## PORT - given ports
+```bash
+sudo nmap  -Pn -n --script=<category|default> -sV -oA <nmap_output_file> -p<ports_comma_sep> --open <ip>
 ```
 
+## PORT - given ports (proxychains)
+```bash
+proxychains  nmap -sT -sV  -Pn -n --script=<category|default> -sV -oA <nmap_output_file> -p<ports_comma_sep> --open <ip>
+```
 
-## script - script info
+## PORT - full
+```bash
+IP=<ip>;ports=$(sudo nmap -Pn -p- --min-rate=1000 -n -T4 $IP | grep ^[0-9] | cut -d '/' -f 1 | tr '\n' ',' | sed s/,$//);
+sudo nmap -Pn -n --script=default -sV -p$ports $IP -oA <nmap_output_file> --reason
+```
+
+## PORT - full (proxychains)
+```bash
+IP=<ip>; ports=$(proxychains -q nmap -Pn -p- --min-rate=1000 -n -T4 $IP | grep ^[0-9] | cut -d '/' -f 1 | tr '\n' ',' | sed s/,$//); proxychains -q nmap -Pn -n --script=default -sV -p$ports $IP -oA <nmap_output_file> --reason
+```
+
+## PORT - udp
+```bash
+sudo nmap -sU <ip>
+```
+
+## PORT - udp full
+```bash
+sudo nmap -sU -Pn -p- --min-rate=1000 -n -T4 <ip>
+```
+
+## PORT - unfiltered ports Ack scan (enum firewall rulesets) 
+tcp connect (-sT) - no dns (-n)
+```bash
+sudo nmap -sA -Pn -n -p- --reason --min-rate=1000 -T5  <ip>
+```
+
+## PORT -  unfiltered ports Syn scan (enum firewall rulesets) 
+tcp connect (-sT) - no dns (-n)
+```bash
+sudo nmap -sS -Pn -n -p- --reason --min-rate=1000 -T5  <ip>
+```
+
+## SCRIPT - info
 or expression: "afp-* and discovery"
 ```bash
 nmap --script-help "<script_name>"
 ```
 
-## script - list all available scripts
+## SCRIPT - list all
 ```bash
-locate nse | grep scripts
+find /usr/share/nmap/ -name *.nse | sort | fzf --preview 'nmap --script-help {}'
 ```
 
-## script - get usage of a script
+## SCRIPT - get usage
 ```bash
 cat $(locate <script_name>.nse) | grep -A 2  usage
 ```
 
-## script - get args of a script
+## SCRIPT - get args
 ```bash
 cat $(locate <script_name>.nse) | grep args
 ```
 
-## script - run script
+## SCRIPT - run
 ```bash 
 sudo nmap -Pn -n -sS -p<port>  --script=<script_name> --script-args <script_arg>=<value> <ip>  
 ```
 
 
-## nmap - SMB signing disabled
-```
-sudo nmap -Pn -sS -T4 --open --script smb-security-mode -p445 <ip>
-```
-
-## nmap behind proxy 
-tcp connect (-sT) - no dns (-n)
-```
-proxychains nmap -n -sT -sV -Pn --open -oA <output_file> -iL <targets_file>
+## SERVICE - vuln
+```bash
+sudo nmap -Pn -n --script=vul, -sV -p<ports_comma_sep> <ip>
 ```
 
 
-## nmap list of ports behind proxy 
-tcp connect (-sT) - no dns (-n)
-```
-proxychains nmap -n -sT -sV -Pn -p<ports_comma_sep> --open  <ip>
-```
-
-## nmap all unfiltered ports Ack scan (enum firewall rulesets) 
-tcp connect (-sT) - no dns (-n)
-```
-sudo nmap -sA -Pn -n -p- --reason --min-rate=1000 -T5  <ip>
-```
-
-
-## nmap all unfiltered ports Syn scan (enum firewall rulesets) 
-tcp connect (-sT) - no dns (-n)
-```
-sudo nmap -sS -Pn -n -p- --reason --min-rate=1000 -T5  <ip>
-```
 
 
 
