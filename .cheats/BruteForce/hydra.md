@@ -66,5 +66,16 @@ optional:
     skip pre-request: [g|G] (when no pre-cookies required)
     pre-cookie page: [c|C]=/page/uri
 ```bash
-hydra -V  -L <userlist> -e s -u -f -P <passlist> <fqdn>  https-post-form "<form_path>:<const_form_params>&<user_field_name|username>=^USER^&<password_field_name|password>==^PASS^<const_form_params>:F=<error_reponse_pattern[:<optional>]"
+hydra -V  -L <userlist> -e s -u -f -P <passlist> <fqdn> -s <port|443> https-post-form "<form_path>:<const_form_params>&<user_field_name|username>=^USER^&<password_field_name|password>==^PASS^<const_form_params>:F=<error_reponse_pattern[:<optional>]"
+```
+
+
+## http-form
+#plateform/linux #target/remote #cat/ATTACK/BRUTEFORCE-SPRAY 
+optional:
+    header: [h|H]=<header_name>\: <header_value>
+    skip pre-request: [g|G] (when no pre-cookies required)
+    pre-cookie page: [c|C]=/page/uri
+```bash
+hydra -V  -L <userlist> -e s -u -f -P <passlist> <fqdn> -s <port|80> http-post-form "<form_path>:<const_form_params>&<user_field_name|username>=^USER^&<password_field_name|password>==^PASS^<const_form_params>:F=<error_reponse_pattern[:<optional>]"
 ```

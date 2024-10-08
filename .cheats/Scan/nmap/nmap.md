@@ -12,20 +12,20 @@ nmap -sL -sn <ip_range>
 nmap -oX - --top-ports <count|25> x
 ```
 
-## HOSTS - hosts alive
+## HOSTS - hosts alive (ping)
 ICMP echo request + TCP SYN packet to port 443 + TCP ACK packet to port 80 + ICMP timestamp request
 ```bash
 nmap -n -sn -T<speed|4> <ip_range>
 ```
 
-## HOSTS - hosts alive (TCP SYN Ping)
+## HOSTS - hosts alive (TCP SYN ping sweep)
 ```bash
-nmap -n -sn -T<speed|4> -PS<port_omma_sep|22,80,445,88,443,88> <ip_range>
+nmap -n -Pn -sn -T<speed|4> -PS<port_omma_sep|22,80,445,88,443> <ip_range>
 ```
 
-## HOSTS - hosts alive (TCP ACK Ping)
+## HOSTS - hosts alive (TCP ACK ping sweep)
 ```bash
-nmap -n -sn -T<speed|4> -PA<port_omma_sep|22,80,445,88,443,88> <ip_range>
+nmap -n -Pn -sn -T<speed|4> -PA<port_omma_sep|22,80,445,88,443> <ip_range>
 ```
 
 ## PORT - light

