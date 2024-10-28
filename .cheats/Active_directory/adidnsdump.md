@@ -9,6 +9,12 @@ cat records.csv
 adidnsdump -u '<domain_netbios>\<user>' -p <password> --zone <domain_fqdn> ldap://<dc_ip>:<port|389> -r
 ```
 
+## Dump DNS - all records from the domain controller (pth)
+cat records.csv
+```bash
+adidnsdump -u '<domain_netbios>\<user>' -p aad3b435b51404eeaad3b435b51404ee:<nt_hash> --zone <domain_fqdn> ldap://<dc_ip>:<port|389> -r
+```
+
 ## Dump DNS - all records from the domain controller (proxychains)
 cat records.csv
 ```bash

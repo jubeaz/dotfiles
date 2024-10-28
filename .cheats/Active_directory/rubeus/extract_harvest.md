@@ -73,3 +73,10 @@
 ```powershell
 .\Rubeus.exe harvest /nowrap /interval:<sec_delai|5>
 ```
+
+
+## harvest -  dump current user TGT
+#cat/UTILS 
+```powershell
+.\Rubeus.exe tgtdeleg /nowrap
+```

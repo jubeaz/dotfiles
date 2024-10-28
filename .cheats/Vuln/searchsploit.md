@@ -2,13 +2,21 @@
 
 % searchsploit, exploit db
 
-## searchsploit mirror exploitDB id
+
+## search
+#plateform/linux #target/local #cat/UTILS #cat/RECON  
+```
+searchsploit --id <term>
+```
+
+
+## mirror exploitDB id
 #plateform/linux #target/local #cat/UTILS #cat/RECON  
 ```
 searchsploit -m <ebdid>
 ```
 
-## searchsploit show exploitDB id
+## show exploitDB id
 #plateform/linux #target/local #cat/UTILS  #cat/RECON 
 ```
 searchsploit -x <edbid>

