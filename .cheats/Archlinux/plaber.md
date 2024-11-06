@@ -2,7 +2,7 @@
 
 ## win-dev - jubeaz
 ```bash
-xfreerdp /cert:ignore /u:jubeaz /p:'Jubeaz12345+-'  /v:192.168.56.10 /h:1024 /w:1640 /drive:share,./ +drives
+xfreerdp /cert:ignore /u:jubeaz /p:'Zaebuj12345+-'  /v:192.168.56.10 /dynamic-resolution /drive:share,./ +drives
 ```
 
 ## lab - remote shutdown 
