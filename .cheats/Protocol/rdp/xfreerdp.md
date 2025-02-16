@@ -1,67 +1,55 @@
-# xfreerdp
+# xfreerdp3
 
 % rdp, windows
 #plateform/linux  #target/remote  #protocol/rdp #port/3389 #cat/ATTACK/CONNECT 
 
-##  connect local (creds)
+##  (local) connect (creds)
 ```
-xfreerdp /cert:ignore /u:<user> /p:<password> /v:<ip> /h:1024 /w:1640 /drive:<name|share>,<share|./> +drives
+xfreerdp3 /cert:ignore /u:<user> /p:<password> /v:<ip> /dynamic-resolution /drive:<name|share>,<share|./> +drives
+```
+
+##  (local) Audio (creds)
+```
+xfreerdp3 /cert:ignore /u:<user> /p:<password> /v:<ip> /dynamic-resolution /drive:<name|share>,<share|./> +drives /sound:sys:alsa
 ```
 
 
-##  connect local (dynres) (creds)
+##  (local) connect (creds low latency)
 ```
-xfreerdp /cert:ignore /u:<user> /p:<password> /v:<ip> /dynamic-resolution /drive:<name|share>,<share|./> +drives
-```
-
-##  connect local (creds low latency)
-```
-xfreerdp /cert:ignore /u:<user> /p:<password> /v:<ip> /h:1024 /w:1640 /drive:<name|share>,<share|./> +drives /bpp:8 /compression -themes -wallpaper /clipboard /audio-mode:0 /auto-reconnect -glyph-cache
+xfreerdp3 /cert:ignore /u:<user> /p:<password> /v:<ip> /dynamic-resolution/drive:<name|share>,<share|./> +drives /bpp:8 /compression -themes -wallpaper /clipboard /audio-mode:0 /auto-reconnect -glyph-cache
 ```
 
-##  connect local (dynres) (creds low latency)
+
+##  (domain) connect (creds)
 ```
-xfreerdp /cert:ignore /u:<user> /p:<password> /v:<ip> /dynamic-resolution /drive:<name|share>,<share|./> +drives /bpp:8 /compression -themes -wallpaper /clipboard /audio-mode:0 /auto-reconnect -glyph-cache
+xfreerdp3 /cert:ignore /u:<user> /d:<domain_fqdn> /p:<password> /v:<ip> /dynamic-resolution /drive:<name|share>,<share|./> +drives
 ```
 
-##  connect domain (creds)
-```
-xfreerdp /cert:ignore /u:<user> /d:<domain_fqdn> /p:<password> /v:<ip> /h:1024 /w:1640 /drive:<name|share>,<share|./> +drives
-```
-
-##  connect domain (dynres)(creds)
-```
-xfreerdp /cert:ignore /u:<user> /d:<domain_fqdn> /p:<password> /v:<ip> /dynamic-resolution /drive:<name|share>,<share|./> +drives
-```
-
-##  connect domain (creds low latency)
+##  (domain) connect (low latency)
 or /u:<user> /d:<domain_fqdn>
 ```
-xfreerdp /cert:ignore /u:<user> /d:<domain_fqdn> /p:<password> /v:<ip> /h:1024 /w:1640 /drive:<name|share>,<share|./> +drives +drives /bpp:8 /compression -themes -wallpaper /clipboard /audio-mode:0 /auto-reconnect -glyph-cache
+xfreerdp3 /cert:ignore /u:<user> /d:<domain_fqdn> /p:<password> /v:<ip> /dynamic-resolution /drive:<name|share>,<share|./> +drives +drives /bpp:8 /compression -themes -wallpaper /clipboard /audio-mode:0 /auto-reconnect -glyph-cache
 ```
 
-##  connect domain (dynres)(creds low latency)
-or /u:<user> /d:<domain_fqdn>
+
+## (domain) pth
 ```
-xfreerdp /cert:ignore /u:<user> /d:<domain_fqdn> /p:<password> /v:<ip> /dynamic-resolution /drive:<name|share>,<share|./> +drives +drives /bpp:8 /compression -themes -wallpaper /clipboard /audio-mode:0 /auto-reconnect -glyph-cache
+xfreerdp3 /cert:ignore /u:<user> /d:<domain_fqdn> /pth:<nt_hash> /v:<ip> /dynamic-resolution /drive:<name|share>,<share|./> +drives
 ```
 
-## connect domain (pth)
+## (domain) pth (low latency)
 ```
-xfreerdp /cert:ignore /u:<user> /d:<domain_fqdn> /pth:<nt_hash>  /v:<ip> /h:1024 /w:1640 /drive:<name|share>,<share|./> +drives
-```
-
-## connect domain (dynres)(pth)
-```
-xfreerdp /cert:ignore /u:<user> /d:<domain_fqdn> /pth:<nt_hash>  /v:<ip> /dynamic-resolution /drive:<name|share>,<share|./> +drives
+xfreerdp3 /cert:ignore /u:<user> /d:<domain_fqdn> /pth:<nt_hash>  /v:<ip> /dynamic-resolution /drive:<name|share>,<share|./> +drives +drives /bpp:8 /compression -themes -wallpaper /clipboard /audio-mode:0 /auto-reconnect -glyph-cache
 ```
 
-## connect domain (pth low latency)
+## (Kerberos) connect
+set /etc/krb5.conf
 ```
-xfreerdp /cert:ignore /u:<user> /d:<domain_fqdn> /pth:<nt_hash>  /v:<ip> /h:1024 /w:1640 /drive:<name|share>,<share|./> +drives +drives /bpp:8 /compression -themes -wallpaper /clipboard /audio-mode:0 /auto-reconnect -glyph-cache
+xfreerdp3 /cert:ignore /u:<user> /d:<domain_fqdn>  /p:<password> /v:<target_fqdn> /dynamic-resolution  /drive:<name|share>,<share|./> +drives
 ```
 
-## connect domain (dynres)(pth low latency)
+## (Kerberos) Forced
+set /etc/krb5.conf
 ```
-xfreerdp /cert:ignore /u:<user> /d:<domain_fqdn> /pth:<nt_hash>  /v:<ip> /dynamic-resolution /drive:<name|share>,<share|./> +drives +drives /bpp:8 /compression -themes -wallpaper /clipboard /audio-mode:0 /auto-reconnect -glyph-cache
+xfreerdp3 /cert:ignore /u:<user> /d:<domain_fqdn>  /p:<password> /v:<target_fqdn> /dynamic-resolution  /drive:<name|share>,<share|./> +drives /sec:kerberos /sec:nla /auth-pkg-list:'!ntlm,kerberos' 
 ```

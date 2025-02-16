@@ -1,6 +1,6 @@
 # bloodhound-queries
 
-% bloodhound-queries, Active directory enumeration, https://hausec.com/2019/09/09/bloodhound-cypher-cheatsheet
+% bloodhound-queries, Active directory enumeration, 
 #plateform/linux #target/serve #cat/AD/RECON
 
 ## query - all ForceChangePassword edges
@@ -51,8 +51,4 @@ MATCH (c:Computer) return c
 ## query - ALL GPOs
 ```
 Match (n:GPO) return n
-```
-
-## query - 
-```
 ```

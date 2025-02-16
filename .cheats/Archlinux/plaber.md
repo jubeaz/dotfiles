@@ -80,7 +80,7 @@ cat <plaber_path|.>/inventories/<lab_name|netrunner>/<lab_name|netrunner>.yml |g
 
 ## rdp (jubeaz)  
 ```bash
-xfreerdp /cert:ignore /u:jubeaz@<domain_fqn> /p:jubeaz  /v:<ip> /h:1024 /w:1640 /drive:share,./ +drives
+xfreerdp /cert:ignore /u:jubeaz@<domain_fqn> /p:jubeaz  /v:<ip> /dynamic-resolution /drive:share,./ +drives
 ```
 
 ## winrm (jubeaz)  
@@ -90,7 +90,7 @@ evil-winrm -i <ip> -u jubeaz@<domain_fqn> -p jubeaz
 
 ## rdp (domain admin)  
 ```bash
-xfreerdp /cert:ignore /u:administrator@<domain_fqn> /p:Jubeaz12345+-  /v:<ip> /h:1024 /w:1640 /drive:share,./ +drives
+xfreerdp /cert:ignore /u:administrator@<domain_fqn> /p:Jubeaz12345+-  /v:<ip> /dynamic-resolution /drive:share,./ +drives
 ```
 
 ## winrm (domain admin)  
@@ -100,7 +100,7 @@ evil-winrm -i <ip> -u administrator@<domain_fqn> -p Jubeaz12345+-
 
 ## rdp (vagrant)  
 ```bash
-xfreerdp /cert:ignore /u:vagrant /p:vagrant  /v:<ip> /h:1024 /w:1640 /drive:share,./ +drives
+xfreerdp /cert:ignore /u:vagrant /p:vagrant  /v:<ip> /dynamic-resolution /drive:share,./ +drives
 ```
 
 ## winrm (vagrant)  

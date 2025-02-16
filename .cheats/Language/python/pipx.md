@@ -1,5 +1,17 @@
 # pipx
 
+## Reinstall all packages
+Fix invalid interpreter
+```bash
+pipx reinstall-all
+```
+
+## List all installed
+```bash
+pipx list
+```
+
+
 ## Install packages to an existing venv
 ```bash
 pipx inject <venv> <package>==<version>
