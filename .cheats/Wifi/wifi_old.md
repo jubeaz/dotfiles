@@ -2,44 +2,17 @@
 
 #plateform/linux #target/remote #cat/RECON #cat/ATTACK
 
-## airmon - Kill processes which can cause trouble
-```
-airmon-ng check kill
-```
 
-## airmon - start interface
-```
-airmon-ng start <wlan_interface>
-```
-
-## airmon - stop interface
-```
-airmon-ng stop <wlanmon_interface>
-```
 
 ## NetworkManager - Restart NetworkManager
 ```
 systemctl restart NetworkManager
 ```
 
-## airodump - listen to everything
-```
-airodump-ng <wlanmon_interface>
-```
-
-## airodump - listen to specific SSID
-```
-airodump-ng --bssid <mac_address> -c <channel> -w <output_file> <wlanmon_interface>
-```
 
 ## aireplay - deauth client
 ```
 aireplay-ng --deauth <deauth_count> -c <client_mac_address> -a <mac_address> <wlanmon_interface>
-```
-
-## aircrack - crack handshake for PSK
-```
-aircrack-ng -w <dictionary> <input_file>
 ```
 
 ## hostapd-wpe - launch fake AP

@@ -11,7 +11,9 @@ tasklist /m amsi*
 ## check AMSI enabled (registry)
 {2781761E-28E0-4109-99FE-B9D127C57AFE}
 ```powershell
-Get-ChildItem HKLM:\SOFTWARE\Microsoft\AMSI\Providers\
+$AMSI = Get-ChildItem -Path "HKLM:\SOFTWARE\Microsoft\AMSI\Providers" -Recurse
+$AMSI -match "[0-9A-Fa-f\-]{36}"
+$Matches.Values | ForEach-Object { Get-ChildItem -Path "HKLM:\SOFTWARE\Classes\CLSID\{$_}" | Format-Table -AutoSize }
 ```
 
 ## Bypass AMSI with _amsiContext_ (powershell only)

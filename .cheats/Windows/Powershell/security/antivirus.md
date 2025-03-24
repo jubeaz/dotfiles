@@ -4,11 +4,6 @@
 #plateform/windows #target/local #cat/RECON/SECURITY/DEFENDER #tag/powershell 
 
 
-## defender - get list of commands
-```powershell
- Get-Command -Module defender
-```
-
 ## defender - knowledge
 ```powershell
 https://github.com/jeremybeaume/tools/blob/master/disable-defender.ps1
@@ -19,6 +14,7 @@ https://wirediver.com/disable-windows-defender-in-powershell/
 ## defender - get antivirus
 ```powershell
 wmic.exe /Node:localhost /Namespace:\\root\SecurityCenter2 Path AntiVirusProduct Get displayName /Format:List
+$AVList = @(Get-CimInstance -Namespace 'root/SecurityCenter2' -ClassName 'AntivirusProduct')
 ```
 
 ## defender - get powershell commands

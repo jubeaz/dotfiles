@@ -6,6 +6,13 @@
 ```bash
 evil-winrm -i <ip> -u <user> -p '<password>'
 ```
+
+
+## local account with creds (over TLS)
+```bash
+evil-winrm -i <ip> -u <user> -p '<password>' --ssl -Port 5986
+```
+
 ## domain account with creds
 ```bash
 evil-winrm -i <ip> -u '<domain_netbios>\<user>' -p '<password>'
