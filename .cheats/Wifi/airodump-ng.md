@@ -1,51 +1,63 @@
 # airodump-ng
-
+% wifi, airodump-ng
 #plateform/linux #target/remote #cat/RECON #cat/ATTACK
 
-## desc
+## _desc
 ```
 capture packets
 ```
 
-
-## dump
+## _repo
 ```
-sudo airodump-ng <wlan_interface>mon
 ```
 
-
-## dump bssid
+## _doc
 ```
-sudo airodump-ng -c <wlan_channel> --bssid <bssid> <wlan_interface>mon
 ```
 
-## dump bssid prefix
+## _install
+```
+```
+
+
+## scan
+```
+sudo airodump-ng <wlan_interface|wmon>
+```
+
+
+## scan bssid
+```
+sudo airodump-ng -c <wlan_channel> --bssid <bssid> <wlan_interface|wmon>
+```
+
+## scan bssid prefix
 all starting with 00:1C:10
 ```
-sudo airodump-ng -d 00:1C:10:00:00:00 -m FF:FF:FF:00:00:00 <wlan_interface>mon
+sudo airodump-ng -d 00:1C:10:00:00:00 -m FF:FF:FF:00:00:00 <wlan_interface|wmon>
 ```
 
-## dump channel
+## scan channel
 ```
-sudo airodump-ng -c <wlan_channel_comma_sep_list> <wlan_interface>mon
+sudo airodump-ng -c <wlan_channel_comma_sep_list> <wlan_interface|wmon>
 ```
 
-## dump band (5GHz)
+## scan band (5GHz)
 ```
-sudo airodump-ng --band a <wlan_interface>mon 
+sudo airodump-ng --band a <wlan_interface|wmon> 
 ```
 
 ## dump to file
 ```
-sudo airodump-ng  <wlan_interface>mon -w <wlan_dump_file>
+sudo airodump-ng  <wlan_interface|wmon> -w <wlan_dump_file>
 ```
 
 ## dump to file (5GHz)
 ```
-sudo airodump-ng --band a <wlan_interface>mon -w <wlan_dump_file>
+sudo airodump-ng --band a <wlan_interface|wmon> -w <wlan_dump_file>
 ```
 
 ## dump to file specific bssid (5GHz)
 ```
-sudo airodump-ng --band a --bssid <mac_address> <wlan_interface>mon -w <wlan_dump_file>
+sudo airodump-ng --band a --bssid <mac_address> <wlan_interface|wmon> -w <wlan_dump_file>
 ```

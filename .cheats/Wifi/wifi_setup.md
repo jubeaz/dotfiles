@@ -13,15 +13,20 @@ rfkill list && sudo iwctl adapter list
 
 ## device power off (rfkill)
 ```bash
-sudo rfkill block <device|phy0>
+sudo rfkill block <wlan_device|phy0>
 ```
 
 ## device power on (rfkill)
 ```bash
-sudo rfkill unblock <device|phy0>
+sudo rfkill unblock <wlan_device|phy0>
 ```
 
 ## device capabilities
+```bash
+sudo iw phy <wlan_device|phy0> info
+```
+
+## device all capabilities
 ```bash
 sudo iw list
 ```
@@ -31,7 +36,12 @@ sudo iw list
 ip link show <wlan_interface|wlan0>
 ```
 
-## interface info (iw)
+## interfaces all info (iw)
+```bash
+sudo iw dev
+```
+
+## interface specific info (iw)
 ```bash
 sudo iw dev <wlan_interface|wlan0> info
 ```
@@ -121,30 +131,53 @@ iwlist <wlan_interface|wlan0> channel
 iwlist <wlan_interface|wlan0> frequency | grep Current
 ```
 
+
+## channel - set (iw)
+no need to down interface
+```bash
+sudo iw dev <wlan_interface|wmon> set channel <channel>
+```
+
+## frequency - set (iw)
+no need to down interface
+```bash
+sudo iw dev <wlan_interface|wmon> set freq <frequency>
+```
+
 ##  channel  - set auto (iwconfig)
 ```bash
-sudo ip link set <wlan_interface|wlan0> down && sudo iwconfig <wlan_interface|wlan0> channel auto && sudo sudo ip link set <wlan_interface|wlan0> up 
+sudo ip link set <wlan_interface|wlan0> down && sudo iwconfig <wlan_interface|wlan0> channel auto && sudo ip link set <wlan_interface|wlan0> up 
 ```
 
 ##  channel  - set (iwconfig)
 ```bash
-sudo ip link set <wlan_interface|wlan0> down && sudo iwconfig <wlan_interface|wlan0> channel <wlan_channel> && sudo sudo ip link set <wlan_interface|wlan0> up 
+sudo ip link set <wlan_interface|wlan0> down && sudo iwconfig <wlan_interface|wlan0> channel <wlan_channel> && sudo ip link set <wlan_interface|wlan0> up 
 ```
 
 ## frequency - set (iwconfig)
 ```bash
-sudo ip link set <wlan_interface|wlan0> down && sudo iwconfig <wlan_interface|wlan0> freq <wlan_frequency|"5.52G"> && sudo sudo ip link set <wlan_interface|wlan0> up 
+sudo ip link set <wlan_interface|wlan0> down && sudo iwconfig <wlan_interface|wlan0> freq <wlan_frequency|"5.52G"> && sudo ip link set <wlan_interface|wlan0> up 
 ```
 
 
 ## interface mode - managed (station)
 ```bash
-sudo ip link set <wlan_interface|wlan0> down && sudo iw dev <wlan_interface|wlan0> set type managed && sudo sudo ip link set <wlan_interface|wlan0> up 
+sudo ip link set <wlan_interface|wlan0> down && sudo iw dev <wlan_interface|wlan0> set type managed && sudo ip link set <wlan_interface|wlan0> up 
 ```
 
 ## interface mode - ad-hoc (ibss)
 ```bash
-sudo ip link set <wlan_interface|wlan0> down && sudo iw dev <wlan_interface|wlan0> set type ibss && sudo iw interface ibss join <ssid> <frequency> && sudo sudo ip link set <wlan_interface|wlan0> up 
+sudo ip link set <wlan_interface|wlan0> down && sudo iw dev <wlan_interface|wlan0> set type ibss && sudo iw interface ibss join <ssid> <frequency> && sudo ip link set <wlan_interface|wlan0> up 
+```
+
+## interface mode - add AP
+```bash
+sudo iw phy <wlan_device|phy>  interface add <wlan_ap_interface|wap> type __ap && iw dev
+```
+
+## interface mode - del AP
+```bash
+sudo iw dev <wlan_ap_interface|wap> del ; iw dev
 ```
 
 ## interface mode - master (AP / router)
@@ -155,15 +188,19 @@ see hostapd
 
 ## interface mode - mesh
 ```bash
-sudo ip link set <wlan_interface|wlan0> down && sudo iw dev <wlan_interface|wlan0> set type mesh && sudo sudo ip link set <wlan_interface|wlan0> up 
+sudo ip link set <wlan_interface|wlan0> down && sudo iw dev <wlan_interface|wlan0> set type mesh && sudo ip link set <wlan_interface|wlan0> up 
 ```
 
-
-## interface mode - monitor
+## interface mode - add monitor
 ```bash
-sudo ip link set <wlan_interface|wlan0> down && sudo iw dev <wlan_interface|wlan0> set monitor control && sudo sudo ip link set <wlan_interface|wlan0> up 
+sudo iw phy <wlan_device|phy> interface add  <wlan_interface|wmon> set monitor && iw dev <wlan_interface|wmon> info 
 ```
 
+
+## interface mode - del monitor
+```bash
+sudo iw dev <wlan_interface|wmon> del ; iw dev
+```
 
 ## scan - full  (iw)
 ```bash

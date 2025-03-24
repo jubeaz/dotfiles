@@ -1,8 +1,8 @@
 # rfkill
-
+% rfkill, wifi, bluetooth
 #plateform/linux #target/remote #cat/RECON #cat/ATTACK
 
-# DESC
+# _desc_
 ```
 lists, enabling and disabling wireless devices
 ```
