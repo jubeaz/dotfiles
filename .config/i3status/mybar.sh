@@ -90,11 +90,15 @@ myip_local() {
   local bg="#2E7D32" # vert
   local main_ip=$(ip route get 1 | sed -n 's/.*src \([0-9.]\+\).*/\1/p')
   local tun0_ip=$(ip -f inet a show tun0 | grep inet | sed -n 's/.*inet \([0-9.]\+\).*/\1/p')
+  local main_dev=$(ip route get 1 | sed -n 's/.* dev \([^ ]*\).*/\1/p')
   separator $bg $bg_separator_previous
   echo -n ",{"
   echo -n "\"name\":\"ip_local\","
-  #echo -n "\"full_text\":\"  $(ip route get 1 | sed -n 's/.*src \([0-9.]\+\).*/\1/p') \","
-  echo -n "\"full_text\":\"  $main_ip / $tun0_ip\","
+  if [[ $main_dev == wlan* ]]; then
+       echo -n "\"full_text\":\"  $main_ip / $tun0_ip\","
+  else
+       echo -n "\"full_text\":\"  $main_ip / $tun0_ip\","
+  fi
   echo -n "\"background\":\"$bg\","
   common
   echo -n "},"
@@ -178,13 +182,14 @@ battery0() {
 volume() {
   local bg="#673AB7"
   separator $bg $bg_separator_previous  
-  vol=$(pamixer --get-volume)
+  vol=$(amixer sget Master | grep 'Right:' | awk -F'[][]' '{ print $2 }')
+  mute=$(amixer sget Master | grep 'Right:' | awk -F'[][]' '{ print $4 }')
   echo -n ",{"
   echo -n "\"name\":\"id_volume\","
-  if [ $vol -le 0 ]; then
-    echo -n "\"full_text\":\"  ${vol}% \","
+  if [ $mute == "off" ]; then
+    echo -n "\"full_text\":\"   \","
   else
-    echo -n "\"full_text\":\"  ${vol}% \","
+    echo -n "\"full_text\":\"  ${vol} \","
   fi
   echo -n "\"background\":\"$bg\","
   common
