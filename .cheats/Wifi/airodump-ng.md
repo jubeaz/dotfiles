@@ -13,6 +13,7 @@ capture packets
 
 ## _doc
 ```
+https://www.aircrack-ng.org/doku.php?id=airodump-ng
 ```
 
 ## _install
@@ -60,4 +61,20 @@ sudo airodump-ng --band a <wlan_interface|wmon> -w <wlan_dump_file>
 ## dump to file specific bssid (5GHz)
 ```
 sudo airodump-ng --band a --bssid <mac_address> <wlan_interface|wmon> -w <wlan_dump_file>
+```
+
+
+## dump ivs to file
+```
+sudo airodump-ng  <wlan_interface|wmon> --ivs -w <wlan_dump_file>
+```
+
+## dump ivs to file (5GHz)
+```
+sudo airodump-ng --band a <wlan_interface|wmon> --ivs -w <wlan_dump_file>
+```
+
+## dump ivs to file specific bssid (5GHz)
+```
+sudo airodump-ng --ivs --band a --bssid <mac_address> <wlan_interface|wmon> -w <wlan_dump_file>
 ```

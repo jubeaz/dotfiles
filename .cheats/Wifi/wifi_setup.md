@@ -202,6 +202,21 @@ sudo iw phy <wlan_device|phy> interface add  <wlan_interface|wmon> set monitor &
 sudo iw dev <wlan_interface|wmon> del ; iw dev
 ```
 
+## interface - get MAC (maccchanger)
+```bash
+macchanger -s <wlan_interface|wlan0>
+```
+
+## interface - get MAC (maccchanger)
+```bash
+macchanger --show <wlan_interface|wlan0>
+```
+
+## interface - set MAC (maccchanger)
+```bash
+sudo ip link set <wlan_interface|wlan0> down && sudo macchanger <wlan_interface|wlan0> -m <new_mac> && sudo ip link set <wlan_interface|wlan0> up
+```
+
 ## scan - full  (iw)
 ```bash
 sudo iw dev <wlan_interface|wlan0> scan
@@ -216,3 +231,4 @@ sudo iw dev <wlan_interface|wlan0> scan | grep 'BSS\|signal\|SSID\|station count
 ```bash
 sudo iwlist <wlan_interface|wlan0> scan |  grep 'Cell\|Quality\|ESSID\|IEEE'
 ```
+

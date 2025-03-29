@@ -4,17 +4,6 @@
 
 
 
-## NetworkManager - Restart NetworkManager
-```
-systemctl restart NetworkManager
-```
-
-
-## aireplay - deauth client
-```
-aireplay-ng --deauth <deauth_count> -c <client_mac_address> -a <mac_address> <wlanmon_interface>
-```
-
 ## hostapd-wpe - launch fake AP
 ```
 hostapd-wpe <hostapd_conf>
@@ -25,15 +14,6 @@ hostapd-wpe <hostapd_conf>
 kismet -c <wlan_interface>
 ```
 
-## nmcli - set back WiFi interface to managed mode
-```
-nmcli device set <wlan_interface> managed true
-```
-
-## reaver - launch WPS pixiedust attack
-```
-reaver -i <wlanmon_interface> -b <mac_address> -c <channel> -Z
-```
 
 ## hcxdumptool - WPA2-PSK PMKID Capture
 ```

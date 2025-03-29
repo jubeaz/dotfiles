@@ -4,6 +4,7 @@
 
 ## _desc
 ```
+offline WEP/WPA/WPA2 PSK crack
 ```
 
 ## _repo
@@ -12,13 +13,31 @@
 
 ## _doc
 ```
+https://www.aircrack-ng.org/doku.php?id=aircrack-ng
 ```
 
 ## _install
 ```
 ```
 
-## crack handshake for PSK
+## benchmark
 ```
-aircrack-ng -w <dictionary> <input_file>
+aircrack-ng -S
+```
+
+## crack wep
+```bash
+aircrack-ng -b <bssid> <wlan_dump_file>.cap
+```
+
+
+## crack wep (ivs file)
+```bash
+aircrack-ng -K <ivs_capture_file>
+```
+
+
+## crack wpa
+```bash
+aircrack-ng <wlan_dump_file>.cap -W <wordlist_file>
 ```
