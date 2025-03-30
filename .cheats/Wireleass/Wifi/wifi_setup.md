@@ -185,7 +185,6 @@ sudo iw dev <wlan_ap_interface|wap> del ; iw dev
 see hostapd 
 ```
 
-
 ## interface mode - mesh
 ```bash
 sudo ip link set <wlan_interface|wlan0> down && sudo iw dev <wlan_interface|wlan0> set type mesh && sudo ip link set <wlan_interface|wlan0> up 
@@ -195,7 +194,6 @@ sudo ip link set <wlan_interface|wlan0> down && sudo iw dev <wlan_interface|wlan
 ```bash
 sudo iw phy <wlan_device|phy> interface add  <wlan_interface|wmon> set monitor && iw dev <wlan_interface|wmon> info 
 ```
-
 
 ## interface mode - del monitor
 ```bash

@@ -25,9 +25,21 @@ https://www.aircrack-ng.org/doku.php?id=aircrack-ng
 aircrack-ng -S
 ```
 
+## number of iv for PTW
+```
+64-bit key: 20k
+128-bit key: 40k
+```
+
+## number of iv for PTW
+```
+64-bit key: 250k
+128-bit key: 1.5M
+```
+
 ## crack wep
 ```bash
-aircrack-ng -b <bssid> <wlan_dump_file>.cap
+aircrack-ng -b <bssid> <wlan_dump_file>
 ```
 
 

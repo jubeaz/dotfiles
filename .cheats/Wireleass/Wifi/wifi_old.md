@@ -9,10 +9,7 @@
 hostapd-wpe <hostapd_conf>
 ```
 
-## kismet - monitor WiFi
-```
-kismet -c <wlan_interface>
-```
+
 
 
 ## hcxdumptool - WPA2-PSK PMKID Capture
