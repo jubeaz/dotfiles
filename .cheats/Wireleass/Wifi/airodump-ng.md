@@ -32,11 +32,25 @@ sudo airodump-ng --wps --ignore-negative-one <wlan_interface|wmon>
 sudo airodump-ng --wps --ignore-negative-one -c <wlan_channel> --bssid <bssid> <wlan_interface|wmon>
 ```
 
-## scan
+## scan  (default only 2.4GHz)
 ```bash
 sudo airodump-ng <wlan_interface|wmon>
 ```
 
+## scan band (5GHz)
+```bash
+sudo airodump-ng --band a <wlan_interface|wmon> 
+```
+
+## scan band (all)
+```bash
+sudo airodump-ng --band abg <wlan_interface|wmon>
+```
+
+## scan channels
+```bash
+sudo airodump-ng -c <wlan_channel_comma_sep_list> <wlan_interface|wmon>
+```
 
 ## scan bssid
 ```bash
@@ -49,43 +63,37 @@ all starting with 00:1C:10
 sudo airodump-ng -d 00:1C:10:00:00:00 -m FF:FF:FF:00:00:00 <wlan_interface|wmon>
 ```
 
-## scan channel
-```bash
-sudo airodump-ng -c <wlan_channel_comma_sep_list> <wlan_interface|wmon>
-```
-
-## scan band (5GHz)
-```bash
-sudo airodump-ng --band a <wlan_interface|wmon> 
-```
-
-## dump to file
+## dump 
 ```bash
 sudo airodump-ng  <wlan_interface|wmon> -w <wlan_dump_file>
 ```
 
-## dump to file (5GHz)
+## dump band (5GHz)
 ```bash
 sudo airodump-ng --band a <wlan_interface|wmon> -w <wlan_dump_file>
 ```
 
-## dump to file specific bssid 
+## scan band (all)
+```bash
+sudo airodump-ng --band abg <wlan_interface|wmon>  -w <wlan_dump_file>
+```
+
+## dump bssid 
 ```bash
 sudo airodump-ng -c <wlan_channel> --bssid <mac_address> <wlan_interface|wmon> -w <wlan_dump_file>
 ```
 
-
-## dump ivs to file
+## dump ivs 
 ```bash
 sudo airodump-ng  <wlan_interface|wmon> --ivs -w <wlan_dump_file>
 ```
 
-## dump ivs to file (5GHz)
+## dump ivs band (5GHz)
 ```bash
 sudo airodump-ng --band a <wlan_interface|wmon> --ivs -w <wlan_dump_file>
 ```
 
-## dump ivs to file specific bssid (hannel)
+## dump ivs bssid
 ```bash
 sudo airodump-ng --ivs -c <wlan_channel> --bssid <mac_address> <wlan_interface|wmon> -w <wlan_dump_file>
 ```
