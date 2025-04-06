@@ -32,3 +32,8 @@ tshark -r <wlan_dump_file> -Y "wlan.fc.type_subtype == 8" -T fields -e wlan.sa -
 tshark -r <wlan_dump_file> -Y "eap.type == 1  && eap.code == 2" -T fields -e wlan.da -e wlan.sa -e eap.identity
 ```
 
+
+## wifi - get EAP md5 challang response
+```bash
+tshark -r <wlan_dump_file> -Y "(eap.code == 1 ||  eap.code == 2) && (eap.type == 4 || eap.type == 1)" -T fields -e frame.number -e wlan.da -e wlan.sa -e eap.type -e eap.md5.value -e eap.id  -e eap.identity | sort | uniq
+```

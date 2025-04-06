@@ -135,13 +135,13 @@ iwlist <wlan_interface|wlan0> frequency | grep Current
 ## channel - set (iw)
 no need to down interface
 ```bash
-sudo iw dev <wlan_interface|wmon> set channel <channel>
+sudo iw dev <wlan_mon_interface|wmon> set channel <channel>
 ```
 
 ## frequency - set (iw)
 no need to down interface
 ```bash
-sudo iw dev <wlan_interface|wmon> set freq <frequency>
+sudo iw dev <wlan_mon_interface|wmon> set freq <frequency>
 ```
 
 ##  channel  - set auto (iwconfig)
@@ -192,12 +192,12 @@ sudo ip link set <wlan_interface|wlan0> down && sudo iw dev <wlan_interface|wlan
 
 ## interface mode - add monitor
 ```bash
-sudo iw phy <wlan_device|phy> interface add  <wlan_interface|wmon> set monitor && iw dev <wlan_interface|wmon> info 
+sudo iw phy <wlan_device|phy> interface add  <wlan_mon_interface|wmon> type monitor && iw dev <wlan_mon_interface|wmon> info 
 ```
 
 ## interface mode - del monitor
 ```bash
-sudo iw dev <wlan_interface|wmon> del ; iw dev
+sudo iw dev <wlan_mon_interface|wmon> del ; iw dev
 ```
 
 ## interface - get MAC (maccchanger)

@@ -23,10 +23,10 @@ https://github.com/ZerBea/hcxdumptool
 
 ## recon PMKID
 ```bash
-hcxdumptool -i <wlan_interface|wmon> --enable_status=3
+hcxdumptool -i <wlan_mon_interface|wmon> --enable_status=3
 ```
 
 ## capture PMKID of AP
 ```bash
-hcxdumptool -i <wlan_interface|wmon> --enable_status=3 --filterlist_ap=<bssid> --filtermode=2 -o <wlan_pmkid_dump_file>.pcap
+hcxdumptool -i <wlan_mon_interface|wmon> --enable_status=3 --filterlist_ap=<bssid> --filtermode=2 -o <wlan_pmkid_dump_file>.pcap
 ```

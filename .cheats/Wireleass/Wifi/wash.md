@@ -23,5 +23,5 @@ https://www.aircrack-ng.org/doku.php?id=airbase-ng
 
 ## wps recon
 ```bash
-sudo wash -j -i <wlan_interface|wmon> | jq
+sudo wash -j -i <wlan_mon_interface|wmon> | jq
 ```

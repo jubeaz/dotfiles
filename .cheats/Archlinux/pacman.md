@@ -24,3 +24,11 @@
 pacman -Si <name>
 ```
 
+
+# package content (not installed)
+download to /var/cache/pacman/pkg/ then sudo tar tf 
+```bash
+pacman -Sw <pacman_package_name> && tar -tf /var/cache/pacman/pkg/<pacman_package_name>*
+```
+
+

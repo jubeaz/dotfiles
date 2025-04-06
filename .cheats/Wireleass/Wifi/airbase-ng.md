@@ -22,5 +22,5 @@ https://www.aircrack-ng.org/doku.php?id=airbase-ng
 
 ## Caffe Latte fake access point
 ```
-sudo airbase-ng -c <channel> -a <bssid>  -e <wlan_ssid> <wlan_interface|wmon> -W 1 -L
+sudo airbase-ng -c <channel> -a <bssid>  -e <wlan_ssid> <wlan_mon_interface|wmon> -W 1 -L
 ```
