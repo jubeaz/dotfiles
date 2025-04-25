@@ -73,7 +73,7 @@ sudo airodump-ng  <wlan_mon_interface|wmon> -w <wlan_dump_file>
 sudo airodump-ng --band a <wlan_mon_interface|wmon> -w <wlan_dump_file>
 ```
 
-## scan band (all)
+## dump band (all)
 ```bash
 sudo airodump-ng --band abg <wlan_mon_interface|wmon>  -w <wlan_dump_file>
 ```

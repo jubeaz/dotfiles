@@ -12,6 +12,7 @@
 
 ## _doc
 ```
+https://semfionetworks.com/wp-content/uploads/2021/04/wireshark_802.11_filters_-_reference_sheet.pdf
 ```
 
 ## _install
@@ -30,6 +31,12 @@ tshark -r <wlan_dump_file> -Y "wlan.fc.type_subtype == 8" -T fields -e wlan.sa -
 ## wifi - get EAP identities
 ```bash
 tshark -r <wlan_dump_file> -Y "eap.type == 1  && eap.code == 2" -T fields -e wlan.da -e wlan.sa -e eap.identity
+```
+
+
+## wifi - get EAP Desired Auth Type
+```bash
+tshark -r <wlan_dump_file> -Y "eap.code == 2 && eap.type == 3" -T fields -e wlan.sa -e wlan.da -e eap.desired_type | sort | uniq
 ```
 
 

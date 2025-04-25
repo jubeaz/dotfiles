@@ -24,7 +24,13 @@ ssh-keyscan -t rsa <IP> -p <PORT>
 ## Key - generate (ed25519)
 #cat/UTILS 
 ```
-ssh-keygen -t ed25519 -f 
+ssh-keygen -t ed25519 -f <ssh_key_name> -C "<ssh_key_comment>"
+```
+
+## Key - copy to server
+#cat/UTILS 
+```
+ssh-copy-id -i <ssh_key_name>.pub <user>@<target>
 ```
 
 ## Agent - Start

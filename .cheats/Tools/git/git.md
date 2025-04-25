@@ -13,9 +13,25 @@ git config --global user.email <email>
 ```
 
 
-## Initializes a git repository
+## Initialize a git repository
 ```
 git init
+```
+
+
+## bare repo - Initialize 
+```
+git init --bare <bare_git_dir_path|$HOME/.dotfiles>
+```
+
+## bare repo - alias
+```
+echo "alias <bare_alias|dotfiles>='/usr/bin/git --git-dir=<bare_git_dir_path|$HOME/.dotfiles>/ --work-tree=<bare_git_work_path|$HOME>'"  >> $HOME/.bashrc
+```
+
+## bare repo - config hidden untacked
+```
+<bare_alias|dotfiles> config --local status.showUntrackedFiles no
 ```
 
 ## clone -  with submodules 

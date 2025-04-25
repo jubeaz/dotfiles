@@ -22,5 +22,5 @@ https://github.com/blackarrowsec/EAP_buster
 
 ## enum authentication methods
 ```bash
-EAP_buster.sh <essid> '<domain_netbios>\<username>' <wlan_mon_interface|wmon>
+EAP_buster.sh <essid> '<domain_netbios>\<username>' <wlan_interface|wlan0>
 ```

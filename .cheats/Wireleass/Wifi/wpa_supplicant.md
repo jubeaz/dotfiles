@@ -27,7 +27,7 @@ echo -e 'network={\n  ssid="<ssid>"\n  scan_ssid=1\n  key_mgmt=WPA-EAP\n  identi
 
 ## connect
 ```bash
-wpa_supplicant -i <wlan_interface|wlan0> -c ./wpa_supplicant.conf
+sudo echo "" > res.log && sudo wpa_supplicant -d -K -i <wlan_interface|wlan0> -c ./wpa_supplicant.conf -f res.log
 ```
 
 ## dhcp

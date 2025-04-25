@@ -4,7 +4,7 @@
 
 ## _desc
 ```
-
+A tool to relay phase 2 authentication attempts to access corporate wireless without cracking the password.
 ```
 
 ## _repo
@@ -14,7 +14,7 @@ https://github.com/sensepost/wpa_sycophant/tree/master
 
 ## _doc
 ```
-https://wiki.archlinux.org/title/Wpa_supplicant
+https://github.com/sensepost/wpa_sycophant/tree/master
 ```
 
 ## _install

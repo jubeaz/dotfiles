@@ -1,8 +1,13 @@
 # plaber
 
+## nord - jubeaz
+```bash
+xfreerdp /cert:ignore /u:jubeaz /p:'Zaebuj12345+-'  /v:nord /dynamic-resolution /drive:share,./ +drives /sound:sys:alsa
+```
+
 ## win-dev - jubeaz
 ```bash
-xfreerdp /cert:ignore /u:jubeaz /p:'Zaebuj12345+-'  /v:192.168.56.10 /dynamic-resolution /drive:share,./ +drives
+xfreerdp /cert:ignore /u:jubeaz /p:'Zaebuj12345+-'  /v:win-dev /dynamic-resolution /drive:share,./ +drives
 ```
 
 ## lab - remote shutdown 
