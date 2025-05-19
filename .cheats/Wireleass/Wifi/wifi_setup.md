@@ -31,6 +31,16 @@ sudo iw phy <wlan_device|phy> info
 sudo iw list
 ```
 
+## device info
+```bash
+ls /sys/class/ieee80211/<wlan_device|phy>
+```
+
+## interface driver
+```bash
+ls /sys/class/net/<wlan_interface|wlan>/device/driver/module/drivers/
+```
+
 ## interface info (ip)
 ```bash
 ip link show <wlan_interface|wlan>
@@ -183,6 +193,11 @@ sudo iw phy <wlan_device|phy> interface add <wlan_vif_name> type __ap && iw dev
 sudo iw dev <wlan_vif_name> del ; iw dev
 ```
 
+## interface mode - monitor
+```bash
+sudo ip link set <wlan_interface|wlan> down && sudo iw dev <wlan_interface|wlan> set type monitor && sudo ip link set <wlan_interface|wlan> up 
+```
+
 ## interface mode - managed (station)
 ```bash
 sudo ip link set <wlan_interface|wlan> down && sudo iw dev <wlan_interface|wlan> set type managed && sudo ip link set <wlan_interface|wlan> up 
@@ -192,7 +207,6 @@ sudo ip link set <wlan_interface|wlan> down && sudo iw dev <wlan_interface|wlan>
 ```bash
 sudo ip link set <wlan_interface|wlan> down && sudo iw dev <wlan_interface|wlan> set type ibss && sudo iw interface ibss join <ssid> <frequency> && sudo ip link set <wlan_interface|wlan> up 
 ```
-
 
 ## interface mode - master (AP / router)
 ```bash
@@ -204,15 +218,6 @@ see hostapd
 sudo ip link set <wlan_interface|wlan> down && sudo iw dev <wlan_interface|wlan> set type mesh && sudo ip link set <wlan_interface|wlan> up 
 ```
 
-## interface mode - add monitor
-```bash
-sudo iw phy <wlan_device|phy> interface add <wlan_interface|wlan> type monitor && iw dev <wlan_interface|wlan> info 
-```
-
-## interface mode - del monitor
-```bash
-sudo iw dev <wlan_interface|wlan> del ; iw dev
-```
 
 ## interface - get MAC (maccchanger)
 ```bash

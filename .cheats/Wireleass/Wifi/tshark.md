@@ -23,9 +23,14 @@ https://semfionetworks.com/wp-content/uploads/2021/04/wireshark_802.11_filters_-
 tshark -r <wlan_dump_file> -Y "wlan_rsna_eapol.keydes.msgnr == 1 or wlan_rsna_eapol.keydes.msgnr == 2"
 ```
 
+## wifi - request probes
+```bash
+tshark -r <wlan_dump_file> -Y "(wlan.fc.type == 0) && (wlan.fc.type_subtype == 4)"
+```
+
 ## wifi - get Management Frame Protection
 ```bash
-tshark -r <wlan_dump_file> -Y "wlan.fc.type_subtype == 8" -T fields -e wlan.sa -e wlan.ssid -e wlan.rsn.capabilities.mfpc -e wlan.rsn.capabilities.mfpr | sort | uniq
+tshark -r <wlan_dump_file> -Y "(wlan.fc.type == 0) && (wlan.fc.type_subtype == 4)" -T fields -e wlan.sa -e wlan.ssid -e wlan.rsn.capabilities.mfpc -e wlan.rsn.capabilities.mfpr | sort | uniq
 ```
 
 ## wifi - get EAP identities

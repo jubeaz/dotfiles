@@ -10,5 +10,10 @@ lsusb -t
 
 ## get device by bus/devnum
 ```bash
-lsusb -s <usb_bus>:<usb_devnum>
+lsusb -v -s <usb_bus>:<usb_devnum>
+```
+
+## get device by vendor/product
+```bash
+lsusb -v -d <usb_vendor_id>:<usb_product_i>
 ```

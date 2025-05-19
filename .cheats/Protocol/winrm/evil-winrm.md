@@ -2,6 +2,23 @@
 % windows, remote, winrm, evilwinrm, 5985, 5986
 #plateform/linux  #target/remote  #protocol/winrm #port/5985 #port/5986 #cat/ATTACK/CONNECT 
 
+## _desc
+```
+```
+
+## _repo
+```
+```
+
+## _doc
+```
+```
+
+## _install
+```
+gem install evil-winrm
+```
+
 ## local account with creds
 ```bash
 evil-winrm -i <ip> -u <user> -p '<password>'

@@ -36,3 +36,18 @@ deactivate
 ```bash
 rm -rf ./<env_name|venv>
 ```
+
+## packages - list outdated
+```bash
+pip3 list --outdated
+```
+
+## packages - upgrade
+```bash
+pip3 install --upgrade
+```
+
+## packages - generate requierements
+```bash
+pip3 freeze > requirements.txt 
+```

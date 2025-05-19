@@ -80,8 +80,11 @@ if ! shopt -oq posix; then
   fi
 fi
 
-export PATH=~/.local/bin:~/.local/share/gem/ruby/3.2.0/bin:$PATH
-export PATH="$PATH:$(go env GOBIN):$(go env GOPATH)/bin"
+# /usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/usr/bin:~/.local/bin:/home/jubeaz/.local/share/gem/ruby/3.4.0:PATH/bin::/home/jubeaz/go/bin:/usr/bin:~/.local/bin:/home/jubeaz/.local/share/gem/ruby/3.4.0:PATH/bin::/home/jubeaz/go/bin
+
+#export GEM_HOME=".local/bin:$(gem env user_gemhome)"
+#export PATH="$PATH:$GEM_HOME/bin"
+export PATH="$HOME/.local/bin:$(gem env user_gemhome)/bin:$(go env GOPATH)/bin:$PATH"
 ls_color_theme="molokai"
 ls_color_theme="snazzy"
 ls_color_file="$HOME/.ls_colors/ls_colors_${ls_color_theme}"

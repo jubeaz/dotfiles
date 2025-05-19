@@ -18,7 +18,12 @@
 ```
 ```
 
+## UI
+```bash
+http://<ip>:2501
+```
+
 ## wifi - monitor
 ```
-kismet -c <wlan_interface>
+sudo ip link set <wlan_interface|wlan> down && sudo iw dev <wlan_interface|wlan> set type monitor && sudo ip link set <wlan_interface|wlan> up && kismet -c <wlan_interface|wlan>
 ```
