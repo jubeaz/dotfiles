@@ -54,9 +54,19 @@ fi
 case "$TERM" in
     xterm-color|*-256color) color_prompt=yes;;
 esac
-
 if [ "$color_prompt" = yes ]; then
-    PS1='(\[\033[01;31m\]\u@\h\[\033[00m\]):[\[\033[01;36m\]\w\[\033[00m\]]\n\$ '
+    case "$COLORTERM" in
+        truecolor) color_prompt=truecolor;;
+    esac
+fi
+
+
+if [[ "$color_prompt" == "yes" || "$color_prompt" == "truecolor" ]]; then
+    if [[ $(hostname) == "akamatsu" ]]; then
+        PS1='(\[\033[38;5;201m\]\u@\h\[\033[00m\]):[\[\033[01;36m\]\w\[\033[00m\]]\n\$ '
+    else
+        PS1='(\[\033[38;5;210m\]\u@\h\[\033[00m\]):[\[\033[01;36m\]\w\[\033[00m\]]\n\$ '
+    fi
 else
     PS1='\u@\h:\w\$ '
 fi
