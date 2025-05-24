@@ -4,6 +4,14 @@
 
 #plateform/linux  #target/local  #cat/CRACKING/PASSWORD 
 
+
+## Dynamic
+https://github.com/pmittaldev/john-the-ripper/blob/master/doc/DYNAMIC
+` $dynamic_82$067f746faca44f170c6cd9d7c4bdac6bc342c608687733f80ff784242b0b0c03$/aACFhikmNopqrRTVz2489`
+```
+john --wordlist=<password_wl> --format=dynamic='<format|sha256($s.$p)>' hash.txt
+```
+
 ## john LM
 ```
 john --wordlist=<password_wl> --format=lm hash.txt

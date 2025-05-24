@@ -5,14 +5,21 @@
 ## connect
 #cat/ATTACK/CONNECT 
 ```bash
-mysql -u <user> -p<password> -h <hostname> <database>
+mysql -u <user> -p"<password>" -h <hostname> <database>
 ```
 
 ## execute single request
 #cat/ATTACK
 ```bash
-mysql -u <user> -p<password> -h <hostname> <database> -e "select * from users;"
+mysql -u <user> -p"<password>" -h <hostname> <database> -e "select * from users;" -E
 ```
+
+## execute single request (local)
+#cat/ATTACK
+```bash
+mysql -u <user> -p"<password>"   -e "use <database>; select * from users;" -E
+```
+
 
 ## Create database
 #cat/UTILS 
