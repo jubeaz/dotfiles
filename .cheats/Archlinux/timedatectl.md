@@ -7,7 +7,7 @@
 
 # sync with DC
 ```bash
-sudo echo -n "[Time]\nNTP=<target>" > /etc/systemd/timesyncd.conf.d/timesyncd.conf && sudo systemctl restart systemd-timesyncd.service
+echo -e "[Time]\nNTP=<target>" | sudo tee /etc/systemd/timesyncd.conf.d/timesyncd.conf && sudo systemctl restart systemd-timesyncd.service
 ```
 # unsync with DC
 ```bash
