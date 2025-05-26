@@ -7,22 +7,16 @@
     "remote.SSH.remotePlatform": {
         "yoki": "linux"
     },
-    "sshfs.configs": [
-        {
-            "name": "yoki",
-            "host": "yoki.jinteki.lan",
-            "root": "/etc/ansible",
-            "agent": "$SSH_AUTH_SOCK",
-            "username": "jubeaz",
-            "privateKeyPath": "$HOME/.ssh/id_rsa_jinteki_lan",
-            "passphrase": true
-        }
-    ],
+    "sshfs.configs": [],
     "window.confirmSaveUntitledWorkspace": false,
     "editor.fontSize": 13,
     "[latex]": {
         "editor.wordWrap": "on",
         "editor.wordBasedSuggestions": "off",
         "editor.suggest.snippetsPreventQuickSuggestions": false
+    },
+    "git.openRepositoryInParentFolders": "never",
+    "github.copilot.advanced": {
+        
     }
 }
