@@ -32,3 +32,7 @@ pacman -Sw <pacman_package_name> && tar -tf /var/cache/pacman/pkg/<pacman_packag
 ```
 
 
+# remove orphans
+```bash
+pacman -Qdtq | pacman -Rns -
+```

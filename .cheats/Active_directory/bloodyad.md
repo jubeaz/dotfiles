@@ -5,17 +5,17 @@
 
 ## auth (cred)
 ```bash
--u <user> -p <password>
+-d <domain_fqn> -u <user> -p <password>
 ```
 
 ## auth (pth)
 ```bash
--u <user> -p :<nt_hash>
+-d <domain_fqn> -u <user> -p :<nt_hash>
 ```
 
 ## auth (ptt)
 ```bash
--k
+-d <domain_fqn> -u <user> -p <password> -k
 ```
 
 ## auth (cert)
@@ -119,8 +119,9 @@ bloodyAD --host <dc_ip> -d <domain_fqdn> -u <user> -p :<nt_hash> -v <level|INFO>
 ## get - object with dacl (pth)
 https://github.com/CravateRouge/bloodyAD
 ```bash
-bloodyAD --host <dc_ip> -d <domain_fqdn> -u <user> -p :<nt_hash> -v <level|INFO> get object --resolve-sd <target_sAMAccountName>
+bloodyAD --host <dc_ip> -d <domain_fqdn> -u <user> -p :<nt_hash> -v <level|INFO> get object --resolve-sd <target_sAMAccountName> | grep 'GP-Link\|GENERIC_ALL'
 ```
+
 ## get - search (pth)
 https://github.com/CravateRouge/bloodyAD
 ```bash

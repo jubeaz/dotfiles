@@ -62,7 +62,7 @@ fi
 
 
 if [[ "$color_prompt" == "yes" || "$color_prompt" == "truecolor" ]]; then
-    if [[ $(hostname) == "akamatsu" ]]; then
+    if [[ $(hostnamectl hostname) == "akamatsu" ]]; then
         #PS1='(\[\033[38;5;201m\]\u@\h\[\033[00m\]):[\[\033[38;5;81m\]\w\[\033[00m\]]\n\$ '
         PS1='(\[\033[38;5;201m\]\u@\h\[\033[00m\]):[\[\033[38;5;81m\]\w\[\033[00m\]]\[\033[38;5;201m\]\n$ \[\033[00m\]'
     else

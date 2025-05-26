@@ -32,7 +32,6 @@ alias nord_kill_on="nordvpn set killswitch enabled"
 alias nord_kill_off="nordvpn set killswitch disabled"
 
 
-
 ##########################
 # ssh
 ##########################
