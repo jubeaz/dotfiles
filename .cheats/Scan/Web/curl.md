@@ -22,3 +22,7 @@ curl -k --ntlm -u '<domain_netbios>\<user>:<password>' <url>
 curl -k --ntlm -u '<domain_netbios>\<user>:<password>' <url>
 ```
 
+## GET request from file (burp)
+```bash
+  curl - -X GET <url> -H @<header_file> --proxy http://localhost:8080
+``

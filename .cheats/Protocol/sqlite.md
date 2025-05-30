@@ -5,7 +5,7 @@
 ## open sqlite file
 #cat/ATTACK/CONNECT 
 ```bash
-sqlite3  -readonly <file_path> 
+sqlite3  -readonly <file_path>  .fullschema
 ```
 
 ## help
@@ -30,6 +30,11 @@ sqlite3  -readonly <file_path>
 #cat/UTILS
 ```
 .fullschema
+```
+
+## table desc
+```
+PRAGMA table_info(<table|users>);
 ```
 
 ## select
