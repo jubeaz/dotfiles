@@ -1,11 +1,10 @@
 # dpapi (imp)
-
 % impacket-secrets, dpapi
-
+#plateform/linux #target/remote #cat/POSTEXPLOIT/CREDS_RECOVER 
 
 ## desc
 ```
-to write
+DAPPI offile decryption tool
 ```
 
 ## dump the domain backup key

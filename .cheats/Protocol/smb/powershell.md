@@ -27,3 +27,9 @@ Revoke-SmbShareAccess -Name "<share_name|jubeaz>" -AccountName "<user>" -Force
 ```powershell
 Get-SmbServerConfiguration
 ```
+
+
+## smb - mount share locally
+```powershell
+$secPass = ConvertTo-SecureString "Winter2024!" -AsPlainText -Force && $cred = New-Object System.Management.Automation.PSCredential("corp.local\svc_web", $secPass) && New-PSDrive -Name X -PSProvider FileSystem -Root "\\192.168.50.10\tools" -Credential $cred -Persist
+```

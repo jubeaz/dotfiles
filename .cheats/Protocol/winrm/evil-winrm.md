@@ -54,5 +54,5 @@ CONTOSO.COM = {
              kdc = fooserver.contoso.com
  }
 ```bash
-export KRB5CCNAME=<ccache> && evil-winrm -i <target_fqdn>  --realm <domain_fqdn>
+export KRB5CCNAME=<ccache> && evil-winrm -i <target_fqdn>  --realm <REALM_FQDN>
 ```

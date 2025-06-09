@@ -23,6 +23,11 @@ net view \\<ip> \ALL
 net use x: \\<ip>\<share_name>
 ```
 
+## smb - connect to a share with user
+```
+net use \\<ip>\<share_name> <password> /user:<username>
+```
+
 ## smb - check current share
 ```
 net share
