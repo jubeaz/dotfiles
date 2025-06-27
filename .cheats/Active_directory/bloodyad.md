@@ -3,6 +3,25 @@
 % windows, Active directory
 #plateform/linux #target/remote  #cat/ATTACK/DACL-ABUSE
 
+
+## _desc
+```
+```
+
+## _repo
+```
+```
+
+## _doc
+```
+https://github.com/CravateRouge/bloodyAD/wiki/Enumeration
+
+```
+
+## _install
+```
+```
+
 ## auth (cred)
 ```bash
 -d <domain_fqn> -u <user> -p <password>
@@ -131,7 +150,7 @@ bloodyAD --host <dc_fqdn> -d <domain_fqdn> -u <user> -p :<nt_hash> -v <level|INF
 ## get - list children of an object (pth)
 https://github.com/CravateRouge/bloodyAD
 ```bash
-bloodyAD --host <dc_fqdn> -d <domain_fqdn> -u <user> -p :<nt_hash> -v <level|INFO> get  
+bloodyAD --host <dc_fqdn> -d <domain_fqdn> -u <user> -p :<nt_hash> -v <level|INFO> get  children --direct --target <DN>
 ```
 ## get - DNS dump records (pth)
 https://github.com/CravateRouge/bloodyAD

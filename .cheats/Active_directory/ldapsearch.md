@@ -4,6 +4,13 @@
 
 % ldap, Active Directory
 
+## auth - get available methods 
+https://ldapwiki.com/wiki/Wiki.jsp?page=Microsoft%20Active%20Directory
+#cat/ATTACK/CONNECT 
+```
+ldapsearch -x -b '' -s base supportedSASLMechanisms -H ldap://<dc_ip>
+```
+
 ## auth - simple binding
 https://ldapwiki.com/wiki/Wiki.jsp?page=Microsoft%20Active%20Directory
 #cat/ATTACK/CONNECT 
@@ -37,6 +44,7 @@ ldapsearch -x -H ldap://<dc_ip> -s <scope>
 ```
 -E '!1.2.840.113556.1.4.801=::MAMCAQc='  
 ```
+
 ## FullRequest - get auth mecanism
 ```bash
  ldapsearch -H ldap://<IP>  -x -D j<user>@<domain_fqdn> -w '<password>'   -b '' -s base supportedSASLMechanisms dn:
@@ -52,7 +60,7 @@ ldapsearch -LLL -x -H ldap://<IP> -b '' -s base '(objectclass=*)' | grep current
 ldapsearch -LLL  -H ldap://<dc_ip> -x -D <user>@<domain_fqdn> -w '<password>' -b 'DC=<domain_netbios>,DC=<domain_tld>' -s sub '(objectclass=domain)' | grep "ms-ds-machineaccountquota" -i
 ```
 
-## FullRequest - deleted objects
+## FullRequest - deleted objects (tombstone)
 ```
 ldapsearch -LLL  -H ldap://<dc_ip> -x -D <user>@<domain_fqdn> -w '<password>' -b 'CN=Deleted Objects,DC=<domain_netbios>,DC=<domain_tld>' -E '!1.2.840.113556.1.4.417'
 ```

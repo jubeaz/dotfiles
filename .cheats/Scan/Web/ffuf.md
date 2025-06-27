@@ -3,6 +3,12 @@
 
 % fuzzer, fuzz, ffuf
 #plateform/linux #target/remote #cat/ATTACK/FUZZ
+
+## _help 
+```
+https://www.acceis.fr/astuces-avancees-avec-ffuf/
+```
+
 ## fuzz keyword in url
 ```
 ffuf -t <nb_thread|40> -w <ffuf_dir_wl> -u <url>/FUZZ
