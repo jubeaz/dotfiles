@@ -58,6 +58,11 @@ SELECT * FROM <databaseName>.INFORMATION_SCHEMA.TABLES;
 SELECT * FROM <databaseName>.<schemaName|dbo>.<tableName>
 ```
 
+## enum - permission
+```sql
+SELECT entity_name, permission_name FROM fn_my_permissions(NULL, '<securable_class|SERVER>');
+```
+
 ## enum - Get principals and their server-level roles
 ```sql
 SELECT r.name, r.type_desc, r.is_disabled, sl.sysadmin, sl.securityadmin, sl.serveradmin, sl.setupadmin, sl.processadmin, sl.diskadmin, sl.dbcreator, sl.bulkadmin FROM master.sys.server_principals r LEFT JOIN master.sys.syslogins sl ON sl.sid = r.sid WHERE r.type IN ('S','E','X','U','G');

