@@ -22,7 +22,17 @@ vboxmanage showvminfo <vm_name>
 vboxmanage unregistervm <vm_name> --delete
 ```
 
-## virtualbox - vm disable nic
+## virtualbox - Add Nat portforward rule
+```bash
+vboxmanage controlvm <vm_name> natpf<nic_id|1> "<rulename>, <proto|tcp>, <host_ip|127.0.0.1>, <host_port>,,<guest_port>"
+```
+
+## virtualbox - del Nat portforward rule
+```bash
+vboxmanage controlvm <vm_name> natpf<nic_id|1> delete "<rulename>"
+```
+
+## virtualbox - vm disconnect nic
 ```bash
 vboxmanage modifyvm <vm_name> --cableconnected<nic_id|1> <nic_status|off>
 ```

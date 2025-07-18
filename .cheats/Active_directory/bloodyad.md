@@ -152,6 +152,17 @@ https://github.com/CravateRouge/bloodyAD
 ```bash
 bloodyAD --host <dc_fqdn> -d <domain_fqdn> -u <user> -p :<nt_hash> -v <level|INFO> get  children --direct --target <DN>
 ```
+## get - list computers (pth)
+https://github.com/CravateRouge/bloodyAD
+```bash
+bloodyAD --host <dc_fqdn> -d <domain_fqdn> -u <user> -p :<nt_hash> -v <level|INFO> get children --otype computer
+```
+## get - list users (pth)
+https://github.com/CravateRouge/bloodyAD
+```bash
+bloodyAD --host <dc_fqdn> -d <domain_fqdn> -u <user> -p :<nt_hash> -v <level|INFO> get children --otype useronly
+```
+
 ## get - DNS dump records (pth)
 https://github.com/CravateRouge/bloodyAD
 ```bash

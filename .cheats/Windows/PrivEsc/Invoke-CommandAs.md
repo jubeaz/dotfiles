@@ -1,5 +1,7 @@
 # Invoke-CommandAs
+% windows, impersonation
 
+#plateform/windows #target/local  #cat/ATTACK
 ## _desc
 ```
 Run command as nt authority\system

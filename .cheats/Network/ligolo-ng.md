@@ -20,6 +20,11 @@ https://github.com/Nicocha30/ligolo-ng
 https://github.com/nicocha30/ligolo-ng/wiki
 ```
 
+## _docs
+```
+https://docs.ligolo.ng/
+```
+
 
 ## Server - start
 ```bash
@@ -42,7 +47,7 @@ ifdel --name <name | ligolo>
 ```
 
 ## Server - start tunnel
-associate an agent with a tunnel
+associate an agent with a tunnel after entering session
 ```bash
 tunnel_start --tun <name | ligolo>
 ```
@@ -63,18 +68,18 @@ server ip or proxy ip
 ligolo-ng-agent.exe -accept-fingerprint <fp> -connect <server_ip>:<port|11601>
 ```
 
-## Agent - start Listener
+## Server - start Listener
 Redirect port from the agent to the server
 ```bash
 listener_add --addr <bind_ip|0.0.0.0>:<bind_port> --to <target_ip|127.0.0.1>:<target_port> --tcp
 ```
 
-## Agent - list Listener
+## Server - list Listener
 ```bash
 listener_list
 ```
 
-## Agent - list stop
+## Server - list stop
 ```bash
 listener_stop <id>
 ```
