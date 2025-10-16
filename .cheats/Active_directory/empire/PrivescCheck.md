@@ -1,5 +1,5 @@
 # PrivescCheck
-% empire, windows, Invoke-RunAs, privesc recon
+% empire, windows, rivesc recon
 
 #plateform/windows #target/remote  #cat/RECON
 

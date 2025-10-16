@@ -3,6 +3,11 @@
 % tmux
 #plateform/linux #target/local #cat/UTILS 
 
+## list-keys
+```bash
+tmux list-keys
+```
+
 ## sessions - list
 
 ```bash

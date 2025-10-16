@@ -36,3 +36,8 @@ pacman -Sw <pacman_package_name> && tar -tf /var/cache/pacman/pkg/<pacman_packag
 ```bash
 pacman -Qdtq | pacman -Rns -
 ```
+
+# clear cache
+```bash
+sudo pacman -Scc --noconfirm
+```

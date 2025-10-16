@@ -194,3 +194,14 @@ puttygen <ppk_file> -O private-openssh -o <private_key>
 ```bash
 puttygen <ppk_file> -O public-openssh -o <private_key>
 ```
+
+
+## sshfs - mount 
+```bash
+sshfs <target>: <mount_point> -o reconnect -o cache=yes -o ServerAliveInterval=15 -o ServerAliveCountMax=3
+```
+
+## sshfs - umount 
+```bash
+ps aux | grep '[s]shfs'  && kill -9 <pid> && sudo umount <mount_point>
+```

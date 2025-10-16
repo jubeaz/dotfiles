@@ -26,5 +26,5 @@ dpapi.py masterkey -file <master_key_file> -password <password> -sid <user_sid>
 
 ## decrypt blob (creds)
 ```bash
-dpapi.py unprotect -file <blob_file> -key <decrypted_master_key>
+dpapi.py credential -file <blob_file> -key <decrypted_master_key>
 ```
