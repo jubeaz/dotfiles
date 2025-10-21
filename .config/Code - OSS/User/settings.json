@@ -4,9 +4,6 @@
     "workbench.editor.highlightModifiedTabs": true,
     "workbench.colorTheme": "Default Dark+",
     "files.autoSave": "afterDelay",
-    "remote.SSH.remotePlatform": {
-        "yoki": "linux"
-    },
     "sshfs.configs": [],
     "window.confirmSaveUntitledWorkspace": false,
     "editor.fontSize": 13,
@@ -18,5 +15,17 @@
     "git.openRepositoryInParentFolders": "never",
     "github.copilot.advanced": {
         
-    }
+    },
+    "yaml.schemas": {
+        "/home/jubeaz/.vscode-oss/extensions/continue.continue-1.0.10-linux-x64/config-yaml-schema.json": [
+            ".continue/**/*.yaml"
+        ],
+        "/home/jubeaz/.vscode-oss/extensions/continue.continue-1.0.14-linux-x64/config-yaml-schema.json": [
+            ".continue/**/*.yaml"
+        ],
+        "/home/jubeaz/.vscode-oss/extensions/continue.continue-1.0.15-linux-x64/config-yaml-schema.json": [
+            ".continue/**/*.yaml"
+        ]
+    },
+    "continue.enableConsole": true
 }

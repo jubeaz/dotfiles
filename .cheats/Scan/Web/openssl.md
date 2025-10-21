@@ -135,3 +135,9 @@ openssl req -noout -modulus -in <INPUT_CSR> | openssl md5
 ```bash
 openssl s_client -connect <URL>:<PORT>
 ```
+
+
+## compute NTLM
+```bash
+echo -n '<password>' | iconv -f UTF-8 -t UTF-16LE | openssl dgst -md4 -binary | xxd -p
+```
