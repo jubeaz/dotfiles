@@ -118,7 +118,7 @@ disk_usage() {
 memory() {
   echo -n ",{"
   echo -n "\"name\":\"id_memory\","
-  echo -n "\"full_text\":\"  $($XDG_CONFIG_HOME/i3status/memory.py)%\","
+  echo -n "\"full_text\":\" $($XDG_CONFIG_HOME/i3status/memory.py)%\","
   echo -n "\"background\":\"#3949AB\","
   common
   echo -n "}"
@@ -149,7 +149,7 @@ mydate() {
   separator $bg "#546E7A"
   echo -n ",{"
   echo -n "\"name\":\"id_time\","
-  echo -n "\"full_text\":\"  $(date "+%a %d/%m %H:%M") \","
+  echo -n "\"full_text\":\" $(date "+%a %d/%m %H:%M") \","
   echo -n "\"color\":\"#000000\","
   echo -n "\"background\":\"$bg\","
   common

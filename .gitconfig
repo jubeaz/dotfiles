@@ -1,0 +1,17 @@
+[user]
+        name = jubeaz
+        email = pascal.auillans@gmail.com
+[core]
+        editor = vim
+[color]
+    ui = true
+[include]
+    path = ~/.config/git/colors.config
+[safe]
+#    directory = 
+[credential "https://github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/usr/bin/gh auth git-credential

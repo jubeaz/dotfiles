@@ -27,5 +27,6 @@
             ".continue/**/*.yaml"
         ]
     },
-    "continue.enableConsole": true
+    "continue.enableConsole": true,
+    "editor.fontFamily": "'Cascadia Code', 'Segoe UI Emoji', 'Noto Sans', 'Noto Color Emoji','Droid Sans Mono', 'monospace', monospace"
 }
