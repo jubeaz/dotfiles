@@ -7,6 +7,12 @@
 https://www.samba.org/samba/docs/current/man-html/rpcclient.1.html
 ```
 
+## connect with null session
+#plateform/linux #target/remote #cat/RECON 
+```
+rpcclient <ip> -U '' -N 
+```
+
 ## connect with domain account (creds)
 #plateform/linux #target/remote #cat/RECON 
 ```
@@ -40,7 +46,7 @@ rpcclient <ip> -U '<domain_netbios>\<user>%<pssword>' -c "help;quit"
 ## enumerate domain users
 #plateform/linux #target/remote #cat/RECON 
 ```
-rpcclient <ip> -U '<domain_netbios>\<user>%<pssword>' -c "enumdomusers;quit"
+rpcclient <ip> -U '<domain_netbios>\<user>%<pssword>' -c enumdomusers  2>/dev/null | cut -d'[' -f2 | cut -d']' -f1 | tee users.txt
 ```
 
 

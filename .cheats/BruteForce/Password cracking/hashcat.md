@@ -4,6 +4,23 @@
 
 #plateform/linux  #target/local  #cat/CRACKING/PASSWORD 
 
+
+## hash list
+```bash
+hashcat --example-hashes
+```
+
+
+## device list 
+```bash
+hashcat -I
+```
+
+## forcinf opencl device (CPU or GPU)
+```bash
+hashcat  --opencl-device-types=2
+```
+
 ## basic md5 (joomla/wordpress) - wordlist
 ```
 hashcat -a 0 -m 400 <hash_file> <password_wl>
