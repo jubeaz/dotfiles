@@ -7,9 +7,9 @@
 nmap -sL -sn <ip_range>
 ```
 
-## util - display top HOST-PORTS
+## util - display top ports
 ```bash
-nmap -oX - --top-HOST-PORTS <count|25> 
+nmap -oX - --top-ports <count|25> | grep services | sed -n 's/.*services="\([^"]*\)".*/\1/p'    | tr ',' '\n'
 ```
 
 ## SCRIPT - info
@@ -41,7 +41,7 @@ nmap -Pn -n -sS -p<port> --script=<script_name> --script-args <script_arg>=<valu
 
 ## SERVICE - vuln
 ```bash
-nmap -Pn -n --script=vul, -sV -p<HOST-PORTS_comma_sep> <ip>
+nmap -Pn -n --script=vul, -sV -p<ports_comma_sep> <ip>
 ```
 
 
