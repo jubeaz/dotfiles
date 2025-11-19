@@ -2,6 +2,11 @@
 
 #plateform/windows #target/local #cat/PRIVESC #cat/PERSIST #cat/RECON #tag/powershell 
 
+## Network - Get default proxy
+```powershell
+[System.Net.WebProxy]::GetDefaultProxy()
+```
+
 ## Network - Get http Proxy
 ```powershell
 [System.Net.WebRequest]::DefaultWebProxy.GetProxy("http://<ip>/<url>")

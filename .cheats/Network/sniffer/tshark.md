@@ -43,3 +43,6 @@ from Krb5RoastParser
 ```bash
 tshark -r <wlan_dump_file> -Y "kerberos.msg_type == 13 && kerberos.CNameString && kerberos.realm && kerberos.SNameString && kerberos.cipher" -T fields -e kerberos.CNameString -e kerberos.realm -e kerberos.SNameString -e kerberos.cipher -E separator='$'
 ```
+
+
+for file in $(find . -type f -name "*.tex"); do out="${file%.tex}.md"; pandoc "$file" -o "$out" ; done

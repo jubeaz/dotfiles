@@ -21,3 +21,5 @@ sudo lvdisplay
 ```bash
  lvextend -L +<amount>G <lv_path> -r
  ```
+
+ 

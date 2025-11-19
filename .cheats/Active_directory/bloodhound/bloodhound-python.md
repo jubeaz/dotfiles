@@ -24,42 +24,42 @@ https://github.com/dirkjanm/BloodHound.py
 pipx install git+https://github.com/dirkjanm/BloodHound.py.git@bloodhound-ce
 ```
 
-
-
-## proxychains collect domain data 
+## Domain - password
 ```bash
-bloodhound-python -d <domain_fqdn> -u <user> -p '<password>' -c <method|DCOnly> --auth-method <auth_method|ntlm> --dns-tcp -ns <dc_ip> -gc <dc_fqdn> -v
+bloodhound-python -d <domain_fqdn> -u <user> -p '<password>' -c <method|DCOnly> -ns <dc_ip> -gc <dc_fqdn> -v --zip -op <domain_fqdn>
 ```
 
-## proxychains collect domain data (pth) 
-requiere both lm_hash and nt_hash
-```bash
-bloodhound-python -d <domain_fqdn> -u <user> --hashes aad3b435b51404eeaad3b435b51404ee:<nt_hash> -c <method|DCOnly> --auth-method <auth_method|ntlm> --dns-tcp -ns <dc_ip> -gc <dc_fqdn> -v
-```
-
-## proxychains collect FOREST data  (pth)
-requiere both lm_hash and nt_hash
-```bash
-bloodhound-python -d <dst_domain_fqdn> -u <user>@<domain_fqdn> --hashes aad3b435b51404eeaad3b435b51404ee:<nt_hash> -c <method|DCOnly> --auth-method <auth_method|ntlm> --dns-tcp -ns <dc_ip> -gc <dc_fqdn> -v
-```
-
-## collect domain data
-```bash
-bloodhound-python -d <domain_fqdn> -u <user> -p '<password>' -c <method|DCOnly> -ns <dc_ip> -gc <dc_fqdn>
-```
-
-## collect domain data (kerberos)
+## Domain - kerberos
 add the DNS to /etc/hosts 
 ```bash
-bloodhound-python -d <domain_fqdn> -u <user> -p '<password>' -c <method|DCOnly> -ns <dc_ip> -gc <dc_fqdn> --kerberos
+bloodhound-python -d <domain_fqdn> -u <user> -p '<password>' -c <method|DCOnly> -ns <dc_ip> -gc <dc_fqdn> --kerberos -v --zip -op <domain_fqdn>
 ```
 
-## collect domain data (dns)
+## Domain - password (dns)
 ```bash
-bloodhound-python -ns <dc_ip> -gc <dc_fqdn> -d <domain_fqdn> -u <user> -p '<password>' -c <method|DCOnly>
+bloodhound-python -ns <dc_ip> -gc <dc_fqdn> -d <domain_fqdn> -u <user> -p '<password>' -c <method|DCOnly> -v --zip -op <domain_fqdn>
 ```
 
 ## collect domain data (alternative)
 ```bash
-bloodhound-python -d <domain_fqdn> -u <user> -p '<password>' -gc <global_catalog> -dc <domain_controler> -c <method|DCOnly> -ns <dc_ip> -gc <dc_fqdn
+bloodhound-python -d <domain_fqdn> -u <user> -p '<password>' -dc <domain_controler> -c <method|DCOnly> -ns <dc_ip> -gc <dc_fqdn> -v --zip -op <domain_fqdn>
 ```
+
+## Domain - password (proxychains) 
+```bash
+bloodhound-python -d <domain_fqdn> -u <user> -p '<password>' -c <method|DCOnly> --auth-method <auth_method|ntlm> --dns-tcp -ns <dc_ip> -gc <dc_fqdn> -v --zip -op <domain_fqdn>
+```
+
+## Domain - pth (proxychains) 
+requiere both lm_hash and nt_hash
+```bash
+bloodhound-python -d <domain_fqdn> -u <user> --hashes aad3b435b51404eeaad3b435b51404ee:<nt_hash> -c <method|DCOnly> --auth-method <auth_method|ntlm> --dns-tcp -ns <dc_ip> -gc <dc_fqdn> -v --zip -op <domain_fqdn>
+```
+
+## Forest - pth (proxychains) 
+requiere both lm_hash and nt_hash
+```bash
+bloodhound-python -d <dst_domain_fqdn> -u <user>@<domain_fqdn> --hashes aad3b435b51404eeaad3b435b51404ee:<nt_hash> -c <method|DCOnly> --auth-method <auth_method|ntlm> --dns-tcp -ns <dc_ip> -gc <dc_fqdn> -v --zip -op <dst_domain_fqdn>
+```
+
+

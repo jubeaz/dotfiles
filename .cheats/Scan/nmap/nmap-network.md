@@ -41,7 +41,7 @@ PROXYCHAINS_CONF_FILE=<path|$PWD/proxy.conf> proxychains -q nmap -Pn -n -T<speed
 
 ## NET-TCP-PORTS - top
 ```bash
-IPS=$(cat net_reach_<network_ip>_<cird>.gnmap | grep 'Status: Up' | cut -d' ' -f2); for IP in $IPS; do echo "======> $IP"; nmap -Pn -n -T<speed|4> --min-rate=1000 --top-ports <count|1000> --reason -oA reason_tcp_$IP $IP ;done
+IPS=$(cat net_reach_<network_ip>_<cird>.gnmap | grep 'Status: Up' | cut -d' ' -f2); for IP in $IPS; do echo "======> $IP"; nmap --stats-every 60s -Pn -n -T<speed|4> --min-rate=1000 --top-ports <count|1000> --reason -oA reason_tcp_$IP $IP ;done
 ```
 
 ## TCP-TCP-PORTS - top (proxychains)

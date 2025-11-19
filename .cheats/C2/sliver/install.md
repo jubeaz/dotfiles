@@ -19,17 +19,12 @@ https://sliver.sh/docs
 
 
 
-## Install - server
+## Install - system wild
 ```bash
-wget -q https://github.com/BishopFox/sliver/releases/download/v1.5.42/sliver-server_linux ; chmod +x ./sliver-server_linux 
+curl https://sliver.sh/install|sudo bash
 ```
 
-## Install - server armory
+## Install - armory install
 ```bash
 armory install all
-```
-
-## Install - client
-```bash
-wget -q https://github.com/BishopFox/sliver/releases/download/v1.5.42/sliver-client_linux ; hmod +x ./sliver-client_linux
 ```

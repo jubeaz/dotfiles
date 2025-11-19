@@ -16,7 +16,7 @@ ldeep ldap -d <domain_fqdn> -s ldap://<dc_fqdn> -t simple -u <user> -p <password
 
 ## ldap - auth ntlm
 ```bash
-ldeep ldap -d <domain_fqdn> -s ldap://<dc_fqdn> -t ntlm -u <user> -H <nt_hash> all <domain_netbios>
+ldeep ldap -d <domain_fqdn> -s ldap://<dc_fqdn> -t ntlm -u <user> -H :<nt_hash> all <domain_netbios>
 ```
 
 ## ldap - auth kerberos

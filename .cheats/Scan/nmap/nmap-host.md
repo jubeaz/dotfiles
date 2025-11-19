@@ -35,22 +35,22 @@ PROXYCHAINS_CONF_FILE=<path|$PWD/proxy.conf> proxychains -q nmap --stats-every 6
 
 ## TCP-SERVICES - light
 ```bash
-PORTS=$(cat reason_tcp_<ip>.nmap | grep ' open ' | grep -E '^[0-9]+/tcp' | cut -d '/' -f 1 | tr '\n' ',' | sed 's/,$//') ; nmap -Pn -n -T<speed|4> -sV -oA <nmap_output_file> <ip>
+PORTS=$(cat reason_tcp_<ip>.nmap | grep ' open ' | grep -E '^[0-9]+/tcp' | cut -d '/' -f 1 | tr '\n' ',' | sed 's/,$//') ; nmap -Pn -n -T<speed|4> -sV -p$PORTS -oA <nmap_output_file> <ip>
 ```
 
 ## TCP-SERVICES - light (proxychains)
 ```bash
-PORTS=$(cat reason_tcp_<ip>.nmap | grep ' open ' | grep -E '^[0-9]+/tcp' | cut -d '/' -f 1 | tr '\n' ',' | sed 's/,$//') ; PROXYCHAINS_CONF_FILE=<path|$PWD/proxy.conf> proxychains -q nmap --stats-every 60s -Pn -n -T<speed|4> -sV -sT -oA <nmap_output_file> <ip>
+PORTS=$(cat reason_tcp_<ip>.nmap | grep ' open ' | grep -E '^[0-9]+/tcp' | cut -d '/' -f 1 | tr '\n' ',' | sed 's/,$//') ; PROXYCHAINS_CONF_FILE=<path|$PWD/proxy.conf> proxychains -q nmap --stats-every 60s -Pn -n -T<speed|4> -sV -sT -p$PORTS -oA <nmap_output_file> <ip>
 ```
 
 ## TCP-SERVICES - heavy
 ```bash
-PORTS=$(cat reason_tcp_<ip>.nmap | grep ' open ' | grep -E '^[0-9]+/tcp' | cut -d '/' -f 1 | tr '\n' ',' | sed 's/,$//') ; nmap -Pn -n -T<speed|4> -sV --script=<category|default> -oA <nmap_output_file> <ip>
+PORTS=$(cat reason_tcp_<ip>.nmap | grep ' open ' | grep -E '^[0-9]+/tcp' | cut -d '/' -f 1 | tr '\n' ',' | sed 's/,$//') ; nmap -Pn -n -T<speed|4> -sV --script=<category|default> -p$PORTS -oA <nmap_output_file> <ip>
 ```
 
 ## TCP-SERVICES - heavy (proxychains)
 ```bash
-PORTS=$(cat reason_tcp_<ip>.nmap | grep ' open ' | grep -E '^[0-9]+/tcp' | cut -d '/' -f 1 | tr '\n' ',' | sed 's/,$//') ; PROXYCHAINS_CONF_FILE=<path|$PWD/proxy.conf> proxychains -q nmap --stats-every 60s -Pn -n -T<speed|4> -sV --script=<category|default> -sT -oA <nmap_output_file> <ip>
+PORTS=$(cat reason_tcp_<ip>.nmap | grep ' open ' | grep -E '^[0-9]+/tcp' | cut -d '/' -f 1 | tr '\n' ',' | sed 's/,$//') ; PROXYCHAINS_CONF_FILE=<path|$PWD/proxy.conf> proxychains -q nmap --stats-every 60s -Pn -n -T<speed|4> -sV --script=<category|default> -sT -p$PORTS -oA <nmap_output_file> <ip>
 ```
 
 

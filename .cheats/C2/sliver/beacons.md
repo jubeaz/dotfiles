@@ -3,9 +3,9 @@
 % sliver, C2
 
 
-## Listener - list
+## beacons - prune
 ```bash
-jobs
+ beacons prune -d <duration|3>m
 ```
 
 ## Listener - remove

@@ -80,7 +80,7 @@ KRB5_TRACE=/tmp/krbtrace.txt kinit -c $(pwd)/<ccache_file> -k -t <keytab_file> <
 
 ## TGT - get from certificate
 ```
-KRB5_TRACE=/tmp/krbtrace.txt kinit -V -X X509_user_identity=FILE:admin.cer,admin.key
+KRB5_TRACE=/tmp/krbtrace.txt kinit -V -X X509_user_identity=FILE:admin.cer,admin.key <login>@<realm_name>
 ```
 
 ## TGT - renew
