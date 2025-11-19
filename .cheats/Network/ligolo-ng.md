@@ -31,6 +31,12 @@ https://docs.ligolo.ng/
 sudo ligolo-ng-proxy  -selfcert -laddr <ip|0.0.0.0>:<port|11601>
 ```
 
+
+## Server - start (behind https rproxy)
+```bash
+sudo ligolo-ng-proxy -selfcert  -laddr https://<ip|0.0.0.0>:<port|11602>
+```
+
 ## Server - interface - create
 ```bash
 ifcreate --name <name | ligolo>
@@ -60,6 +66,11 @@ route_add --name <name | ligolo> --route <cidr>
 ## Agent - connect 
 ```bash
 ligolo-ng-agent.exe -ignore-cert -connect <server_ip>:<port|11601>
+```
+
+## Agent - connect (rpoxyed server) 
+```bash
+ligolo-ng-agent.exe -ignore-cert -connect https://<server_ip>:<port|11602>/<ligolo_uri|ligolo/>
 ```
 
 ## Agent - connect (check cert)
