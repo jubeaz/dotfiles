@@ -43,7 +43,7 @@ bloodyAD --host <dc_fqdn> -d <domain_fqdn> -u <user> -p :<nt_hash> -v <level|INF
 ## get - object with dacl (pth)
 https://github.com/CravateRouge/bloodyAD
 ```bash
-bloodyAD --host <dc_fqdn> -d <domain_fqdn> -u <user> -p :<nt_hash> -v <level|INFO> get object --resolve-sd <target_sAMAccountName> | grep 'GP-Link\|GENERIC_ALL'
+bloodyAD --host <dc_fqdn> -d <domain_fqdn> -u <user> -p :<nt_hash> -v <level|INFO> get object --resolve-sd <target_sAMAccountName> 
 ```
 
 ## get - object attribute (pth)

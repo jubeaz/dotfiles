@@ -39,10 +39,14 @@ filters:
 Get-WmiObject -Class Win32_Service -Filter "name ='<service_name>' " | Select-Object *
 ```
 
-## services - get ACL
+## services - get ACL 1
 https://rohnspowershellblog.wordpress.com/2013/03/19/viewing-service-acls/
 ```powershell
 "<service_name>" | Get-ServiceAcl | select -ExpandProperty Acces
+```
+## services - get ACL 2
+```powershell
+$sd = sc.exe sdshow "<service_name>" ; ([System.Security.AccessControl.CommonSecurityDescriptor]::new($false, $false, $sd)).DiscretionaryAcl
 ```
 
 

@@ -137,6 +137,7 @@ sshpass -p <password> ssh -q -R [<target_bind_ip>:]<target_bind_port>:<fwd_host>
 ```
 
 ## Port forwarding - remote dynamic 
+start a socks proxy on remote server
 #cat/PIVOT/TUNNEL-PORTFW 
 ```bash
 ssh -q -R [<target_bind_ip>:]<target_bind_port> <user>@<target_connect_ip> -vN

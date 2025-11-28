@@ -55,6 +55,11 @@ Get-MpPreference | Select-Object -Property ExclusionPath, ExclusionExtension
 Get-MpPreference | Select-Object  -Property ExclusionExtension
 ```
 
+## defender - get detection
+```powershell
+Get-MpThreatDetection
+```
+
 
 #cat/DEFENSE-EVASION/SECURITY/DEFENDER
 

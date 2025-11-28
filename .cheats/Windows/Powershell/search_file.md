@@ -9,24 +9,24 @@ Get-ChildItem -Path <path|"C:\"> -Force -Recurse -ErrorAction Ignore |  select-s
 
 ## find file -  having extension
 ```powershell
-Get-ChildItem -Recurse -Filter '*.js','*password*' -ErrorAction 'SilentlyContinue'  | Select-Object -Unique -property FullName
+Get-ChildItem -Recurse -Force -Filter '*.js','*password*' -ErrorAction 'SilentlyContinue'  | Select-Object -Unique -property FullName
 ```
 
 ## find file -  all hidden (non system)
 ```powershell
-Get-ChildItem -Recurse -ErrorAction 'SilentlyContinue' -Attributes !System+Hidden  | Select-Object -Unique -property FullName
+Get-ChildItem -Recurse -Force -ErrorAction 'SilentlyContinue' -Attributes !System+Hidden  | Select-Object -Unique -property FullName
 ```
 
 
 ## find file -  having attributes
 non-system files (not directories) that are encrypted or compressed
 ```powershell
-Get-ChildItem -Recurse -ErrorAction 'SilentlyContinue' -Attributes !Directory+!System+Encrypted, !Directory+!System+Compressed  | Select-Object -Unique -property FullName
+Get-ChildItem -Recurse -Force -ErrorAction 'SilentlyContinue' -Attributes !Directory+!System+Encrypted, !Directory+!System+Compressed  | Select-Object -Unique -property FullName
 ```
 
 ## find file -  having Alternate Data Streams
 ```powershell
-gci -recurse | % { gi $_.FullName -stream * } | where stream -ne ':$Data'
+gci -recurse -Force | % { gi $_.FullName -stream * } | where stream -ne ':$Data'
 ```
 
 ## find file -  Read display alternate datastream

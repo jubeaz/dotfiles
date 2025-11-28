@@ -4,6 +4,24 @@
 #plateform/windows #target/local #cat/PRIVESC/TOKEN
 
 
+## _desc
+```
+Local privilege escalation from SeImpersonatePrivilege using EfsRpc.
+```
+
+## _repo
+```
+https://github.com/bugch3ck/SharpEfsPotato
+```
+
+## _doc
+```
+```
+
+## _install
+```
+```
+
 ## test
 https://github.com/bugch3ck/SharpEfsPotato
 ```cmd

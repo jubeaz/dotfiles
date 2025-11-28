@@ -3,6 +3,26 @@
 % adcs, certificate, pki, windows, Active directory, template, shadow credential
 #plateform/linux #target/remote #cat/AD/RECON
 
+## _repo
+```
+https://github.com/ly4k/Certipy
+```
+
+## _desc
+```
+enumerating and abusing Active Directory Certificate Services (AD CS
+```
+
+## _links
+```
+```
+
+## _docs
+```
+https://github.com/ly4k/Certipy/wiki
+```
+
+
 ## enum -  list enabled certificate templates 
 ```
 certipy find -enabled  -hide-admins -u <user>@<domain_fqdn> -p '<password>' -dc-ip <dc_ip> [-stdout]

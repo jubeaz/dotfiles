@@ -8,7 +8,7 @@
 https://github.com/garrettfoster13/sccmhunter
 ```
 
-## desc
+## _desc
 ```
 .sccmhunter/logs/db/find.db
 to install set dependencies on last version (i.e remove version in requirements.txt)

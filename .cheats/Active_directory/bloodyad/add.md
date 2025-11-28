@@ -18,8 +18,9 @@ bloodyAD --host <dc_fqdn> -d <domain_fqdn> -u <user> -p :<nt_hash> -v <level|INF
 ## add - DNS record (pth)
 https://github.com/CravateRouge/bloodyAD
 ```bash
-bloodyAD --host <dc_fqdn> -d <domain_fqdn> -u <user> -p :<nt_hash> -v <level|INFO> add dnsRecord   
+bloodyAD --host <dc_fqdn> -d <domain_fqdn> -u <user> -p :<nt_hash> -v <level|INFO> add dnsRecord --dnstype <dns_type|A> --zone <domain_fqdn> --ttl 120  <dns_record_name> <dns_record_ip>  
 ```
+
 ## add - full control (pth)
 https://github.com/CravateRouge/bloodyAD
 ```bash
