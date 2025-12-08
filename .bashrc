@@ -42,12 +42,13 @@ shopt -s checkwinsize
 set -o vi
 
 #manage ssh-agent
-if [ $(pgrep -u $USER ssh-agent | wc -l) -eq 0 ]; then
-    ssh-agent -t 1W > "$XDG_RUNTIME_DIR/ssh-agent.env"
-fi
-if [[ ! $SSH_AUTH_SOCK ]]; then
-    source "$XDG_RUNTIME_DIR/ssh-agent.env" >/dev/null
-fi
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+#if [ $(pgrep -u $USER ssh-agent | wc -l) -eq 0 ]; then
+#    ssh-agent -t 1W > "$XDG_RUNTIME_DIR/ssh-agent.env"
+#fi
+#if [[ ! $SSH_AUTH_SOCK ]]; then
+#    source "$XDG_RUNTIME_DIR/ssh-agent.env" >/dev/null
+#fi
 
 
 # set a fancy prompt (non-color, unless we know we "want" color)
