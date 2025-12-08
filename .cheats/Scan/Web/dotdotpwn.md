@@ -4,6 +4,11 @@
 
 #plateform/linux #target/remote #cat/RECON
 
+## List - generate (linux)
+```bash
+dotdotpwn  -m stdout -s unix -f /etc/passwd > lfi_linux.lst
+
+```
 
 ## dotdotpwn - recon linux (Req)
 ```

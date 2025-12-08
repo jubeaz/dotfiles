@@ -50,6 +50,7 @@ IPS=$(cat net_reach_<network_ip>-<cird>.gnmap | grep 'Status: Up' | cut -d' ' -f
 ```
 
 
+
 ## NET-TCP-SERVICES - heavy
 ```bash
 IPS=$(cat net_reach_<network_ip>-<cird>.gnmap | grep 'Status: Up' | cut -d' ' -f2); for IP in $IPS; do echo "======> $IP"; PORTS=""; PORTS=$(cat reason_tcp_$IP.nmap | grep ' open ' | grep -E '^[0-9]+/tcp' | cut -d '/' -f 1 | tr '\n' ',' | sed 's/,$//') ; nmap -Pn -n -T<speed|4> -sV --script=<category|default> -p$PORTS -oA services_$IP $IP; done

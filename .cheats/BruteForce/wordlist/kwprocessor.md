@@ -24,5 +24,5 @@ git clone https://github.com/hashcat/kwprocessor.git && cd kwprocessor && make
 
 ## keywalk gen
 ```bash
-kwp -s 1 basechars/full.base keymaps/en-us.keymap  routes/2-to-16-max-3-direction-changes.route  <file.txt>
+kwp -s 1 basechars/full.base keymaps/en-us.keymap routes/2-to-32-max-5-direction-changes.route >  <file.txt>
 ```

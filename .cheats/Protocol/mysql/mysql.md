@@ -38,3 +38,19 @@ mysqldump -u <user> -p <database> > <path>
 ```
 mysql -u <user> -p <database> <path>
 ```
+
+## privs - user privs
+```sql
+SELECT grantee, privilege_type FROM information_schema.user_privileges WHERE grantee="'root'@'localhost'"
+```
+
+## privs -- secure privs enabled
+NULL means no read / write
+```sql
+SELECT @@secure_file_priv IS NOT NULL;
+```
+
+## config - global variables 
+```sql
+SELECT variable_name, variable_value FROM information_schema.global_variables
+```

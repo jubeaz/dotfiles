@@ -2,7 +2,7 @@
 
 % password recovery, password cracking
 
-#plateform/linux  #target/local  #cat/CRACKING/PASSWORD 
+#plateform/linux #target/local #cat/CRACKING/PASSWORD 
 
 
 ## hash list
@@ -16,71 +16,96 @@ hashcat --example-hashes
 hashcat -I
 ```
 
-## forcinf opencl device (CPU or GPU)
+
+## benchmark - 
 ```bash
-hashcat  --opencl-device-types=2
+hashcat -b --backend-devices <hashcat_device_id> -m <hash_mode>
 ```
 
-## basic md5 (joomla/wordpress) - wordlist
+## benchmark - opencl device CPU
+```bash
+hashcat -b --opencl-device-types=1 -m 3200
+```
+
+## benchmark - opencl device CPU
+```bash
+hashcat -b --opencl-device-types=2 -m 3200
+```
+
+## benchmark - opencl device CPU
+```bash
+hashcat -b --backend-devices 2 -m 3200
+```
+
+
+## crack - Crack (opencl CPU)
+```bash
+hashcat --color-cracked --restore-file-path $(pwd)/sessions/<hash_file>.restore --session <hash_file> --workload <hashcat_workload|4> --potfile-path $(pwd)/pots/ --opencl-device-types=1 -a 0 -m <hashcat_hash_type> <hash_file> <password_wl>
+```
+
+## crack - Crack (opencl GPU)
+```bash
+hashcat --color-cracked --restore-file-path $(pwd)/sessions/<hash_file>.restore --session <hash_file> --workload <hashcat_workload|4> --potfile-path $(pwd)/pots/ --opencl-device-types=2 -a 0 -m <hashcat_hash_type> <hash_file> <password_wl>
+```
+
+## crack - Crack (backend device)
+```bash
+hashcat --color-cracked --restore-file-path $(pwd)/sessions/<hash_file>.restore --session <hash_file> --workload <hashcat_workload|4> --potfile-path $(pwd)/pots/ --backend-devices <hashcat_device_id> -a 0 -m <hashcat_hash_type> <hash_file> <password_wl>
+```
+
+## crack - restore
+```bash
+hashcat --restore --restore-file-path $(pwd)/sessions/<hash_file>.restore --session <hash_file>
+```
+
+
+## hash - basic md5 (joomla/wordpress) - wordlist
 ```
 hashcat -a 0 -m 400 <hash_file> <password_wl>
 ```
 
-## basic md5 (joomla/wordpress) - wordlist with rules
+## hash - basic md5 (joomla/wordpress) - wordlist with rules
 ```
 hashcat -a 0 -m 400 <hash_file> <password_wl> -r /usr/share/doc/hashcat/rules/best64.rule 
 ```
 
-## TGS ticket (after kerberoasting)
-```
-hashcat -m 13100 -a 0 <hash_file> <password_wl> 
-```
-
-## LM
-```
-hashcat -m 3000 -a 0 <hash_file> <password_wl> 
-```
-
-## NTLM
-```
-hashcat -m 1000 -a 0 <hash_file> <password_wl> 
-```
-
-## NTLMv1
-```
-hashcat -m 5500 -a 0 <hash_file> <password_wl> 
-```
-
-## NTLMv2
-```
-hashcat -m 5600 -a 0 <hash_file> <password_wl> 
-```
-
-
-## Mscash
-
-cat infile | cut -d ":" -f 2 > outfile
-
-```
-hashcat -m 2100 -a 0 <hash_file> <password_wl> 
-```
-
-## Kerbero 5 AS-REP
+## hash - Kerbero 5 AS-REP
 ```bash
-Hashcat -m 18200 -a 0 <hash_file> <password_wl>
+-m 18200 -a 0
 ```
 
-## NTLMv2 - Combination attack (ex:passpass,testtest,passtest,etc)
+## hash - Kerberos TGS (kerberoasting)
 ```
-hashcat -m 5600 --force -a 1 <hash_file> <custom_wordlist>
-```
-
-## generate wordlist using rules
-```
-cat keywords.txt | hashcat -r <rule_file> --stdout > ./<custom_wordlist>
+-m 13100 -a 0
 ```
 
-## PMKID
+## hash - LM
 ```
-hashcat -m 22000 --force <hash_file> <password_wl>
+-m 3000 -a 0 <hash_file> <password_wl> 
+```
+
+## hash - NTLM
+```
+-m 1000 -a 0 <hash_file> <password_wl> 
+```
+
+## hash - NTLMv1
+```
+-m 5500 -a 0 <hash_file> <password_wl> 
+```
+
+## hash - NTLMv2
+```
+-m 5600 -a 0 <hash_file> <password_wl> 
+```
+
+## hash - Mscash
+cat infile | cut -d ":" -f 2 > outfile
+```
+-m 2100 -a 0
+```
+
+## hash - PMKID
+```
+-m 22000 --force
 ```

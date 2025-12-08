@@ -1,6 +1,6 @@
 # # Template
 
-%  linux, login wordlis
+% wordlist, linux, login
 #plateform/linux #target/local ##cat/UTIL/WORDLIST   
 
 ## _url
