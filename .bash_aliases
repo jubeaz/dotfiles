@@ -35,8 +35,8 @@ alias nord_kill_off="nordvpn set killswitch disabled"
 ##########################
 # ssh
 ##########################
-alias ssh-add='eval "$(ssh-agent -s)" && /usr/bin/ssh-add -t 1W'
-alias xfreerdp="xfreerdp /h:1024 /w:1640"
+#alias ssh-add='/usr/bin/ssh-add -t 1W'
+#alias xfreerdp="xfreerdp /h:1024 /w:1640"
 alias ssh-remove-host="/usr/bin/ssh-keygen -f ~/.ssh/known_hosts -R"
 ssh-scan-host() {
     ssh-keyscan $1 >> ~/.ssh/known_hosts
