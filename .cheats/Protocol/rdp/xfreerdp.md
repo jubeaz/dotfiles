@@ -10,7 +10,7 @@ xfreerdp /cert-ignore /u:<user> /p:<password> /v:<ip> /dynamic-resolution /drive
 
 ##  (local) Audio (creds)
 ```
-xfreerdp /cert-ignore /u:<user> /p:<password> /v:<ip> /dynamic-resolution /drive:<name|share>,<share|./> +drives /sound:sys:alsa
+xfreerdp /cert-ignore /u:<user> /p:<password> /v:<ip> /dynamic-resolution /drive:<name|share>,<share|./> +drives /sound:sys:pulse
 ```
 
 
