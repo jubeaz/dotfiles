@@ -1,7 +1,7 @@
 # tcpdump
 
 % tcpdump, sniffer
-#plateform/linux  #target/local  #cat/Network 
+#plateform/linux #target/local #cat/Network 
 
 ## ICMP - verify ICMP polling
 ```bash
@@ -10,12 +10,12 @@ sudo tcpdump -i <interface|any> icmp
 
 ## run - common
 ```bash
-timeout <num>m  tcpdump -i <interface|any>  -nn -w <file|jubeaz>.pcap -A  <filter>
+timeout <num>m tcpdump -i <interface|any> -nn -w "<file|jubeaz>-$(date +\%Y\%m\%d-\%H_\%M_\%S).pcap" --print <filter>
 ```
 
-## run -  for a given amount of time (min)
+## run - for a given amount of time (min)
 ```bash
-tcpdump -i <interface|any> -nn -w <file|jubeaz>.pcap -A  <filter>
+tcpdump -i <interface|any> -nn -w <file|jubeaz>.pcap --print <filter>
 ```
 
 
@@ -26,11 +26,11 @@ sudo tcpdump <option> <filter>
 
 ## options
 ```bash
--A              Print each packet
--nn             disable dns and port resolution
--c<num>         grab a specific number of packets, then quit
--w <file>.pcap  Write into a file
--l              Make stdout line buffered (| tee data)
+-A Print each packet
+-nn disable dns and port resolution
+-c<num> grab a specific number of packets, then quit
+-w <file>.pcap Write into a file
+-l Make stdout line buffered (| tee data)
 ```
 
 ## filter - host
@@ -42,7 +42,7 @@ host <ip>
 ## filter - host (multiple)
 anything involving the host
 ```bash
-(host <ip_1> or host <ip_2>)  
+(host <ip_1> or host <ip_2>) 
 ```
 
 ## filter - port 
@@ -64,7 +64,7 @@ src <ip>
 
 ## filter - source (multiple)
 ```bash
-(src <ip_1> or src <ip_2>)  
+(src <ip_1> or src <ip_2>) 
 ```
 
 ## filter - destination
@@ -74,7 +74,7 @@ dst <ip>
 
 ## filter - destination (multiple)
 ```bash
-(dst <ip_1> or dst <ip_2>)  
+(dst <ip_1> or dst <ip_2>) 
 ```
 
 ## filter - complex
