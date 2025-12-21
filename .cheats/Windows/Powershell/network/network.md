@@ -45,6 +45,5 @@ type C:\WINDOWS\System32\drivers\etc\hosts
 
 ## network - ping sweep
 ```powershell
-	
-1..254 | % {"172.16.2.$($_): $(Test-Connection -count 1 -comp 1172.16.2.$($_) -quiet)"}
+1..254 | % { $ip="10.9.10.$_"; if ([System.Net.NetworkInformation.Ping]::new().Send($ip,500).Status -eq 'Success') { $ip } }
 ```

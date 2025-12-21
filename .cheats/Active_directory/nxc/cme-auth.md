@@ -43,10 +43,9 @@
 ```
 
 # nxc-auth - kerberos authentication (KRB5CCNAME)
-use getTGT
+use getTGT or TGS
 ```
-export KRB5CCNAME=<ccache>
---use-kcache
+KRB5CCNAME=<ccache>  nxc <proto> <target_fqdn> --use-kcache -d <domain> -u <user>
 ```
 
 # nxc-auth - kerberos authentication (kdchost)

@@ -1,7 +1,7 @@
 # ssh
 
 % ssh, 22
-#plateform/linux  #target/remote  #protocol/ssh #port/22
+#plateform/linux #target/remote #protocol/ssh #port/22
 
 
 ## config - allow remote port forwarding
@@ -106,19 +106,19 @@ SSH client listens on a given port and tunnels any connection to that port to th
 can perform multiple -L
 
 ```bash
-ssh -q -L [<local_bind_port>:]<target_bind_ip|0.0.0.0>:<target_bind_port> <user>@<target_connect_ip>
+ssh -q -L <local_bind_port:]<target_bind_ip|127.0.0.1>:<target_bind_port> <user>@<target_connect_ip>
 ```
 
 ## Port forwarding - local (sshpass)
 #cat/PIVOT/TUNNEL-PORTFW 
 SSH client listens on a given port and tunnels any connection to that port to the specified port on the remote SSH server, which then connects to a port on the destination machine. The destination machine can be the remote SSH server or any other machine.
 ```bash
-sshpass -p <password> ssh -q -L [<local_bind_port>:]<target_bind_ip|0.0.0.0>:<target_bind_port> <user>@<target_connect_ip>
+sshpass -p <password> ssh -q -L <local_bind_port:]<target_bind_ip|127.0.0.1>:<target_bind_port> <user>@<target_connect_ip>
 ```
 
-## Port forwarding - remote  
+## Port forwarding - remote 
 #cat/PIVOT/TUNNEL-PORTFW 
-will not work if  "GatewayPorts no" in ssh server conf (yes by default)
+will not work if "GatewayPorts no" in ssh server conf (yes by default)
 
 SSH server listens on a given port (target_bind_port) and tunnels any connection to that port to the fwd_host:fwd_port.
 
@@ -128,7 +128,7 @@ ssh -q -R [<target_bind_ip>:]<target_bind_port>:<fwd_host>:<fwd_port> <user>@<ta
 
 ## Port forwarding - remote (sshpass)
 #cat/PIVOT/TUNNEL-PORTFW 
-will not work if  "GatewayPorts no" in ssh server conf (yes by default)
+will not work if "GatewayPorts no" in ssh server conf (yes by default)
 
 SSH server listens on a given port (target_bind_port) and tunnels any connection to that port to the fwd_host:fwd_port.
 
@@ -204,5 +204,5 @@ sshfs <target>: <mount_point> -o reconnect -o cache=yes -o ServerAliveInterval=1
 
 ## sshfs - umount 
 ```bash
-ps aux | grep '[s]shfs'  && kill -9 <pid> && sudo umount <mount_point>
+ps aux | grep '[s]shfs' && kill -9 <pid> && sudo umount <mount_point>
 ```

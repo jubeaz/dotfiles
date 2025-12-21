@@ -4,6 +4,11 @@
 
 #plateform/linux #target/local #cat/UTILS 
 
+## iconv - powershell encode (interactive)
+```bash
+while read -rp "> " l; do printf '%s' "$l" | iconv -t UTF-16LE | base64 -w0; echo; done
+```
+
 ## iconv - powershell encode file 
 ```bash
 iconv -f ASCII -t UTF-16LE <file> | base64 -w 0

