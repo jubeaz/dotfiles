@@ -2,6 +2,17 @@
 
 #plateform/linux #target/remote #cat/RECON #tag/scan
 
+## TCP-SERVICES - all in one
+```bash
+IP=<ip>;ports=$(sudo nmap -Pn -p- --min-rate=1000 -n -T4 $IP | grep '^[0-9]' | cut -d '/' -f 1 | tr '\n' ',' | sed s/,$//); sudo nmap -Pn -n --script=default -sV -p$ports  -oA services_$IP --reason $IP
+```
+
+
+## TCP-SERVICES - all in one (proxychains)
+```bash
+IP=<ip>; ports=$(proxychains -q nmap -Pn -p- --min-rate=1000 -n -T4 $IP | grep '^[0-9]' | cut -d '/' -f 1 | tr '\n' ',' | sed s/,$//); proxychains -q nmap -Pn -n --script=default -sV -p$ports -oA services_$IP --reason $IP
+```
+
 ## TCP-PORTS - top
 ```bash
 nmap -Pn -n -T<speed|4> --min-rate=1000 --top-ports <count|1000> --reason -oA reason_tcp_<ip> <ip>

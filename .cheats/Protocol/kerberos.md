@@ -74,7 +74,7 @@ klist -k -e <keytab_file>
 
 ## TGT - get from keytab file
 ```bash
-KRB5_TRACE=/tmp/krbtrace.txt kinit -c $(pwd)/<ccache_file> -k -t <keytab_file> <login>@<realm_name>
+KRB5_TRACE=/tmp/krbtrace.txt kinit -V -c $(pwd)/<ccache_file> -k -t <keytab_file> <login>@<realm_name>
 ``` 
 
 
@@ -85,7 +85,7 @@ KRB5_TRACE=/tmp/krbtrace.txt kinit -V -X X509_user_identity=FILE:admin.cer,admin
 
 ## TGT - renew
 ```bash
-KRB5_TRACE=/tmp/krbtrace.txt kinit -R
+KRB5_TRACE=/tmp/krbtrace.txt kinit -V -R
 ```
 
 

